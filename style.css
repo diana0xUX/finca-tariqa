@@ -1,0 +1,505 @@
+/* ============================================
+   FINCA TARIQA — Shared Stylesheet
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+/* ── CSS Custom Properties ── */
+:root {
+  --earth-dark:   #141f16;
+  --earth-mid:    #253c29;
+  --earth-med:    #3a6645;
+  --earth-light:  #5a8f68;
+  --sand:         #f4efe6;
+  --sand-deep:    #e8dfc8;
+  --terracotta:   #c4622d;
+  --gold:         #c9973a;
+  --white:        #fafaf8;
+  --ink:          #141208;
+  --mid:          #3d3828;
+
+  --nav-height: 68px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+
+  --transition: 0.22s ease;
+}
+
+/* ── Reset & Base ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+  padding-top: var(--nav-height);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ── Typography ── */
+h1, h2, h3, h4 {
+  font-family: 'Lora', Georgia, serif;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+h1 { font-size: clamp(2.4rem, 5vw, 4.2rem); font-weight: 600; }
+h2 { font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight: 500; }
+h3 { font-size: clamp(1.2rem, 2vw, 1.6rem); font-weight: 500; }
+h4 { font-size: 1.1rem; font-weight: 500; }
+
+.eyebrow {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.65;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.lead {
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  font-weight: 300;
+  line-height: 1.7;
+  opacity: 0.82;
+  max-width: 60ch;
+}
+
+p {
+  font-size: 0.975rem;
+  line-height: 1.75;
+  max-width: 65ch;
+}
+
+/* ── Navigation ── */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--nav-height);
+  background: var(--earth-dark);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 clamp(1.25rem, 4vw, 3rem);
+  z-index: 1000;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.nav-logo {
+  font-family: 'Lora', serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--sand);
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 2.5vw, 2rem);
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: rgba(244, 239, 230, 0.65);
+  transition: color var(--transition);
+  white-space: nowrap;
+}
+
+.nav-links a:hover {
+  color: var(--sand);
+}
+
+.nav-links a.active {
+  color: var(--terracotta);
+}
+
+/* Mobile nav */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--sand);
+  border-radius: 2px;
+}
+
+/* ── Buttons ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.75rem;
+  border-radius: var(--radius-sm);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: all var(--transition);
+  cursor: pointer;
+  border: none;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: var(--terracotta);
+  color: var(--white);
+}
+
+.btn-primary:hover {
+  background: #b3571f;
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--sand);
+  border: 1.5px solid rgba(244, 239, 230, 0.4);
+}
+
+.btn-outline:hover {
+  border-color: var(--sand);
+  background: rgba(244, 239, 230, 0.08);
+}
+
+.btn-dark {
+  background: var(--earth-dark);
+  color: var(--sand);
+}
+
+.btn-dark:hover {
+  background: var(--earth-mid);
+}
+
+.btn-sand {
+  background: var(--sand);
+  color: var(--ink);
+}
+
+.btn-sand:hover {
+  background: var(--sand-deep);
+}
+
+/* ── Footer ── */
+.site-footer {
+  background: var(--earth-dark);
+  color: var(--sand);
+  padding: 3rem clamp(1.25rem, 4vw, 3rem);
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(244,239,230,0.1);
+}
+
+.footer-brand {
+  font-family: 'Lora', serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  opacity: 0.7;
+  line-height: 1.8;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.5rem;
+  list-style: none;
+}
+
+.footer-links a {
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: rgba(244,239,230,0.5);
+  text-transform: uppercase;
+  transition: color var(--transition);
+}
+
+.footer-links a:hover {
+  color: var(--sand);
+}
+
+.footer-bottom {
+  max-width: 1200px;
+  margin: 1.5rem auto 0;
+  font-size: 0.72rem;
+  opacity: 0.35;
+  letter-spacing: 0.04em;
+}
+
+/* ── Sections ── */
+.section {
+  padding: clamp(4rem, 8vw, 7rem) clamp(1.25rem, 4vw, 3rem);
+}
+
+.section-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ── Hero shared base ── */
+.hero {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  padding: calc(var(--nav-height) + 3rem) clamp(1.25rem, 5vw, 5rem) 4rem;
+}
+
+.hero-inner {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* ── Utility ── */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.text-center { text-align: center; }
+.text-left   { text-align: left; }
+
+/* Dark section shared */
+.dark-section {
+  background: var(--earth-dark);
+  color: var(--sand);
+}
+
+.sand-section {
+  background: var(--sand);
+  color: var(--ink);
+}
+
+.section-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  opacity: 0.45;
+  margin-bottom: 0.6rem;
+  display: block;
+}
+
+/* ── Cards shared ── */
+.card {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+/* ── Numbers / Stat strip ── */
+.stat-strip {
+  background: var(--earth-mid);
+  color: var(--sand);
+  padding: 1.5rem clamp(1.25rem, 4vw, 3rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0;
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.stat-value {
+  font-family: 'Lora', serif;
+  font-size: clamp(1rem, 1.8vw, 1.4rem);
+  font-weight: 600;
+  color: var(--sand);
+}
+
+.stat-label {
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(244,239,230,0.5);
+  margin-left: 0.35rem;
+}
+
+.stat-divider {
+  width: 1px;
+  height: 2rem;
+  background: rgba(244,239,230,0.15);
+  margin: 0 2rem;
+}
+
+/* ── Card number ── */
+.card-number {
+  font-family: 'Lora', serif;
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 600;
+  line-height: 1;
+  opacity: 0.15;
+  display: block;
+  margin-bottom: 1.5rem;
+}
+
+/* ── Season badge ── */
+.season-badge {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  margin-bottom: 0.75rem;
+  background: rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.9);
+}
+
+/* ── CTA section ── */
+.cta-section {
+  background: var(--earth-dark);
+  color: var(--sand);
+  padding: clamp(3.5rem, 7vw, 6rem) clamp(1.25rem, 4vw, 3rem);
+  text-align: center;
+}
+
+.cta-section h2 {
+  max-width: 20ch;
+  margin: 0 auto 0.75rem;
+  opacity: 0.95;
+}
+
+.cta-section p {
+  margin: 0 auto 2.25rem;
+  opacity: 0.6;
+  max-width: 48ch;
+  font-size: 1rem;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .grid-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .grid-4 {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: var(--nav-height);
+    left: 0;
+    right: 0;
+    background: var(--earth-dark);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.5rem clamp(1.25rem, 4vw, 3rem);
+    gap: 1.25rem;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links a {
+    font-size: 0.95rem;
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+
+  .stat-divider {
+    margin: 0 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid-4 {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-strip {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+    padding: 2rem clamp(1.25rem, 4vw, 3rem);
+  }
+
+  .stat-divider {
+    display: none;
+  }
+}

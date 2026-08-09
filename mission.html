@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Mission — Finca Tariqa</title>
+  <meta name="description" content="Citrus, eco-tourism, carbon credits, and a forest in transition. Woman-owned, first-generation, post-DANA. Applying to Ma Earth Round 4, April 2027.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── Mission Hero ── */
+    .mission-hero {
+      background: var(--earth-dark);
+      position: relative;
+      overflow: hidden;
+      min-height: 100vh;
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: calc(var(--nav-height) + 4rem) clamp(1.25rem, 5vw, 5rem) 5rem;
+    }
+
+    .mission-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 15% 70%, rgba(58, 102, 69, 0.18) 0%, transparent 65%),
+        radial-gradient(ellipse 60% 50% at 85% 20%, rgba(201, 151, 58, 0.1) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 60% at 50% 50%, rgba(37, 60, 41, 0.35) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .mission-hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+    }
+
+    .mission-hero .eyebrow {
+      color: var(--gold);
+      opacity: 0.9;
+      margin-bottom: 1.25rem;
+    }
+
+    .mission-hero h1 {
+      color: var(--sand);
+      font-size: clamp(2.5rem, 5.5vw, 4.4rem);
+      margin-bottom: 1.5rem;
+    }
+
+    .mission-hero .lead {
+      color: rgba(244, 239, 230, 0.65);
+      margin: 0 auto;
+      max-width: 58ch;
+    }
+
+    /* ── Four cards section ── */
+    .four-section {
+      background: var(--white);
+    }
+
+    .four-section .section-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .four-head {
+      margin-bottom: 3rem;
+    }
+
+    .four-head .eyebrow {
+      color: var(--earth-med);
+      opacity: 1;
+      margin-bottom: 0.75rem;
+    }
+
+    .four-head h2 {
+      color: var(--ink);
+    }
+
+    .four-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+    }
+
+    .mission-card {
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .mission-card--dark {
+      background: var(--earth-dark);
+    }
+
+    .mission-card--terra {
+      background: var(--sand);
+      border: 1px solid var(--sand-deep);
+    }
+
+    .mission-card--sand {
+      background: var(--sand-deep);
+      border: 1px solid #d4c9ae;
+    }
+
+    .mission-card--mid {
+      background: var(--earth-mid);
+    }
+
+    .mission-card-num {
+      font-family: 'Lora', serif;
+      font-size: 5rem;
+      font-weight: 600;
+      line-height: 1;
+      position: absolute;
+      top: 1.5rem;
+      right: 2rem;
+      opacity: 0.1;
+    }
+
+    .mission-card--dark .mission-card-num,
+    .mission-card--mid .mission-card-num {
+      color: var(--sand);
+    }
+
+    .mission-card--terra .mission-card-num,
+    .mission-card--sand .mission-card-num {
+      color: var(--ink);
+    }
+
+    .mission-card-tag {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.8rem;
+      border-radius: 999px;
+      margin-bottom: 1rem;
+      position: relative;
+    }
+
+    .mission-card--dark .mission-card-tag {
+      background: rgba(90, 143, 104, 0.2);
+      color: var(--earth-light);
+    }
+
+    .mission-card--mid .mission-card-tag {
+      background: rgba(201, 151, 58, 0.18);
+      color: var(--gold);
+    }
+
+    .mission-card--terra .mission-card-tag {
+      background: rgba(196, 98, 45, 0.1);
+      color: var(--terracotta);
+    }
+
+    .mission-card--sand .mission-card-tag {
+      background: rgba(37, 60, 41, 0.08);
+      color: var(--earth-med);
+    }
+
+    .mission-card h3 {
+      font-size: 1.25rem;
+      font-weight: 500;
+      margin-bottom: 0.75rem;
+      position: relative;
+    }
+
+    .mission-card--dark h3,
+    .mission-card--mid h3 {
+      color: var(--sand);
+    }
+
+    .mission-card--terra h3,
+    .mission-card--sand h3 {
+      color: var(--ink);
+    }
+
+    .mission-card p {
+      font-size: 0.88rem;
+      line-height: 1.72;
+      position: relative;
+      max-width: none;
+    }
+
+    .mission-card--dark p,
+    .mission-card--mid p {
+      color: rgba(244, 239, 230, 0.62);
+    }
+
+    .mission-card--terra p,
+    .mission-card--sand p {
+      color: var(--mid);
+    }
+
+    /* ── Story section ── */
+    .story-section {
+      background: var(--sand);
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(2.5rem, 5vw, 5rem);
+      align-items: start;
+    }
+
+    .story-left .eyebrow {
+      color: var(--earth-med);
+      opacity: 1;
+      margin-bottom: 0.75rem;
+    }
+
+    .story-left h2 {
+      color: var(--ink);
+      margin-bottom: 2rem;
+    }
+
+    .story-left p {
+      color: var(--mid);
+      margin-bottom: 1.25rem;
+      max-width: none;
+    }
+
+    .story-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 2rem;
+    }
+
+    .badge {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid #cdc3ae;
+      color: var(--mid);
+      background: var(--white);
+    }
+
+    /* Ma Earth panel */
+    .maearth-panel {
+      background: var(--earth-dark);
+      border-radius: var(--radius-xl);
+      padding: 2.75rem 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .maearth-panel::before {
+      content: '';
+      position: absolute;
+      top: -50px;
+      right: -50px;
+      width: 220px;
+      height: 220px;
+      background: radial-gradient(circle, rgba(201, 151, 58, 0.1), transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .maearth-panel .eyebrow {
+      color: var(--gold);
+      opacity: 0.9;
+      margin-bottom: 0.75rem;
+    }
+
+    .maearth-panel h3 {
+      color: var(--sand);
+      font-size: clamp(1.15rem, 2vw, 1.45rem);
+      font-weight: 400;
+      line-height: 1.45;
+      margin-bottom: 1.25rem;
+      position: relative;
+    }
+
+    .maearth-panel p {
+      font-size: 0.88rem;
+      color: rgba(244, 239, 230, 0.62);
+      line-height: 1.72;
+      margin-bottom: 1.25rem;
+      max-width: none;
+      position: relative;
+    }
+
+    .maearth-panel a.panel-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--gold);
+      transition: color var(--transition);
+      position: relative;
+    }
+
+    .maearth-panel a.panel-link:hover {
+      color: var(--terracotta);
+    }
+
+    /* ── Final CTA ── */
+    .final-cta {
+      background: var(--earth-dark);
+      padding: clamp(4rem, 8vw, 7rem) clamp(1.25rem, 4vw, 3rem);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .final-cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 70% at 50% 50%, rgba(58, 102, 69, 0.15), transparent 70%);
+      pointer-events: none;
+    }
+
+    .final-cta-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .final-cta p.pull {
+      font-family: 'Lora', serif;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 400;
+      color: var(--sand);
+      line-height: 1.45;
+      margin-bottom: 2.5rem;
+      max-width: none;
+    }
+
+    .final-cta-actions {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    @media (max-width: 900px) {
+      .four-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .story-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">Finca Tariqa</a>
+    <ul class="nav-links" id="main-nav">
+      <li><a href="oranges.html">Oranges</a></li>
+      <li><a href="land.html">The Land</a></li>
+      <li><a href="forest.html">The Forest</a></li>
+      <li><a href="mission.html" class="active">Our Mission</a></li>
+      <li><a href="report.html">Full Report</a></li>
+    </ul>
+    <div class="nav-toggle" role="button" tabindex="0" aria-label="Open navigation" onclick="document.getElementById('main-nav').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="mission-hero">
+    <div class="mission-hero-inner">
+      <span class="eyebrow">Finca Tariqa</span>
+      <h1>A farm that earns in four directions at once.</h1>
+      <p class="lead">Citrus, eco-tourism, carbon credits, and a forest in transition. Woman-owned, first-generation, post-DANA. Applying to Ma Earth Round 4, April 2027.</p>
+    </div>
+  </section>
+
+  <!-- Four mission cards -->
+  <section class="section four-section">
+    <div class="section-inner">
+      <div class="four-head">
+        <span class="eyebrow">Four directions</span>
+        <h2>What we're building.</h2>
+      </div>
+      <div class="four-grid">
+
+        <div class="mission-card mission-card--dark">
+          <span class="mission-card-num">01</span>
+          <span class="mission-card-tag">Organic by 2028</span>
+          <h3>Regenerative Citrus</h3>
+          <p>Three-year CAECV organic conversion underway. EU organic conversion payments of €300–600/ha/year during transition. The same practices that build soil carbon and raise terpene levels in the fruit.</p>
+        </div>
+
+        <div class="mission-card mission-card--terra">
+          <span class="mission-card-num">02</span>
+          <span class="mission-card-tag">Open 2026</span>
+          <h3>Eco-Farm Tourism</h3>
+          <p>Guided grove tours, harvest experiences, geology and forest walks — registered under Decreto 4/2024 (Valencian ecotourism). Casa rural accommodation in the restored farmhouse. The hillside is the product.</p>
+        </div>
+
+        <div class="mission-card mission-card--sand">
+          <span class="mission-card-num">03</span>
+          <span class="mission-card-tag">Baseline 2026</span>
+          <h3>Carbon Farming</h3>
+          <p>Soil carbon baseline established with IVIA-accredited laboratory. Agreena platform for Verra VCS verified credits. EU CRCF market opens 2028 — baseline established now means documented improvement ready to sell.</p>
+        </div>
+
+        <div class="mission-card mission-card--mid">
+          <span class="mission-card-num">04</span>
+          <span class="mission-card-tag">15-year project</span>
+          <h3>Native Reforestation</h3>
+          <p>1.7 ha Aleppo pine to Quercus ilex under approved PTGFS forest management plan. FEADER up to 85% EU co-financing applied for. In 15 years, native Mediterranean limestone woodland.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Story section -->
+  <section class="section story-section">
+    <div class="section-inner">
+      <div class="story-grid">
+
+        <div class="story-left">
+          <span class="eyebrow">The People Behind It</span>
+          <h2>First-generation. Post-DANA. A hillside nobody was watching.</h2>
+          <p>Finca Tariqa was purchased in November 2025 by a woman under 40 with no inherited farming tradition. The first season was spent reading five years of cooperative records, commissioning a geology report, and learning what an 80-million-year-old hillside was trying to say.</p>
+          <p>The farm is registered with Coop. del Camp de Vila Nova de Castelló (Exagro). Organic certification through CAECV is underway. The forest management plan is submitted. Eco-tourism registration is filed.</p>
+          <div class="story-badges">
+            <span class="badge">Woman-owned</span>
+            <span class="badge">First generation</span>
+            <span class="badge">Post-DANA resilience</span>
+            <span class="badge">Organic in transition</span>
+            <span class="badge">Valencia, Spain</span>
+            <span class="badge">Native reforestation</span>
+            <span class="badge">Carbon farming</span>
+          </div>
+        </div>
+
+        <div class="maearth-panel">
+          <span class="eyebrow">Seeking support &amp; partners</span>
+          <h3>Applying to Ma Earth Round 4 — Earth Day, April 22, 2027.</h3>
+          <p>Ma Earth runs quadratic crowdfunding for grassroots nature regeneration projects. Every supporter multiplies the matching funds available. Finca Tariqa will be one of the first Spanish projects on the platform.</p>
+          <p>If you want to follow the project, support the Ma Earth application when it launches, or explore partnership — get in touch now.</p>
+          <a href="mailto:alisheryakupov@gmail.com" class="panel-link">Get in touch →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="final-cta">
+    <div class="final-cta-inner">
+      <p class="pull">The limestone is 80 million years old. The farm is just getting started.</p>
+      <div class="final-cta-actions">
+        <a href="report.html" class="btn btn-primary">Read the full report</a>
+        <a href="mailto:alisheryakupov@gmail.com" class="btn btn-outline">Get in touch</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        Finca Tariqa<br>Carcaixent, Valencia<br>Spain
+      </div>
+      <ul class="footer-links">
+        <li><a href="oranges.html">Oranges</a></li>
+        <li><a href="land.html">Land</a></li>
+        <li><a href="forest.html">Forest</a></li>
+        <li><a href="mission.html">Mission</a></li>
+        <li><a href="report.html">Full Report</a></li>
+        <li><a href="ru.html">По-русски</a></li>
+      </ul>
+    </div>
+    <div class="footer-bottom">Last updated August 2026</div>
+  </footer>
+
+</body>
+</html>

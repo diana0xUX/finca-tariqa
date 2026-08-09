@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Forest — Finca Tariqa</title>
+  <meta name="description" content="1.7 hectares of Franco-era Aleppo pine being cleared and replanted with Quercus ilex — the native holm oak of the western Mediterranean limestone. A 15-year transition.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── Forest Hero ── */
+    .forest-hero {
+      background: var(--earth-mid);
+      position: relative;
+      overflow: hidden;
+      min-height: 100vh;
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      padding: calc(var(--nav-height) + 3rem) clamp(1.25rem, 5vw, 5rem) 5rem;
+    }
+
+    .forest-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 70% at 0% 100%, rgba(20, 31, 22, 0.7) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 60% at 100% 0%, rgba(90, 143, 104, 0.15) 0%, transparent 65%),
+        radial-gradient(ellipse 40% 40% at 50% 50%, rgba(37, 60, 41, 0.3) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .forest-hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 740px;
+    }
+
+    .forest-hero .eyebrow {
+      color: var(--earth-light);
+      opacity: 1;
+      margin-bottom: 1.25rem;
+    }
+
+    .forest-hero h1 {
+      color: var(--sand);
+      font-size: clamp(2.5rem, 5.5vw, 4.5rem);
+      margin-bottom: 1.5rem;
+    }
+
+    .forest-hero .lead {
+      color: rgba(244, 239, 230, 0.65);
+      max-width: 60ch;
+    }
+
+    /* ── Why section ── */
+    .why-section {
+      background: var(--white);
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(2.5rem, 5vw, 4.5rem);
+      align-items: start;
+    }
+
+    .why-text .eyebrow {
+      color: var(--earth-med);
+      opacity: 1;
+      margin-bottom: 0.75rem;
+    }
+
+    .why-text h2 {
+      color: var(--ink);
+      margin-bottom: 2rem;
+    }
+
+    .why-text p {
+      color: var(--mid);
+      margin-bottom: 1.25rem;
+      max-width: none;
+    }
+
+    /* Timeline panel */
+    .timeline-panel {
+      background: var(--earth-dark);
+      border-radius: var(--radius-xl);
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .timeline-panel::before {
+      content: '';
+      position: absolute;
+      top: -40px;
+      right: -40px;
+      width: 180px;
+      height: 180px;
+      background: radial-gradient(circle, rgba(201, 151, 58, 0.1), transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .timeline-panel-label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(244,239,230,0.4);
+      margin-bottom: 2rem;
+    }
+
+    .timeline-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .timeline-step {
+      display: flex;
+      gap: 1.25rem;
+      padding: 1.25rem 0;
+      border-bottom: 1px solid rgba(244,239,230,0.07);
+      align-items: flex-start;
+    }
+
+    .timeline-step:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .timeline-year {
+      font-family: 'Lora', serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--gold);
+      min-width: 54px;
+      padding-top: 0.1rem;
+      flex-shrink: 0;
+    }
+
+    .timeline-step-content strong {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--sand);
+      margin-bottom: 0.3rem;
+    }
+
+    .timeline-step-content p {
+      font-size: 0.82rem;
+      color: rgba(244,239,230,0.55);
+      line-height: 1.6;
+      max-width: none;
+    }
+
+    /* ── Carbon section ── */
+    .carbon-section {
+      background: var(--sand);
+    }
+
+    .carbon-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(2.5rem, 5vw, 5rem);
+      align-items: start;
+    }
+
+    .carbon-text .eyebrow {
+      color: var(--earth-med);
+      opacity: 1;
+      margin-bottom: 0.75rem;
+    }
+
+    .carbon-text h2 {
+      color: var(--ink);
+      margin-bottom: 2rem;
+    }
+
+    .carbon-text p {
+      color: var(--mid);
+      max-width: none;
+    }
+
+    .carbon-numbers {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .carbon-number-item {
+      padding: 1.5rem;
+      background: var(--white);
+      border-radius: var(--radius-md);
+      border-left: 3px solid var(--earth-med);
+    }
+
+    .carbon-number-item .value {
+      font-family: 'Lora', serif;
+      font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+      font-weight: 600;
+      color: var(--earth-dark);
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+
+    .carbon-number-item .label {
+      font-size: 0.78rem;
+      color: var(--mid);
+      opacity: 0.7;
+    }
+
+    @media (max-width: 900px) {
+      .why-grid,
+      .carbon-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">Finca Tariqa</a>
+    <ul class="nav-links" id="main-nav">
+      <li><a href="oranges.html">Oranges</a></li>
+      <li><a href="land.html">The Land</a></li>
+      <li><a href="forest.html" class="active">The Forest</a></li>
+      <li><a href="mission.html">Our Mission</a></li>
+      <li><a href="report.html">Full Report</a></li>
+    </ul>
+    <div class="nav-toggle" role="button" tabindex="0" aria-label="Open navigation" onclick="document.getElementById('main-nav').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="forest-hero">
+    <div class="forest-hero-inner">
+      <span class="eyebrow">The Forest</span>
+      <h1>Replacing fire risk with deep roots.</h1>
+      <p class="lead">1.7 hectares of Franco-era Aleppo pine are being cleared and replanted with Quercus ilex — the native holm oak of the western Mediterranean limestone. A 15-year transition that changes the ecology of the hillside.</p>
+    </div>
+  </section>
+
+  <!-- Why section -->
+  <section class="section why-section">
+    <div class="section-inner">
+      <div class="why-grid">
+
+        <div class="why-text">
+          <span class="eyebrow">Why</span>
+          <h2>The wrong tree, for 70 years.</h2>
+          <p>Aleppo pine was planted across Valencia's hillsides in the 1950s and 60s under Franco's reforestation programme, primarily to stop erosion. It worked. The trees are now mature, highly flammable, and ecologically foreign to this substrate.</p>
+          <p>Quercus ilex — holm oak, alzina — is the native climax species for this elevation, aspect, and limestone substrate. It lives for 700 years. It builds soil instead of exhausting it. It does not burn the way Aleppo pine does. And it is beginning to regenerate naturally in the gaps where the pine canopy opens.</p>
+        </div>
+
+        <div class="timeline-panel">
+          <div class="timeline-panel-label">The transition — 2026 to 2040+</div>
+          <div class="timeline-steps">
+
+            <div class="timeline-step">
+              <span class="timeline-year">2026</span>
+              <div class="timeline-step-content">
+                <strong>Forest management plan submitted.</strong>
+                <p>PTGFS submitted. First clearing phase authorised for Nov–Jan window.</p>
+              </div>
+            </div>
+
+            <div class="timeline-step">
+              <span class="timeline-year">2027</span>
+              <div class="timeline-step-content">
+                <strong>First Quercus ilex planting.</strong>
+                <p>800 native plants/ha. Drip-supported for 4 years of establishment.</p>
+              </div>
+            </div>
+
+            <div class="timeline-step">
+              <span class="timeline-year">2030</span>
+              <div class="timeline-step-content">
+                <strong>Soil carbon baseline verifiable.</strong>
+                <p>EU carbon market opens. Documented management ready to monetise.</p>
+              </div>
+            </div>
+
+            <div class="timeline-step">
+              <span class="timeline-year">2040+</span>
+              <div class="timeline-step-content">
+                <strong>Mature holm oak woodland.</strong>
+                <p>Self-sustaining. Carbon-certified. The landscape this hillside was always building toward.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Carbon section -->
+  <section class="section carbon-section">
+    <div class="section-inner">
+      <div class="carbon-grid">
+
+        <div class="carbon-text">
+          <span class="eyebrow">The Carbon Connection</span>
+          <h2>The baseline starts now. The market opens in 2028.</h2>
+          <p>The EU Carbon Removal Certification Framework (Regulation 2024/3012) becomes operational approximately 2028. Agricultural producers with established soil carbon baselines and documented management records will have verified credits to sell. A grove that starts the baseline now enters that market with years of data. One that waits starts with nothing.</p>
+        </div>
+
+        <div class="carbon-numbers">
+          <div class="carbon-number-item">
+            <span class="value">€30–80</span>
+            <span class="label">per tonne CO₂ — current European voluntary carbon market</span>
+          </div>
+          <div class="carbon-number-item">
+            <span class="value">1–5 t/ha/yr</span>
+            <span class="label">carbon sequestration potential — regenerative citrus and holm oak</span>
+          </div>
+          <div class="carbon-number-item">
+            <span class="value">2028</span>
+            <span class="label">EU CRCF operational — baseline established now means documented improvement ready to sell</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        Finca Tariqa<br>Carcaixent, Valencia<br>Spain
+      </div>
+      <ul class="footer-links">
+        <li><a href="oranges.html">Oranges</a></li>
+        <li><a href="land.html">Land</a></li>
+        <li><a href="forest.html">Forest</a></li>
+        <li><a href="mission.html">Mission</a></li>
+        <li><a href="report.html">Full Report</a></li>
+        <li><a href="ru.html">По-русски</a></li>
+      </ul>
+    </div>
+    <div class="footer-bottom">Last updated August 2026</div>
+  </footer>
+
+</body>
+</html>

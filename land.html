@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Land — Finca Tariqa</title>
+  <meta name="description" content="The limestone beneath Finca Tariqa formed 80 million years ago from the compressed shells of marine creatures. This is the rock the oranges grow from.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── Land Hero ── */
+    .land-hero {
+      background: var(--earth-dark);
+      position: relative;
+      overflow: hidden;
+      min-height: 100vh;
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      padding: calc(var(--nav-height) + 3rem) clamp(1.25rem, 5vw, 5rem) 5rem;
+    }
+
+    .land-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 80% 30%, rgba(58, 102, 69, 0.22) 0%, transparent 65%),
+        radial-gradient(ellipse 50% 80% at 5% 85%, rgba(201, 151, 58, 0.1) 0%, transparent 60%),
+        radial-gradient(ellipse 35% 50% at 50% 50%, rgba(37, 60, 41, 0.4) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .land-hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+    }
+
+    .land-hero .eyebrow {
+      color: var(--gold);
+      opacity: 0.9;
+      margin-bottom: 1.25rem;
+    }
+
+    .land-hero h1 {
+      color: var(--sand);
+      font-size: clamp(2.5rem, 5.5vw, 4.5rem);
+      margin-bottom: 1.5rem;
+    }
+
+    .land-hero .lead {
+      color: rgba(244, 239, 230, 0.68);
+      max-width: 58ch;
+    }
+
+    /* ── Story section ── */
+    .story-section {
+      background: var(--white);
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: clamp(3rem, 6vw, 5rem);
+      align-items: start;
+    }
+
+    .story-text .eyebrow {
+      color: var(--earth-med);
+      opacity: 1;
+      margin-bottom: 0.75rem;
+    }
+
+    .story-text h2 {
+      color: var(--ink);
+      margin-bottom: 2rem;
+    }
+
+    .story-text p {
+      color: var(--mid);
+      margin-bottom: 1.25rem;
+      max-width: none;
+    }
+
+    /* Stats grid */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .stat-card {
+      background: var(--earth-dark);
+      border-radius: var(--radius-md);
+      padding: 1.75rem 1.5rem;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .stat-card-value {
+      font-family: 'Lora', serif;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 600;
+      color: var(--gold);
+      display: block;
+      line-height: 1;
+      margin-bottom: 0.6rem;
+    }
+
+    .stat-card-label {
+      font-size: 0.78rem;
+      font-weight: 400;
+      color: rgba(244,239,230,0.5);
+      line-height: 1.5;
+    }
+
+    /* ── What limestone does ── */
+    .limestone-section {
+      background: var(--earth-dark);
+      color: var(--sand);
+    }
+
+    .limestone-section .section-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .limestone-head {
+      margin-bottom: 3rem;
+    }
+
+    .limestone-head .eyebrow {
+      color: var(--earth-light);
+      opacity: 1;
+      margin-bottom: 0.75rem;
+    }
+
+    .limestone-head h2 {
+      color: var(--sand);
+    }
+
+    .limestone-cols {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(244,239,230,0.08);
+    }
+
+    .limestone-col h3 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .limestone-col p {
+      font-size: 0.9rem;
+      color: rgba(244,239,230,0.65);
+      line-height: 1.75;
+      max-width: none;
+    }
+
+    @media (max-width: 900px) {
+      .story-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .limestone-cols {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">Finca Tariqa</a>
+    <ul class="nav-links" id="main-nav">
+      <li><a href="oranges.html">Oranges</a></li>
+      <li><a href="land.html" class="active">The Land</a></li>
+      <li><a href="forest.html">The Forest</a></li>
+      <li><a href="mission.html">Our Mission</a></li>
+      <li><a href="report.html">Full Report</a></li>
+    </ul>
+    <div class="nav-toggle" role="button" tabindex="0" aria-label="Open navigation" onclick="document.getElementById('main-nav').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="land-hero">
+    <div class="land-hero-inner">
+      <span class="eyebrow">The Geology</span>
+      <h1>Before the grove, this was a warm shallow sea.</h1>
+      <p class="lead">The limestone beneath Finca Tariqa formed 80 million years ago from the compressed shells of marine creatures. This is the rock the oranges grow from.</p>
+    </div>
+  </section>
+
+  <!-- Story + stats -->
+  <section class="section story-section">
+    <div class="section-inner">
+      <div class="story-grid">
+
+        <div class="story-text">
+          <span class="eyebrow">The Story</span>
+          <h2>Seabed to hillside. 80 million years.</h2>
+          <p>When the tectonic forces that built the Alps began compressing Iberia, this ancient seabed was squeezed, folded, and pushed upward. The fractures that now run through it hold the water that feeds the farm's karst well, 41 metres below the grove.</p>
+          <p>The limestone dissolves slowly, releasing calcium and trace minerals into the shallow soil. No alluvial valley soil can replicate this mineral profile — and minerals are a primary driver of flavour in citrus, as they are in Burgundy or Priorat wine.</p>
+          <p>The hillside sits above the Júcar valley flood plain. When the DANA storm dropped 500mm of rain in 8 hours in October 2024, the valley flooded catastrophically. The limestone shed water through its fractures and recharged the aquifer. Height is structural resilience.</p>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <span class="stat-card-value">80M</span>
+            <span class="stat-card-label">Years since this rock was the floor of a warm shallow sea</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-card-value">41m</span>
+            <span class="stat-card-label">Depth of the karst well — clean water from below the grove</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-card-value">500mm</span>
+            <span class="stat-card-label">Rain in 8 hours during the October 2024 DANA. The hillside survived.</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-card-value">4.5 ha</span>
+            <span class="stat-card-label">Above the flood plain, on fire-resistant limestone geology</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- What limestone does -->
+  <section class="section limestone-section">
+    <div class="section-inner">
+      <div class="limestone-head">
+        <span class="eyebrow">What limestone does</span>
+        <h2>For the fruit. For the water. For the future.</h2>
+      </div>
+      <div class="limestone-cols">
+
+        <div class="limestone-col">
+          <h3>For the fruit</h3>
+          <p>Thin soil and fast drainage create natural water deficit — the same stress winemakers chase. The Brix rises. The aromatics deepen. Minerals dissolved from 80 million years of limestone enter the root system and show up in the flavour profile of the fruit.</p>
+        </div>
+
+        <div class="limestone-col">
+          <h3>For the water</h3>
+          <p>The karst aquifer beneath the grove is fed by rainfall on the limestone massif. It is insulated from coastal salinisation and independent of the Júcar river allocation system — a structural advantage that grows more valuable as Mediterranean water competition intensifies.</p>
+        </div>
+
+        <div class="limestone-col">
+          <h3>For the future</h3>
+          <p>A hillside with its own water, above the flood plain, on fire-resistant geology, in a warming climate — is a different risk category from valley floor farming. The geology is the resilience strategy. It was there before the farm. It will be there after.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        Finca Tariqa<br>Carcaixent, Valencia<br>Spain
+      </div>
+      <ul class="footer-links">
+        <li><a href="oranges.html">Oranges</a></li>
+        <li><a href="land.html">Land</a></li>
+        <li><a href="forest.html">Forest</a></li>
+        <li><a href="mission.html">Mission</a></li>
+        <li><a href="report.html">Full Report</a></li>
+        <li><a href="ru.html">По-русски</a></li>
+      </ul>
+    </div>
+    <div class="footer-bottom">Last updated August 2026</div>
+  </footer>
+
+</body>
+</html>

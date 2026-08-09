@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Oranges — Finca Tariqa</title>
+  <meta name="description" content="Three citrus varieties grown under limestone terroir conditions in Carcaixent, Valencia. Stressed to perfection — higher Brix, deeper aromatics.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── Oranges Hero ── */
+    .oranges-hero {
+      background: linear-gradient(135deg, #8f3a14 0%, var(--terracotta) 40%, #c9973a 100%);
+      position: relative;
+      overflow: hidden;
+      min-height: 100vh;
+      min-height: 100svh;
+      display: flex;
+      align-items: flex-end;
+      padding: calc(var(--nav-height) + 3rem) clamp(1.25rem, 5vw, 5rem) clamp(3rem, 7vw, 6rem);
+    }
+
+    .oranges-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 70% at 90% 20%, rgba(255,255,255,0.07) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 60% at 10% 90%, rgba(0,0,0,0.25) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .oranges-hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 680px;
+    }
+
+    .oranges-hero .eyebrow {
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 1.25rem;
+    }
+
+    .oranges-hero h1 {
+      color: var(--white);
+      font-size: clamp(3rem, 6.5vw, 5.5rem);
+      margin-bottom: 1.5rem;
+    }
+
+    .oranges-hero .lead {
+      color: rgba(255,255,255,0.75);
+      max-width: 58ch;
+    }
+
+    /* ── Science section ── */
+    .science-section {
+      background: var(--white);
+    }
+
+    .science-section .section-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .science-head {
+      margin-bottom: 3.5rem;
+    }
+
+    .science-head .eyebrow {
+      color: var(--terracotta);
+      opacity: 1;
+      margin-bottom: 0.75rem;
+    }
+
+    .science-head h2 {
+      color: var(--ink);
+    }
+
+    .science-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .science-card {
+      background: var(--sand);
+      border-radius: var(--radius-lg);
+      padding: 2rem 1.75rem;
+    }
+
+    .science-card-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: rgba(196, 98, 45, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .science-card h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: var(--ink);
+      margin-bottom: 0.75rem;
+    }
+
+    .science-card p {
+      font-size: 0.9rem;
+      color: var(--mid);
+      max-width: none;
+    }
+
+    /* ── Varieties ── */
+    .varieties-section {
+      background: var(--sand);
+    }
+
+    .varieties-head {
+      margin-bottom: 3rem;
+    }
+
+    .varieties-head .eyebrow {
+      color: var(--earth-med);
+      opacity: 1;
+      margin-bottom: 0.75rem;
+    }
+
+    .varieties-head h2 {
+      color: var(--ink);
+    }
+
+    .varieties-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .variety-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    .variety-header {
+      height: 220px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1.5rem;
+      position: relative;
+    }
+
+    .variety-header--clemenules {
+      background: linear-gradient(150deg, var(--gold) 0%, var(--terracotta) 100%);
+    }
+
+    .variety-header--lane-late {
+      background: linear-gradient(150deg, var(--terracotta) 0%, #3a1208 100%);
+    }
+
+    .variety-header--navelina {
+      background: linear-gradient(150deg, #9a8e7a 0%, #5e5648 100%);
+    }
+
+    .variety-header h3 {
+      color: var(--white);
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .variety-tagline-hero {
+      font-size: 0.8rem;
+      font-style: italic;
+      color: rgba(255,255,255,0.75);
+      font-family: 'Lora', serif;
+    }
+
+    .variety-body {
+      padding: 1.75rem;
+    }
+
+    .variety-body p {
+      font-size: 0.88rem;
+      color: var(--mid);
+      line-height: 1.72;
+      max-width: none;
+    }
+
+    /* ── Oranges CTA ── */
+    .oranges-cta {
+      background: var(--earth-dark);
+      padding: clamp(3.5rem, 7vw, 6rem) clamp(1.25rem, 4vw, 3rem);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .oranges-cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(196, 98, 45, 0.12), transparent 65%);
+      pointer-events: none;
+    }
+
+    .oranges-cta-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .oranges-cta h2 {
+      color: var(--sand);
+      margin-bottom: 0.75rem;
+      font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+    }
+
+    .oranges-cta p {
+      color: rgba(244,239,230,0.6);
+      margin: 0 auto 2rem;
+      max-width: none;
+    }
+
+    @media (max-width: 900px) {
+      .science-cards,
+      .varieties-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">Finca Tariqa</a>
+    <ul class="nav-links" id="main-nav">
+      <li><a href="oranges.html" class="active">Oranges</a></li>
+      <li><a href="land.html">The Land</a></li>
+      <li><a href="forest.html">The Forest</a></li>
+      <li><a href="mission.html">Our Mission</a></li>
+      <li><a href="report.html">Full Report</a></li>
+    </ul>
+    <div class="nav-toggle" role="button" tabindex="0" aria-label="Open navigation" onclick="document.getElementById('main-nav').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="oranges-hero">
+    <div class="oranges-hero-inner">
+      <span class="eyebrow">The Fruit</span>
+      <h1>Stressed to perfection.</h1>
+      <p class="lead">On limestone hillside, mild chronic water stress does to citrus what Burgundy does to wine — concentrates sugars, spikes aromatics, and makes fruit that tastes of the place it grew.</p>
+    </div>
+  </section>
+
+  <!-- Science section -->
+  <section class="section science-section">
+    <div class="section-inner">
+      <div class="science-head">
+        <span class="eyebrow">The Science</span>
+        <h2>Why limestone changes everything.</h2>
+      </div>
+      <div class="science-cards">
+
+        <div class="science-card">
+          <div class="science-card-icon">&#9825;</div>
+          <h3>Mineral profile</h3>
+          <p>Cretaceous limestone, dissolved slowly over 80 million years, feeds the trees minerals that valley alluvial soil cannot replicate. Calcium and trace elements absorbed through deep roots shape the chemical signature of the fruit at the molecular level.</p>
+        </div>
+
+        <div class="science-card">
+          <div class="science-card-icon">&#9675;</div>
+          <h3>Natural deficit</h3>
+          <p>Thin soil, fast drainage, Mediterranean sun — the tree experiences mild water stress every summer. Brix (sugar concentration) rises. Valley fruit cannot match it. The same mechanism that winemakers in Burgundy and Priorat deliberately engineer — here, the geology provides it for free.</p>
+        </div>
+
+        <div class="science-card">
+          <div class="science-card-icon">&#9670;</div>
+          <h3>Terpene spike</h3>
+          <p>Under stress, citrus redirects energy into secondary aromatic compounds — limonene, aromatic aldehydes. The chemistry of perfume, produced as survival. A 2026 study confirmed the mechanism: water-deficit citrus carries measurably deeper aromatics than irrigated valley fruit.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Three varieties -->
+  <section class="section varieties-section">
+    <div class="section-inner">
+      <div class="varieties-head">
+        <span class="eyebrow">Three Varieties</span>
+        <h2>October to June. Without a gap.</h2>
+      </div>
+      <div class="varieties-grid">
+
+        <!-- Clemenules -->
+        <div class="variety-card">
+          <div class="variety-header variety-header--clemenules">
+            <span class="season-badge">Oct – Dec</span>
+            <h3>Clemenules</h3>
+            <p class="variety-tagline-hero">The mandarin the world wants, right when it peaks.</p>
+          </div>
+          <div class="variety-body">
+            <p>The grove's most abundant variety. In strong seasons, over half grades CAT1 — the top commercial classification. Biennial rhythm: record harvest one year, quieter the next. On this hillside, the Brix is consistently higher than valley floor fruit — perceptible to any taster who eats both side by side.</p>
+          </div>
+        </div>
+
+        <!-- Lane-Late Navel -->
+        <div class="variety-card">
+          <div class="variety-header variety-header--lane-late">
+            <span class="season-badge">Apr – Jun</span>
+            <h3>Lane-Late Navel</h3>
+            <p class="variety-tagline-hero">The late one. Worth waiting for.</p>
+          </div>
+          <div class="variety-body">
+            <p>Arrives in April, alone in a market with fewer competitors. Five consecutive seasons of growing volume. IVIA research identifies late navels as the strategic variety for warming Mediterranean temperatures — their harvest window shifts later, into space that earlier navels cannot fill. This hillside is positioned for it now.</p>
+          </div>
+        </div>
+
+        <!-- Navelina -->
+        <div class="variety-card">
+          <div class="variety-header variety-header--navelina">
+            <span class="season-badge">Dec – Mar</span>
+            <h3>Navelina</h3>
+            <p class="variety-tagline-hero">The classic. In recovery.</p>
+          </div>
+          <div class="variety-body">
+            <p>300 trees on limestone, actively managed through diagnosis after the October 2024 DANA floods. When healthy — and these trees have been — they produce the most deeply flavoured fruit of the winter season. The diagnosis is underway. The second season is about acting on what was found.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="oranges-cta">
+    <div class="oranges-cta-inner">
+      <h2>Interested in the fruit?</h2>
+      <p>For trade enquiries, partnership, or to follow the grove through the season.</p>
+      <a href="mailto:alisheryakupov@gmail.com" class="btn btn-primary">Get in touch</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        Finca Tariqa<br>Carcaixent, Valencia<br>Spain
+      </div>
+      <ul class="footer-links">
+        <li><a href="oranges.html">Oranges</a></li>
+        <li><a href="land.html">Land</a></li>
+        <li><a href="forest.html">Forest</a></li>
+        <li><a href="mission.html">Mission</a></li>
+        <li><a href="report.html">Full Report</a></li>
+        <li><a href="ru.html">По-русски</a></li>
+      </ul>
+    </div>
+    <div class="footer-bottom">Last updated August 2026</div>
+  </footer>
+
+</body>
+</html>

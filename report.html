@@ -4,389 +4,351 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Finca Tariqa — What the Ground Knows</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="style.css">
 <style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+/* Report hero */
+.report-hero {
+  background: var(--earth-dark);
+  position: relative;
+  overflow: hidden;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  padding: calc(var(--nav-height) + 4rem) clamp(1.25rem, 5vw, 5rem) 5rem;
+}
+.report-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 60% at 20% 80%, rgba(90, 143, 104, 0.18) 0%, transparent 65%),
+    radial-gradient(ellipse 50% 50% at 80% 15%, rgba(201, 151, 58, 0.12) 0%, transparent 60%);
+  pointer-events: none;
+}
+.report-hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+}
+.report-hero .eyebrow { color: var(--gold); opacity: 0.9; margin-bottom: 1.25rem; }
+.report-hero h1 { color: var(--sand); margin-bottom: 1.25rem; }
+.report-hero .lead { color: rgba(244,239,230,0.65); }
 
-  :root {
-    --ink: #1a1608;
-    --mid: #5a5040;
-    --faint: #a09070;
-    --paper: #f8f4ec;
-    --cream: #f0ead8;
-    --warm: #e8dfc8;
-    --gold: #c49a3c;
-    --rust: #b85820;
-    --stone: #8a7858;
-    --water: #3a6a8a;
-    --green: #3a6a3a;
-  }
+/* Body wrapper */
+.report-body {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 clamp(1.25rem, 4vw, 2rem) 4rem;
+}
 
-  html { scroll-behavior: smooth; }
+/* TOC */
+.toc {
+  background: var(--earth-dark);
+  border-radius: var(--radius-lg);
+  padding: 2rem 2.5rem;
+  margin: 3rem 0;
+}
+.toc-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.9;
+  margin-bottom: 1.25rem;
+}
+.toc ol {
+  padding-left: 1.25rem;
+  font-size: 0.88rem;
+  line-height: 2.1;
+}
+.toc a { color: rgba(244,239,230,0.65); transition: color 0.2s; }
+.toc a:hover { color: var(--sand); }
 
-  body {
-    font-family: "Georgia", "Times New Roman", serif;
-    background: var(--paper);
-    color: var(--ink);
-    line-height: 1.75;
-    font-size: 18px;
-  }
+/* Chapter */
+.chapter {
+  padding: 3.5rem 0 1rem;
+  border-top: 1px solid var(--sand-deep);
+}
+.chapter:first-of-type { border-top: none; }
+.chapter-number {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--earth-med);
+  margin-bottom: 0.5rem;
+  display: block;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+.chapter h2 {
+  color: var(--ink);
+  margin-bottom: 1.75rem;
+}
 
-  /* ── HERO ── */
-  .hero {
-    background: var(--ink);
-    color: #f0e8d0;
-    padding: 5rem 2rem 4rem;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .hero::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: repeating-linear-gradient(
-      -45deg,
-      transparent,
-      transparent 40px,
-      rgba(255,255,255,0.015) 40px,
-      rgba(255,255,255,0.015) 80px
-    );
-  }
-  .hero-eyebrow {
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size: 0.7rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 1.5rem;
-  }
-  .hero h1 {
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    font-weight: normal;
-    line-height: 1.15;
-    max-width: 700px;
-    margin: 0 auto 1.5rem;
-    letter-spacing: -0.01em;
-  }
-  .hero h1 em {
-    color: var(--gold);
-    font-style: italic;
-  }
-  .hero-sub {
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size: 0.9rem;
-    color: #a09070;
-    max-width: 500px;
-    margin: 0 auto;
-    line-height: 1.6;
-  }
+/* Prose */
+p { color: var(--mid); margin-bottom: 1.4rem; }
 
-  /* ── LAYOUT ── */
-  .page {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 0 1.5rem;
-  }
+/* Pull quote */
+.pull {
+  margin: 2.5rem -1rem;
+  padding: 1.75rem 2rem;
+  background: var(--earth-dark);
+  border-left: 3px solid var(--gold);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  font-family: 'Lora', serif;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--sand);
+  font-style: italic;
+}
+.pull cite {
+  display: block;
+  margin-top: 0.75rem;
+  font-style: normal;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  color: rgba(244,239,230,0.45);
+  text-transform: uppercase;
+}
 
-  /* ── CHAPTER ── */
-  .chapter {
-    padding: 4rem 0 2rem;
-    border-top: 1px solid var(--warm);
-  }
-  .chapter:first-of-type { border-top: none; }
+/* Factbox */
+.factbox {
+  background: var(--earth-dark);
+  color: var(--sand);
+  border-radius: var(--radius-md);
+  padding: 1.75rem 2rem;
+  margin: 2rem 0;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+.factbox-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+.factbox p { color: rgba(244,239,230,0.7); font-size: 0.9rem; margin-bottom: 0.75rem; max-width: none; }
+.factbox p:last-child { margin-bottom: 0; }
+.factbox strong { color: var(--sand); }
 
-  .chapter-number {
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size: 0.65rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--faint);
-    margin-bottom: 0.5rem;
-  }
+/* Number callout grid */
+.numbers {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1px;
+  background: var(--sand-deep);
+  margin: 2rem 0;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+.num-cell {
+  background: var(--white);
+  padding: 1.25rem 1.5rem;
+  text-align: center;
+}
+.num-cell .big {
+  font-family: 'Lora', serif;
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--earth-dark);
+  line-height: 1;
+  display: block;
+}
+.num-cell .unit {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.7rem;
+  color: var(--mid);
+  opacity: 0.65;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 0.3rem;
+  display: block;
+}
 
-  .chapter h2 {
-    font-size: clamp(1.4rem, 3vw, 2rem);
-    font-weight: normal;
-    line-height: 1.2;
-    margin-bottom: 1.75rem;
-    color: var(--ink);
-  }
+/* Alerts */
+.alert {
+  padding: 1.1rem 1.4rem;
+  border-radius: var(--radius-md);
+  margin: 1.5rem 0;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+.alert-icon { flex-shrink: 0; margin-top: 0.05rem; }
+.alert-warn { background: #fdf4e0; border: 1px solid #e8d070; color: #5a4000; }
+.alert-good { background: #edf8ee; border: 1px solid #80c880; color: #1a4820; }
+.alert-blue { background: #edf4fc; border: 1px solid #80a8d8; color: #1a3060; }
+.alert-rust { background: #fdf0e8; border: 1px solid #e89060; color: #5a2000; }
 
-  /* ── PROSE ── */
-  p {
-    margin-bottom: 1.4rem;
-    color: #2a2010;
-  }
+/* Soil layers */
+.layers { margin: 1.5rem 0; border-radius: var(--radius-md); overflow: hidden; font-family: 'Plus Jakarta Sans', sans-serif; }
+.layer { padding: 0.8rem 1.25rem; display: flex; justify-content: space-between; align-items: center; gap: 1rem; font-size: 0.88rem; }
+.layer-name { font-weight: 500; }
+.layer-desc { font-size: 0.78rem; opacity: 0.75; margin-top: 0.15rem; }
+.layer-depth { opacity: 0.7; font-size: 0.78rem; white-space: nowrap; }
+.l0 { background: #e2d4a8; }
+.l1 { background: #cdb878; }
+.l2 { background: #b89a50; color: #fff; }
+.l3 { background: #8a6a28; color: #fff; }
+.l4 { background: #5a4010; color: #f0e8d0; }
 
-  /* ── PULL QUOTE ── */
-  .pull {
-    margin: 2.5rem -1rem;
-    padding: 1.75rem 2rem;
-    background: var(--cream);
-    border-left: 3px solid var(--gold);
-    font-size: 1.15rem;
-    line-height: 1.55;
-    color: var(--ink);
-    font-style: italic;
-  }
-  .pull cite {
-    display: block;
-    margin-top: 0.75rem;
-    font-style: normal;
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size: 0.72rem;
-    letter-spacing: 0.06em;
-    color: var(--faint);
-    text-transform: uppercase;
-  }
+/* Tables */
+.wtable { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.85rem; }
+.wtable th { text-align: left; padding: 0.7rem 0.9rem; background: var(--earth-dark); color: var(--gold); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; }
+.wtable td { padding: 0.7rem 0.9rem; border-bottom: 1px solid var(--sand-deep); color: var(--mid); vertical-align: top; }
+.wtable tr:last-child td { border-bottom: none; }
+.wtable .highlight-row td { background: var(--sand); font-weight: 500; color: var(--ink); }
 
-  /* ── FACT BOX ── */
-  .factbox {
-    background: var(--ink);
-    color: #f0e8d0;
-    border-radius: 4px;
-    padding: 1.75rem 2rem;
-    margin: 2rem 0;
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-  }
-  .factbox-label {
-    font-size: 0.65rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 1rem;
-  }
-  .factbox p {
-    color: #d0c8b0;
-    font-size: 0.92rem;
-    line-height: 1.65;
-    margin-bottom: 0.75rem;
-  }
-  .factbox p:last-child { margin-bottom: 0; }
-  .factbox strong { color: #f0e8d0; }
+/* Prediction box */
+.prediction {
+  background: var(--earth-dark);
+  color: var(--sand);
+  padding: 2rem 2.25rem;
+  margin: 2.5rem 0;
+  border-radius: var(--radius-md);
+  position: relative;
+  overflow: hidden;
+}
+.prediction::before {
+  content: '';
+  position: absolute;
+  top: -30px; right: -30px;
+  width: 140px; height: 140px;
+  background: radial-gradient(circle, rgba(201,151,58,0.1), transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.prediction-label {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.75rem;
+  position: relative;
+}
+.prediction h3 {
+  font-family: 'Lora', serif;
+  font-size: 1.15rem;
+  font-weight: 400;
+  font-style: italic;
+  margin-bottom: 0.75rem;
+  color: var(--sand);
+  position: relative;
+}
+.prediction p {
+  color: rgba(244,239,230,0.65);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.88rem;
+  line-height: 1.65;
+  margin-bottom: 0.6rem;
+  max-width: none;
+  position: relative;
+}
 
-  /* ── NUMBER CALLOUT ── */
-  .numbers {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 1px;
-    background: var(--warm);
-    margin: 2rem 0;
-    border-radius: 4px;
-    overflow: hidden;
-  }
-  .num-cell {
-    background: var(--cream);
-    padding: 1.25rem 1.5rem;
-    text-align: center;
-  }
-  .num-cell .big {
-    font-size: 2rem;
-    font-weight: 700;
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-    color: var(--ink);
-    line-height: 1;
-    display: block;
-  }
-  .num-cell .unit {
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size: 0.72rem;
-    color: var(--faint);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    margin-top: 0.3rem;
-    display: block;
-  }
+/* Staccato */
+.staccato {
+  font-family: 'Lora', serif;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--earth-med);
+  padding: 1.25rem 0;
+  font-style: italic;
+}
 
-  /* ── ALERT ── */
-  .alert {
-    padding: 1.1rem 1.4rem;
-    border-radius: 4px;
-    margin: 1.5rem 0;
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size: 0.88rem;
-    line-height: 1.6;
-    display: flex;
-    gap: 0.75rem;
-    align-items: flex-start;
-  }
-  .alert-icon { flex-shrink: 0; margin-top: 0.05rem; }
-  .alert-warn { background: #fdf4e0; border: 1px solid #e8d070; color: #5a4000; }
-  .alert-good { background: #edf8ee; border: 1px solid #80c880; color: #1a4820; }
-  .alert-blue { background: #edf4fc; border: 1px solid #80a8d8; color: #1a3060; }
-  .alert-rust { background: #fdf0e8; border: 1px solid #e89060; color: #5a2000; }
+/* Ornament */
+.ornament {
+  text-align: center;
+  color: var(--sand-deep);
+  margin: 2.5rem 0;
+  font-size: 1.2rem;
+  letter-spacing: 0.5rem;
+}
 
-  /* ── LAYERS ── */
-  .layers { margin: 1.5rem 0; border-radius: 4px; overflow: hidden; font-family: -apple-system, BlinkMacSystemFont, sans-serif; }
-  .layer { padding: 0.8rem 1.25rem; display: flex; justify-content: space-between; align-items: center; gap: 1rem; font-size: 0.88rem; }
-  .layer-name { font-weight: 500; }
-  .layer-desc { font-size: 0.78rem; opacity: 0.75; margin-top: 0.15rem; }
-  .layer-depth { opacity: 0.7; font-size: 0.78rem; white-space: nowrap; }
-  .l0 { background: #e2d4a8; }
-  .l1 { background: #cdb878; }
-  .l2 { background: #b89a50; color: #fff; }
-  .l3 { background: #8a6a28; color: #fff; }
-  .l4 { background: #5a4010; color: #f0e8d0; }
+/* Season table */
+.season-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.82rem; }
+.season-table th { text-align: left; padding: 0.6rem 0.75rem; background: var(--earth-dark); color: var(--gold); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; }
+.season-table td { padding: 0.6rem 0.75rem; border-bottom: 1px solid var(--sand-deep); color: var(--mid); vertical-align: middle; }
+.season-table tr:last-child td { border-bottom: none; }
+.season-table .s-good { color: var(--earth-med); font-weight: 600; }
+.season-table .s-warn { color: var(--terracotta); font-weight: 600; }
+.season-table .s-tbd { color: #a09070; font-style: italic; }
+.season-table .s-owner { background: var(--sand); }
+.season-table .s-owner td { border-bottom-color: var(--sand-deep); }
 
-  /* ── WELL TABLE ── */
-  .wtable { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-family: -apple-system, BlinkMacSystemFont, sans-serif; font-size: 0.85rem; }
-  .wtable th { text-align: left; padding: 0.6rem 0.9rem; background: var(--cream); color: var(--faint); font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; }
-  .wtable td { padding: 0.7rem 0.9rem; border-bottom: 1px solid var(--warm); color: #3a2a10; vertical-align: top; }
-  .wtable tr:last-child td { border-bottom: none; }
-  .wtable .highlight-row td { background: #f5f0e4; font-weight: 500; }
+/* Coop compare table */
+.coop-compare { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.85rem; }
+.coop-compare th { padding: 0.6rem 1rem; background: var(--earth-dark); color: var(--gold); font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; text-align: left; }
+.coop-compare td { padding: 0.75rem 1rem; border-bottom: 1px solid var(--sand-deep); color: var(--mid); vertical-align: top; line-height: 1.5; }
+.coop-compare tr:last-child td { border-bottom: none; }
+.coop-compare .row-label { font-weight: 600; color: var(--earth-med); width: 30%; }
+.c-yes { color: var(--earth-med); font-weight: 600; }
+.c-no { color: var(--terracotta); font-weight: 600; }
+.c-ask { color: var(--gold); font-style: italic; }
 
-  /* ── PREDICTION BOX ── */
-  .prediction {
-    background: linear-gradient(135deg, #1a1608 0%, #2a2010 100%);
-    color: #f0e8d0;
-    padding: 2rem 2.25rem;
-    margin: 2.5rem 0;
-    border-radius: 4px;
-  }
-  .prediction-label {
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size: 0.65rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 0.75rem;
-  }
-  .prediction h3 {
-    font-size: 1.1rem;
-    font-weight: normal;
-    font-style: italic;
-    margin-bottom: 0.75rem;
-    color: #e8dfc8;
-  }
-  .prediction p {
-    color: #c0b090;
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size: 0.88rem;
-    line-height: 1.65;
-    margin-bottom: 0.6rem;
-  }
-  .prediction p:last-child { margin-bottom: 0; }
+/* Roadmap */
+.roadmap { margin: 1.5rem 0; }
+.roadmap-step { border-left: 3px solid var(--sand-deep); padding: 1rem 1.25rem; margin-bottom: 0.75rem; border-radius: 0 var(--radius-md) var(--radius-md) 0; background: var(--white); }
+.roadmap-step.now { border-left-color: var(--gold); background: var(--earth-dark); }
+.roadmap-step h4 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mid); margin-bottom: 0.5rem; font-weight: 600; }
+.roadmap-step.now h4 { color: var(--gold); }
+.roadmap-step p { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.87rem; color: var(--mid); margin: 0; line-height: 1.6; max-width: none; }
+.roadmap-step.now p { color: rgba(244,239,230,0.7); }
 
-  /* ── STACCATO ── */
-  .staccato {
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size: 1rem;
-    line-height: 1.5;
-    color: var(--stone);
-    padding: 1.25rem 0;
-    font-style: italic;
-  }
+/* Program cards */
+.program-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+.program-card { background: var(--white); border: 1px solid var(--sand-deep); border-radius: var(--radius-md); padding: 1.25rem 1.5rem; font-family: 'Plus Jakarta Sans', sans-serif; }
+.program-card h4 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.82rem; font-weight: 700; color: var(--ink); margin-bottom: 0.4rem; }
+.program-card .prog-type { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.6rem; }
+.program-card p { font-size: 0.83rem; color: var(--mid); line-height: 1.55; margin: 0; max-width: none; }
 
-  /* ── DIVIDER ── */
-  .ornament {
-    text-align: center;
-    color: var(--faint);
-    margin: 2.5rem 0;
-    font-size: 1.2rem;
-    letter-spacing: 0.5rem;
-  }
+/* Permit steps */
+.permit-steps { margin: 1.5rem 0; }
+.permit-step { display: flex; gap: 1rem; margin-bottom: 1rem; }
+.permit-num { flex-shrink: 0; width: 2rem; height: 2rem; border-radius: 50%; background: var(--gold); color: var(--white); font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.85rem; font-weight: 700; display: flex; align-items: center; justify-content: center; margin-top: 0.15rem; }
+.permit-body { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.88rem; line-height: 1.6; color: var(--mid); }
+.permit-body strong { color: var(--ink); }
+.permit-body .permit-cost { color: var(--earth-med); font-style: italic; font-size: 0.82rem; }
 
-  /* ── SEASON TABLE ── */
-  .season-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-family: -apple-system, BlinkMacSystemFont, sans-serif; font-size: 0.82rem; }
-  .season-table th { text-align: left; padding: 0.5rem 0.75rem; background: var(--ink); color: var(--gold); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; }
-  .season-table td { padding: 0.6rem 0.75rem; border-bottom: 1px solid var(--warm); color: #3a2a10; vertical-align: middle; }
-  .season-table tr:last-child td { border-bottom: none; }
-  .season-table .s-good { color: var(--green); font-weight: 600; }
-  .season-table .s-warn { color: var(--rust); font-weight: 600; }
-  .season-table .s-tbd { color: var(--faint); font-style: italic; }
-  .season-table .s-owner { background: #edf8ee; }
-  .season-table .s-owner td { border-bottom-color: #c0e0c0; }
-
-  /* ── COOP TABLE ── */
-  .coop-compare { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-family: -apple-system, BlinkMacSystemFont, sans-serif; font-size: 0.85rem; }
-  .coop-compare th { padding: 0.6rem 1rem; background: var(--ink); color: var(--gold); font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; text-align: left; }
-  .coop-compare td { padding: 0.75rem 1rem; border-bottom: 1px solid var(--warm); color: #3a2a10; vertical-align: top; line-height: 1.5; }
-  .coop-compare tr:last-child td { border-bottom: none; }
-  .coop-compare .row-label { font-weight: 600; color: var(--mid); width: 30%; }
-  .c-yes { color: var(--green); font-weight: 600; }
-  .c-no { color: var(--rust); font-weight: 600; }
-  .c-ask { color: #8a6020; font-style: italic; }
-
-  /* ── TECH ROADMAP ── */
-  .roadmap { margin: 1.5rem 0; }
-  .roadmap-step { border-left: 3px solid var(--stone); padding: 1rem 1.25rem; margin-bottom: 0.75rem; border-radius: 0 4px 4px 0; background: var(--cream); }
-  .roadmap-step.now { border-left-color: var(--gold); background: var(--ink); }
-  .roadmap-step h4 { font-family: -apple-system, BlinkMacSystemFont, sans-serif; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--stone); margin-bottom: 0.5rem; font-weight: 600; }
-  .roadmap-step.now h4 { color: var(--gold); }
-  .roadmap-step p { font-family: -apple-system, BlinkMacSystemFont, sans-serif; font-size: 0.87rem; color: #3a2a10; margin: 0; line-height: 1.6; }
-  .roadmap-step.now p { color: #c0b090; }
-
-  /* ── PROGRAM CARD ── */
-  .program-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
-  .program-card { background: var(--cream); border: 1px solid var(--warm); border-radius: 4px; padding: 1.25rem 1.5rem; font-family: -apple-system, BlinkMacSystemFont, sans-serif; }
-  .program-card h4 { font-size: 0.8rem; font-weight: 700; color: var(--ink); margin-bottom: 0.4rem; letter-spacing: 0.02em; }
-  .program-card .prog-type { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.6rem; }
-  .program-card p { font-size: 0.83rem; color: var(--mid); line-height: 1.55; margin: 0; }
-
-  /* ── PERMIT STEPS ── */
-  .permit-steps { margin: 1.5rem 0; }
-  .permit-step { display: flex; gap: 1rem; margin-bottom: 1rem; }
-  .permit-num { flex-shrink: 0; width: 2rem; height: 2rem; border-radius: 50%; background: var(--gold); color: #fff; font-family: -apple-system, BlinkMacSystemFont, sans-serif; font-size: 0.85rem; font-weight: 700; display: flex; align-items: center; justify-content: center; margin-top: 0.15rem; }
-  .permit-body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; font-size: 0.88rem; line-height: 1.6; color: #3a2a10; }
-  .permit-body strong { color: var(--ink); }
-  .permit-body .permit-cost { color: var(--stone); font-style: italic; font-size: 0.82rem; }
-
-  /* ── FOOTER ── */
-  .footer {
-    padding: 3rem 1.5rem;
-    margin-top: 3rem;
-    border-top: 1px solid var(--warm);
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size: 0.75rem;
-    color: var(--faint);
-    max-width: 720px;
-    margin-left: auto;
-    margin-right: auto;
-    line-height: 1.7;
-  }
-
-  /* ── NAV ── */
-  .toc {
-    background: var(--cream);
-    border: 1px solid var(--warm);
-    padding: 1.5rem 2rem;
-    margin: 2.5rem 0 0;
-    border-radius: 4px;
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-  }
-  .toc-label {
-    font-size: 0.65rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--faint);
-    margin-bottom: 0.75rem;
-  }
-  .toc ol {
-    padding-left: 1.25rem;
-    color: var(--stone);
-    font-size: 0.88rem;
-    line-height: 2;
-  }
-  .toc a { color: var(--stone); text-decoration: none; }
-  .toc a:hover { color: var(--ink); text-decoration: underline; }
-
-  @media (max-width: 600px) {
-    body { font-size: 16px; }
-    .pull { margin: 2rem -0.5rem; }
-    .program-grid { grid-template-columns: 1fr; }
-  }
+@media (max-width: 600px) {
+  .pull { margin: 2rem -0.5rem; }
+  .program-grid { grid-template-columns: 1fr; }
+}
 </style>
 </head>
 <body>
 
-<!-- HERO -->
-<div class="hero">
-  <div class="hero-eyebrow">Finca Tariqa · Carcaixent, Valencia · Last updated August 2026</div>
-  <h1>What the Ground Knows — <em>and what it means for this land</em></h1>
-  <p class="hero-sub">Everything beneath the surface: the 80-million-year story, what it means for the grove's fruit, where the water is, and what's coming.</p>
-</div>
+<nav class="nav">
+  <a href="index.html" class="nav-logo">Finca Tariqa</a>
+  <ul class="nav-links" id="main-nav">
+    <li><a href="oranges.html">Oranges</a></li>
+    <li><a href="land.html">The Land</a></li>
+    <li><a href="forest.html">The Forest</a></li>
+    <li><a href="mission.html">Our Mission</a></li>
+    <li><a href="report.html" class="active">Full Report</a></li>
+  </ul>
+  <div class="nav-toggle" role="button" tabindex="0" aria-label="Open navigation" onclick="document.getElementById('main-nav').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
 
-<div class="page">
+<!-- HERO -->
+<section class="report-hero">
+  <div class="report-hero-inner">
+    <span class="eyebrow">Finca Tariqa · Carcaixent, Valencia · Last updated August 2026</span>
+    <h1>What the Ground Knows</h1>
+    <p class="lead">Everything beneath the surface: the 80-million-year story, what it means for the grove's fruit, where the water is, and what's coming.</p>
+  </div>
+</section>
+
+<div class="report-body">
 
   <div class="toc">
     <div class="toc-label">In this report</div>
@@ -588,7 +550,7 @@
       <tr><td>Year 4</td><td>recovery · average price</td><td class="s-good">rising · strong price</td><td class="s-warn">collapse begins</td><td class="s-warn">below average</td></tr>
       <tr class="s-owner"><td>Year 5 ★ (first owner year)</td><td>steady · good price</td><td class="s-tbd">rising (liquidación due)</td><td class="s-warn">minimal yield</td><td class="s-tbd">TBD — Lane-Late pending</td></tr>
     </table>
-    <p style="font-family:-apple-system,sans-serif;font-size:0.75rem;color:var(--faint);margin-top:-0.75rem;">★ First full season under current ownership. Lane-Late harvest runs April–June; liquidación typically arrives 2–3 months after delivery, so August 2026 — request it from Exagro if not received.</p>
+    <p style="font-family:'Plus Jakarta Sans',sans-serif;font-size:0.75rem;color:var(--mid);margin-top:-0.75rem;">★ First full season under current ownership. Lane-Late harvest runs April–June; liquidación typically arrives 2–3 months after delivery, so August 2026 — request it from Exagro if not received.</p>
 
     <p>Three stories emerge. Each one requires a different response.</p>
 
@@ -647,7 +609,7 @@
       <tr><td class="row-label">Organic price channel?</td><td class="c-no">No — not organic certified</td><td class="c-yes">Yes, if CAECV confirmed</td></tr>
       <tr><td class="row-label">Technical support</td><td class="c-yes">Yes, on request</td><td class="c-ask">Verify</td></tr>
       <tr><td class="row-label">Varietal subsidies</td><td class="c-yes">Yes, Fondos Operativos</td><td class="c-ask">Verify</td></tr>
-      <tr><td class="row-label">Can hold parcels in both?</td><td colspan="2" style="color:var(--rust);font-style:italic;">In Spain, each parcel can only deliver to one cooperative per campaign. Splitting requires separate parcel registration.</td></tr>
+      <tr><td class="row-label">Can hold parcels in both?</td><td colspan="2" style="color:var(--terracotta);font-style:italic;">In Spain, each parcel can only deliver to one cooperative per campaign. Splitting requires separate parcel registration.</td></tr>
     </table>
 
     <p>The strategic picture: Exagro is the right partner for the conventional fruit stream. If organic conversion becomes the direction, La Casella's eco line is the more promising destination for that fruit — and the conversation with them should happen before the conversion clock starts, not after. Once La Casella's answer on transitional acceptance and price is known, the information to build a transition business case is in hand.</p>
@@ -1145,17 +1107,30 @@
 
 </div>
 
-<div class="footer">
-  <strong>Sources and methodology</strong><br>
-  Primary geological source: IGME MAGNA Hoja N.º 770 ALCIRA (Valencia), Explicación Primera Serie, 1957. Authors: José Meseguer Pardo &amp; Antonio Almela.<br><br>
-  Cooperative economics: Liquidación Cítricos documents (2022–2026), Coop. del Camp de Vila Nova de Castelló (Exagro). Five seasons of anticipo and final settlement data across Clemenules, Navelina, and Navel Lane-Late. Cooperative responsibilities clarified via direct correspondence with Exagro, May 2026.<br><br>
-  Water: Laboratory test results M-26-0146 and M-26-0147, January 14 2026. Parameters: pH, conductivity, nitrates, sulfates, chlorides, E.coli, total coliforms, Legionella.<br><br>
-  Carbon farming: EU Carbon Removal Certification Framework (Regulation EU 2024/3012, December 2024); Agreena platform methodology (Verra VCS VM0042); Regenerative citrus carbon accounting, Sicily (ScienceDirect 2024); CAECV organic certification framework (Comunitat Valenciana).<br><br>
-  Funding programs: Spain Plan Estratégico PAC 2023–2027 (Intervenciones 62 and 70); Ley 45/2007 de Desarrollo Rural Sostenible (Estatuto de la Mujer Rural); LEADER programme, GDR La Ribera; ICO Empresas y Emprendedores; IVACE (Generalitat Valenciana); EU Horizon Europe EIP-AGRI; Triodos Bank España.<br><br>
-  Ecotourism and planning: Decreto 10/2021, de 22 de enero, de la Comunitat Valenciana (alojamiento turístico en la Comunitat Valenciana, in force May 2021); LOTUP (Ley 5/2014 de Ordenación del Territorio, Urbanismo y Paisaje de la Comunitat Valenciana); Huerto San Eusebio, Carcaixent (comparable agrotourism model).<br><br>
-  Supplementary: IVIA citrus rootstock research on calcareous soils (Forner-Alcaide 5/13 trials); IVIA SIAR agrometeorology network; EU Organic Regulation 2018/848; Scientific literature on Fe-EDDHA, vivianite, and humic substances in calcareous soils (2023–2024 field trials); Climate attribution studies on the October 2024 Valencia DANA; Citrus terroir flavoromics research (Chemistry &amp; Biodiversity, 2026); Sentinel-2 multispectral imagery (ESA Copernicus programme, free access); IGME Book 21 (Acuíferos Subterráneos, Comunidad Valenciana).<br><br>
-  This document does not replace a site-specific geotechnical investigation, agronomic survey, or legal advice on planning permissions. For construction permits, borehole logs with bearing capacity values (CPT/SPT) are required. For well drilling, an Electrical Resistivity Tomography survey is strongly recommended. For agronomic decisions, leaf mineral analysis (IVIA-accredited laboratory) is required. For tourism registration, consult the Ayuntamiento de Carcaixent planning department and Turisme Comunitat Valenciana.
-</div>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">Finca Tariqa<br>Carcaixent, Valencia<br>Spain</div>
+    <ul class="footer-links">
+      <li><a href="oranges.html">Oranges</a></li>
+      <li><a href="land.html">Land</a></li>
+      <li><a href="forest.html">Forest</a></li>
+      <li><a href="mission.html">Mission</a></li>
+      <li><a href="report.html">Full Report</a></li>
+      <li><a href="ru.html">По-русски</a></li>
+    </ul>
+  </div>
+  <div class="footer-bottom">
+    <strong>Sources and methodology</strong><br>
+    Primary geological source: IGME MAGNA Hoja N.º 770 ALCIRA (Valencia), Explicación Primera Serie, 1957. Authors: José Meseguer Pardo &amp; Antonio Almela.<br><br>
+    Cooperative economics: Liquidación Cítricos documents (2022–2026), Coop. del Camp de Vila Nova de Castelló (Exagro). Five seasons of anticipo and final settlement data across Clemenules, Navelina, and Navel Lane-Late. Cooperative responsibilities clarified via direct correspondence with Exagro, May 2026.<br><br>
+    Water: Laboratory test results M-26-0146 and M-26-0147, January 14 2026. Parameters: pH, conductivity, nitrates, sulfates, chlorides, E.coli, total coliforms, Legionella.<br><br>
+    Carbon farming: EU Carbon Removal Certification Framework (Regulation EU 2024/3012, December 2024); Agreena platform methodology (Verra VCS VM0042); Regenerative citrus carbon accounting, Sicily (ScienceDirect 2024); CAECV organic certification framework (Comunitat Valenciana).<br><br>
+    Funding programs: Spain Plan Estratégico PAC 2023–2027 (Intervenciones 62 and 70); Ley 45/2007 de Desarrollo Rural Sostenible (Estatuto de la Mujer Rural); LEADER programme, GDR La Ribera; ICO Empresas y Emprendedores; IVACE (Generalitat Valenciana); EU Horizon Europe EIP-AGRI; Triodos Bank España.<br><br>
+    Ecotourism and planning: Decreto 10/2021, de 22 de enero, de la Comunitat Valenciana (alojamiento turístico en la Comunitat Valenciana, in force May 2021); LOTUP (Ley 5/2014 de Ordenación del Territori, Urbanisme i Paisatge de la Comunitat Valenciana); Huerto San Eusebio, Carcaixent (comparable agrotourism model).<br><br>
+    Supplementary: IVIA citrus rootstock research on calcareous soils (Forner-Alcaide 5/13 trials); IVIA SIAR agrometeorology network; EU Organic Regulation 2018/848; Scientific literature on Fe-EDDHA, vivianite, and humic substances in calcareous soils (2023–2024 field trials); Climate attribution studies on the October 2024 Valencia DANA; Citrus terroir flavoromics research (Chemistry &amp; Biodiversity, 2026); Sentinel-2 multispectral imagery (ESA Copernicus programme, free access); IGME Book 21 (Acuíferos Subterráneos, Comunidad Valenciana).<br><br>
+    This document does not replace a site-specific geotechnical investigation, agronomic survey, or legal advice on planning permissions. For construction permits, borehole logs with bearing capacity values (CPT/SPT) are required. For well drilling, an Electrical Resistivity Tomography survey is strongly recommended. For agronomic decisions, leaf mineral analysis (IVIA-accredited laboratory) is required. For tourism registration, consult the Ayuntamiento de Carcaixent planning department and Turisme Comunitat Valenciana.
+  </div>
+</footer>
 
 </body>
 </html>

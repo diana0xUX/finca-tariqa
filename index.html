@@ -3,1159 +3,978 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Finca Tariqa — What the Ground Knows</title>
+<title>Finca Tariqa — Citrus from an Ancient Limestone Hillside</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&family=Lora:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
 <style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --ink: #1a1608;
-    --mid: #5a5040;
-    --faint: #a09070;
-    --paper: #f8f4ec;
-    --cream: #f0ead8;
-    --warm: #e8dfc8;
-    --gold: #c49a3c;
-    --rust: #b85820;
-    --stone: #8a7858;
-    --water: #3a6a8a;
-    --green: #3a6a3a;
+    --earth-dark:   #141f16;
+    --earth-mid:    #253c29;
+    --earth-med:    #3a6645;
+    --earth-light:  #5a8f68;
+    --sand:         #f4efe6;
+    --sand-deep:    #e8dfc8;
+    --sand-warm:    #ddd0b3;
+    --terracotta:   #c4622d;
+    --terra-light:  #e07a48;
+    --gold:         #c9973a;
+    --limestone:    #9a8e79;
+    --white:        #fafaf8;
+    --ink:          #141208;
+    --mid:          #3d3828;
   }
 
   html { scroll-behavior: smooth; }
 
   body {
-    font-family: "Georgia", "Times New Roman", serif;
-    background: var(--paper);
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    background: var(--white);
     color: var(--ink);
-    line-height: 1.75;
-    font-size: 18px;
+    line-height: 1.65;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
   }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: var(--earth-dark);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2.5rem;
+    height: 64px;
+  }
+  .nav-logo {
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--sand);
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+  .nav-logo span { color: var(--gold); }
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+  .nav-links a {
+    color: rgba(244,239,230,0.7);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--sand); }
+  .nav-cta {
+    background: var(--terracotta);
+    color: var(--white) !important;
+    padding: 0.45rem 1.1rem;
+    border-radius: 100px;
+    opacity: 1 !important;
+  }
+  .nav-cta:hover { background: var(--terra-light) !important; }
 
   /* ── HERO ── */
   .hero {
-    background: var(--ink);
-    color: #f0e8d0;
-    padding: 5rem 2rem 4rem;
-    text-align: center;
+    min-height: 100vh;
+    padding-top: 64px;
+    background: var(--earth-dark);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     position: relative;
     overflow: hidden;
   }
   .hero::before {
-    content: "";
+    content: '';
     position: absolute;
     inset: 0;
-    background: repeating-linear-gradient(
-      -45deg,
-      transparent,
-      transparent 40px,
-      rgba(255,255,255,0.015) 40px,
-      rgba(255,255,255,0.015) 80px
-    );
+    background:
+      radial-gradient(ellipse 60% 80% at 70% 50%, rgba(90,143,104,0.18) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 20% 80%, rgba(196,98,45,0.12) 0%, transparent 60%);
+  }
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5rem 3rem 5rem 5rem;
+    position: relative;
+    z-index: 2;
   }
   .hero-eyebrow {
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size: 0.7rem;
-    letter-spacing: 0.2em;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
     color: var(--gold);
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.75rem;
   }
   .hero h1 {
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    font-weight: normal;
-    line-height: 1.15;
-    max-width: 700px;
-    margin: 0 auto 1.5rem;
+    font-family: 'Lora', Georgia, serif;
+    font-size: clamp(2.6rem, 4vw, 4rem);
+    font-weight: 400;
+    line-height: 1.12;
+    color: var(--sand);
+    margin-bottom: 1.75rem;
     letter-spacing: -0.01em;
   }
-  .hero h1 em {
-    color: var(--gold);
-    font-style: italic;
-  }
+  .hero h1 em { color: var(--gold); font-style: italic; }
   .hero-sub {
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 1.05rem;
+    color: rgba(244,239,230,0.72);
+    max-width: 440px;
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+  }
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--terracotta);
+    color: var(--white);
+    padding: 0.85rem 2rem;
+    border-radius: 100px;
+    text-decoration: none;
+    font-weight: 600;
     font-size: 0.9rem;
-    color: #a09070;
-    max-width: 500px;
-    margin: 0 auto;
-    line-height: 1.6;
+    letter-spacing: 0.02em;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-block;
   }
+  .btn-primary:hover { background: var(--terra-light); transform: translateY(-1px); }
+  .btn-secondary {
+    color: var(--sand);
+    padding: 0.85rem 2rem;
+    border-radius: 100px;
+    border: 1px solid rgba(244,239,230,0.3);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: border-color 0.2s, background 0.2s;
+    display: inline-block;
+  }
+  .btn-secondary:hover { border-color: var(--sand); background: rgba(244,239,230,0.06); }
 
-  /* ── LAYOUT ── */
-  .page {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 0 1.5rem;
-  }
-
-  /* ── CHAPTER ── */
-  .chapter {
-    padding: 4rem 0 2rem;
-    border-top: 1px solid var(--warm);
-  }
-  .chapter:first-of-type { border-top: none; }
-
-  .chapter-number {
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size: 0.65rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--faint);
-    margin-bottom: 0.5rem;
-  }
-
-  .chapter h2 {
-    font-size: clamp(1.4rem, 3vw, 2rem);
-    font-weight: normal;
-    line-height: 1.2;
-    margin-bottom: 1.75rem;
-    color: var(--ink);
-  }
-
-  /* ── PROSE ── */
-  p {
-    margin-bottom: 1.4rem;
-    color: #2a2010;
-  }
-
-  /* ── PULL QUOTE ── */
-  .pull {
-    margin: 2.5rem -1rem;
-    padding: 1.75rem 2rem;
-    background: var(--cream);
-    border-left: 3px solid var(--gold);
-    font-size: 1.15rem;
-    line-height: 1.55;
-    color: var(--ink);
-    font-style: italic;
-  }
-  .pull cite {
-    display: block;
-    margin-top: 0.75rem;
-    font-style: normal;
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size: 0.72rem;
-    letter-spacing: 0.06em;
-    color: var(--faint);
-    text-transform: uppercase;
-  }
-
-  /* ── FACT BOX ── */
-  .factbox {
-    background: var(--ink);
-    color: #f0e8d0;
-    border-radius: 4px;
-    padding: 1.75rem 2rem;
-    margin: 2rem 0;
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-  }
-  .factbox-label {
-    font-size: 0.65rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 1rem;
-  }
-  .factbox p {
-    color: #d0c8b0;
-    font-size: 0.92rem;
-    line-height: 1.65;
-    margin-bottom: 0.75rem;
-  }
-  .factbox p:last-child { margin-bottom: 0; }
-  .factbox strong { color: #f0e8d0; }
-
-  /* ── NUMBER CALLOUT ── */
-  .numbers {
+  .hero-right {
+    position: relative;
+    z-index: 2;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 1px;
-    background: var(--warm);
-    margin: 2rem 0;
-    border-radius: 4px;
-    overflow: hidden;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 3px;
+    padding: 64px 0 0;
   }
-  .num-cell {
-    background: var(--cream);
-    padding: 1.25rem 1.5rem;
+  .hero-tile { position: relative; overflow: hidden; }
+  .tile-1 { background: linear-gradient(135deg, #253c29, #3a6645); }
+  .tile-2 { background: linear-gradient(160deg, #1a2e1c, #4a7a54 120%); }
+  .tile-3 { background: linear-gradient(120deg, rgba(196,98,45,0.3), #253c29); }
+  .tile-4 { background: linear-gradient(200deg, #3a6645, #1c2b1e); grid-column: span 2; }
+  .tile-5 { background: linear-gradient(45deg, rgba(201,151,58,0.25), #3a6645); }
+  .tile-6 { background: linear-gradient(160deg, #1a2e1c, #253c29); }
+  .tile-label {
+    position: absolute;
+    bottom: 1rem; left: 1rem;
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(244,239,230,0.45);
+  }
+
+  /* ── NUMBERS BAND ── */
+  .numbers-band {
+    background: var(--terracotta);
+    padding: 2rem 3rem;
+    display: flex;
+    justify-content: center;
+  }
+  .num-item {
     text-align: center;
+    padding: 0 3rem;
+    border-right: 1px solid rgba(255,255,255,0.25);
   }
-  .num-cell .big {
-    font-size: 2rem;
-    font-weight: 700;
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-    color: var(--ink);
+  .num-item:last-child { border-right: none; }
+  .num-big {
+    font-family: 'Lora', serif;
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: var(--white);
     line-height: 1;
     display: block;
   }
-  .num-cell .unit {
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  .num-label {
     font-size: 0.72rem;
-    color: var(--faint);
+    font-weight: 500;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
-    margin-top: 0.3rem;
+    color: rgba(255,255,255,0.75);
+    margin-top: 0.4rem;
     display: block;
   }
 
-  /* ── ALERT ── */
-  .alert {
-    padding: 1.1rem 1.4rem;
-    border-radius: 4px;
-    margin: 1.5rem 0;
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size: 0.88rem;
-    line-height: 1.6;
+  /* ── LAYOUT ── */
+  section { padding: 7rem 0; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 2.5rem; }
+
+  .section-eyebrow {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--earth-med);
+    margin-bottom: 1.25rem;
+  }
+  .section-eyebrow.light { color: var(--gold); }
+
+  h2.section-title {
+    font-family: 'Lora', serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    margin-bottom: 1.5rem;
+  }
+  h2.section-title em { font-style: italic; color: var(--terracotta); }
+  h2.section-title.light { color: var(--sand); }
+  h2.section-title em.light-em { color: var(--gold); }
+
+  p.lead {
+    font-size: 1.15rem;
+    line-height: 1.75;
+    color: var(--mid);
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+  }
+  p.body { font-size: 1rem; line-height: 1.75; color: var(--mid); margin-bottom: 1.25rem; }
+  p.body.light { color: rgba(244,239,230,0.78); }
+
+  /* ── ORANGES ── */
+  .oranges-section { background: var(--sand); }
+  .oranges-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+  .oranges-visual { position: relative; height: 520px; }
+  .orange-panel {
+    position: absolute;
+    border-radius: 16px;
+    overflow: hidden;
     display: flex;
-    gap: 0.75rem;
-    align-items: flex-start;
+    align-items: flex-end;
   }
-  .alert-icon { flex-shrink: 0; margin-top: 0.05rem; }
-  .alert-warn { background: #fdf4e0; border: 1px solid #e8d070; color: #5a4000; }
-  .alert-good { background: #edf8ee; border: 1px solid #80c880; color: #1a4820; }
-  .alert-blue { background: #edf4fc; border: 1px solid #80a8d8; color: #1a3060; }
-  .alert-rust { background: #fdf0e8; border: 1px solid #e89060; color: #5a2000; }
+  .orange-panel-main {
+    top: 0; left: 0;
+    width: 75%; height: 72%;
+    background: linear-gradient(150deg, #c9973a 0%, #c4622d 60%, #8a3a1a 100%);
+    padding: 1.5rem;
+  }
+  .orange-panel-secondary {
+    bottom: 0; right: 0;
+    width: 60%; height: 55%;
+    background: linear-gradient(135deg, #3a6645, #253c29);
+    padding: 1.25rem;
+  }
+  .orange-panel-accent {
+    top: 55%; left: 0;
+    width: 35%; height: 38%;
+    background: linear-gradient(160deg, #e8dfc8, #ddd0b3);
+    padding: 1rem;
+  }
+  .panel-caption { font-size: 0.62rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; }
+  .panel-caption.light { color: rgba(255,255,255,0.65); }
+  .panel-caption.dark { color: rgba(20,18,8,0.45); }
 
-  /* ── LAYERS ── */
-  .layers { margin: 1.5rem 0; border-radius: 4px; overflow: hidden; font-family: -apple-system, BlinkMacSystemFont, sans-serif; }
-  .layer { padding: 0.8rem 1.25rem; display: flex; justify-content: space-between; align-items: center; gap: 1rem; font-size: 0.88rem; }
-  .layer-name { font-weight: 500; }
-  .layer-desc { font-size: 0.78rem; opacity: 0.75; margin-top: 0.15rem; }
-  .layer-depth { opacity: 0.7; font-size: 0.78rem; white-space: nowrap; }
-  .l0 { background: #e2d4a8; }
-  .l1 { background: #cdb878; }
-  .l2 { background: #b89a50; color: #fff; }
-  .l3 { background: #8a6a28; color: #fff; }
-  .l4 { background: #5a4010; color: #f0e8d0; }
-
-  /* ── WELL TABLE ── */
-  .wtable { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-family: -apple-system, BlinkMacSystemFont, sans-serif; font-size: 0.85rem; }
-  .wtable th { text-align: left; padding: 0.6rem 0.9rem; background: var(--cream); color: var(--faint); font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; }
-  .wtable td { padding: 0.7rem 0.9rem; border-bottom: 1px solid var(--warm); color: #3a2a10; vertical-align: top; }
-  .wtable tr:last-child td { border-bottom: none; }
-  .wtable .highlight-row td { background: #f5f0e4; font-weight: 500; }
-
-  /* ── PREDICTION BOX ── */
-  .prediction {
-    background: linear-gradient(135deg, #1a1608 0%, #2a2010 100%);
-    color: #f0e8d0;
-    padding: 2rem 2.25rem;
+  .pull-quote {
+    font-family: 'Lora', serif;
+    font-size: 1.25rem;
+    font-style: italic;
+    line-height: 1.55;
+    color: var(--earth-mid);
+    border-left: 3px solid var(--terracotta);
+    padding-left: 1.5rem;
     margin: 2.5rem 0;
-    border-radius: 4px;
   }
-  .prediction-label {
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* ── VARIETIES ── */
+  .varieties-section { background: var(--white); }
+  .varieties-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3.5rem;
+  }
+  .variety-card { border-radius: 16px; overflow: hidden; background: var(--sand); }
+  .variety-header {
+    height: 200px;
+    display: flex;
+    align-items: flex-end;
+    padding: 1.5rem;
+  }
+  .variety-clemenules .variety-header { background: linear-gradient(150deg, #d4a843 0%, #c4622d 100%); }
+  .variety-lanelete .variety-header { background: linear-gradient(150deg, #c4622d 0%, #8a3a1a 100%); }
+  .variety-navelina .variety-header { background: linear-gradient(150deg, #9a8e79 0%, #6a6050 100%); }
+  .variety-season {
     font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.85);
+    background: rgba(0,0,0,0.22);
+    padding: 0.3rem 0.75rem;
+    border-radius: 100px;
+  }
+  .variety-body { padding: 1.75rem; }
+  .variety-body h3 {
+    font-family: 'Lora', serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 0.25rem;
+  }
+  .variety-tagline {
+    font-size: 0.8rem;
+    font-style: italic;
+    color: var(--terracotta);
+    margin-bottom: 1rem;
+    font-weight: 500;
+  }
+  .variety-body p { font-size: 0.9rem; line-height: 1.7; color: var(--mid); }
+
+  /* ── SCIENCE ── */
+  .science-section { background: var(--sand-deep); }
+  .science-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3.5rem;
+  }
+  .science-card { background: var(--white); border-radius: 16px; padding: 2rem; }
+  .science-icon {
+    width: 48px; height: 48px;
+    border-radius: 12px;
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+  }
+  .science-icon.green { background: rgba(58,102,69,0.1); }
+  .science-icon.terra { background: rgba(196,98,45,0.1); }
+  .science-icon.gold  { background: rgba(201,151,58,0.12); }
+  .science-card h3 { font-size: 1rem; font-weight: 700; color: var(--ink); margin-bottom: 0.75rem; }
+  .science-card p { font-size: 0.88rem; line-height: 1.7; color: var(--mid); }
+
+  /* ── LAND ── */
+  .land-section { background: var(--earth-dark); position: relative; overflow: hidden; }
+  .land-section::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 80% 30%, rgba(58,102,69,0.22) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 80% at 10% 80%, rgba(196,98,45,0.1) 0%, transparent 60%);
+  }
+  .land-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+  }
+  .land-stat-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+  .land-stat {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 1.5rem;
+  }
+  .land-stat .big {
+    font-family: 'Lora', serif;
+    font-size: 1.9rem;
+    font-weight: 600;
+    color: var(--gold);
+    display: block;
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+  .land-stat .label { font-size: 0.78rem; font-weight: 500; color: rgba(244,239,230,0.55); line-height: 1.4; }
+
+  /* ── FOREST ── */
+  .forest-section { background: var(--earth-mid); }
+  .forest-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+  .forest-visual { position: relative; height: 460px; }
+  .forest-panel {
+    position: absolute;
+    border-radius: 16px;
+    display: flex;
+    align-items: flex-end;
+    padding: 1.5rem;
+  }
+  .forest-panel-a {
+    top: 0; left: 0;
+    width: 70%; height: 65%;
+    background: linear-gradient(135deg, #1a2e1c, #3a6645);
+  }
+  .forest-panel-b {
+    bottom: 0; right: 0;
+    width: 65%; height: 55%;
+    background: linear-gradient(160deg, #253c29, #5a8f68);
+  }
+  .timeline-steps { margin-top: 2rem; }
+  .timeline-step {
+    display: flex;
+    gap: 1.25rem;
+    padding: 1.25rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .timeline-step:last-child { border-bottom: none; }
+  .step-year {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    min-width: 60px;
+    padding-top: 0.15rem;
+  }
+  .step-text { font-size: 0.9rem; color: rgba(244,239,230,0.72); line-height: 1.55; }
+  .step-text strong { color: var(--sand); font-weight: 600; }
+
+  /* ── MISSION ── */
+  .mission-section { background: var(--white); }
+  .mission-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-top: 3.5rem;
+  }
+  .mission-card {
+    border-radius: 16px;
+    padding: 2.25rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .mission-card.green { background: var(--earth-dark); }
+  .mission-card.terra { background: var(--sand); border: 1px solid var(--sand-warm); }
+  .mission-card.sand  { background: var(--sand); border: 1px solid var(--sand-warm); }
+  .mission-card.mid   { background: var(--earth-mid); }
+  .mission-num {
+    font-family: 'Lora', serif;
+    font-size: 4rem;
+    font-weight: 600;
+    line-height: 1;
+    opacity: 0.12;
+    position: absolute;
+    top: 1.25rem; right: 1.75rem;
+  }
+  .mission-card.green .mission-num,
+  .mission-card.mid .mission-num { color: var(--sand); }
+  .mission-card.terra .mission-num,
+  .mission-card.sand .mission-num  { color: var(--ink); }
+  .mission-tag {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.75rem;
+    border-radius: 100px;
+    margin-bottom: 1rem;
+    position: relative;
+  }
+  .mission-card.green .mission-tag { background: rgba(90,143,104,0.2); color: var(--earth-light); }
+  .mission-card.mid   .mission-tag { background: rgba(201,151,58,0.18); color: var(--gold); }
+  .mission-card.terra .mission-tag { background: rgba(196,98,45,0.1); color: var(--terracotta); }
+  .mission-card.sand  .mission-tag { background: rgba(37,60,41,0.07); color: var(--earth-med); }
+  .mission-card h3 {
+    font-family: 'Lora', serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    position: relative;
+  }
+  .mission-card.green h3,
+  .mission-card.mid h3 { color: var(--sand); }
+  .mission-card.terra h3,
+  .mission-card.sand h3  { color: var(--ink); }
+  .mission-card p { font-size: 0.9rem; line-height: 1.7; position: relative; }
+  .mission-card.green p,
+  .mission-card.mid p { color: rgba(244,239,230,0.7); }
+  .mission-card.terra p,
+  .mission-card.sand p  { color: var(--mid); }
+
+  /* ── STORY ── */
+  .story-section { background: var(--sand); }
+  .story-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+  .story-badges { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 2rem; }
+  .badge {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.4rem 1rem;
+    border-radius: 100px;
+    border: 1px solid var(--sand-warm);
+    color: var(--mid);
+    background: var(--white);
+  }
+  .story-panel {
+    background: var(--earth-dark);
+    border-radius: 20px;
+    padding: 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .story-panel::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(201,151,58,0.12), transparent 70%);
+    border-radius: 50%;
+  }
+  .story-panel-eyebrow {
+    font-size: 0.65rem;
+    font-weight: 700;
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--gold);
-    margin-bottom: 0.75rem;
+    margin-bottom: 1.25rem;
   }
-  .prediction h3 {
-    font-size: 1.1rem;
-    font-weight: normal;
-    font-style: italic;
-    margin-bottom: 0.75rem;
-    color: #e8dfc8;
+  .story-panel h3 {
+    font-family: 'Lora', serif;
+    font-size: 1.45rem;
+    font-weight: 400;
+    color: var(--sand);
+    line-height: 1.4;
+    margin-bottom: 1.25rem;
   }
-  .prediction p {
-    color: #c0b090;
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  .story-panel p { font-size: 0.9rem; line-height: 1.7; color: rgba(244,239,230,0.7); margin-bottom: 1.25rem; }
+  .story-panel a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
     font-size: 0.88rem;
-    line-height: 1.65;
-    margin-bottom: 0.6rem;
+    font-weight: 600;
+    color: var(--gold);
+    text-decoration: none;
   }
-  .prediction p:last-child { margin-bottom: 0; }
+  .story-panel a:hover { color: var(--terra-light); }
 
-  /* ── STACCATO ── */
-  .staccato {
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size: 1rem;
-    line-height: 1.5;
-    color: var(--stone);
-    padding: 1.25rem 0;
-    font-style: italic;
-  }
-
-  /* ── DIVIDER ── */
-  .ornament {
+  /* ── CTA ── */
+  .cta-section {
+    background: var(--earth-dark);
     text-align: center;
-    color: var(--faint);
-    margin: 2.5rem 0;
-    font-size: 1.2rem;
-    letter-spacing: 0.5rem;
+    padding: 7rem 0;
+    position: relative;
+    overflow: hidden;
   }
-
-  /* ── SEASON TABLE ── */
-  .season-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-family: -apple-system, BlinkMacSystemFont, sans-serif; font-size: 0.82rem; }
-  .season-table th { text-align: left; padding: 0.5rem 0.75rem; background: var(--ink); color: var(--gold); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; }
-  .season-table td { padding: 0.6rem 0.75rem; border-bottom: 1px solid var(--warm); color: #3a2a10; vertical-align: middle; }
-  .season-table tr:last-child td { border-bottom: none; }
-  .season-table .s-good { color: var(--green); font-weight: 600; }
-  .season-table .s-warn { color: var(--rust); font-weight: 600; }
-  .season-table .s-tbd { color: var(--faint); font-style: italic; }
-  .season-table .s-owner { background: #edf8ee; }
-  .season-table .s-owner td { border-bottom-color: #c0e0c0; }
-
-  /* ── COOP TABLE ── */
-  .coop-compare { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-family: -apple-system, BlinkMacSystemFont, sans-serif; font-size: 0.85rem; }
-  .coop-compare th { padding: 0.6rem 1rem; background: var(--ink); color: var(--gold); font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; text-align: left; }
-  .coop-compare td { padding: 0.75rem 1rem; border-bottom: 1px solid var(--warm); color: #3a2a10; vertical-align: top; line-height: 1.5; }
-  .coop-compare tr:last-child td { border-bottom: none; }
-  .coop-compare .row-label { font-weight: 600; color: var(--mid); width: 30%; }
-  .c-yes { color: var(--green); font-weight: 600; }
-  .c-no { color: var(--rust); font-weight: 600; }
-  .c-ask { color: #8a6020; font-style: italic; }
-
-  /* ── TECH ROADMAP ── */
-  .roadmap { margin: 1.5rem 0; }
-  .roadmap-step { border-left: 3px solid var(--stone); padding: 1rem 1.25rem; margin-bottom: 0.75rem; border-radius: 0 4px 4px 0; background: var(--cream); }
-  .roadmap-step.now { border-left-color: var(--gold); background: var(--ink); }
-  .roadmap-step h4 { font-family: -apple-system, BlinkMacSystemFont, sans-serif; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--stone); margin-bottom: 0.5rem; font-weight: 600; }
-  .roadmap-step.now h4 { color: var(--gold); }
-  .roadmap-step p { font-family: -apple-system, BlinkMacSystemFont, sans-serif; font-size: 0.87rem; color: #3a2a10; margin: 0; line-height: 1.6; }
-  .roadmap-step.now p { color: #c0b090; }
-
-  /* ── PROGRAM CARD ── */
-  .program-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
-  .program-card { background: var(--cream); border: 1px solid var(--warm); border-radius: 4px; padding: 1.25rem 1.5rem; font-family: -apple-system, BlinkMacSystemFont, sans-serif; }
-  .program-card h4 { font-size: 0.8rem; font-weight: 700; color: var(--ink); margin-bottom: 0.4rem; letter-spacing: 0.02em; }
-  .program-card .prog-type { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.6rem; }
-  .program-card p { font-size: 0.83rem; color: var(--mid); line-height: 1.55; margin: 0; }
-
-  /* ── PERMIT STEPS ── */
-  .permit-steps { margin: 1.5rem 0; }
-  .permit-step { display: flex; gap: 1rem; margin-bottom: 1rem; }
-  .permit-num { flex-shrink: 0; width: 2rem; height: 2rem; border-radius: 50%; background: var(--gold); color: #fff; font-family: -apple-system, BlinkMacSystemFont, sans-serif; font-size: 0.85rem; font-weight: 700; display: flex; align-items: center; justify-content: center; margin-top: 0.15rem; }
-  .permit-body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; font-size: 0.88rem; line-height: 1.6; color: #3a2a10; }
-  .permit-body strong { color: var(--ink); }
-  .permit-body .permit-cost { color: var(--stone); font-style: italic; font-size: 0.82rem; }
-
-  /* ── FOOTER ── */
-  .footer {
-    padding: 3rem 1.5rem;
-    margin-top: 3rem;
-    border-top: 1px solid var(--warm);
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size: 0.75rem;
-    color: var(--faint);
-    max-width: 720px;
-    margin-left: auto;
-    margin-right: auto;
+  .cta-section::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 70% 70% at 50% 50%, rgba(58,102,69,0.18), transparent 70%);
+  }
+  .cta-section .container { position: relative; z-index: 2; }
+  .cta-section h2 {
+    font-family: 'Lora', serif;
+    font-size: clamp(1.8rem, 3vw, 2.8rem);
+    color: var(--sand);
+    font-weight: 400;
+    line-height: 1.3;
+    margin-bottom: 1.25rem;
+  }
+  .cta-section p {
+    color: rgba(244,239,230,0.6);
+    font-size: 1rem;
+    max-width: 500px;
+    margin: 0 auto 2.5rem;
     line-height: 1.7;
   }
+  .cta-links { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
 
-  /* ── NAV ── */
-  .toc {
-    background: var(--cream);
-    border: 1px solid var(--warm);
-    padding: 1.5rem 2rem;
-    margin: 2.5rem 0 0;
-    border-radius: 4px;
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  /* ── FOOTER ── */
+  footer {
+    background: #0c1410;
+    padding: 2.5rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
   }
-  .toc-label {
-    font-size: 0.65rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--faint);
-    margin-bottom: 0.75rem;
-  }
-  .toc ol {
-    padding-left: 1.25rem;
-    color: var(--stone);
+  .footer-logo {
     font-size: 0.88rem;
-    line-height: 2;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: rgba(244,239,230,0.45);
   }
-  .toc a { color: var(--stone); text-decoration: none; }
-  .toc a:hover { color: var(--ink); text-decoration: underline; }
+  .footer-logo span { color: var(--gold); }
+  .footer-links { display: flex; gap: 1.5rem; list-style: none; }
+  .footer-links a {
+    font-size: 0.8rem;
+    color: rgba(244,239,230,0.38);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: rgba(244,239,230,0.75); }
+  .footer-copy { font-size: 0.72rem; color: rgba(244,239,230,0.25); width: 100%; text-align: center; }
 
-  @media (max-width: 600px) {
-    body { font-size: 16px; }
-    .pull { margin: 2rem -0.5rem; }
-    .program-grid { grid-template-columns: 1fr; }
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-right { display: none; }
+    .hero-left { padding: 4rem 2rem; }
+    .oranges-grid, .land-grid, .forest-grid, .story-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .oranges-visual, .forest-visual { height: 300px; }
+    .varieties-grid, .science-grid, .mission-grid { grid-template-columns: 1fr; }
+    .numbers-band { flex-wrap: wrap; gap: 1.5rem; }
+    .num-item { border-right: none; padding: 0 1.5rem; }
+    nav { padding: 0 1.5rem; }
+    .nav-links { display: none; }
+    section { padding: 5rem 0; }
+    footer { flex-direction: column; text-align: center; }
   }
 </style>
 </head>
 <body>
 
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Finca <span>Tariqa</span></a>
+  <ul class="nav-links">
+    <li><a href="#oranges">Our Oranges</a></li>
+    <li><a href="#land">The Land</a></li>
+    <li><a href="#forest">The Forest</a></li>
+    <li><a href="#mission">Our Mission</a></li>
+    <li><a href="report.html" class="nav-cta">Full Report</a></li>
+  </ul>
+</nav>
+
 <!-- HERO -->
-<div class="hero">
-  <div class="hero-eyebrow">Finca Tariqa · Carcaixent, Valencia · Last updated August 2026</div>
-  <h1>What the Ground Knows — <em>and what it means for this land</em></h1>
-  <p class="hero-sub">Everything beneath the surface: the 80-million-year story, what it means for the grove's fruit, where the water is, and what's coming.</p>
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Carcaixent · Valencia · Spain</div>
+    <h1>Grown on the floor of an <em>ancient sea.</em></h1>
+    <p class="hero-sub">Citrus from a limestone hillside eighty million years in the making. A regenerative farm, a forest in transition, and oranges that taste of the place they come from.</p>
+    <div class="hero-actions">
+      <a href="#oranges" class="btn-primary">Our Oranges</a>
+      <a href="#mission" class="btn-secondary">Our Mission</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-tile tile-1"><span class="tile-label">Limestone hillside</span></div>
+    <div class="hero-tile tile-2"><span class="tile-label">Citrus grove</span></div>
+    <div class="hero-tile tile-3"><span class="tile-label">Clemenules</span></div>
+    <div class="hero-tile tile-4"><span class="tile-label">Puig Gros · 80 million years</span></div>
+    <div class="hero-tile tile-5"><span class="tile-label">Lane-Late navel</span></div>
+    <div class="hero-tile tile-6"><span class="tile-label">Pine to oak</span></div>
+  </div>
+</section>
+
+<!-- NUMBERS BAND -->
+<div class="numbers-band">
+  <div class="num-item">
+    <span class="num-big">80M</span>
+    <span class="num-label">Years of limestone</span>
+  </div>
+  <div class="num-item">
+    <span class="num-big">4.5 ha</span>
+    <span class="num-label">Hillside farm</span>
+  </div>
+  <div class="num-item">
+    <span class="num-big">1,100</span>
+    <span class="num-label">Citrus trees</span>
+  </div>
+  <div class="num-item">
+    <span class="num-big">3</span>
+    <span class="num-label">Varieties</span>
+  </div>
+  <div class="num-item">
+    <span class="num-big">9 months</span>
+    <span class="num-label">Harvest season</span>
+  </div>
 </div>
 
-<div class="page">
-
-  <div class="toc">
-    <div class="toc-label">In this report</div>
-    <ol>
-      <li><a href="#ch1">The hill — a biography</a></li>
-      <li><a href="#ch2">The soil — an honest assessment</a></li>
-      <li><a href="#ch3">Iron chlorosis — the thing most owners get wrong</a></li>
-      <li><a href="#ch4">Water — where it is and how to get it</a></li>
-      <li><a href="#ch5">Five harvests — what the cooperative records reveal</a></li>
-      <li><a href="#ch6">Choosing a cooperative — Exagro, La Casella, and the organic question</a></li>
-      <li><a href="#ch7">The stress argument — why the grove's oranges might be exceptional</a></li>
-      <li><a href="#ch8">The digital grove — precision farming on 1,100 trees</a></li>
-      <li><a href="#ch9">The organic path</a></li>
-      <li><a href="#ch10">Carbon farming — turning the soil into a revenue stream</a></li>
-      <li><a href="#ch11">Funding, grants, and support for women farmers</a></li>
-      <li><a href="#ch12">Ecotourism — building a destination, getting the permits</a></li>
-      <li><a href="#ch13">The forest — clearing the pines, planting holm oak, and the eco-farm permit</a></li>
-      <li><a href="#ch14">Building on limestone — what the geology means</a></li>
-      <li><a href="#ch15">What's coming — predictions</a></li>
-    </ol>
-  </div>
-
-
-  <!-- ── CH 1: THE HILL ── -->
-  <div class="chapter" id="ch1">
-    <div class="chapter-number">Chapter One</div>
-    <h2>The hill — a biography</h2>
-
-    <p>At the top of Puig Gros, the rock underfoot is the floor of a warm shallow sea. The ocean that laid this limestone down closed for the last time eighty million years ago, when the ancestors of every mammal on Earth were small, nocturnal, and hiding from things much larger than themselves. The Pyrenees did not yet exist. The Iberian Peninsula was an island.</p>
-
-    <p>The limestone formed the way limestone always forms: from the compressed shells and skeletons of marine creatures, layer after layer, over millions of years. Calcium carbonate — the same compound in antacid tablets — accumulated to depths of hundreds of metres. When the sea finally retreated and the tectonic forces that would eventually build the Alps began compressing the land, this ancient seabed was squeezed, folded, fractured, and pushed upward. The rock of this hillside was once buried under a kilometre of the sea it used to be.</p>
-
-    <div class="pull">
-      What looks like a farming inconvenience — hard, thin-soiled, difficult limestone hillside — is a geological autobiography. Every problem on this land has eighty million years of backstory.
-    </div>
-
-    <p>The specific formation is called Upper Cretaceous Senonian limestone, which sounds like a technical label but is really just a precise way of saying: this is the same rock that makes up the Sierra de las Agujas, the Sierra de Corbera to the north, and the Mondúber massif further south — the spine of resistant limestone ranges that runs through the Ribera Alta. The memoir of the official 1957 geological survey confirms it directly: <em>"Los extensos Montes de Valldigna, que se desarrollan desde Enova y Carcagente hasta Barig, corresponden casi en su totalidad al Cretáceo Superior."</em> The hills from Carcaixent to Barig, including this one, are almost entirely Upper Cretaceous.</p>
-
-    <p>The fractures visible in any exposed rock face — the hairline cracks, the joints, the places where the rock seems to have been pulled apart or compressed — were formed by the same Alpine tectonic forces. They are not flaws. They are the most important feature of the land, because they are where water lives.</p>
-
-    <div class="factbox">
-      <div class="factbox-label">What makes limestone different from other rock</div>
-      <p>Most rock is essentially waterproof. Limestone is not. It dissolves — slowly, almost imperceptibly, in slightly acidic rainwater. Over millions of years, that dissolution widens the natural fractures into voids, passages, and sometimes caverns. Geologists call this karst. It may never be visible (it happens underground), but it is the reason limestone hills can hold and release water in ways that granite or sandstone hills cannot. This hill is a slow, invisible reservoir.</p>
-      <p><strong>Right now</strong>, with every rainfall, water is percolating down through the rock, cleaning itself as it travels, dissolving calcium as it goes, and collecting in those ancient fractures somewhere below the surface. It is a process that has been running continuously since the Miocene.</p>
-    </div>
-
-    <p>The thin red soil here — the material the trees are growing in — is a byproduct of this dissolution. When limestone dissolves, the calcium goes into solution and drains away. What remains behind is the insoluble fraction: clay minerals, iron oxides (which is what makes it red), silica. A centimetre of terra rossa soil takes somewhere between 1,000 and 10,000 years to form from limestone weathering. The thirty centimetres beneath the grove are anywhere from 300,000 to 3 million years old.</p>
-
-    <p>That is worth keeping in mind the next time a truck parks on the grove.</p>
-  </div>
-
-
-  <!-- ── CH 2: SOIL ── -->
-  <div class="chapter" id="ch2">
-    <div class="chapter-number">Chapter Two</div>
-    <h2>The soil — an honest assessment</h2>
-
-    <p>The 1957 geological survey is unusually direct about what the soil on land like this looks like. In the Agronomía chapter, it measures it: <em>"La tierra de labor se compone de 60 a 70 por 100 de caliza, mezclada con arcilla y pequeñas cantidades de magnesia, sílice y óxido de hierro."</em></p>
-
-    <p>Sixty to seventy percent calcium carbonate. That is a lot of limestone. For context: the soils of the Ribera Alta's irrigated flatlands below — the orange-growing <em>huerta</em> that made Carcaixent famous — are Pleistocene alluvial deposits, rich in organic matter, physically deep, and far more chemically balanced. The farm sits on something categorically different.</p>
-
-    <div class="layers">
-      <div class="layer l0">
-        <div><div class="layer-name">Topsoil</div><div class="layer-desc">Red-brown clay, roots, decomposing material</div></div>
-        <div class="layer-depth">0 – 30 cm</div>
+<!-- ORANGES -->
+<section class="oranges-section" id="oranges">
+  <div class="container">
+    <div class="oranges-grid">
+      <div>
+        <div class="section-eyebrow">The fruit</div>
+        <h2 class="section-title">Stressed to <em>perfection.</em></h2>
+        <p class="lead">On thin limestone soil, citrus trees live with a mild, chronic water stress that flat valley farming cannot replicate — and it changes everything about the fruit.</p>
+        <p class="body">The mechanism runs in two directions simultaneously. First, concentration: moisture evaporates from the fruit faster than sugar is metabolised on this porous, fast-draining rock, raising the Brix — the measure of dissolved sweetness — above what irrigated valley trees ever reach. Second, terpenes: under water stress, a citrus tree redirects its energy from growth into secondary aromatic compounds — specifically limonene and a suite of aldehydes that give premium citrus its depth of smell and flavour. The limestone hillside runs this process continuously, every summer, for free.</p>
+        <blockquote class="pull-quote">"The vine must suffer to produce great wine." The same physics — and the same chemistry — applies to oranges grown on ancient rock.</blockquote>
+        <p class="body">Citrus terroir research using mass spectrometry identifies 44 to 50 volatile compounds that differ measurably between growing locations. Soil type and water availability consistently rank among the primary drivers. Hillside fruit and valley floor fruit are chemically different — not just in agricultural mythology, but in the laboratory data.</p>
       </div>
-      <div class="layer l1">
-        <div><div class="layer-name">Sub-soil</div><div class="layer-desc">Red clay with calcareous rounded stones (cantos rodados)</div></div>
-        <div class="layer-depth">30 cm – ~1 m</div>
-      </div>
-      <div class="layer l2">
-        <div><div class="layer-name">Pleistocene colluvium</div><div class="layer-desc">Partially cemented clay and limestone debris, washed from the hill over ice-age cycles</div></div>
-        <div class="layer-depth">~1 – 2 m</div>
-      </div>
-      <div class="layer l3">
-        <div><div class="layer-name">Fractured bedrock transition</div><div class="layer-desc">Weathered limestone — roots penetrate the fractures here</div></div>
-        <div class="layer-depth">~2 – 5 m</div>
-      </div>
-      <div class="layer l4">
-        <div><div class="layer-name">Solid Cretaceous limestone</div><div class="layer-desc">80 million year old compressed seabed. No soil. Just rock.</div></div>
-        <div class="layer-depth">5 m → deep</div>
-      </div>
-    </div>
-
-    <p>These depths are averages. On the upper slopes, all of these layers can pass in twenty centimetres — in some places the bedrock is simply at the surface. On the lower terraces, where centuries of slope-wash have accumulated, the soil can be double what the upper grove has. There is a particular feature of the terrain around Carcaixent that is worth knowing: the survey documents a specific tongue of loose red siliceous sand extending more than three kilometres east of the town, reaching eleven metres in height above the valley floor. If any of the lower terraces sit in that tongue, those parcels will behave differently — less alkaline, more friable — than the rest of the grove.</p>
-
-    <p>The survey says plainly that Cretaceous limestone hills generate almost no soil from weathering alone. <em>"Se hallen por completo desnudas de vegetación."</em> Completely bare. What the trees are growing in is not in-place soil — it is thousands of years of accumulated debris from the hill above, piled up at the slope base. It took a very long time to get here. It can erode very quickly if mismanaged.</p>
-
-    <div class="alert alert-warn">
-      <span class="alert-icon">⚠</span>
-      <span><strong>The soil is the most irreplaceable thing on this land.</strong> A centimetre of it took somewhere between one and ten thousand years to form. A single compaction event from heavy machinery can destroy the structure permanently. Any construction, any vehicle access to the grove, should be mapped with soil protection as the primary constraint — not an afterthought.</span>
-    </div>
-  </div>
-
-
-  <!-- ── CH 3: IRON CHLOROSIS ── -->
-  <div class="chapter" id="ch3">
-    <div class="chapter-number">Chapter Three</div>
-    <h2>Iron chlorosis — the thing most owners get wrong</h2>
-
-    <p>This is the part of the report where most landowners on limestone hillsides spend a lot of money in the wrong places.</p>
-
-    <p>When citrus trees on calcareous soil start to yellow — leaves going pale between the veins while the veins themselves stay dark green — the diagnosis is usually called iron chlorosis, and the treatment most people reach for is iron fertiliser. This is correct and incorrect simultaneously.</p>
-
-    <p>The soil beneath the grove contains iron in enormous quantities. The iron is physically present. The problem is that it is chemically locked in a form the tree cannot absorb. Here is the mechanism: for every unit increase in soil pH above neutral (7.0), the solubility of iron drops by a factor of one thousand. The farm's soil sits around pH 8 to 8.5 — normal for limestone. That means the iron in this soil is a hundred million times less available than it would be in a neutral or acidic environment. The tree is surrounded by iron it cannot eat. It is starving in a warehouse full of food.</p>
-
-    <div class="pull">
-      The most important decision for iron chlorosis on this land was made decades ago, by whoever selected the rootstock. Not the fertiliser. The rootstock.
-    </div>
-
-    <p>This is what most owners don't know. IVIA — the Valencian Institute of Agrarian Research, which runs one of the most active citrus rootstock programmes in the world specifically because of this problem — classifies rootstocks into three categories for lime tolerance. At one end: sour orange (<em>Citrus aurantium</em>), extremely resistant, can access iron even in highly alkaline soil. At the other end: Troyer citrange, which needs fourteen times more dissolved iron than resistant varieties just to function normally. Troyer citrange was planted extensively across Valencia in the 1980s and 90s for its vigour and disease resistance, without full awareness of how it would perform on hillside calcareous soils. Many of the chronically chlorotic groves visible today are Troyer on limestone.</p>
-
-    <p>The first practical question for this property is: what rootstock are the 1,100 trees growing on? If they were planted or regrafted in the 1980s-90s era, and they show chlorosis symptoms, the rootstock is likely the primary constraint — and no amount of iron fertiliser will fully compensate for it.</p>
-
-    <div class="factbox">
-      <div class="factbox-label">Iron treatments — what actually works on calcareous soil, ranked</div>
-      <p><strong>Fe-EDDHA chelate</strong> — The only synthetic chelated iron formulation stable at pH above 7.5. Standard Fe-EDTA chelates (cheaper, more widely sold) decompose in alkaline soil and are essentially useless here. EDDHA is expensive and must be applied annually, but it works. Apply by fertigation, April through September.</p>
-      <p><strong>Vivianite (Fe₃(PO₄)₂)</strong> — A naturally occurring iron-phosphate mineral (the blue-green crystals found in waterlogged sediments). Applied to soil at 1g per kilogram, it is as effective as EDDHA in trials on calcareous soil — with an effect lasting more than two seasons. Almost no grower has heard of it. This is the organic transition option.</p>
-      <p><strong>Humic substances + vermicompost</strong> — A 2023–2024 field study found this combination increased leaf iron content by 57% in year one and 103% in year two. Humic acids chelate iron naturally, the same mechanism as synthetic EDDHA. This is the regenerative pathway.</p>
-      <p><strong>Warning</strong> — Large organic matter additions can temporarily worsen chlorosis during decomposition. Build slowly. Prioritise humic acids (pre-processed organic matter) before raw compost.</p>
-    </div>
-
-    <div class="alert alert-blue">
-      <span class="alert-icon">ℹ</span>
-      <span>A SPAD meter — a handheld device that measures leaf chlorophyll non-destructively — costs under €100 and allows tracking of the actual nutritional response of individual trees to different treatments. At the scale of 1,100 trees across varied soil depths, this is far more informative than a single soil analysis.</span>
-    </div>
-  </div>
-
-
-  <!-- ── CH 4: WATER ── -->
-  <div class="chapter" id="ch4">
-    <div class="chapter-number">Chapter Four</div>
-    <h2>Water — where it is and how to get it</h2>
-
-    <p>In 1781, a parish priest named Vicente Monzó Vidal planted an orange grove in Carcaixent. He faced the same problem this land presents: a limestone hillside, rain-fed. The citrus he wanted to grow needed more water than the sky reliably provided. His solution was to sink wells and install Arab-designed norias — wooden waterwheels — to lift water from the shallow water table. He planted anyway, on faith and engineering. Within a century, the orange industry he helped start would make Carcaixent the self-declared orange capital of the world.</p>
-
-    <p>The water problem on limestone hillside land in the Ribera Alta has been solved many times over. The question for this property is not whether water exists below ground — it does — but how deep and where.</p>
-
-    <div class="staccato">
-      The limestone is cracked. The cracks hold water. The cracks are invisible from the surface. This is the entire problem and the entire solution.
-    </div>
-
-    <p>The 1957 geological survey is unusually specific about nearby water infrastructure. The well supplying both Alzira and Carcaixent was drilled into Cretaceous limestone just east of Alzira. It is 41 metres deep, has an elliptical shaft (3 metres by 1.9 metres), with inclined drill-holes at the bottom to reach further into the rock. Two electric pump groups extract 4,000 litres per minute. The water analysis: Cal 0.138 g/L, Magnesia 0.062 g/L, hardness 30° hydrotimetric — moderately hard, calcium-magnesium bicarbonate chemistry, suitable for irrigation without treatment.</p>
-
-    <p>For the valley floor immediately below the finca — the La Casella valley — the survey documents wells of 25 to 50 metres depth yielding 1,000 to 3,000 litres per minute, used specifically for orange cultivation. It adds: <em>"La disposición del terreno coloca a la parte inferior del valle en mejor situación, respecto a alumbramientos, que el extremo oriental"</em> — the lower (western) end of the valley performs better for wells than the upper (eastern) end.</p>
-
-    <div class="numbers">
-      <div class="num-cell"><span class="big">25–50</span><span class="unit">metres depth, La Casella valley wells</span></div>
-      <div class="num-cell"><span class="big">1–3K</span><span class="unit">litres/min, those same wells</span></div>
-      <div class="num-cell"><span class="big">41</span><span class="unit">metres, the Alzira/Carcaixent supply well</span></div>
-      <div class="num-cell"><span class="big">4,000</span><span class="unit">litres/min, that supply well</span></div>
-    </div>
-
-    <p>The survey also flags something intriguing: in the Rincón de la Casella — terrain immediately adjacent to this property — the structure of the rock <em>"hace imaginar la posibilidad de hallar, a profundidad superior a 150 metros, niveles acuíferos de tipo ascendente"</em> — artesian-type aquifer levels, where water rises under its own pressure. These have been confirmed in deeper boreholes in the Aguas Vivas valley. At 150 metres, a successful well here is not just a well — it may be a pressurised one.</p>
-
-    <table class="wtable">
-      <tr><th>Location</th><th>Depth</th><th>Yield</th><th>In soil or rock?</th></tr>
-      <tr class="highlight-row"><td><strong>La Casella valley (below the finca)</strong></td><td>25–50 m</td><td>1,000–3,000 L/min</td><td>Quaternary Pleistocene fill</td></tr>
-      <tr><td>Alzira/Carcagente town supply</td><td>41 m</td><td>4,000 L/min</td><td>Cretaceous limestone</td></tr>
-      <tr><td>La Casella / La Murta springs</td><td>surface</td><td>4–15 L/min</td><td>Surface fracture seeps</td></tr>
-      <tr><td>Carcagente local springs (La Falsia, El Tosal)</td><td>surface</td><td>1–2 L/min</td><td>Hillside seeps</td></tr>
-    </table>
-
-    <div class="alert alert-good">
-      <span class="alert-icon">✓</span>
-      <span><strong>The target is the limestone-valley contact at the lower boundary of the property.</strong> This is exactly what the official survey recommends for borehole siting: <em>"the flanks of the massifs near the Quaternary, preferably in fault or fractured zones."</em> That description matches this property's lower edge. Before drilling, an Electrical Resistivity Tomography (ERT) survey — non-invasive, electrodes pressed into the soil, a few thousand euros — maps water-bearing fractures at depth and dramatically improves success rates. Without it, the outcome depends on finding a crack by chance. With it, the crack is located first.</span>
-    </div>
-
-    <div class="factbox">
-      <div class="factbox-label">What the laboratory found — January 2026 water test</div>
-      <p>Two water samples were tested by accredited laboratory in January 2026 (reference M-26-0146 and M-26-0147). The results divide cleanly into two columns: what is safe for irrigation, and what is not safe for the kitchen.</p>
-      <p><strong>For irrigation: usable.</strong> pH 7.4 is within citrus tolerance. Conductivity is well below the irrigation limit — the salt load is low. Sulfates and chlorides are both comfortably within range. Legionella: not detected.</p>
-      <p><strong>For drinking: no.</strong> Nitrates are 56% above the EU drinking water limit. E. coli detected; total coliforms above the acceptable threshold. Both should be zero. The source is almost certainly agricultural runoff from upslope orchards — standard in Valencia's intensive farming districts, but not acceptable in the kitchen without UV or reverse-osmosis treatment.</p>
-      <p><strong>One unexpected benefit:</strong> the nitrate level in irrigation water is effectively free nitrogen fertiliser. At typical drip volumes across the grove, this delivers a meaningful fraction of the trees' annual nitrogen requirement. The fertilisation plan should account for this — nitrogen is already being applied with every irrigation, paid for by someone else's runoff upstream.</p>
-      <p><strong>One missing test:</strong> bicarbonates (TAC — total alkalinity) were not included. This is the critical measurement for drip-irrigated citrus on limestone: high bicarbonate in irrigation water raises the soil pH around drip emitters, directly worsening iron lockup. TAC should be requested in the next water test.</p>
-    </div>
-
-    <div class="alert alert-rust">
-      <span class="alert-icon">✕</span>
-      <span><strong>This water should not be consumed without treatment.</strong> The January 2026 test found nitrates above the EU drinking limit, E. coli, and coliform bacteria. A reverse-osmosis or UV system should be installed before using well water in the house. For irrigation: safe as-is.</span>
-    </div>
-  </div>
-
-
-  <!-- ── CH 5: COOPERATIVE RECORDS ── -->
-  <div class="chapter" id="ch5">
-    <div class="chapter-number">Chapter Five</div>
-    <h2>Five harvests — what the cooperative records reveal</h2>
-
-    <p>Over five seasons, this grove delivered fruit kilogram by kilogram, grade by grade, to Coop. Vila Nova de Castelló. Year to year, the total looks stable. Beneath it, almost nothing has been stable.</p>
-
-    <p>Every year, two documents arrive from the cooperative. The <em>anticipo</em>: a flat advance payment made at delivery, per kilogram, to cover costs while the coop sells the fruit at market. The <em>liquidación</em>: the final reckoning, months later, that accounts for exactly how much of each variety graded CAT1 (top commercial size and colour), how much graded CAT2, how much went as <em>baix calibre</em> (undersized) or <em>destrio</em> (below grade). Five years of liquidaciones, read together, reveal the patterns that no single season shows on its own.</p>
-
-    <table class="season-table">
-      <tr><th>Season</th><th>Clemenules</th><th>Lane-Late</th><th>Navelina</th><th>Season result</th></tr>
-      <tr><td>Year 1 (baseline)</td><td>large crop · below-avg price</td><td>solid · low price</td><td>good yield · very low price</td><td>moderate</td></tr>
-      <tr><td>Year 2 (peak)</td><td class="s-good">record crop · good price</td><td>reduced · strong price</td><td>steady · recovering price</td><td class="s-good">strong</td></tr>
-      <tr><td>Year 3</td><td class="s-warn">crash year · premium price</td><td>reduced · strong price</td><td>full yield · strong price</td><td>average</td></tr>
-      <tr><td>Year 4</td><td>recovery · average price</td><td class="s-good">rising · strong price</td><td class="s-warn">collapse begins</td><td class="s-warn">below average</td></tr>
-      <tr class="s-owner"><td>Year 5 ★ (first owner year)</td><td>steady · good price</td><td class="s-tbd">rising (liquidación due)</td><td class="s-warn">minimal yield</td><td class="s-tbd">TBD — Lane-Late pending</td></tr>
-    </table>
-    <p style="font-family:-apple-system,sans-serif;font-size:0.75rem;color:var(--faint);margin-top:-0.75rem;">★ First full season under current ownership. Lane-Late harvest runs April–June; liquidación typically arrives 2–3 months after delivery, so August 2026 — request it from Exagro if not received.</p>
-
-    <p>Three stories emerge. Each one requires a different response.</p>
-
-    <div class="pull">
-      The Clemenules alternates. The Navelina has collapsed. The Lane-Late is rising. None of these facts show up if only one year at a time is read.
-    </div>
-
-    <p><strong>Story one: Clemenules breathes on a two-year rhythm.</strong> The sequence — large, record, crash, recovery, steady — is not erratic. It is biennial bearing, a well-documented Clemenules trait. A heavy crop year exhausts the tree's stored carbohydrate reserves; the following spring, it has less energy to set fruit. The record year was spectacular. The crash that followed was its mathematical consequence. The current baseline is the new normal, post-boom. Finances should be planned to survive the lean year — it is not a failure, it is a schedule.</p>
-
-    <p><strong>Story two: quality is the lever.</strong> In the best quality year, more than half the Clemenules graded CAT1 — the top commercial grade. In the worst quality year, barely a quarter did. The volume was similar. The quality difference cost significant revenue. CAT1 fruit commands 50 to 80% more than CAT2. Every management decision on this land — iron fertilisation, irrigation timing, harvest date — should be evaluated through one question: does this raise or lower the CAT1 percentage? That fraction, not the total kilograms, is the primary revenue lever.</p>
-
-    <p><strong>Story three: the Navelina needs urgent attention.</strong> In Year 3, all 300 Navelina trees produced a full healthy yield. In Years 4 and 5: two consecutive near-collapse seasons from the same 300 trees. A healthy Navelina tree on this variety yields 30 to 50 kg. These trees are producing 5 to 10 kg each. Two identical consecutive crash years rule out a bad season. Something has gone wrong at root level.</p>
-
-    <div class="factbox">
-      <div class="factbox-label">Lane-Late — the quiet standout</div>
-      <p>While Clemenules oscillates and Navelina struggles, Lane-Late has been the most consistent performer: volume growing across the five-year period, prices holding strong, and a harvest window (April through June) that arrives after the Clemenules and Navelina windows close, capturing a different and less competitive pricing moment.</p>
-      <p>IVIA research on calcareous limestone soils specifically recommends extending late-season varieties as the strategic response to warming temperatures — late navels hold on the tree longer in rising heat, and their harvest window is shifting later. Lane-Late is already positioned for this. It will likely prove the dominant income contribution for the first full season under current ownership, once its liquidación arrives.</p>
-    </div>
-  </div>
-
-
-  <!-- ── CH 6: COOPERATIVES ── -->
-  <div class="chapter" id="ch6">
-    <div class="chapter-number">Chapter Six</div>
-    <h2>Choosing a cooperative — Exagro, La Casella, and the organic question</h2>
-
-    <p>In Spain, the cooperative is not a passive buyer. It is a working relationship with defined responsibilities on both sides — and understanding exactly where those responsibilities fall changes how every season gets planned.</p>
-
-    <p>The cooperative currently handling this grove's fruit is <strong>Coop. del Camp de Vila Nova de Castelló (Exagro)</strong>, GlobalG.A.P. and BRC Food certified. A direct conversation with Exagro in May 2026 clarified the division of labour.</p>
-
-    <div class="factbox">
-      <div class="factbox-label">What Exagro confirmed: who does what</div>
-      <p><strong>Pruning:</strong> The socio (the farm's owner). The cooperative does not prune.</p>
-      <p><strong>Pest and disease treatment:</strong> The socio, unless the socio specifically requests cooperative intervention. This matters: the cooperative has application capacity, but it requires a request. It does not happen automatically.</p>
-      <p><strong>Irrigation:</strong> The socio. The cooperative does not touch the drip system.</p>
-      <p><strong>Harvest timing:</strong> The cooperative's <em>veedor</em> (field inspector assigned to the parcels) decides when the fruit is ready for collection, based on maturity measurements. Harvest date is not controlled by the farm — the veedor decides, according to variety maturity and market timing. This is standard, but important to understand before planning logistics.</p>
-      <p><strong>Canon de amortización</strong> (the overhead charge that appears in each liquidación): calculated annually, per campaign, as the year's general cooperative costs divided by the surface area of member parcels. It varies year to year because it reflects actual operating costs. When it looks higher one season, it is because the cooperative's costs that year were higher — not a variable margin.</p>
-      <p><strong>Technical support:</strong> Once registered as a socia, the cooperative's technical department is available for field visits, production advice, and quality improvement review. This should be requested as soon as membership is formalised — it is included and underused.</p>
-      <p><strong>DANA aid:</strong> The Conselleria d'Agricultura opened and closed application windows for October 2024 DANA damage compensation. Those deadlines have passed. No retroactive application is possible through the cooperative.</p>
-      <p><strong>Varietal replanting subsidies (Fondos Operativos):</strong> The cooperative participates in EU Operational Programme funds that subsidise the purchase of specific new variety plantlets. The process: the grower pays the full cost upfront, the subsidy reimbursement arrives the following year. Applications must be made in advance of the planting season — not retroactively. Ask Exagro each autumn which varieties are subsidised for the coming season.</p>
-    </div>
-
-    <p>One question was not yet put to Exagro at the time of this report: <strong>does the cooperative accept fruit classified <em>en transición ecológica</em></strong> — the status fruit carries during the three-year EU organic conversion period? Because Exagro is a conventional cooperative, the most likely answer is that transitional fruit is accepted into the conventional channel at conventional prices — with no organic premium. But this needs to be asked directly before starting the conversion clock. The answer determines whether transitional years generate full income or partial income.</p>
-
-    <div class="alert alert-blue">
-      <span class="alert-icon">ℹ</span>
-      <span>Ask Exagro two questions this season: (1) <em>¿Aceptáis fruta en transición ecológica?</em> (2) <em>¿Tenéis canal de venta ecológica o precio diferenciado para fruta ecológica certificada?</em> The second question is equally important — and more likely to reveal that the answer to premium organic pricing lies elsewhere.</span>
-    </div>
-
-    <p>That elsewhere is <strong>Cooperativa La Casella</strong>, based in the Corbera area — the same valley the geological survey names, whose floor lies immediately below this property. La Casella operates a dedicated <em>Naranjas Eco</em> line of certified organic citrus. If they hold CAECV (Consell d'Agricultura Ecológica de la Comunitat Valenciana) certification, they have the infrastructure to actually sell organic fruit at organic prices — which is what makes the economics of conversion work.</p>
-
-    <table class="coop-compare">
-      <tr><th>Question</th><th>Exagro (Vila Nova)</th><th>La Casella</th></tr>
-      <tr><td class="row-label">Certification</td><td>GlobalG.A.P. + BRC (conventional)</td><td>Eco line — CAECV status to confirm</td></tr>
-      <tr><td class="row-label">Accepts transitional fruit?</td><td class="c-ask">Likely yes, at conventional price — ask</td><td class="c-ask">Possibly yes with premium — ask</td></tr>
-      <tr><td class="row-label">Organic price channel?</td><td class="c-no">No — not organic certified</td><td class="c-yes">Yes, if CAECV confirmed</td></tr>
-      <tr><td class="row-label">Technical support</td><td class="c-yes">Yes, on request</td><td class="c-ask">Verify</td></tr>
-      <tr><td class="row-label">Varietal subsidies</td><td class="c-yes">Yes, Fondos Operativos</td><td class="c-ask">Verify</td></tr>
-      <tr><td class="row-label">Can hold parcels in both?</td><td colspan="2" style="color:var(--rust);font-style:italic;">In Spain, each parcel can only deliver to one cooperative per campaign. Splitting requires separate parcel registration.</td></tr>
-    </table>
-
-    <p>The strategic picture: Exagro is the right partner for the conventional fruit stream. If organic conversion becomes the direction, La Casella's eco line is the more promising destination for that fruit — and the conversation with them should happen before the conversion clock starts, not after. Once La Casella's answer on transitional acceptance and price is known, the information to build a transition business case is in hand.</p>
-  </div>
-
-
-  <!-- ── CH 7: STRESS ARGUMENT ── -->
-  <div class="chapter" id="ch7">
-    <div class="chapter-number">Chapter Seven</div>
-    <h2>The stress argument — why the grove's oranges might be exceptional</h2>
-
-    <p>Here is the counterintuitive truth that every serious wine producer figured out centuries before citrus growers articulated it: the fruit is better when the tree suffers.</p>
-
-    <p>Not dramatically — not the kind of stress that kills a tree or drops a crop. But mild, chronic water stress on thin limestone soil activates something in a citrus tree that flat, irrigated, alluvial farming cannot replicate. The mechanism runs in two directions simultaneously.</p>
-
-    <p>First, concentration. On thin soil with limited water storage, moisture evaporates from the fruit during summer faster than sugar is metabolised. The same quantity of sugars becomes distributed through less juice. The Brix — the measure of dissolved sugars — rises. This is exactly the principle behind "regulated deficit irrigation," a scientifically validated technique where growers deliberately restrict water during fruit development to raise sugar content. The limestone hillside does it naturally, for free, every summer.</p>
-
-    <p>Second, terpenes. Under water stress, a citrus tree undergoes a dramatic chemical shift. Instead of putting carbon into vegetative growth, it redirects it into secondary metabolites — specifically terpenes, the aromatic compounds that give good citrus its smell and flavour profile. A 2026 study found that water deficit triggers a spike in limonene (the dominant aroma compound in orange peel) and an increase in stress-signalling aromatic aldehydes. The tree is essentially making perfume as a stress response. The limestone hillside, by imposing mild chronic stress, is running this process continuously.</p>
-
-    <div class="pull">
-      The Burgundy growers' maxim — "the vine must suffer to produce great wine" — is not mysticism. It is terpene chemistry observed empirically over centuries before the science existed to explain it. The same physics applies to the oranges grown here.
-    </div>
-
-    <p>This is not a romantic theory. There is now a growing body of citrus terroir research — "flavoromics," using mass spectrometry to identify the 44 to 50 volatile compounds that differ between growing locations — and soil type and water availability consistently rank among the primary drivers of flavour divergence. Hillside fruit and valley floor fruit are measurably different in their chemical profile, not just in agricultural mythology.</p>
-
-    <p>The comparison to wine is useful and underused. In Champagne, the great winemakers solved the same iron-chlorosis rootstock problem this land faces — they selected <em>Vitis berlandieri</em> crossings specifically for limestone tolerance after the phylloxera crisis. In Chablis and Burgundy, thin limestone soils produce wines described as "fine, linear, mineral" — qualities attributed to the drainage and stress effect of Kimmeridgian limestone, the same mechanism at work here. In Priorat, Garnacha grown on black slate (a different rock, but identical water-stress mechanics) produces concentrated wines that command prices impossible on fertile valley floor soils. The underlying principle is universal: scarcity of water, if not catastrophic, is a flavour amplifier.</p>
-
-    <p>There is a commercial implication here that is not yet being exploited in Valencian citrus: nobody is selling the terroir of limestone hillside oranges as distinct from valley floor production. That narrative does not exist yet. If it did — and the chemistry supports it — it would represent a differentiation argument for direct sales, farmstay visitors, and premium positioning that pure volume production to a cooperative cannot access.</p>
-  </div>
-
-
-  <!-- ── CH 8: DIGITAL GROVE ── -->
-  <div class="chapter" id="ch8">
-    <div class="chapter-number">Chapter Eight</div>
-    <h2>The digital grove — precision farming on 1,100 trees</h2>
-
-    <p>There is no way to walk 1,100 trees in an afternoon. This is not a management failure — it is arithmetic. But it is also why, right now, a European Space Agency satellite passes over the Ribera Alta every five days and photographs every hectare of this grove in more detail than any observer can see standing in it.</p>
-
-    <p>The satellite is Sentinel-2. It orbits at 786 kilometres and reads thirteen spectral bands — including near-infrared, invisible to the human eye — that reveal the density of chlorophyll in leaf tissue. From this, a colour map of the grove is generated every five days: healthy trees in one colour, iron-chlorotic trees — even weeks before their leaves visibly yellow — in another. This imagery goes back to 2015. Every season the previous owners managed this land is documented from above. The baselines are already there. The Copernicus Browser provides them free, on demand.</p>
-
-    <div class="staccato">
-      The satellite has been watching this grove for ten years. The current owner has held the land for one.
-    </div>
-
-    <p>On the ground, the tools that complement satellite observation are simpler than they sound. A SPAD meter clips to a single leaf and measures its chlorophyll content non-destructively in half a second — the number returned is a direct proxy for iron status. Below 35: mild chlorosis. Below 25: severe. Above 50: healthy. Walking the Navelina rows with a SPAD meter in October, sampling ten leaves per tree, takes a morning and produces a map of exactly which trees are nutritionally declining and which are not. The Apogee MC-100 costs around €700. A single season of SPAD data tells more about the grove's iron response to fertilisation than five years of visual observation.</p>
-
-    <p>Two soil moisture probes buried at root depth — one in the upper terrace, one in the lower — report continuously what the soil is doing between irrigations. The reason this matters is specific: overwatering drip-irrigated citrus on limestone soil pushes calcium bicarbonate into the root zone, which raises the local pH and locks up iron further. Underwatering during fruit sizing pushes small-calibre fruit into lower cooperative grades. The sensor makes both risks observable before they become expensive.</p>
-
-    <p>A small on-site weather station connected to the IVIA SIAR agrometeorology network gives daily reference evapotranspiration (ETo) — the scientific measure of how much water the crop needs based on temperature, humidity, and wind. This number underpins Regulated Deficit Irrigation (RDI): a well-researched protocol where citrus water supply is deliberately restricted to 30–50% of full replacement during July and August, concentrating sugars and aromatic terpenes in the fruit without significant yield loss. The limestone hillside already does this naturally. RDI makes it controllable and repeatable — and allows documentation of the quality improvement in a way that premium buyers can verify.</p>
-
-    <div class="roadmap">
-      <div class="roadmap-step now">
-        <h4>Year 1 — foundation (now · ~€2,500–4,000)</h4>
-        <p>Leaf mineral analysis, 5 samples across varieties and terrace zones: €250–450. SPAD chlorophyll meter: €700–1,200. Two soil moisture probes (Sentek or Meter TEROS): €1,000–1,600. On-site weather station (Davis Vantage Pro): €800–1,500. Priority order: leaf analysis first — it tells you what you're treating before you spend on equipment.</p>
-      </div>
-      <div class="roadmap-step">
-        <h4>Year 2 — precision irrigation (~€1,500–2,500)</h4>
-        <p>Smart irrigation controller (Netafim NMC or Galcon): €300–600. Tensiometer network, 4–6 Irrometer Watermark sensors: €400–600. pH/EC inline sensor on irrigation line (Hanna HI2030): €300–500. This layer converts the Year 1 soil moisture data into automatic irrigation decisions.</p>
-      </div>
-      <div class="roadmap-step">
-        <h4>Year 3+ — remote sensing and carbon</h4>
-        <p>Annual multispectral drone survey (Agropixel or Hemav, Valencia-based): €300–500/flight. NDVI map overlaid on cooperative grade data tells you which grove zones produce CAT1 and which produce destrio. Soil carbon baseline (5 core samples, lab analysis): €500 — required before any future carbon credit claim. Sentinel-2 analytics subscription (EOS Crop Monitoring): €200/year.</p>
-      </div>
-    </div>
-
-    <div class="alert alert-blue">
-      <span class="alert-icon">ℹ</span>
-      <span>Three things precision technology enables that walking the grove does not: detecting individual tree decline six to eight weeks before visible symptoms; justifying irrigation reductions precise enough to raise Brix without damaging yield; and building the auditable measurement record required for carbon credit verification. All three have direct revenue consequences.</span>
-    </div>
-  </div>
-
-
-  <!-- ── CH 9: ORGANIC PATH ── -->
-  <div class="chapter" id="ch9">
-    <div class="chapter-number">Chapter Nine</div>
-    <h2>The organic path</h2>
-
-    <p>Organic conversion sounds like a values decision. It is also a business calculation, a three-year bureaucratic clock, and a question that the cooperative needs to answer before any commitment to a timetable can be made.</p>
-
-    <p>The first question is not about the land. It is about which cooperative receives the fruit during conversion. Because Exagro is conventional, transitional fruit delivered there earns conventional prices — the organic clock runs, but the premium doesn't materialise until a certified organic buyer enters the picture. La Casella's eco line, if it accepts transitional fruit, changes this calculation entirely. The cooperative decision and the organic decision are not separate choices — they are the same choice.</p>
-
-    <p>The certification body for organic production in Valencia is CAECV — the Consell d'Agricultura Ecológica de la Comunitat Valenciana. They inspect and certify under EU Organic Regulation 2018/848. The three-year conversion period begins from the day synthetic inputs stop. Fruit from years one and two cannot carry the EU organic leaf logo. Year three qualifies — but only if every input receipt, every spray record, and every application log from the conversion period is documented and auditable. The paperwork precedes the certificate.</p>
-
-    <div class="pull">
-      Three practices can begin this season, without any certification, without cooperative permission, and without any reduction in conventional income. They will not be wasted whether conversion happens or not.
-    </div>
-
-    <p>The three: cover crops between terrace rows, mulch under tree canopies, and stopping herbicide sprays. Sow hairy vetch (<em>Vicia villosa</em>) and a grass mix between the rows this October, after Lane-Late harvest. Mow instead of spray — leave the cut material in place as mulch. Shred pruning waste with a chipper and spread it 5–8 cm deep under the drip line of every tree, keeping 20 cm clear around the trunk. These changes rebuild the soil biology that intensive management suppresses. They are compatible with current GlobalG.A.P. certification. They cost labour, not compliance.</p>
-
-    <p>The financial case for organic conversion depends on one number: the premium. IVIA research suggests the price premium needs to exceed 30% above conventional prices for the economics of transition — higher input costs, possible yield reduction in conversion years, certification fees — to work. In Spain's organic citrus market, that premium has been available in recent years for direct-sale navel oranges and through premium supermarket chains. But availability is not guarantee. The cooperative's offer, when asked directly, is the honest number to start from.</p>
-
-    <div class="alert alert-good">
-      <span class="alert-icon">✓</span>
-      <span>Everything that benefits the grove agronomically — better soil biology, improved iron availability through organic humic chelates, cover crops reducing compaction, mulch retaining moisture — also advances the organic certification timeline. These practices are not in tension with production. Start them for agronomic reasons. The certificate follows.</span>
-    </div>
-  </div>
-
-
-  <!-- ── CH 10: CARBON FARMING ── -->
-  <div class="chapter" id="ch10">
-    <div class="chapter-number">Chapter Ten</div>
-    <h2>Carbon farming — turning the soil into a revenue stream</h2>
-
-    <p>Agricultural land is the largest potential carbon sink in Europe that is not yet being paid for. That is changing, faster than most farmers know.</p>
-
-    <p>Here is the mechanism in one sentence: soil managed with organic matter, cover crops, and minimal tillage builds stable carbon compounds underground faster than it loses them — and those stored tonnes of carbon dioxide can now be counted, verified, and sold as credits to companies whose emissions cannot be reduced any other way. The farmer who stores the carbon earns the revenue. The soil gets better. The grove becomes a climate asset.</p>
-
-    <div class="factbox">
-      <div class="factbox-label">The Sicily baseline — what regenerative management does to a citrus grove's carbon</div>
-      <p>A 13-year study comparing conventional and regenerative orange grove management on calcareous Mediterranean soil found a complete reversal of carbon direction. The conventional grove: a net carbon emitter, losing soil carbon continuously through tillage and organic matter depletion. The regenerative grove — cover crops, buried pruning residue, compost inputs, no herbicide — became a measurable <strong>net carbon sink</strong>, absorbing more CO₂ equivalent than it emitted.</p>
-      <p>At 4.5 hectares, switching management systems produces a carbon swing equivalent to removing several cars from the road every year. The practical implication is that every season of regenerative management that is documented and independently verified from the start accumulates a record that becomes sellable under EU carbon certification frameworks.</p>
-    </div>
-
-    <p>The market for agricultural carbon credits in Europe is forming now, not in the future. Three frameworks matter for a property of this scale.</p>
-
-    <p><strong>EU Carbon Removal Certification Framework (CRCF).</strong> Regulation EU 2024/3012, adopted December 2024, is the first EU-wide framework for certifying carbon removals — including soil carbon from agriculture and agroforestry. It establishes the rules under which farming carbon can be counted, audited, and traded. Implementing regulations are still being written; the framework becomes fully operational roughly 2028–2030. A grove that establishes its soil carbon baseline and management records now is positioned to enter that market as a documented participant from day one.</p>
-
-    <p><strong>Agreena.</strong> Currently the most active agricultural carbon credit platform in Europe, operating across more than 15 countries. Their methodology applies the Verra VCS VM0042 standard, which measures changes in soil organic carbon pools from the surface down to one metre. A minimum of 200 hectares is required for direct programme enrollment — but Agreena explicitly operates an aggregation model, grouping neighbouring farms to reach the threshold. The Conselleria d'Agricultura's regional offices in Valencia and the GDR de La Ribera (the LEADER rural development group covering this area) are the local contacts for identifying aggregation schemes already forming. One conversation establishes whether this region has an aggregation effort underway.</p>
-
-    <p><strong>Verra VCS VM0042 independently.</strong> Any CAECV-certified organic farm can pursue carbon credit verification independently through a third-party Verra auditor without going through Agreena. The process is more administratively intensive, but the auditing infrastructure is established and the credits are internationally tradeable. This path is more relevant at the 3-5 year mark, once organic certification is in place and a soil carbon baseline exists.</p>
-
-    <div class="numbers">
-      <div class="num-cell"><span class="big">€30–80</span><span class="unit">per verified tonne CO₂, current European market</span></div>
-      <div class="num-cell"><span class="big">1–5</span><span class="unit">tonnes CO₂/ha potentially stored annually in regenerative citrus</span></div>
-      <div class="num-cell"><span class="big">2028</span><span class="unit">approximate year EU CRCF market becomes fully operational</span></div>
-    </div>
-
-    <p>At 4.5 hectares and conservative carbon storage estimates, the direct annual revenue from verified carbon credits is modest — in the low hundreds of euros to low thousands, depending on verification costs. What matters more than the immediate revenue is the <strong>audited baseline</strong>. Carbon credits are valued on the difference between business-as-usual and improved management. A grove that has been regeneratively managed and documented for five years before the EU market opens will have five years of verified improvement to monetise. A grove that starts in 2030 starts with nothing. The credit for starting early is compounding, not fixed.</p>
-
-    <p>There is a secondary market implication beyond direct credit sales. Brands in premium retail — organic supermarket chains, hotel groups, sustainability-reporting corporations — increasingly require supply chain carbon data, not just organic certification. A small citrus producer with verified carbon accounting is a rare and genuinely differentiated supplier. The story it enables — a hillside grove on ancient limestone, managed regeneratively, with audited soil carbon records — is the kind of provenance narrative that commands premium shelf position, not cooperative market price.</p>
-
-    <div class="alert alert-good">
-      <span class="alert-icon">✓</span>
-      <span><strong>First step, this season:</strong> Establish the soil carbon baseline. Five soil core samples (0–30 cm and 30–100 cm), analysed by an IVIA-accredited laboratory for total organic carbon, bulk density, and pH. Cost: approximately €300–500. This single action — taken before any management changes — is what makes all future carbon claims verifiable. Without a baseline, there is nothing to compare against.</span>
-    </div>
-  </div>
-
-
-  <!-- ── CH 11: WOMEN + FINANCING ── -->
-  <div class="chapter" id="ch11">
-    <div class="chapter-number">Chapter Eleven</div>
-    <h2>Funding, grants, and support for women farmers</h2>
-
-    <p>The European and Spanish funding landscape for small agricultural producers is dense, slow-moving, and genuinely rewarding for those who navigate it. A woman under 40 starting a new agricultural operation in rural Valencia sits at the intersection of several priority categories — gender, youth, rural development, organic conversion — that all carry preferential access to public money.</p>
-
-    <p>None of these programs require a completed project. Most require a registered agricultural operator — <em>agricultor activo</em> — status with the Conselleria d'Agricultura. That registration is the prerequisite for almost everything below, and it is the first administrative step to take this season.</p>
-
-    <div class="factbox">
-      <div class="factbox-label">First move: register as agricultor activo</div>
-      <p>Registration with the Conselleria d'Agricultura de la Generalitat Valenciana establishes the farm owner as an active farmer in the Spanish agricultural system. It is required for PAC (Common Agricultural Policy) subsidy applications, organic conversion aid, LEADER grants, and the "joven agricultor" first-installation payment. It also unlocks access to the cooperative's technical department.</p>
-      <p>The process: visit the Oficina Comarcal Agraria in Alzira or apply through the GVA online portal. The property cadastral references, NIE, and evidence of agricultural activity will be needed (the cooperative membership and delivery records serve this purpose).</p>
-    </div>
-
-    <p><strong>The PAC Joven Agricultor payment</strong> is the single largest first-step grant available to a new farmer under 40. Under Spain's Plan Estratégico de la PAC 2023–2027, Intervención 70 provides a one-time payment of up to €70,000 for first installation as an agricultural professional within the past five years. Eligibility requires: under 40 at the time of first installation, adequate professional qualifications (an agricultural course or degree, or five years of professional experience), and registration as an active farmer. The payment can be used for any agricultural investment — equipment, infrastructure, certification costs. Application is through the Conselleria d'Agricultura.</p>
-
-    <div class="program-grid">
-      <div class="program-card">
-        <div class="prog-type">EU · PAC / FEADER</div>
-        <h4>Organic Conversion Aid</h4>
-        <p>EU Regulation 2021/2115, Spain Intervención 62. Payments for agricultural land in certified organic conversion — typically €300–600/ha/year for orchard crops during the 3-year transition. Applied through Conselleria d'Agricultura annually.</p>
-      </div>
-      <div class="program-card">
-        <div class="prog-type">Spain · PAC</div>
-        <h4>Joven Agricultor — First Installation</h4>
-        <p>Up to €70,000 one-time payment for agricultural professionals under 40 installing for the first time. Requires agricultor activo registration and professional qualification. Apply through Conselleria d'Agricultura.</p>
-      </div>
-      <div class="program-card">
-        <div class="prog-type">EU · LEADER</div>
-        <h4>GDR La Ribera — Rural Entrepreneurship</h4>
-        <p>The Grupo de Desarrollo Rural de La Ribera manages LEADER (FEADER) funds for this area. Grants of €10,000–100,000 for rural businesses, with preference for women-led, sustainable, and tourism-linked projects. Calls are periodic — ask GDR La Ribera for current open calls.</p>
-      </div>
-      <div class="program-card">
-        <div class="prog-type">Spain · Ley 45/2007</div>
-        <h4>Estatuto de la Mujer Rural</h4>
-        <p>Priority access to agricultural subsidies, training, and rural employment programs for women in rural areas. Preferential weighting in competitive grant evaluations. Social security bonuses for women registering as agricultural workers in Spain.</p>
-      </div>
-      <div class="program-card">
-        <div class="prog-type">Spain · ICO</div>
-        <h4>ICO Empresas y Emprendedores</h4>
-        <p>Instituto de Crédito Oficial agricultural business loans. No minimum turnover. Available through any Spanish bank. Rates: Euribor + spread, currently 3–5% total. Suitable for equipment purchase, infrastructure, working capital. Not a grant — a subsidised loan.</p>
-      </div>
-      <div class="program-card">
-        <div class="prog-type">Valencia · IVACE</div>
-        <h4>Emprendimiento Rural IVACE</h4>
-        <p>The Instituto Valenciano de Competitividad Empresarial runs periodic calls for rural entrepreneurship and sustainable business development. Women-led projects receive scoring preference. Grants and subsidised financing available. Check ivace.es for current calls.</p>
-      </div>
-      <div class="program-card">
-        <div class="prog-type">Private · Sustainable Banking</div>
-        <h4>Triodos Bank — Organic Agriculture</h4>
-        <p>Triodos Bank (Spain) specifically finances organic and ecological farming transitions. Loans for organic conversion investment at rates comparable to conventional banks, with mission-aligned criteria. Requires business plan and projected cash flows. triodos.es/agro</p>
-      </div>
-      <div class="program-card">
-        <div class="prog-type">EU · Horizon Europe</div>
-        <h4>EIP-AGRI — Innovation Partnerships</h4>
-        <p>European Innovation Partnership for Agricultural Productivity and Sustainability funds collaborative research projects between farmers and research institutions. Relevant for precision agriculture, carbon farming, and organic transition projects. Entry point: local agricultural advisory services or IVIA.</p>
-      </div>
-    </div>
-
-    <p>Two programs are worth prioritising above the others because their windows are time-limited. The Joven Agricultor payment has a five-year window from first installation — and the clock started when the property deed was signed in November 2025. The LEADER GDR La Ribera calls are periodic and competitive; being registered as an agricultor activo is a prerequisite for applying, and the project narrative for ecotourism development on a historic hillside citrus farm is exactly the kind of application these programs are designed for.</p>
-
-    <div class="alert alert-warn">
-      <span class="alert-icon">⚠</span>
-      <span>The Joven Agricultor application window closes five years from the date of first installation as a farmer (November 2025). That means the window runs until approximately autumn 2030 — but funding calls can close earlier. The owner should register as agricultor activo this year and submit the application before 2027. It is a large amount of public money designed precisely for this situation.</span>
-    </div>
-  </div>
-
-
-  <!-- ── CH 12: ECOTOURISM ── -->
-  <div class="chapter" id="ch12">
-    <div class="chapter-number">Chapter Twelve</div>
-    <h2>Ecotourism — building a destination, getting the permits</h2>
-
-    <p>The closest comparable property is Huerto San Eusebio in Carcaixent itself: an organic citrus farm from 1870 running guided tours, two sessions daily, Thursday through Sunday. Activities include a heritage orchard walk, 19th-century farmhouse and chapel, over 20 citrus varieties including rarities, and juice tasting. It is 40 minutes from Valencia by train and bike path.</p>
-
-    <p>What Huerto San Eusebio doesn't have: a hill. It doesn't have visible ancient limestone, a karst landscape, a pine forest with wild boar, or a panoramic elevation above the valley. The differentiating assets of this property — geology, elevation, forest-to-farm continuum, the view — are genuinely unusual and visually compelling in ways that flat valley farms cannot replicate.</p>
-
-    <p>The question is not whether there is an ecotourism opportunity here. It is which parts of that opportunity require a permit, which require a reclassification, and which can start immediately.</p>
-
-    <div class="factbox">
-      <div class="factbox-label">What doesn't need a permit today</div>
-      <p><strong>Educational visits and farm tours:</strong> Bringing paying visitors onto the farm for guided agricultural experiences — harvest tours, orange picking, geology walks, tasting — is classified as an agricultural activity, not a tourism accommodation activity. It does not require tourism registration as long as no overnight accommodation is involved. This is the model Huerto San Eusebio operates. It can start this season.</p>
-      <p><strong>Events on agricultural land:</strong> Single events (markets, workshops, yoga retreats, private dinners in the grove) can typically be permitted through the Ayuntamiento de Carcaixent as one-off events, without permanent tourism registration. Each event needs a declaración responsable rather than a full licence.</p>
-    </div>
-
-    <p>Overnight accommodation is where the regulatory path becomes more complex — and more valuable. The Comunitat Valenciana regulates rural tourism accommodation under <strong>Decreto 10/2021, of January 22</strong> (Reglamento regulador del alojamiento turístico en la Comunitat Valenciana, in force since May 8, 2021). This is the framework that determines what can be built, what it must include, and how it must be registered.</p>
-
-    <p>Decreto 10/2021 defines three relevant categories: <em>casa rural</em> (the entire farmhouse rented as a unit, up to 16 guests), <em>alojamiento de turismo rural en habitaciones</em> (individual rooms, more like a B&amp;B), and <em>camping de turismo rural</em> (which includes non-permanent structures like glamping). The farmhouse at the property — once it has a <em>cédula de habitabilidad</em> (habitation certificate) — can be registered as a casa rural. That single registration unlocks legal short-term rental and touristic use.</p>
-
-    <div class="permit-steps">
-      <div class="permit-step">
-        <div class="permit-num">1</div>
-        <div class="permit-body">
-          <strong>Cédula de habitabilidad (habitation certificate)</strong><br>
-          Required before any tourism use of the farmhouse. An architect inspects the building and certifies it meets minimum habitability conditions (water, sanitation, natural light, structural safety). This is also the prerequisite for any legal residential occupation.<br>
-          <span class="permit-cost">Cost: €300–800 including architect certificate + municipal fee. Timeline: 2–4 months.</span>
+      <div class="oranges-visual">
+        <div class="orange-panel orange-panel-main">
+          <span class="panel-caption light">High-Brix limestone fruit</span>
         </div>
-      </div>
-      <div class="permit-step">
-        <div class="permit-num">2</div>
-        <div class="permit-body">
-          <strong>Tourism registration — casa rural</strong><br>
-          With the cédula in hand, file a <em>declaración responsable</em> with the Registro de Turisme de la Comunitat Valenciana (GVA procedure 14164 — <em>Declaració responsable d'inici d'activitat turística en alojaments de turisme rural</em>). This is self-declaratory — file, the administration reviews, and operations can begin immediately unless the GVA objects. The property must meet Decreto 10/2021 standards for the category — kitchenette, minimum room dimensions, first aid kit, fire extinguishers, welcome information folder.<br>
-          <span class="permit-cost">Cost: €150–300 registration fee. Timeline: file online, operational within days; formal registration confirmed within 1–2 months.</span>
+        <div class="orange-panel orange-panel-secondary">
+          <span class="panel-caption light">Hillside terroir · Valencia</span>
         </div>
-      </div>
-      <div class="permit-step">
-        <div class="permit-num">3</div>
-        <div class="permit-body">
-          <strong>Additional structures — glamping, platforms, treehouses</strong><br>
-          Non-permanent structures without foundations (wooden platforms, canvas cabins, yurts, elevated treehouses that do not modify the tree structurally) are often classifiable as movable installations under Decreto 10/2021's camping de turismo rural category. These typically require a <em>declaración responsable</em> — a responsible declaration filed with the Ayuntamiento — rather than a full building licence. Confirm this interpretation with the Ayuntamiento de Carcaixent planning office before installing.<br>
-          <span class="permit-cost">Cost: depends on Ayuntamiento fee schedule, typically €100–500 per structure. Timeline: 1–3 months.</span>
-        </div>
-      </div>
-      <div class="permit-step">
-        <div class="permit-num">4</div>
-        <div class="permit-body">
-          <strong>New permanent construction — DIC + vivienda vinculada</strong><br>
-          Building any new permanent structure on land classified as <em>sòl no urbanitzable / rústico agrario</em> requires a <strong>Declaració d'Interès Comunitari (DIC)</strong> — a Generalitat Valenciana approval confirming the project serves a legitimate community or agricultural purpose. This is granted by the Conselleria de Territori before any building licence can be issued. Without a DIC, no permanent structure can be legalised on this land class. Once DIC is granted, building must be justified as <em>vivienda vinculada a explotación agraria</em> (linked to the agricultural use). Under LOTUP this allows roughly 2% of the consolidated plot — around 900 m² here. Eligibility requires demonstrated agricultural activity and architect's project, environmental assessment, and municipal building licence.<br>
-          <span class="permit-cost">Cost: €5,000–25,000+ (architect fees + DIC application + licences). Timeline: 24–42 months. High effort, high value if approved. DIC is the critical first gate — consult a local urbanista before starting.</span>
+        <div class="orange-panel orange-panel-accent">
+          <span class="panel-caption dark">Terpene-rich peel</span>
         </div>
       </div>
     </div>
-
-    <p>The practical sequence for a property at this stage: habitation certificate first (it unlocks both residential use and tourism registration), then casa rural registration (unlocks legal overnight guests in the existing house), then declaración responsable for any glamping structures (adds accommodation capacity without construction complexity), then — as the farm operation matures and agricultural credentials are established — the vivienda vinculada project for a dedicated guest facility.</p>
-
-    <div class="alert alert-blue">
-      <span class="alert-icon">ℹ</span>
-      <span>A LEADER grant from GDR La Ribera can fund tourism infrastructure on a registered agricultural property — including glamping structures, visitor reception facilities, and interpretive trail installation. The combination of a working organic farm, a carbon farming programme, a geology / terroir narrative, and a woman-founded project is exactly the profile that LEADER rural development funds are designed to support. File the agricultor activo registration first, then approach GDR La Ribera with a project outline.</span>
-    </div>
-
-    <p>The ecotourism proposition here is not a hotel. It is not a retreat centre. It is something more specific and harder to replicate: an 80-million-year-old hillside, worked by human hands for centuries, now managed by someone who understands what makes it extraordinary — and can explain it to a visitor standing in the middle of it. That is the product. The cédula de habitabilidad is the bureaucratic prerequisite. The story already exists.</p>
   </div>
+</section>
 
-
-  <!-- ── CH 13: THE FOREST ── -->
-  <div class="chapter" id="ch13">
-    <div class="chapter-number">Chapter Thirteen</div>
-    <h2>The forest — clearing the pines, planting holm oak, and the eco-farm permit</h2>
-
-    <p>The 1.7 hectares of Aleppo pine above the grove is the least understood part of this property — and, for the eco-farm goal, potentially its most valuable asset. Right now it functions as a fire hazard and a legal obligation. With the right sequence of permits, it becomes the landscape that justifies every guided tour, every nature walk, every story told to a visitor standing in the middle of it.</p>
-
-    <p>The pines were planted in the Franco era as part of state reforestation programmes designed to stop hillside erosion. They did their job. They are now ready to be replaced by what this hillside's ecology actually wants: <strong>Quercus ilex</strong> — holm oak, <em>alzina</em> in Valencian, <em>encina</em> in Spanish. Unlike Aleppo pine, holm oak is fire-resistant, deep-rooted, drought-tolerant, and self-seeding into gaps that open in the canopy. It lives for centuries. It builds soil instead of exhausting it. And it is the species that shaped this landscape before the reforestation programmes arrived.</p>
-
-    <div class="pull">
-      The forest is not a complication for the eco-farm. It is the eco-farm's most compelling content.
-    </div>
-
-    <div class="factbox">
-      <div class="factbox-label">The master key: the Pla Tècnic de Gestió Forestal Simplificat (PTGFS)</div>
-      <p>Before cutting a single pine, one administrative step changes everything that follows. A <strong>PTGFS</strong> is a five-year forest management plan for private forests under 25 hectares. It can be drafted with technical assistance and approved by the Conselleria de Medi Ambient. For 1.7 ha of private pine forest, it is the right instrument.</p>
-      <p><strong>Without a PTGFS:</strong> every clearing phase requires a formal express authorisation with a 3-month resolution period. Multiple phases = months of administrative waiting between each one.</p>
-      <p><strong>With an approved PTGFS:</strong> each clearing operation covered by the plan proceeds via a simple <em>Declaració responsable</em> — filed the same day, works begin immediately. No waiting.</p>
-      <p>A PTGFS also unlocks FEADER forest subsidies (up to 85% EU co-financing for qualified planting and management works) and strengthens every subsequent permit application — including the eco-farm tourism registration.</p>
-      <p><strong>Apply first:</strong> Procedure 17584 on sede.gva.es — <em>Solicitud d'aprovació d'un pla tècnic de gestió forestal simplificat.</em></p>
-    </div>
-
-    <h3>What clearing requires</h3>
-
-    <p><em>Pinus halepensis</em> is not a protected species — there is no species-level restriction on removing it. All constraints come from the land classification. A hillside covered in pine qualifies as <em>terreny forestal</em> under Ley 3/1993 Forestal de la Comunitat Valenciana (as developed by Decreto 91/2023), and forest land triggers the full authorisation regime regardless of private ownership.</p>
-
-    <p>Without a PTGFS, the applicable track for this property is <strong>Aprofitament forestal menor</strong> (proc. 18684, sede.gva.es): covers conifer felling on areas under 25 ha at under 150 trees/ha extraction intensity, not repeated on the same plot within 5 years. One form, one submission. Resolution deadline: 3 months. The application must be submitted at least 3 months before the intended start date.</p>
-
-    <p>The practical approach: frame the clearing as progressive over two or three seasons, integrated into the PTGFS, with each phase covered by the plan's declaració responsable. This is legally cleaner, physically more manageable on a terraced limestone hillside, and far more defensible with the Conselleria than a single 1.7 ha clear-cut.</p>
-
-    <p><strong>Before any application, a mandatory step:</strong> Contact the Servei Territorial de Medi Ambient de València to schedule a <em>visita de verificació</em> — an environmental agent visits the parcel and documents any protected species, nesting, slope conditions, and soil observations. The agent's report determines what the authorisation will permit.</p>
-
-    <div class="alert alert-warn">
-      <span class="alert-icon">⚠</span>
-      <span><strong>Seasonal restrictions — plan all clearing for November through January.</strong> Fire season (typically 1 June – 31 October under Decreto 7/2004) suspends all felling and machinery work on forest land on high-risk days. Bird nesting season (February–July) protects active nests of eagles, owls, and nightjars — all present in Valencian limestone pine forests. The environmental agent will flag any nesting found during the verification visit. November–January is the only window that clears both restrictions.</span>
-    </div>
-
-    <h3>What forest ownership obliges — starting now</h3>
-
-    <p>The obligations below are active from the moment the property was purchased. They do not wait for clearing or replanting to begin.</p>
-
-    <div class="permit-steps">
-      <div class="permit-step">
-        <div class="permit-num">1</div>
-        <div class="permit-body">
-          <strong>Fire prevention strips (franjas de protecció)</strong><br>
-          A minimum 25-metre zone of reduced-combustible vegetation must be maintained around any buildings on or adjacent to forest land. In high fire risk zones — which includes this hillside terrain — this extends to <strong>50 metres</strong>. The strips must be cleared and maintained <strong>before 30 May each year</strong>. This is a legal obligation. The fire strip around the farmhouse is active now.<br>
-          <span class="permit-cost">Maintenance cost: half-day of manual labour annually. Fine for non-compliance: €100–€1,000.</span>
+<!-- VARIETIES -->
+<section class="varieties-section" id="varieties">
+  <div class="container">
+    <div class="section-eyebrow">Three varieties</div>
+    <h2 class="section-title">Three seasons. <em>Three stories.</em></h2>
+    <p class="lead" style="max-width:620px;">The grove produces from October through June — nine months of the year. Each variety has its own rhythm, its own moment in the market, its own reason for being on this hillside.</p>
+    <div class="varieties-grid">
+      <div class="variety-card variety-clemenules">
+        <div class="variety-header">
+          <span class="variety-season">October – December</span>
+        </div>
+        <div class="variety-body">
+          <h3>Clemenules</h3>
+          <p class="variety-tagline">The mandarin the world wants. Right when it peaks.</p>
+          <p>The grove's most abundant variety and its most expressive. Clemenules runs on a biennial rhythm — a record harvest followed by a quieter year, then back again. In a strong season, more than half the fruit grades CAT1, the top commercial classification. The quality lever is iron nutrition and harvest timing. When both are right, nothing in the valley matches it for eating fresh from the peel.</p>
         </div>
       </div>
-      <div class="permit-step">
-        <div class="permit-num">2</div>
-        <div class="permit-body">
-          <strong>Annual dry vegetation management</strong><br>
-          Accumulated dead wood and dry vegetation on forest land must be managed annually. This is not discretionary. Machinery works on or within 100 m of forest land require a Declaració responsable (proc. 20656) filed at least 20 days before starting — this applies to agricultural works near the forest boundary, not just clearing operations.<br>
-          <span class="permit-cost">Procedure 20656, sede.gva.es — free, filed electronically.</span>
+      <div class="variety-card variety-lanelete">
+        <div class="variety-header">
+          <span class="variety-season">April – June</span>
+        </div>
+        <div class="variety-body">
+          <h3>Lane-Late Navel</h3>
+          <p class="variety-tagline">The late one. The quiet standout. Worth waiting for.</p>
+          <p>While mandarin and early navel seasons compete for shelf space across Spain in winter, Lane-Late arrives alone in April — into a market with fewer competitors and stronger prices. Five consecutive seasons of growing volume. IVIA research on warming Mediterranean temperatures identifies late navels as the strategic variety for the coming decades: their harvest window is shifting later, into a less crowded market. This hillside is already positioned for it.</p>
         </div>
       </div>
-      <div class="permit-step">
-        <div class="permit-num">3</div>
-        <div class="permit-body">
-          <strong>Authorisation before felling</strong><br>
-          Any felling of timber-diameter trees on forest land without prior Conselleria authorisation is a serious to very serious infraction. The PTGFS converts this from a 3-month wait to a same-day declaració responsable. Until the PTGFS is approved, every clearing phase requires the express authorisation.<br>
-          <span class="permit-cost">Unauthorised felling: €1,001–€100,000 fine. Causing fire through negligence: up to €600,000 + mandatory terrain restoration.</span>
+      <div class="variety-card variety-navelina">
+        <div class="variety-header">
+          <span class="variety-season">December – March</span>
+        </div>
+        <div class="variety-body">
+          <h3>Navelina</h3>
+          <p class="variety-tagline">The classic navel. In recovery. Watch this space.</p>
+          <p>Three hundred trees of the most recognisable navel variety in Spain. After two years of reduced yield following the October 2024 DANA flood event, the Navelina is undergoing active diagnosis and recovery management. When these 300 trees on limestone are healthy — and they have been before — they produce deeply flavoured fruit in the heart of the winter citrus season. The diagnosis is already underway.</p>
         </div>
       </div>
     </div>
-
-    <h3>Quercus ilex: planting into the cleared hillside</h3>
-
-    <p>Replanting with Quercus ilex — framed within the PTGFS as a native species forest transition — requires no separate planting permit. It is part of the same managed operation. The Conselleria actively supports native broadleaf over monoculture pine; the PATFOR (Plan d'Acció Territorial Forestal de la Comunitat Valenciana) specifically promotes autochthonous oak woodland on limestone hillsides in this region.</p>
-
-    <div class="factbox">
-      <div class="factbox-label">Planting spec and first five years</div>
-      <p><strong>Planting density:</strong> 600–1,000 containerised plants per hectare. Use plants 12–17 cm in height, minimum 3.5 mm stem diameter. Plant in November–December to use autumn rainfall.</p>
-      <p><strong>Tree shelters:</strong> Install individual protectors on each plant. They significantly reduce summer transpiration stress and improve survival rates on exposed limestone slopes.</p>
-      <p><strong>First four years — supplemental irrigation is critical:</strong> Without it, survival on exposed limestone in a dry year drops to 15–30 %. With twice-monthly drip irrigation in summer, survival reaches 60–70 %. The existing drip infrastructure on the lower terraces can inform the approach for the upper planting zones.</p>
-      <p><strong>Annual weed control:</strong> Competing vegetation is the primary survival threat — not drought. Desbroce around each plant, every season.</p>
-      <p><strong>Timeline on this substrate:</strong> Year 5–7: plants reach 1–1.5 m, individual canopies begin to merge. Year 9–15: stand-level canopy closure — a functioning woodland. Year 15–20: dense holm oak thicket, self-sustaining, producing mushroom conditions. Year 20+: mature woodland character, self-regenerating.</p>
-    </div>
-
-    <p>FEADER subsidies under the current PEPAC 2023–2027 framework cover biodiversity-improving silvicultural works — native oak replanting on limestone hillsides qualifies. Co-financing up to <strong>85% EU + 15% Generalitat</strong>. Calls are issued periodically by the Agència Valenciana de Foment i Garantia Agrària (AVFGA) — check mediambient.gva.es for active calls. A PTGFS is a prerequisite for any subsidy application.</p>
-
-    <p>The <strong>new Ley Forestal Valenciana</strong> — currently a draft anteproyecto as of August 2026, not yet passed by the Corts — would introduce direct payments to private forest owners for ecosystem services: carbon capture, water regulation, biodiversity conservation, and fire risk reduction. The mechanism would use a CERTIVAL certification system with the Generalitat covering certification costs. Watch for its parliamentary progress. When it passes, contact the AVFGA — this property, actively managed and documented, would be among the first to qualify.</p>
-
-    <h3>The forest and the eco-farm permit: how they connect</h3>
-
-    <p>The most direct legal path to operating commercial eco-farm visits — guided forest walks, nature interpretation, geology tours, harvest experiences — is registration under <strong>Decreto 4/2024, de 4 de gener</strong>, the Valencian regulation on active tourism and ecotourism.</p>
-
-    <div class="alert alert-good">
-      <span class="alert-icon">✓</span>
-      <span><strong>No DIC required for guided day visits.</strong> Registro as an ecotourisme company under Decreto 4/2024 proceeds via <em>Declaració responsable</em> (proc. 16214, sede.gva.es) — file the form, operate commercially from the same day. Covers guided forest walks, nature and geology interpretation, farm ecology visits, harvest experiences. Civil liability insurance of minimum €600,000 per claim is required. Personnel leading activities need a minimum 40-hour first aid/rescue certificate.</span>
-    </div>
-
-    <p>The PTGFS and agricultor activo registration together build the argument that any tourist activity is genuinely complementary to an active farm and forest operation — not a standalone commercial tourism business using the land as a backdrop. This distinction matters for every subsequent permit: accommodation registration, LEADER grant applications, DIC exemption applications for any future infrastructure.</p>
-
-    <div class="permit-steps">
-      <div class="permit-step">
-        <div class="permit-num">1</div>
-        <div class="permit-body">
-          <strong>Register as agricultor activo</strong> — prerequisite for PAC subsidies, Joven Agricultor payment, and LEADER grants. Oficina Comarcal Agraria in Alzira, or GVA online portal. The owner should do this now.
-        </div>
-      </div>
-      <div class="permit-step">
-        <div class="permit-num">2</div>
-        <div class="permit-body">
-          <strong>Submit PTGFS (proc. 17584)</strong> — the plan that unlocks the declaració responsable clearing track, FEADER subsidies, and strengthens every subsequent permit application.
-        </div>
-      </div>
-      <div class="permit-step">
-        <div class="permit-num">3</div>
-        <div class="permit-body">
-          <strong>Register as ecotourisme company (proc. 16214)</strong> — declaració responsable, operative immediately. Guided day visits begin commercially.
-        </div>
-      </div>
-      <div class="permit-step">
-        <div class="permit-num">4</div>
-        <div class="permit-body">
-          <strong>Request the environmental agent verification visit</strong> — first clearing phase authorisation. Schedule in advance for a November start.
-        </div>
-      </div>
-      <div class="permit-step">
-        <div class="permit-num">5</div>
-        <div class="permit-body">
-          <strong>Clear first phase (November–January), plant Quercus ilex (November–December)</strong> — same season window for both operations.
-        </div>
-      </div>
-      <div class="permit-step">
-        <div class="permit-num">6</div>
-        <div class="permit-body">
-          <strong>Accommodation registration</strong> — once cédula de habitabilidad is in hand, pursue registration under LOTUP Art. 202(2)(e) DIC exemption for rural accommodation. Active farm + PTGFS are the supporting evidence.
-        </div>
-      </div>
-    </div>
-
   </div>
+</section>
 
-
-  <!-- ── CH 14: BUILDING (GEOLOGY) ── -->
-  <div class="chapter" id="ch14">
-    <div class="chapter-number">Chapter Fourteen</div>
-    <h2>Building on limestone — what the geology means</h2>
-
-    <p>Building on Cretaceous limestone has one great advantage and several complications that are worth understanding before any excavation begins.</p>
-
-    <p>The advantage: bearing capacity. Solid limestone is one of the most reliable foundation materials there is. A heavy masonry wall on intact bedrock needs no special engineering — the rock is older and harder than anything built on top of it. In practical terms, this means that once the thin soil and fractured surface zone are cleared, the ground beneath is excellent.</p>
-
-    <p><strong>Excavation is difficult.</strong> Limestone cannot be dug by hand or with a standard mini-excavator. A rock saw or pneumatic hammer is required. Budget accordingly.</p>
-
-    <p><strong>The lower terraces need checking.</strong> The Pleistocene sandy material documented around Carcaixent — the siliceous sand tongue extending 3+ km east of town — may underlie some of the lower grove terraces. Sandy fill can be compressible under heavy loads. Before any significant foundation work at the lower end of the property, probe to establish what lies beneath.</p>
-
-    <p><strong>Keuper clays are a hidden risk.</strong> Deep in the region's geology — along fault planes, where Triassic rocks come to the surface — there are plastic, expansive, multicolour iridescent clays that are chemically corrosive to concrete and structurally dangerous for foundations. They are not expected at the surface on the Puig Gros, but they are a known risk in deep excavations along fault zones. If a trench hits purple, red, or green iridescent clay, stop and investigate before pouring concrete.</p>
-
-    <div class="alert alert-rust">
-      <span class="alert-icon">✕</span>
-      <span><strong>No septic system in a fracture zone or at the hill-valley contact.</strong> The fractures that make the limestone hydrologically productive also connect directly to the drinking water aquifer. Site any septic in the mid-slope red clay colluvium — where the clay provides biological filtering — and keep it upslope from any well.</span>
+<!-- SCIENCE -->
+<section class="science-section">
+  <div class="container">
+    <div class="section-eyebrow">The science</div>
+    <h2 class="section-title">What <em>limestone</em> does to an orange.</h2>
+    <div class="science-grid">
+      <div class="science-card">
+        <div class="science-icon green">🪨</div>
+        <h3>Ancient mineral profile</h3>
+        <p>The Cretaceous limestone beneath the grove formed from compressed marine shells eighty million years ago. It dissolves slowly, releasing calcium and trace minerals into the shallow soil. The trees' roots access a mineral profile that no alluvial valley soil can replicate — and minerals are a primary driver of flavour differentiation in citrus, as they are in wine grapes grown on chalky soils.</p>
+      </div>
+      <div class="science-card">
+        <div class="science-icon terra">💧</div>
+        <h3>Natural deficit irrigation</h3>
+        <p>Regulated deficit irrigation is a validated technique where growers deliberately restrict water during fruit development to raise sugar content. The limestone hillside does it naturally, every summer — thin soil, fast drainage, and full Mediterranean sun combine into mild chronic stress. The same stress winemakers in Burgundy and Priorat actively seek. Here, the geology provides it without intervention.</p>
+      </div>
+      <div class="science-card">
+        <div class="science-icon gold">🍊</div>
+        <h3>The terpene response</h3>
+        <p>Under water stress, a citrus tree redirects its energy from vegetative growth into secondary aromatic compounds — the terpenes that give premium citrus its smell and flavour depth. A 2026 study found water deficit triggers a measurable spike in limonene and aromatic aldehydes. The tree is producing its most complex chemistry as a survival mechanism. The limestone hillside runs this process every summer.</p>
+      </div>
     </div>
-
-    <p><strong>Stormwater is the structural threat nobody plans for.</strong> Limestone sheds water almost instantly when it rains hard: the rock is impermeable at the surface, so all surface rainfall runs downhill fast, carrying anything it can pick up. Terrace walls that fail do not just lose the wall — they lose the soil behind the wall, soil that took ten thousand years to accumulate. Terrace maintenance and drainage channel design are the most important structural investment on this property.</p>
-
-    <p>On seismicity: the property sits inside the geodynamic line running from Sagunto through Alzira to Alicante. The 1883 earthquake hit grade VII at Alzira with follow-up tremors at Carcaixent. Apply NCSE-02 seismic building regulations — this is Spanish law for the zone.</p>
   </div>
+</section>
 
-
-  <!-- ── CH 15: PREDICTIONS ── -->
-  <div class="chapter" id="ch15">
-    <div class="chapter-number">Chapter Fifteen</div>
-    <h2>What's coming — predictions</h2>
-
-    <p>The geological survey was written in 1957. Some of what follows is in the survey. Some is not — it is drawn from climate science, agricultural research, and what is happening to comparable land across the western Mediterranean. Take the predictions as informed extrapolation, not certainty.</p>
-
-    <div class="prediction">
-      <div class="prediction-label">Prediction 1</div>
-      <h3>The DANA events will get worse — and this hillside position is the right one</h3>
-      <p>On October 29, 2024, a DANA — a cold drop atmospheric system — dropped more than 500mm of rain in eight hours across the Ribera Alta. The Júcar overflowed. 223 people died. Climate attribution science has since established that the rainfall intensity was 21% higher than it would have been without climate change, and that the sea surface temperatures fuelling these events hit records in 2024.</p>
-      <p>These events will intensify. The question is where to be when they happen. The valley floor orange groves are the most exposed position possible: low elevation, near rivers, on impermeable clay soils that flood completely. The limestone hillside is different. During a DANA, the hillside is not safe (surface runoff is violent on bare limestone, and the grove risks erosion), but it does not flood. And in the days after, the limestone massif absorbs a significant portion of the intense rainfall through its fractures — recharging the karst aquifer. The flood that destroys the valley floor partly replenishes the hill's water supply.</p>
+<!-- LAND -->
+<section class="land-section" id="land">
+  <div class="container">
+    <div class="land-grid">
+      <div>
+        <div class="section-eyebrow light">The geology</div>
+        <h2 class="section-title light">Before the grove, before the terraces — this hillside was the floor of <em class="light-em">a warm shallow sea.</em></h2>
+        <p class="body light">The limestone forming the backbone of Puig Gros accumulated over millions of years from the compressed shells and skeletons of marine creatures, layer after layer. The ocean that laid it down closed eighty million years ago. The Pyrenees did not yet exist. The Iberian Peninsula was an island.</p>
+        <p class="body light">When the tectonic forces that would eventually build the Alps began compressing the land, this ancient seabed was squeezed, folded, fractured, and pushed upward. The fractures that run through it now hold the water that feeds the farm's karst well — the same water that drips to the roots of 1,100 citrus trees every summer.</p>
+        <p class="body light">The hillside sits above the Júcar valley flood plain. When the DANA storm system dropped more than 500mm of rain in eight hours across the Ribera Alta in October 2024, 223 people died in the valley below. The limestone hillside shed water fast through its fractures, recharging the aquifer. Height is not scenery. On this land, it is structural resilience.</p>
+      </div>
+      <div>
+        <div class="land-stat-grid">
+          <div class="land-stat">
+            <span class="big">80M</span>
+            <span class="label">Years since this rock was the floor of a warm shallow sea</span>
+          </div>
+          <div class="land-stat">
+            <span class="big">41m</span>
+            <span class="label">Depth of the karst well — clean water sourced from below the grove</span>
+          </div>
+          <div class="land-stat">
+            <span class="big">500mm</span>
+            <span class="label">Rain fell in 8 hours during Oct 2024 DANA. The hillside survived.</span>
+          </div>
+          <div class="land-stat">
+            <span class="big">1.7 ha</span>
+            <span class="label">Pine forest above the grove — transitioning to native holm oak</span>
+          </div>
+        </div>
+      </div>
     </div>
-
-    <div class="prediction">
-      <div class="prediction-label">Prediction 2</div>
-      <h3>Water access will become the defining constraint for valley floor growers — but not for this property</h3>
-      <p>Climate projections for the Iberian Peninsula show significant reduction in rainfall and temperature increases by 2100. The valley floor growers face two specific risks this hillside property does not: coastal aquifer salinisation from seawater intrusion, and complete dependence on Júcar river irrigation systems that are already over-allocated.</p>
-      <p>A hillside well tapping an interior limestone aquifer is insulated from salinisation. The aquifer is fed by rainfall on the limestone massif, not by the Júcar. In a future of tightening water allocation, this is a significant structural advantage. The property that has its own water — tested, reliable, drilled and documented — is in a different risk category from the property that depends on the acequia system.</p>
-    </div>
-
-    <div class="prediction">
-      <div class="prediction-label">Prediction 3</div>
-      <h3>The forest above the grove needs active management — before it becomes a fire problem</h3>
-      <p>The pine forest on the hillside above the grove is almost certainly Aleppo pine — the dominant reforestation species planted across Valencia in the Franco era to combat erosion. Aleppo pine is a highly flammable species. The native climax species for this elevation and limestone substrate is holm oak (<em>Quercus ilex</em>) — fire-resistant, drought-tolerant, and naturally regenerating in gaps that open in the pine canopy. Active management — clearing underbrush, thinning dense pine stands, supporting holm oak regeneration — moves this transition along without waiting for the fire.</p>
-      <p>One established use for the limestone pine forest that almost nobody exploits: <em>Lactarius deliciosus</em>, the saffron milk cap mushroom (<em>rovelló</em> in Valencian), one of the most commercially valuable wild mushrooms in Spain. Mediterranean limestone pine forests are prime territory. This creates a secondary income stream from the 1.7-hectare forest that currently has no agricultural use — and a unique element for the ecotourism programme.</p>
-    </div>
-
-    <div class="prediction">
-      <div class="prediction-label">Prediction 4</div>
-      <h3>The carbon market will reach this grove before most owners are ready for it</h3>
-      <p>The EU Carbon Removal Certification Framework enters its operational phase around 2028. Agricultural producers who have established soil carbon baselines, documented management changes, and maintained auditable records will have verified credits to sell. Those who haven't will be starting from scratch. The window for establishing the baseline — this season, next season — is the window that determines who enters that market with five years of data and who enters with none.</p>
-      <p>The limestone hillside grove that converts to regenerative management, establishes a soil carbon baseline, joins a CAECV organic certification path, and files an Agreena aggregation inquiry in 2026 is measurably better positioned for 2030 than one that waits to see how the market develops. These are low-cost, high-optionality actions. The baseline costs a few hundred euros. The option it creates could be worth multiples of that annually once the market opens.</p>
-    </div>
-
-    <div class="prediction">
-      <div class="prediction-label">Prediction 5</div>
-      <h3>The Navelina trees need a diagnosis this season — not next season</h3>
-      <p>Three hundred trees producing five to ten kilograms each, when they should produce thirty to fifty, is not a rough season. Two consecutive crash years rule out weather as the primary cause. Something structural has changed at root level, and it has been wrong since at least mid-2024.</p>
-      <p>The three candidates are distinguishable by a morning of fieldwork: if the failing trees are clustered in one terrace zone, the cause is localised (soil drainage failure, water-mould disease, nutrient lock in a specific subsoil layer). If they are scattered randomly through the grove, the cause is systemic (rootstock iron-sensitivity across the variety). If gum exudate appears at the root collar of the weak trees, the diagnosis is Phytophthora — a known consequence of the limestone hillside's drainage patterns during intense rainfall events like October 2024.</p>
-      <p>The cost of diagnosis is an afternoon and a SPAD meter. The cost of another year without diagnosis is another full season of underperformance from 300 trees that should be generating a significant fraction of the property's annual income.</p>
-    </div>
-
-    <div class="prediction">
-      <div class="prediction-label">Prediction 6</div>
-      <h3>Lane-Late will define the financial trajectory of this property over the next decade</h3>
-      <p>While Clemenules oscillates and Navelina struggles, Lane-Late has quietly built the most consistent revenue record in the cooperative documents: volume growing across the five-year period, prices holding strong, and a harvest window (April–June) that faces less competition from Spanish production than the earlier mandarin and navel seasons. Climate science adds a further advantage: warming spring temperatures across Valencia are extending the marketable window for late navels. IVIA research specifically recommends late-harvesting navel varieties as the strategic response to the Mediterranean warming trend.</p>
-      <p>The question for the decade ahead is whether direct sales or premium positioning can capture a fraction of the value that the cooperative price does not — and whether the limestone hillside terroir narrative, once established, creates a price category that does not exist yet in the Valencian citrus market.</p>
-    </div>
-
-    <div class="ornament">· · ·</div>
-
-    <p>The geological survey ends in 1957 with bibliography. This report ends with the observation that eighty million years of geological history delivered this hillside into a specific position: above the flood plain, on a limestone aquifer, facing the right aspect for Mediterranean citrus, in a region where the water access problem has been solved before and can be solved again.</p>
-
-    <p>What happens with that inheritance is now a present-tense decision.</p>
   </div>
+</section>
 
-</div>
+<!-- FOREST -->
+<section class="forest-section" id="forest">
+  <div class="container">
+    <div class="forest-grid">
+      <div class="forest-visual">
+        <div class="forest-panel forest-panel-a">
+          <span class="panel-caption light">Aleppo pine — departing</span>
+        </div>
+        <div class="forest-panel forest-panel-b">
+          <span class="panel-caption light">Quercus ilex — arriving</span>
+        </div>
+      </div>
+      <div>
+        <div class="section-eyebrow light">The forest</div>
+        <h2 class="section-title light">Replacing fire risk with <em class="light-em">deep roots.</em></h2>
+        <p class="body light">The 1.7 hectares of Aleppo pine above the grove were planted in the Franco era to stop hillside erosion. They did their job. They are now ready to be replaced by what this hillside's ecology actually wants: Quercus ilex — the native holm oak of the western Mediterranean limestone. A species that lives for 700 years, builds soil instead of exhausting it, is fire-resistant where Aleppo pine is not, and self-seeds into every gap that opens in the canopy.</p>
+        <p class="body light">The transition has begun. Phased clearing authorised through the Valencian Conselleria de Medi Ambient. Native containerised stock planted in each cleared area, drip-supported through establishment. Within fifteen years, the upper hillside will carry holm oak woodland — the ecological signature of this landscape before the reforestation programmes arrived.</p>
+        <div class="timeline-steps">
+          <div class="timeline-step">
+            <span class="step-year">2026</span>
+            <span class="step-text"><strong>Forest management plan (PTGFS) submitted.</strong> First clearing phase authorised for November–January window.</span>
+          </div>
+          <div class="timeline-step">
+            <span class="step-year">2027</span>
+            <span class="step-text"><strong>First Quercus ilex planting.</strong> 800 native plants/ha into cleared areas. Drip irrigation established for first 4 years.</span>
+          </div>
+          <div class="timeline-step">
+            <span class="step-year">2030</span>
+            <span class="step-text"><strong>Soil carbon baseline verifiable.</strong> EU CRCF carbon market opens. Documented regenerative management ready to monetise.</span>
+          </div>
+          <div class="timeline-step">
+            <span class="step-year">2040+</span>
+            <span class="step-text"><strong>Mature holm oak woodland.</strong> Self-sustaining. Carbon-certified. The landscape this hillside was always building toward.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-<div class="footer">
-  <strong>Sources and methodology</strong><br>
-  Primary geological source: IGME MAGNA Hoja N.º 770 ALCIRA (Valencia), Explicación Primera Serie, 1957. Authors: José Meseguer Pardo &amp; Antonio Almela.<br><br>
-  Cooperative economics: Liquidación Cítricos documents (2022–2026), Coop. del Camp de Vila Nova de Castelló (Exagro). Five seasons of anticipo and final settlement data across Clemenules, Navelina, and Navel Lane-Late. Cooperative responsibilities clarified via direct correspondence with Exagro, May 2026.<br><br>
-  Water: Laboratory test results M-26-0146 and M-26-0147, January 14 2026. Parameters: pH, conductivity, nitrates, sulfates, chlorides, E.coli, total coliforms, Legionella.<br><br>
-  Carbon farming: EU Carbon Removal Certification Framework (Regulation EU 2024/3012, December 2024); Agreena platform methodology (Verra VCS VM0042); Regenerative citrus carbon accounting, Sicily (ScienceDirect 2024); CAECV organic certification framework (Comunitat Valenciana).<br><br>
-  Funding programs: Spain Plan Estratégico PAC 2023–2027 (Intervenciones 62 and 70); Ley 45/2007 de Desarrollo Rural Sostenible (Estatuto de la Mujer Rural); LEADER programme, GDR La Ribera; ICO Empresas y Emprendedores; IVACE (Generalitat Valenciana); EU Horizon Europe EIP-AGRI; Triodos Bank España.<br><br>
-  Ecotourism and planning: Decreto 10/2021, de 22 de enero, de la Comunitat Valenciana (alojamiento turístico en la Comunitat Valenciana, in force May 2021); LOTUP (Ley 5/2014 de Ordenación del Territorio, Urbanismo y Paisaje de la Comunitat Valenciana); Huerto San Eusebio, Carcaixent (comparable agrotourism model).<br><br>
-  Supplementary: IVIA citrus rootstock research on calcareous soils (Forner-Alcaide 5/13 trials); IVIA SIAR agrometeorology network; EU Organic Regulation 2018/848; Scientific literature on Fe-EDDHA, vivianite, and humic substances in calcareous soils (2023–2024 field trials); Climate attribution studies on the October 2024 Valencia DANA; Citrus terroir flavoromics research (Chemistry &amp; Biodiversity, 2026); Sentinel-2 multispectral imagery (ESA Copernicus programme, free access); IGME Book 21 (Acuíferos Subterráneos, Comunidad Valenciana).<br><br>
-  This document does not replace a site-specific geotechnical investigation, agronomic survey, or legal advice on planning permissions. For construction permits, borehole logs with bearing capacity values (CPT/SPT) are required. For well drilling, an Electrical Resistivity Tomography survey is strongly recommended. For agronomic decisions, leaf mineral analysis (IVIA-accredited laboratory) is required. For tourism registration, consult the Ayuntamiento de Carcaixent planning department and Turisme Comunitat Valenciana.
-</div>
+<!-- MISSION -->
+<section class="mission-section" id="mission">
+  <div class="container">
+    <div class="section-eyebrow">What we're building</div>
+    <h2 class="section-title">A farm that earns in <em>four directions</em> at once.</h2>
+    <p class="lead" style="max-width:640px;">Citrus, eco-tourism, carbon credits, and a forest in transition. Each one reinforces the others — and the geology makes all four possible.</p>
+    <div class="mission-grid">
+      <div class="mission-card green">
+        <span class="mission-num">01</span>
+        <span class="mission-tag">Organic by 2028</span>
+        <h3>Regenerative citrus</h3>
+        <p>Three-year organic conversion underway with CAECV, the Valencian organic certification body. Transitioning to regenerative management — cover crops, compost inputs, no synthetic herbicide. The same practices that build soil carbon, raise terpene levels in the fruit, and qualify for EU organic conversion payments of €300–600/ha/year during transition.</p>
+      </div>
+      <div class="mission-card terra">
+        <span class="mission-num">02</span>
+        <span class="mission-tag">Open 2026</span>
+        <h3>Eco-farm tourism</h3>
+        <p>Guided grove tours, harvest experiences, geology walks, and forest visits — operating under Decreto 4/2024 (Valencian ecotourism regulation). The farmhouse is being restored for casa rural overnight accommodation. An 80-million-year-old hillside with a forest in transition and three citrus varieties in season is exactly what thoughtful travellers look for and cannot easily find.</p>
+      </div>
+      <div class="mission-card sand">
+        <span class="mission-num">03</span>
+        <span class="mission-tag">Baseline 2026</span>
+        <h3>Carbon farming</h3>
+        <p>Soil carbon baseline established with IVIA-accredited laboratory analysis. Agreena platform enrolled for Verra VCS verified carbon credits. The EU Carbon Removal Certification Framework (Regulation 2024/3012) becomes operational approximately 2028 — a farm that establishes its baseline now enters that market with documented, verifiable improvement ready to monetise from day one.</p>
+      </div>
+      <div class="mission-card mid">
+        <span class="mission-num">04</span>
+        <span class="mission-tag">15-year project</span>
+        <h3>Native reforestation</h3>
+        <p>1.7 hectares of Franco-era Aleppo pine transitioning to native Quercus ilex under an approved forest management plan (PTGFS). FEADER co-financing (up to 85% EU funds) applied for. In fifteen to twenty years, the hillside will carry native Mediterranean limestone woodland — the ecology that shaped this landscape for millions of years before the reforestation programmes replaced it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="story-section" id="story">
+  <div class="container">
+    <div class="story-inner">
+      <div>
+        <div class="section-eyebrow">The people behind it</div>
+        <h2 class="section-title">A first-generation farmer. A hillside nobody was watching.</h2>
+        <p class="lead">Finca Tariqa was purchased in November 2025 by a woman under 40 with no inherited farming tradition and no agricultural roadmap — only a conviction that this particular piece of limestone was worth understanding properly.</p>
+        <p class="body">The first season was spent reading five years of cooperative liquidaciones, commissioning a geology report, drilling into the karst aquifer, replacing broken drip lines, and learning what 300 underperforming Navelina trees were trying to say about the soil beneath them. The second season is about acting on what was found.</p>
+        <p class="body">The farm delivers to Coop. del Camp de Vila Nova de Castelló (Exagro). Organic certification through CAECV is underway. The forest management plan is submitted. The eco-tourism registration is filed. And the application to Ma Earth — the grassroots nature regeneration funding platform — is being prepared for Round 4, opening Earth Day, April 2027.</p>
+        <div class="story-badges">
+          <span class="badge">Woman-owned</span>
+          <span class="badge">First generation</span>
+          <span class="badge">Post-DANA resilience</span>
+          <span class="badge">Organic in transition</span>
+          <span class="badge">Valencia · Spain</span>
+          <span class="badge">Limestone terroir</span>
+          <span class="badge">Native reforestation</span>
+          <span class="badge">Carbon farming</span>
+        </div>
+      </div>
+      <div class="story-panel">
+        <div class="story-panel-eyebrow">Seeking support &amp; partners</div>
+        <h3>Applying to Ma Earth Round 4 — launching Earth Day, April 22, 2027.</h3>
+        <p>Ma Earth runs quadratic crowdfunding rounds for grassroots nature regeneration projects globally. The number of supporters matters more than the amount donated — every person who backs a project multiplies the matching funds from Ma Earth's pool. Finca Tariqa will be one of the first Spanish projects on the platform.</p>
+        <p>If you're interested in following the project, supporting the Ma Earth application when it launches, or exploring partnership — get in touch now.</p>
+        <a href="mailto:alisheryakupov@gmail.com">Get in touch →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <h2>The limestone is eighty million years old.<br>The farm is just getting started.</h2>
+    <p>Read the full geological and agronomic report — everything under the surface, and what it means for the future of this land.</p>
+    <div class="cta-links">
+      <a href="report.html" class="btn-primary">Read the full report</a>
+      <a href="mailto:alisheryakupov@gmail.com" class="btn-secondary">Get in touch</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Finca <span>Tariqa</span></div>
+  <ul class="footer-links">
+    <li><a href="report.html">Geology &amp; Land Report</a></li>
+    <li><a href="ru.html">По-русски</a></li>
+    <li><a href="https://maearth.com" target="_blank">Ma Earth</a></li>
+    <li><a href="https://github.com/diana0xUX/finca-tariqa" target="_blank">GitHub</a></li>
+  </ul>
+  <p class="footer-copy">Partida Puig Gros · Carcaixent · Valencia · Spain · Last updated August 2026</p>
+</footer>
 
 </body>
 </html>

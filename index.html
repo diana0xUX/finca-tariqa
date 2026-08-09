@@ -168,6 +168,124 @@
         min-height: 240px;
       }
     }
+
+    /* ── Carbon Commitment ── */
+    .carbon-commit {
+      background: var(--earth-dark);
+      padding: clamp(4rem, 8vw, 7rem) clamp(1.25rem, 5vw, 5rem);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .carbon-commit::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 10% 80%, rgba(90, 143, 104, 0.15) 0%, transparent 65%),
+        radial-gradient(ellipse 40% 40% at 90% 20%, rgba(201, 151, 58, 0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .carbon-commit-header {
+      position: relative;
+      max-width: 760px;
+      margin: 0 auto clamp(3rem, 6vw, 5rem);
+      text-align: center;
+    }
+
+    .carbon-commit .eyebrow {
+      color: var(--earth-light);
+      opacity: 1;
+      margin-bottom: 1rem;
+    }
+
+    .carbon-commit h2 {
+      color: var(--sand);
+      margin-bottom: 1.5rem;
+    }
+
+    .carbon-commit .lead {
+      color: rgba(244, 239, 230, 0.62);
+      max-width: 60ch;
+      margin: 0 auto;
+    }
+
+    .carbon-commit-stats {
+      position: relative;
+      display: flex;
+      align-items: center;
+      border-top: 1px solid rgba(244,239,230,0.08);
+      border-bottom: 1px solid rgba(244,239,230,0.08);
+      margin-bottom: clamp(3rem, 6vw, 5rem);
+    }
+
+    .cc-stat {
+      flex: 1;
+      padding: 2rem clamp(1rem, 3vw, 2.5rem);
+      text-align: center;
+    }
+
+    .cc-value {
+      display: block;
+      font-family: 'Lora', serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.75rem);
+      font-weight: 600;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+
+    .cc-label {
+      font-size: 0.78rem;
+      color: rgba(244,239,230,0.5);
+      line-height: 1.5;
+    }
+
+    .cc-divider {
+      width: 1px;
+      height: 80px;
+      background: rgba(244,239,230,0.08);
+      flex-shrink: 0;
+    }
+
+    .carbon-commit-body {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(2rem, 4vw, 3.5rem);
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .cc-pillar strong {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--earth-light);
+      margin-bottom: 0.75rem;
+    }
+
+    .cc-pillar p {
+      font-size: 0.88rem;
+      color: rgba(244,239,230,0.55);
+      line-height: 1.72;
+      max-width: none;
+    }
+
+    @media (max-width: 700px) {
+      .carbon-commit-stats {
+        flex-direction: column;
+      }
+      .cc-divider {
+        width: 60px;
+        height: 1px;
+      }
+      .carbon-commit-body {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body>
@@ -272,6 +390,47 @@
     </div>
 
   </div>
+
+  <!-- Carbon Commitment -->
+  <section class="carbon-commit">
+    <div class="carbon-commit-header">
+      <span class="eyebrow">Carbon Farming</span>
+      <h2>Working to remove more carbon than we produce.</h2>
+      <p class="lead">Regenerative practices, a native forest in transition, and a soil carbon baseline established in 2026. Finca Tariqa is building toward verified CO₂ removal — not as an offset, but as part of how the land is managed.</p>
+    </div>
+
+    <div class="carbon-commit-stats">
+      <div class="cc-stat">
+        <span class="cc-value">1–5 t</span>
+        <span class="cc-label">CO₂ per hectare per year — sequestration potential of regenerative citrus and native holm oak combined</span>
+      </div>
+      <div class="cc-divider"></div>
+      <div class="cc-stat">
+        <span class="cc-value">4.5 ha</span>
+        <span class="cc-label">of limestone hillside under regenerative management and native reforestation</span>
+      </div>
+      <div class="cc-divider"></div>
+      <div class="cc-stat">
+        <span class="cc-value">2028</span>
+        <span class="cc-label">EU Carbon Removal Certification Framework opens — baseline documented now, improvement ready to verify</span>
+      </div>
+    </div>
+
+    <div class="carbon-commit-body">
+      <div class="cc-pillar">
+        <strong>Forest transition</strong>
+        <p>1.7 hectares of fire-prone Aleppo pine are being cleared and replanted with Quercus ilex — the native holm oak of the western Mediterranean limestone. Holm oak lives 700 years. It is the longest-lived carbon store on this hillside.</p>
+      </div>
+      <div class="cc-pillar">
+        <strong>Soil carbon</strong>
+        <p>A soil carbon baseline is being established with an IVIA-accredited laboratory in 2026. Registered with Agreena under Verra VCS VM0042. When the EU CRCF market opens, the farm enters with years of documented improvement — not a starting line.</p>
+      </div>
+      <div class="cc-pillar">
+        <strong>Organic practices</strong>
+        <p>No synthetic inputs. Organic matter returned to the soil. Cover crops and native ground flora encouraged. The practices that build soil health also increase the land's ability to capture and hold carbon — and qualify for EU organic conversion payments.</p>
+      </div>
+    </div>
+  </section>
 
   <!-- Footer -->
   <footer class="site-footer">

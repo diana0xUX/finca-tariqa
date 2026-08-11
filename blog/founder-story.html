@@ -301,11 +301,11 @@
     <div class="audio-progress-wrap">
       <input type="range" class="audio-progress" id="progress" value="0" min="0" step="0.1"
              oninput="seek(this.value)">
-      <span class="audio-time" id="time-display">0:00 / 14:15</span>
+      <span class="audio-time" id="time-display">0:00 / 8:30</span>
     </div>
     <div class="speed-wrap">
       <label for="speed">Speed</label>
-      <input type="range" id="speed" min="0.5" max="1.5" step="0.05" value="1"
+      <input type="range" id="speed" min="0.5" max="2" step="0.05" value="1"
              oninput="setSpeed(this.value)">
       <span class="speed-val" id="speed-val">1×</span>
     </div>
@@ -331,7 +331,7 @@
   </footer>
 
   <script>
-    const TIMING = [{"id": 0, "start": 0.0, "end": 34.442}, {"id": 1, "start": 35.042, "end": 63.533}, {"id": 2, "start": 64.133, "end": 65.946}, {"id": 3, "start": 66.546, "end": 98.919}, {"id": 4, "start": 99.519, "end": 113.044}, {"id": 5, "start": 113.644, "end": 135.553}, {"id": 6, "start": 136.153, "end": 155.993}, {"id": 7, "start": 156.593, "end": 165.127}, {"id": 8, "start": 165.727, "end": 208.457}, {"id": 9, "start": 209.057, "end": 256.566}, {"id": 10, "start": 257.166, "end": 267.289}, {"id": 11, "start": 267.889, "end": 307.846}, {"id": 12, "start": 308.446, "end": 318.067}, {"id": 13, "start": 318.667, "end": 354.113}, {"id": 14, "start": 354.713, "end": 366.531}, {"id": 15, "start": 367.131, "end": 382.747}, {"id": 16, "start": 383.347, "end": 395.411}, {"id": 17, "start": 396.011, "end": 407.094}, {"id": 18, "start": 407.694, "end": 462.009}, {"id": 19, "start": 462.609, "end": 467.601}, {"id": 20, "start": 468.201, "end": 509.982}, {"id": 21, "start": 510.582, "end": 514.699}, {"id": 22, "start": 515.299, "end": 578.201}, {"id": 23, "start": 578.801, "end": 585.478}, {"id": 24, "start": 586.078, "end": 591.678}, {"id": 25, "start": 592.278, "end": 635.755}, {"id": 26, "start": 636.355, "end": 703.384}, {"id": 27, "start": 703.984, "end": 759.557}, {"id": 28, "start": 760.157, "end": 764.52}, {"id": 29, "start": 765.12, "end": 782.165}, {"id": 30, "start": 782.765, "end": 825.645}, {"id": 31, "start": 826.245, "end": 835.76}, {"id": 32, "start": 836.36, "end": 839.517}, {"id": 33, "start": 840.117, "end": 846.944}, {"id": 34, "start": 847.544, "end": 851.928}, {"id": 35, "start": 852.528, "end": 854.469}];
+    const TIMING = [{"id": 0, "start": 0.0, "end": 20.971}, {"id": 1, "start": 21.171, "end": 38.418}, {"id": 2, "start": 38.618, "end": 39.706}, {"id": 3, "start": 39.906, "end": 59.725}, {"id": 4, "start": 59.925, "end": 68.021}, {"id": 5, "start": 68.221, "end": 80.413}, {"id": 6, "start": 80.613, "end": 92.591}, {"id": 7, "start": 92.791, "end": 97.901}, {"id": 8, "start": 98.101, "end": 123.967}, {"id": 9, "start": 124.167, "end": 152.882}, {"id": 10, "start": 153.082, "end": 159.151}, {"id": 11, "start": 159.351, "end": 183.117}, {"id": 12, "start": 183.317, "end": 189.162}, {"id": 13, "start": 189.362, "end": 210.845}, {"id": 14, "start": 211.045, "end": 218.287}, {"id": 15, "start": 218.487, "end": 227.853}, {"id": 16, "start": 228.053, "end": 235.274}, {"id": 17, "start": 235.474, "end": 242.109}, {"id": 18, "start": 242.309, "end": 274.745}, {"id": 19, "start": 274.945, "end": 277.932}, {"id": 20, "start": 278.132, "end": 303.401}, {"id": 21, "start": 303.601, "end": 306.151}, {"id": 22, "start": 306.351, "end": 344.302}, {"id": 23, "start": 344.502, "end": 348.662}, {"id": 24, "start": 348.862, "end": 352.222}, {"id": 25, "start": 352.422, "end": 378.576}, {"id": 26, "start": 378.776, "end": 419.341}, {"id": 27, "start": 419.541, "end": 453.151}, {"id": 28, "start": 453.351, "end": 456.05}, {"id": 29, "start": 456.25, "end": 466.618}, {"id": 30, "start": 466.818, "end": 492.599}, {"id": 31, "start": 492.799, "end": 498.495}, {"id": 32, "start": 498.695, "end": 500.583}, {"id": 33, "start": 500.783, "end": 504.868}, {"id": 34, "start": 505.068, "end": 507.692}, {"id": 35, "start": 507.892, "end": 509.044}, {"id": 36, "start": 509.244, "end": 509.959}];
 
     const audio = new Audio('../audio/founder-story.mp3');
     audio.preload = 'auto';

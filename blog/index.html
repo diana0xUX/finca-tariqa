@@ -4,42 +4,113 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Journal — Finca Tariqa</title>
-  <meta name="description" content="Notes from a limestone hillside in Valencia. Growing citrus, building something real.">
+  <meta name="description" content="Notes from a farm in transition. Geology, organic certification, founder stories and the slow work of regenerative agriculture on an 80-million-year-old limestone hillside.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="../style.css">
   <style>
     .journal-hero {
       background: var(--earth-dark);
-      padding: calc(var(--nav-height) + 4rem) clamp(1.25rem,5vw,5rem) 3.5rem;
-    }
-    .journal-hero .eyebrow { color: var(--gold); margin-bottom: 1rem; }
-    .journal-hero h1 { color: var(--sand); font-size: clamp(2rem,4.5vw,3rem); }
-    .journal-hero p { color: rgba(244,239,230,0.5); margin-top: 1rem; max-width: 50ch; }
-    .posts-grid {
-      max-width: 840px;
-      margin: 0 auto;
-      padding: 4rem clamp(1.25rem,5vw,2rem) 6rem;
-      display: grid;
-      gap: 1.5rem;
-    }
-    .post-card {
-      display: block;
-      text-decoration: none;
-      background: var(--white);
-      border-radius: var(--radius-lg);
+      padding: calc(var(--nav-height) + 4rem) clamp(1.25rem,6vw,5rem) 4rem;
+      position: relative;
       overflow: hidden;
-      transition: transform 0.18s, box-shadow 0.18s;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
     }
-    .post-card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.1); }
-    .post-card-inner { padding: 2rem 2.25rem; }
-    .post-meta { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid); opacity: 0.6; margin-bottom: 0.75rem; }
-    .post-badge { background: rgba(201,151,58,0.12); color: var(--gold); border-radius: 4px; padding: 0.1rem 0.4rem; font-size: 0.65rem; margin-left: 0.5rem; }
-    .post-title { font-family: 'Lora', serif; font-size: clamp(1.2rem,2.5vw,1.6rem); font-weight: 500; color: var(--ink); line-height: 1.3; margin-bottom: 0.75rem; }
-    .post-excerpt { font-size: 0.92rem; color: var(--mid); line-height: 1.7; margin-bottom: 1.25rem; max-width: 65ch; }
-    .post-read { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--terracotta); }
+    .journal-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 55% 60% at 5% 90%, rgba(90,143,104,0.18) 0%, transparent 60%),
+        radial-gradient(ellipse 35% 45% at 95% 5%, rgba(201,151,58,0.09) 0%, transparent 55%);
+      pointer-events: none;
+    }
+    .journal-hero-inner { position: relative; z-index: 1; max-width: 680px; }
+    .journal-hero .eyebrow { color: var(--gold); margin-bottom: 1rem; }
+    .journal-hero h1 {
+      font-family: 'Lora', serif;
+      font-size: clamp(2.2rem,5vw,3.5rem);
+      font-weight: 500;
+      color: var(--sand);
+      line-height: 1.15;
+      margin-bottom: 1.25rem;
+    }
+    .journal-hero p { font-size: 1.05rem; color: rgba(244,239,230,0.6); line-height: 1.7; max-width: 52ch; }
+
+    .post-list {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: clamp(3rem,7vw,6rem) clamp(1.25rem,6vw,5rem);
+    }
+
+    .post-card {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1.5rem;
+      align-items: start;
+      padding: 2.5rem 0;
+      border-bottom: 1px solid var(--sand-deep);
+      text-decoration: none;
+      color: inherit;
+      transition: opacity var(--transition);
+    }
+    .post-card:first-child { border-top: 1px solid var(--sand-deep); }
+    .post-card:hover { opacity: 0.72; }
+
+    .post-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.85rem;
+      flex-wrap: wrap;
+    }
+    .post-tag {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.6rem;
+      border-radius: 2px;
+    }
+    .post-tag--story   { background: var(--earth-dark); color: var(--sand); }
+    .post-tag--organic { background: #d4edda; color: #2d5016; }
+    .post-tag--report  { background: var(--sand-deep); color: var(--mid); }
+    .post-tag--audio   { background: rgba(201,151,58,0.12); color: var(--gold); }
+    .post-tag--carbon  { background: #e0f0e8; color: #1e5c38; }
+    .post-tag--default { background: var(--sand-deep); color: var(--mid); }
+    .post-date {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.72rem;
+      color: var(--mid);
+      opacity: 0.7;
+    }
+    .post-title {
+      font-family: 'Lora', serif;
+      font-size: clamp(1.25rem,2.5vw,1.7rem);
+      font-weight: 500;
+      color: var(--ink);
+      line-height: 1.25;
+      margin-bottom: 0.75rem;
+    }
+    .post-excerpt { font-size: 0.9rem; color: var(--mid); line-height: 1.7; max-width: 58ch; }
+    .post-arrow {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--earth-med);
+      white-space: nowrap;
+      margin-top: 0.25rem;
+      transition: transform var(--transition);
+    }
+    .post-card:hover .post-arrow { transform: translateX(4px); }
     .empty-state { text-align: center; padding: 5rem 2rem; color: var(--mid); }
+
+    @media (max-width: 580px) {
+      .post-card { grid-template-columns: 1fr; }
+      .post-arrow { display: none; }
+    }
   </style>
 </head>
 <body>
@@ -51,7 +122,7 @@
       <li><a href="../land.html">The Land</a></li>
       <li><a href="../forest.html">The Forest</a></li>
       <li><a href="../mission.html">Our Mission</a></li>
-      <li><a href="index.html" class="active">Journal</a></li>
+      <li><a href="index.html" aria-current="page">Journal</a></li>
     </ul>
     <div class="nav-toggle" role="button" tabindex="0" aria-label="Open navigation"
          onclick="document.getElementById('main-nav').classList.toggle('open')">
@@ -60,46 +131,58 @@
   </nav>
 
   <header class="journal-hero">
-    <div>
-      <span class="eyebrow">Journal</span>
-      <h1>From the hillside.</h1>
-      <p>Notes on citrus, limestone, and building something real in Valencia.</p>
+    <div class="journal-hero-inner">
+      <span class="eyebrow">Field Notes</span>
+      <h1>From the farm.</h1>
+      <p>Geology, soil, organic certification and the slow work of making a regenerative farm on an 80-million-year-old limestone hillside in Carcaixent, Valencia.</p>
     </div>
   </header>
 
-  <main class="posts-grid">
+  <main class="post-list">
     
-    <a class="post-card" href="ecocredits.html">
-      <div class="post-card-inner">
-        <div class="post-meta">August 2026 </div>
+    <a href="ecocredits.html" class="post-card">
+      <div>
+        <div class="post-meta">
+          <span class="post-tag post-tag--carbon">Carbon</span>
+          <span class="post-date">August 2026</span>
+        </div>
         <h2 class="post-title">Can a limestone hillside earn carbon credits?</h2>
-        <p class="post-excerpt">What Regen Network ecocredits are, how they work, and what our 4.5 hectares could realistically generate — now, and when the EU market opens in 2028.</p>
-        <span class="post-read">Read →</span>
+        <p class="post-excerpt">What ecocredits are, how Regen Network works, and what Finca Tariqa's limestone hillside could realistically earn — now and when the EU market opens in 2028.</p>
       </div>
+      <span class="post-arrow">Read →</span>
     </a>
-    <a class="post-card" href="going-organic.html">
-      <div class="post-card-inner">
-        <div class="post-meta">August 2026 </div>
-        <h2 class="post-title">What it actually takes to go organic — and why we're doing it on an 80-million-year-old seabed.</h2>
-        <p class="post-excerpt">Last week I sent two WhatsApp messages that might change how this farm runs for the next twenty years. One to the cooperative. One to the man we bought the land from.</p>
-        <span class="post-read">Read →</span>
-      </div>
-    </a>
-    <a class="post-card" href="../report.html">
-      <div class="post-card-inner">
-        <div class="post-meta">August 2026 </div>
+    <a href="../report.html" class="post-card">
+      <div>
+        <div class="post-meta">
+          <span class="post-tag post-tag--report">Full Report</span>
+          <span class="post-date">August 2026</span>
+        </div>
         <h2 class="post-title">What Lives in the Rock: Geology, Water and Agriculture at Finca Tariqa</h2>
         <p class="post-excerpt">At the top of Puig Gros, the rock underfoot is the floor of a warm shallow sea. The full geological and agricultural report on what makes this hillside different.</p>
-        <span class="post-read">Read →</span>
       </div>
+      <span class="post-arrow">Read →</span>
     </a>
-    <a class="post-card" href="what-i-found-when-i-bought-a-farm-id-never-farmed.html">
-      <div class="post-card-inner">
-        <div class="post-meta">August 2026 <span class="post-badge">🎧 Audio</span></div>
+    <a href="going-organic.html" class="post-card">
+      <div>
+        <div class="post-meta">
+          <span class="post-tag post-tag--organic">Organic</span>
+          <span class="post-date">August 2026</span>
+        </div>
+        <h2 class="post-title">What it actually takes to go organic — and why we're doing it on an 80-million-year-old seabed.</h2>
+        <p class="post-excerpt">Last week I sent two WhatsApp messages that might change how this farm runs for the next twenty years. One to the cooperative. One to the man we bought the land from.</p>
+      </div>
+      <span class="post-arrow">Read →</span>
+    </a>
+    <a href="founder-story.html" class="post-card">
+      <div>
+        <div class="post-meta">
+          <span class="post-tag post-tag--story">Founder Story</span> <span class="post-tag post-tag--audio">🎧 Audio</span>
+          <span class="post-date">August 2026</span>
+        </div>
         <h2 class="post-title">What I Found When I Bought a Farm I'd Never Farmed.</h2>
         <p class="post-excerpt">For last 4 years every week, the gardeners came and shaped the bush beside the pool into a topiary spiral. An awkward shape for a plant. We felt awkward for it…</p>
-        <span class="post-read">Read →</span>
       </div>
+      <span class="post-arrow">Read →</span>
     </a>
   </main>
 
@@ -114,7 +197,7 @@
         <li><a href="index.html">Journal</a></li>
       </ul>
     </div>
-    <div class="footer-bottom">Finca Tariqa · Carcaixent</div>
+    <div class="footer-bottom">Last updated August 2026</div>
   </footer>
 
 </body>

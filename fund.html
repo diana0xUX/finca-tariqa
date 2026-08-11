@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Support Finca Tariqa — Regenerative Farm Campaign</title>
-<meta name="description" content="Help us go organic, plant holm oak, build water independence and open our doors to visitors. €20,000 needed by November 2026.">
+<title>Support Finca Tariqa — Year 1 Campaign</title>
+<meta name="description" content="We're clearing DANA damage, going organic, starting ecocredit certification, and opening the farmhouse to guests. One year. €10,000.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="style.css">
@@ -185,9 +185,56 @@
 }
 .btn-donate-crypto:hover { background: var(--earth-dark); color: var(--sand); transform: translateY(-2px); }
 
+/* ── What we're doing — 4 goal cards ── */
+.goals-section {
+  background: var(--sand);
+  padding: clamp(4rem, 8vw, 6rem) clamp(1.25rem, 6vw, 5rem);
+}
+.goals-inner { max-width: 820px; margin: 0 auto; }
+.goals-header { margin-bottom: 2.75rem; }
+.goals-header .eyebrow { color: var(--earth-med); margin-bottom: 0.6rem; }
+.goals-header h2 { color: var(--ink); margin-bottom: 0.75rem; }
+.goals-header p { color: var(--mid); font-size: 0.92rem; line-height: 1.7; max-width: 56ch; }
+.goals-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+.goal-card {
+  background: var(--white);
+  border-radius: var(--radius-md);
+  padding: 2rem 1.75rem;
+  border-top: 3px solid var(--earth-med);
+}
+.goal-card--amber { border-top-color: var(--gold); }
+.goal-card--terra { border-top-color: var(--terracotta); }
+.goal-card--forest { border-top-color: var(--earth-light); }
+.goal-icon {
+  font-size: 1.75rem;
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+.goal-title {
+  font-family: 'Lora', serif;
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 0.6rem;
+}
+.goal-body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.85rem;
+  color: var(--mid);
+  line-height: 1.68;
+}
+
+@media (max-width: 580px) {
+  .goals-grid { grid-template-columns: 1fr; }
+}
+
 /* ── Investment breakdown ── */
 .invest-section {
-  background: var(--sand);
+  background: var(--white);
   padding: clamp(4rem, 8vw, 6rem) clamp(1.25rem, 6vw, 5rem);
 }
 .invest-inner { max-width: 820px; margin: 0 auto; }
@@ -196,9 +243,7 @@
 .invest-header h2 { color: var(--ink); margin-bottom: 1rem; }
 .invest-header p { color: var(--mid); font-size: 0.95rem; max-width: 52ch; margin: 0 auto; line-height: 1.7; }
 
-.invest-year {
-  margin-bottom: 3rem;
-}
+.invest-year { margin-bottom: 3rem; }
 .invest-year-header {
   display: flex;
   align-items: center;
@@ -206,7 +251,6 @@
   padding: 1rem 1.5rem;
   background: var(--earth-dark);
   border-radius: var(--radius-md) var(--radius-md) 0 0;
-  margin-bottom: 0;
 }
 .invest-year-title {
   font-family: 'Lora', serif;
@@ -232,7 +276,7 @@
   border-collapse: collapse;
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 0.88rem;
-  background: var(--white);
+  background: var(--sand);
   border-radius: 0 0 var(--radius-md) var(--radius-md);
   overflow: hidden;
 }
@@ -246,9 +290,9 @@
 .invest-table .it-why { color: var(--mid); line-height: 1.55; }
 .invest-table .it-cost { font-weight: 700; color: var(--earth-med); text-align: right; white-space: nowrap; padding-left: 1rem; }
 .invest-table .it-total td {
-  background: var(--sand);
+  background: var(--sand-deep);
   font-weight: 700;
-  border-top: 2px solid var(--sand-deep);
+  border-top: 2px solid rgba(0,0,0,0.08);
   border-bottom: none;
   color: var(--ink);
 }
@@ -263,7 +307,6 @@
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 1rem;
-  margin-top: -0.5rem;
 }
 .invest-total-label {
   font-family: 'Plus Jakarta Sans', sans-serif;
@@ -286,10 +329,7 @@
   background: var(--earth-dark);
   padding: clamp(4rem, 8vw, 5.5rem) clamp(1.25rem, 6vw, 5rem);
 }
-.crypto-inner {
-  max-width: 680px;
-  margin: 0 auto;
-}
+.crypto-inner { max-width: 680px; margin: 0 auto; }
 .crypto-header { margin-bottom: 2.5rem; }
 .crypto-header .eyebrow { color: var(--gold); margin-bottom: 0.75rem; }
 .crypto-header h2 { color: var(--sand); margin-bottom: 1rem; }
@@ -347,46 +387,6 @@
 }
 .paypal-option .crypto-label { color: rgba(244,239,230,0.5); }
 
-/* ── Why it matters ── */
-.why-section {
-  background: var(--white);
-  padding: clamp(4rem, 8vw, 6rem) clamp(1.25rem, 6vw, 5rem);
-}
-.why-inner { max-width: 820px; margin: 0 auto; }
-.why-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2px;
-  background: var(--sand-deep);
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  margin-top: 2.5rem;
-}
-.why-card { background: var(--white); padding: 2rem 1.75rem; }
-.why-card-number {
-  font-family: 'Lora', serif;
-  font-size: 2.25rem;
-  font-weight: 600;
-  color: var(--earth-dark);
-  line-height: 1;
-  margin-bottom: 0.35rem;
-}
-.why-card-unit {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--earth-med);
-  margin-bottom: 0.75rem;
-}
-.why-card p {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.85rem;
-  color: var(--mid);
-  line-height: 1.65;
-}
-
 /* ── Year 0 done section ── */
 .done-section {
   background: var(--sand);
@@ -421,11 +421,7 @@
   flex-shrink: 0;
   margin-top: 0.1rem;
 }
-.done-check--progress {
-  background: #fdf4e0;
-  color: #8a6000;
-}
-.done-body {}
+.done-check--progress { background: #fdf4e0; color: #8a6000; }
 .done-title {
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 0.9rem;
@@ -456,15 +452,11 @@
   color: var(--mid);
 }
 .done-legend-item { display: flex; align-items: center; gap: 0.4rem; }
-.done-legend-dot {
-  width: 12px; height: 12px;
-  border-radius: 50%;
-}
+.done-legend-dot { width: 12px; height: 12px; border-radius: 50%; }
 .done-legend-dot--done { background: #d4edda; }
 .done-legend-dot--progress { background: #fdf4e0; }
 
 @media (max-width: 680px) {
-  .why-grid { grid-template-columns: 1fr; }
   .invest-table .it-why { display: none; }
   .invest-table .it-name { width: auto; }
   .donate-buttons { flex-direction: column; }
@@ -475,7 +467,6 @@
 </head>
 <body>
 
-<!-- Navigation -->
 <nav class="nav">
   <a href="index.html" class="nav-logo">Finca Tariqa</a>
   <ul class="nav-links" id="main-nav">
@@ -495,9 +486,9 @@
 <!-- Hero -->
 <section class="campaign-hero">
   <div class="campaign-hero-inner">
-    <span class="eyebrow">Fundraising Campaign · 2026</span>
-    <h1>Help us build the farm the land deserves.</h1>
-    <p class="deck">We bought 4.5 hectares of 80-million-year-old limestone hillside in Valencia. We're going organic, planting holm oak where fire-prone pines stand, establishing a soil carbon baseline, and opening the grove to visitors. Two years of focused investment will set the direction for the next fifty.</p>
+    <span class="eyebrow">Year 1 Campaign · 2026–2027</span>
+    <h1>We're rebuilding, certifying, and opening the doors.</h1>
+    <p class="deck">A limestone hillside in Valencia recovering from DANA, transitioning to organic, starting its first ecocredit certification, and becoming a place where people who care about land can come and stay. One year. One ask.</p>
     <div class="deadline-pill">
       <span class="deadline-dot"></span>
       Campaign closes <strong id="deadline-label">30 November 2026</strong>
@@ -517,7 +508,7 @@
         </div>
       </div>
       <div class="progress-goal">
-        Goal: <strong>€20,000</strong><br>
+        Goal: <strong>€10,000</strong><br>
         <span id="pct-display">0%</span> of campaign target
       </div>
     </div>
@@ -532,7 +523,6 @@
     </div>
 
     <div class="donate-buttons">
-      <!-- REPLACE href with your PayPal.me link, e.g. https://paypal.me/YourName -->
       <a href="https://paypal.me/REPLACE_WITH_YOUR_PAYPAL" class="btn-donate-euro" target="_blank" rel="noopener">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9 12l2 2 4-4"/></svg>
         Donate in Euros (PayPal)
@@ -545,13 +535,51 @@
   </div>
 </section>
 
+<!-- What we're doing -->
+<section class="goals-section">
+  <div class="goals-inner">
+    <div class="goals-header">
+      <span class="eyebrow">What we're working on</span>
+      <h2>Four things. This year.</h2>
+      <p>Not a five-year vision. Not a pitch deck. These are the four actual things happening on this hillside right now, and what this campaign makes possible.</p>
+    </div>
+    <div class="goals-grid">
+
+      <div class="goal-card goal-card--terra">
+        <div class="goal-icon">🌪️</div>
+        <div class="goal-title">Recovering from DANA</div>
+        <div class="goal-body">The October 2024 DANA storm left fallen trees across the grove and the pine forest. Clearing the damage is the foundation — before planting, before certifying, before hosting anyone. We're removing deadfall, stabilising the terraces, and assessing what was lost. This is Year 1 priority one.</div>
+      </div>
+
+      <div class="goal-card goal-card--forest">
+        <div class="goal-icon">🌿</div>
+        <div class="goal-title">Going organic</div>
+        <div class="goal-body">We've mapped the full CAECV certification process, identified the application forms, and sent inquiries to the previous owner and the cooperative about treatment history. If the grove has been clean for three years, the conversion clock may already be done. We're filing this year. <a href="blog/going-organic.html" style="color:var(--earth-med);text-decoration:underline;text-underline-offset:3px">Read the full story →</a></div>
+      </div>
+
+      <div class="goal-card goal-card--amber">
+        <div class="goal-icon">🔗</div>
+        <div class="goal-title">Ecocredit certification</div>
+        <div class="goal-body">We're registering the farm on the Regen Network — the blockchain standard for verified ecological impact. 1 credit = 1 tonne of CO₂ verified. The soil carbon baseline we take this year becomes the starting point for credits when the EU carbon market opens around 2028. The documentation starts now. <a href="blog/ecocredits.html" style="color:var(--earth-med);text-decoration:underline;text-underline-offset:3px">How it works →</a></div>
+      </div>
+
+      <div class="goal-card">
+        <div class="goal-icon">🏡</div>
+        <div class="goal-title">Opening the doors</div>
+        <div class="goal-body">The farmhouse exists. It needs a habitation certificate and some care before it can legally host overnight guests. We want to create a space for people who care about land, food, and regenerative thinking — farmers, researchers, makers — to come and stay on the hillside. A community, not a hotel.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- Year 0 — already done -->
 <section class="done-section">
   <div class="done-inner">
     <div class="done-header">
       <span class="eyebrow">Year 0 — Already done</span>
       <h2>Before we ask, here's what we've built.</h2>
-      <p>The fundraising campaign starts from a running start, not a blank page. Every item below is complete or actively in motion before a single euro of campaign funding arrives.</p>
+      <p>The campaign starts from a running start, not a blank page. Every item below is complete or actively in motion before a single euro of campaign funding arrives.</p>
     </div>
 
     <div class="done-list">
@@ -579,7 +607,7 @@
         <div class="done-body">
           <div class="done-date">January 2026</div>
           <div class="done-title">Water tested</div>
-          <div class="done-desc">Two well water samples analysed by accredited laboratory (M-26-0146, M-26-0147). Result: safe for irrigation — pH 7.4, conductivity and salts well within citrus tolerance, Legionella not detected. Not safe to drink without treatment (nitrates 56% above EU limit, E. coli present — agricultural runoff from upslope orchards). The well is confirmed functional. The nitrates in irrigation water are effectively free nitrogen fertiliser.</div>
+          <div class="done-desc">Two well water samples analysed by accredited laboratory. Result: safe for irrigation — pH 7.4, conductivity and salts within citrus tolerance, Legionella not detected. The well is confirmed functional.</div>
         </div>
       </div>
 
@@ -588,7 +616,7 @@
         <div class="done-body">
           <div class="done-date">May 2026</div>
           <div class="done-title">Cooperative responsibilities clarified</div>
-          <div class="done-desc">Direct conversation with Exagro (Coop. del Camp de Vila Nova de Castelló) in May 2026. Confirmed: who prunes, who decides harvest timing, how the canon de amortización works, what technical support is available. Five years of liquidación records (2021–2026) analysed — three distinct performance patterns identified across the three varieties. Lane-Late is the rising variety. Navelina needs urgent diagnosis.</div>
+          <div class="done-desc">Direct conversation with Exagro confirmed: pruning responsibilities, harvest timing, treatment records, technical support. Five years of liquidación data analysed. Lane-Late is the rising variety. Navelina needs diagnosis.</div>
         </div>
       </div>
 
@@ -597,7 +625,7 @@
         <div class="done-body">
           <div class="done-date">August 2026</div>
           <div class="done-title">Full research report completed — <a href="report.html" style="color:var(--earth-med);text-decoration:underline;text-underline-offset:3px">read the report →</a></div>
-          <div class="done-desc">15-chapter technical and narrative report covering: the 80-million-year geology, soil chemistry (60–70% calcium carbonate, terra rossa), iron chlorosis mechanism and solutions, water aquifer mapping, five seasons of cooperative data, the stress-to-quality argument for limestone fruit, digital grove management, the organic path, carbon farming frameworks, grants and funding, ecotourism and planning permits, forest management, building on limestone. Every investment in this campaign has a chapter behind it.</div>
+          <div class="done-desc">15-chapter technical report covering geology, soil chemistry, water, five seasons of cooperative data, the organic path, carbon farming, grants, ecotourism, and forest management. Every investment in this campaign has a chapter behind it.</div>
         </div>
       </div>
 
@@ -606,16 +634,7 @@
         <div class="done-body">
           <div class="done-date">August 2026</div>
           <div class="done-title">CAECV certification process fully mapped — <a href="blog/going-organic.html" style="color:var(--earth-med);text-decoration:underline;text-underline-offset:3px">read the blog post →</a></div>
-          <div class="done-desc">All seven CAECV application forms identified and downloaded. Parcel declaration spreadsheet (FPO05-175e3) completed with cadastral references, all three citrus varieties, area breakdown, and irrigation source. Retroactive conversion recognition form (FPO05-157e2) located — if the previous owner confirms no synthetic inputs for three years, the certification wait may be waived entirely. Contacts established: CAECV Carlet (96 253 82 41), OCA Alzira (96 245 80 70), Estación Experimental Agraria Carcaixent (96 246 98 60).</div>
-        </div>
-      </div>
-
-      <div class="done-item">
-        <div class="done-check">✓</div>
-        <div class="done-body">
-          <div class="done-date">August 2026</div>
-          <div class="done-title">Organic transition inquiry sent</div>
-          <div class="done-desc">WhatsApp messages sent to the cooperative (requesting phytosanitary treatment records for the grove going back 3–5 years) and to the previous owner José Antonio Iranzo Albelda (requesting confirmation of what inputs were applied during his ownership, and authorisation to share records with CAECV). These replies determine whether retroactive recognition applies — the single highest-value question before filing.</div>
+          <div class="done-desc">All seven application forms identified. Parcel spreadsheet completed with cadastral references. Retroactive conversion form located. If the previous owner confirms no synthetic inputs for three years, the certification wait may be waived entirely.</div>
         </div>
       </div>
 
@@ -624,7 +643,7 @@
         <div class="done-body">
           <div class="done-date">August 2026</div>
           <div class="done-title">Website and journal launched</div>
-          <div class="done-desc">Full public website built and published: geological report, founder story, going-organic blog post with inline infographics explaining the CAECV process and limestone terroir argument. The farm's story is documented and publicly available before the fundraising campaign opens.</div>
+          <div class="done-desc">Full public website built and published: geological report, founder story, going-organic post, ecocredits explainer. The farm's story is documented and publicly available before the fundraising campaign opens.</div>
         </div>
       </div>
 
@@ -633,7 +652,7 @@
         <div class="done-body">
           <div class="done-date">This week</div>
           <div class="done-title">CAECV call in progress</div>
-          <div class="done-desc">Calling CAECV Carlet (96 253 82 41, mornings) to confirm: whether parcels were previously registered, what evidence is required for retroactive recognition, and whether email submission is accepted. This call precedes formal application filing.</div>
+          <div class="done-desc">Calling CAECV Carlet (96 253 82 41) to confirm retroactive recognition requirements and submission process. This call precedes formal application filing.</div>
         </div>
       </div>
 
@@ -647,41 +666,15 @@
   </div>
 </section>
 
-<!-- Why it matters -->
-<section class="why-section">
-  <div class="why-inner">
-    <span class="eyebrow" style="color:var(--earth-med)">What we're building toward</span>
-    <h2 style="margin-top:0.5rem;margin-bottom:0">Three outcomes in five years.</h2>
-    <div class="why-grid">
-      <div class="why-card">
-        <div class="why-card-number">€0.00</div>
-        <div class="why-card-unit">synthetic inputs</div>
-        <p>Full CAECV organic certification by 2028. Retroactive recognition means the three-year conversion clock may already be running — if the grove has been clean for the past three years, we could certify early. Every investment in Year 1 advances this.</p>
-      </div>
-      <div class="why-card">
-        <div class="why-card-number">1,000+</div>
-        <div class="why-card-unit">holm oak planted</div>
-        <p>Replacing fire-prone Aleppo pine with native Quercus ilex — the long-lived, fire-resistant, self-seeding oak of the western Mediterranean limestone. A functioning woodland by year 10. The forest that should have been here all along.</p>
-      </div>
-      <div class="why-card">
-        <div class="why-card-number">2028</div>
-        <div class="why-card-unit">EU carbon market opens</div>
-        <p>The soil carbon baseline we establish now becomes five years of documented improvement when the EU CRCF market goes live around 2028. A grove that starts in 2030 starts with nothing. We start now.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- Investment breakdown -->
 <section class="invest-section">
   <div class="invest-inner">
     <div class="invest-header">
       <span class="eyebrow">How the money is used</span>
-      <h2>Two years. Eight milestones. One direction.</h2>
-      <p>Every line item below comes directly from the farm's research report — costs sourced from IVIA, CAECV, and Valencia-based suppliers. Nothing is estimated loosely.</p>
+      <h2>Year 1. Six priorities.</h2>
+      <p>One year of focused work. Costs sourced from IVIA, CAECV, and Valencia-based suppliers. Nothing estimated loosely. Year 2 planning begins when Year 1 is funded.</p>
     </div>
 
-    <!-- Year 1 -->
     <div class="invest-year">
       <div class="invest-year-header">
         <div>
@@ -692,44 +685,34 @@
       </div>
       <table class="invest-table">
         <tr>
-          <td class="it-name">Precision monitoring kit</td>
-          <td class="it-why">SPAD chlorophyll meter (detects iron chlorosis weeks before visible symptoms), two soil moisture probes, on-site weather station. The tools that make management decisions data-driven rather than guesswork.</td>
-          <td class="it-cost">€3,500</td>
+          <td class="it-name">DANA cleanup &amp; land clearing</td>
+          <td class="it-why">Storm damage from October 2024 left fallen trees and deadfall across the grove and pine forest. Clearing this is the precondition for everything else — planting holm oak, running soil samples, hosting visitors. Manual labour on terraced limestone: no machinery can reach the upper grove. Includes debris removal and terrace inspection.</td>
+          <td class="it-cost">€3,000</td>
         </tr>
         <tr>
-          <td class="it-name">Soil carbon baseline</td>
-          <td class="it-why">Five soil core samples (0–30 cm and 30–100 cm), IVIA-accredited lab analysis for total organic carbon, bulk density, pH. Without this baseline taken now, there is nothing to compare against when the EU carbon market opens. This single action, taken before any management changes, is what makes future carbon credit claims verifiable.</td>
-          <td class="it-cost">€500</td>
+          <td class="it-name">Farmhouse — habitation certificate</td>
+          <td class="it-why">Architect inspection and cédula de habitabilidad — the legal prerequisite for overnight guests. Without it, the farmhouse cannot host anyone. This is the single enabling step for the community space. Includes any minor works identified by the inspection, basic outdoor area setup.</td>
+          <td class="it-cost">€2,000</td>
         </tr>
         <tr>
           <td class="it-name">CAECV organic certification</td>
-          <td class="it-why">Registration fee plus retroactive conversion period recognition application (Form FPO05-157e2). If the grove has had no synthetic inputs for 3+ years — which we're verifying now — the full 3-year conversion wait may be waived. Starting the certification clock in Year 1 means organic premium pricing by 2028.</td>
+          <td class="it-why">Registration fee plus retroactive conversion recognition application (Form FPO05-157e2). If the grove has had no synthetic inputs for 3+ years, the three-year conversion wait may be waived. Filing this year means organic pricing possible in 2027–2028. Includes first-year inspection fee.</td>
           <td class="it-cost">€700</td>
         </tr>
         <tr>
-          <td class="it-name">Cover crops &amp; mulch</td>
-          <td class="it-why">Hairy vetch (Vicia villosa) and a grass mix across 2.8 ha of citrus terraces; pruning chipper and first season of mulch under all 1,100 trees. These are the first three organic practices — compatible with current GlobalG.A.P. certification, no compliance risk, immediate soil biology improvement.</td>
-          <td class="it-cost">€600</td>
+          <td class="it-name">Ecocredit registration &amp; soil baseline</td>
+          <td class="it-why">Regen Network project registration plus five soil core samples (0–30 cm and 30–100 cm), IVIA-accredited lab analysis for total organic carbon, bulk density, pH. This baseline, taken before any management changes, is what makes future carbon credit claims verifiable. Without it, we cannot enter the EU CRCF market when it opens around 2028.</td>
+          <td class="it-cost">€800</td>
         </tr>
         <tr>
           <td class="it-name">Holm oak — Phase 1</td>
-          <td class="it-why">500 containerised Quercus ilex seedlings (12–17 cm) plus individual tree shelters, planted into the first cleared zone of the pine forest in November. This is the native species the limestone hillside wants. Every tree planted now is a 700-year investment.</td>
+          <td class="it-why">500 containerised Quercus ilex seedlings plus individual tree shelters, planted into the first cleared zone of the pine forest in November. The native species this limestone hillside wants. Replaces fire-prone Aleppo pine with a species that lives 700 years and self-seeds once established.</td>
           <td class="it-cost">€2,500</td>
         </tr>
         <tr>
-          <td class="it-name">Habitation certificate</td>
-          <td class="it-why">Architect inspection and cédula de habitabilidad for the farmhouse — the prerequisite for legal residential occupation and the first step toward tourism registration. Without it, the farmhouse cannot legally host visitors overnight.</td>
-          <td class="it-cost">€700</td>
-        </tr>
-        <tr>
-          <td class="it-name">Ecotourism registration</td>
-          <td class="it-why">Declaració responsable (Proc. 16214, Decreto 4/2024) to operate guided day visits commercially — geology walks, harvest experiences, forest tours. No permit required beyond this filing. Plus first-year civil liability insurance (minimum €600K/claim required by law).</td>
-          <td class="it-cost">€900</td>
-        </tr>
-        <tr>
-          <td class="it-name">Admin &amp; professional fees</td>
-          <td class="it-why">PTGFS forest management plan (technical drafting, required before any pine felling), agricultor activo registration with Conselleria d'Agricultura (prerequisite for Joven Agricultor €70K grant and all PAC subsidy applications), leaf mineral analysis.</td>
-          <td class="it-cost">€600</td>
+          <td class="it-name">Cover crops, admin &amp; professional fees</td>
+          <td class="it-why">Hairy vetch and grass mix across the citrus terraces (first organic practice, compatible with current certification, immediate soil biology benefit). Plus agricultor activo registration with Conselleria d'Agricultura (prerequisite for Joven Agricultor €70K grant), PTGFS forest management plan drafting, leaf mineral analysis.</td>
+          <td class="it-cost">€1,000</td>
         </tr>
         <tr class="it-total">
           <td colspan="2" class="it-name">Year 1 total</td>
@@ -738,66 +721,13 @@
       </table>
     </div>
 
-    <!-- Year 2 -->
-    <div class="invest-year">
-      <div class="invest-year-header">
-        <div>
-          <div class="invest-year-title">Year 2 — Growth</div>
-          <div class="invest-year-sub">November 2027 – October 2028</div>
-        </div>
-        <div class="invest-year-total">€10,000</div>
-      </div>
-      <table class="invest-table">
-        <tr>
-          <td class="it-name">ERT geophysical survey</td>
-          <td class="it-why">Electrical Resistivity Tomography — electrodes pressed into the soil, maps water-bearing fractures at depth across the property. The 1957 geological survey identifies the lower boundary of the property as the textbook location for a borehole. The ERT finds the crack before drilling starts. Without it, borehole siting is guesswork. With it, success rate goes from chance to science.</td>
-          <td class="it-cost">€3,000</td>
-        </tr>
-        <tr>
-          <td class="it-name">Precision irrigation upgrade</td>
-          <td class="it-why">Smart irrigation controller (Netafim NMC or equivalent), tensiometer network (6 Irrometer Watermark sensors across terrace zones), pH/EC inline sensor on the irrigation line. Overwatering on limestone soil raises local pH at drip emitters — directly worsening iron lockup. This layer prevents that and converts Year 1 soil moisture data into automated decisions.</td>
-          <td class="it-cost">€2,000</td>
-        </tr>
-        <tr>
-          <td class="it-name">Holm oak — Phase 2</td>
-          <td class="it-why">500 additional Quercus ilex seedlings plus tree shelters, planted into the second cleared zone. Year 2 also requires twice-monthly drip irrigation for Year 1 plantings — without supplemental water, survival on exposed limestone in a dry year drops to 15–30%. With it: 60–70%.</td>
-          <td class="it-cost">€2,500</td>
-        </tr>
-        <tr>
-          <td class="it-name">Multispectral drone survey</td>
-          <td class="it-why">Annual NDVI flight by Valencia-based operator (Agropixel or Hemav). Overlaid on cooperative grade data, this map shows exactly which zones of the 1,100-tree grove produce CAT1 premium fruit and which produce low-grade destrio. The single most actionable data product available for a grove of this size.</td>
-          <td class="it-cost">€500</td>
-        </tr>
-        <tr>
-          <td class="it-name">Organic certification Year 2</td>
-          <td class="it-why">Annual CAECV maintenance fee plus GVA subsidy application (Orden 6/2024 — 80% of annual fees covered, up to €2,000/year). The subsidy application must be filed each year; Year 2 is the first full year of certified conversion.</td>
-          <td class="it-cost">€400</td>
-        </tr>
-        <tr>
-          <td class="it-name">Carbon &amp; monitoring</td>
-          <td class="it-why">Sentinel-2 analytics subscription (EOS Crop Monitoring, €200/year) plus Year 2 soil carbon measurement — the second data point that begins to show improvement trend. The difference between the Year 1 and Year 2 baselines is what the carbon credit auditors verify.</td>
-          <td class="it-cost">€400</td>
-        </tr>
-        <tr>
-          <td class="it-name">Contingency &amp; labour</td>
-          <td class="it-why">Tree planting and mulching is manual work on terraced limestone — no machinery can reach the upper grove. Cover crop mowing (2–3 passes/season), tree shelter inspection and replacement, unexpected soil or agronomic interventions.</td>
-          <td class="it-cost">€1,200</td>
-        </tr>
-        <tr class="it-total">
-          <td colspan="2" class="it-name">Year 2 total</td>
-          <td class="it-cost">€10,000</td>
-        </tr>
-      </table>
-    </div>
-
-    <!-- Grand total -->
     <div class="invest-total-bar">
       <div>
-        <div class="invest-total-label">Campaign total</div>
-        <div class="invest-total-amount">€20,000</div>
+        <div class="invest-total-label">Campaign goal — Year 1</div>
+        <div class="invest-total-amount">€10,000</div>
       </div>
-      <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:0.82rem;color:rgba(244,239,230,0.55);max-width:36ch;line-height:1.6;">
-        The Joven Agricultor PAC grant (up to €70,000) and LEADER rural development funds are being applied for separately. This campaign covers what can't wait for public funding cycles.
+      <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:0.82rem;color:rgba(244,239,230,0.55);max-width:38ch;line-height:1.6;">
+        The Joven Agricultor PAC grant (up to €70,000) and LEADER rural development funds are being applied for separately. This campaign funds what can't wait for public funding cycles. Year 2 will be a separate ask once Year 1 is complete.
       </div>
     </div>
 
@@ -816,7 +746,6 @@
     <div class="crypto-option">
       <div class="crypto-label">Ethereum · USDC · DAI · ERC-20</div>
       <div class="crypto-address-row">
-        <!-- REPLACE with your actual Ethereum wallet address -->
         <span class="crypto-address" id="eth-address">0xREPLACE_WITH_YOUR_ETH_ADDRESS</span>
         <button class="crypto-copy" onclick="copyAddress('eth-address', this)">Copy</button>
       </div>
@@ -825,7 +754,6 @@
     <div class="crypto-option">
       <div class="crypto-label">Bitcoin</div>
       <div class="crypto-address-row">
-        <!-- REPLACE with your actual Bitcoin wallet address -->
         <span class="crypto-address" id="btc-address">bc1REPLACE_WITH_YOUR_BTC_ADDRESS</span>
         <button class="crypto-copy" onclick="copyAddress('btc-address', this)">Copy</button>
       </div>
@@ -834,7 +762,6 @@
     <div class="paypal-option">
       <div class="crypto-label">Prefer euros by card or bank transfer?</div>
       <div style="margin-top:0.75rem;">
-        <!-- REPLACE href with your PayPal.me link -->
         <a href="https://paypal.me/REPLACE_WITH_YOUR_PAYPAL" class="btn-donate-euro" target="_blank" rel="noopener" style="display:inline-flex;">
           Donate in Euros via PayPal →
         </a>
@@ -867,11 +794,9 @@
 </footer>
 
 <script>
-  // ── Campaign config ── update RAISED as donations come in
-  const GOAL   = 20000;
-  const RAISED = 0;       // ← UPDATE THIS NUMBER as donations arrive
+  const GOAL   = 10000;
+  const RAISED = 0; // ← update this number as donations arrive
 
-  // Progress bar
   const pct = Math.min((RAISED / GOAL) * 100, 100);
   document.getElementById('raised-display').textContent = RAISED.toLocaleString('de-DE');
   document.getElementById('pct-display').textContent = pct.toFixed(1) + '%';
@@ -879,7 +804,6 @@
     document.getElementById('progress-fill').style.width = pct + '%';
   }, 200);
 
-  // Countdown
   function updateCountdown() {
     const deadline = new Date('2026-11-30T23:59:59');
     const now = new Date();
@@ -898,7 +822,6 @@
   updateCountdown();
   setInterval(updateCountdown, 60000);
 
-  // Copy wallet address
   function copyAddress(id, btn) {
     const addr = document.getElementById(id).textContent.trim();
     navigator.clipboard.writeText(addr).then(() => {

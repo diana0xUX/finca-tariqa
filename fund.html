@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Support Finca Tariqa — Regenerative Farm Campaign</title>
+<meta name="description" content="Help us go organic, plant holm oak, build water independence and open our doors to visitors. €20,000 needed by November 2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="style.css">
+<style>
+
+/* ── Campaign hero ── */
+.campaign-hero {
+  background: var(--earth-dark);
+  position: relative;
+  overflow: hidden;
+  min-height: 64vh;
+  display: flex;
+  align-items: center;
+  padding: calc(var(--nav-height) + 4rem) clamp(1.25rem, 6vw, 5rem) 5rem;
+}
+.campaign-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 65% 70% at 5% 90%, rgba(90,143,104,0.22) 0%, transparent 60%),
+    radial-gradient(ellipse 45% 55% at 90% 10%, rgba(201,151,58,0.12) 0%, transparent 55%);
+  pointer-events: none;
+}
+.campaign-hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+}
+.campaign-hero .eyebrow { color: var(--gold); margin-bottom: 1rem; }
+.campaign-hero h1 {
+  font-family: 'Lora', serif;
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  font-weight: 500;
+  color: var(--sand);
+  line-height: 1.15;
+  margin-bottom: 1.25rem;
+}
+.campaign-hero .deck {
+  font-size: 1.05rem;
+  color: rgba(244,239,230,0.62);
+  line-height: 1.72;
+  max-width: 56ch;
+  margin-bottom: 2.5rem;
+}
+.deadline-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: rgba(201,151,58,0.12);
+  border: 1px solid rgba(201,151,58,0.3);
+  border-radius: 100px;
+  padding: 0.5rem 1.1rem;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--gold);
+}
+.deadline-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--gold);
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.85); }
+}
+
+/* ── Progress section ── */
+.progress-section {
+  background: var(--white);
+  padding: clamp(3rem, 6vw, 5rem) clamp(1.25rem, 6vw, 5rem);
+  border-bottom: 1px solid var(--sand-deep);
+}
+.progress-inner {
+  max-width: 820px;
+  margin: 0 auto;
+}
+.progress-amounts {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.progress-raised {
+  font-family: 'Lora', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600;
+  color: var(--earth-dark);
+  line-height: 1;
+}
+.progress-raised span {
+  font-size: 0.95rem;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 400;
+  color: var(--mid);
+  margin-left: 0.5rem;
+}
+.progress-goal {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.85rem;
+  color: var(--mid);
+  text-align: right;
+}
+.progress-goal strong { color: var(--ink); }
+
+.progress-track {
+  height: 14px;
+  background: var(--sand-deep);
+  border-radius: 100px;
+  overflow: hidden;
+  margin-bottom: 1.25rem;
+}
+.progress-fill {
+  height: 100%;
+  border-radius: 100px;
+  background: linear-gradient(90deg, var(--earth-med) 0%, var(--earth-light) 100%);
+  width: 0%;
+  transition: width 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.progress-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.8rem;
+  color: var(--mid);
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.progress-countdown {
+  font-weight: 700;
+  color: var(--terracotta);
+}
+
+.donate-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.btn-donate-euro {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--earth-dark);
+  color: var(--sand);
+  padding: 0.9rem 2rem;
+  border-radius: var(--radius-md);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  transition: background var(--transition), transform var(--transition);
+}
+.btn-donate-euro:hover { background: var(--earth-mid); transform: translateY(-2px); }
+.btn-donate-crypto {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: transparent;
+  color: var(--earth-dark);
+  border: 2px solid var(--earth-dark);
+  padding: 0.9rem 2rem;
+  border-radius: var(--radius-md);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition), transform var(--transition);
+}
+.btn-donate-crypto:hover { background: var(--earth-dark); color: var(--sand); transform: translateY(-2px); }
+
+/* ── Investment breakdown ── */
+.invest-section {
+  background: var(--sand);
+  padding: clamp(4rem, 8vw, 6rem) clamp(1.25rem, 6vw, 5rem);
+}
+.invest-inner { max-width: 820px; margin: 0 auto; }
+.invest-header { text-align: center; margin-bottom: 3.5rem; }
+.invest-header .eyebrow { color: var(--earth-med); margin-bottom: 0.75rem; }
+.invest-header h2 { color: var(--ink); margin-bottom: 1rem; }
+.invest-header p { color: var(--mid); font-size: 0.95rem; max-width: 52ch; margin: 0 auto; line-height: 1.7; }
+
+.invest-year {
+  margin-bottom: 3rem;
+}
+.invest-year-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  background: var(--earth-dark);
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  margin-bottom: 0;
+}
+.invest-year-title {
+  font-family: 'Lora', serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--sand);
+}
+.invest-year-sub {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.72rem;
+  color: rgba(244,239,230,0.5);
+  margin-top: 0.2rem;
+}
+.invest-year-total {
+  font-family: 'Lora', serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--gold);
+}
+
+.invest-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.88rem;
+  background: var(--white);
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+  overflow: hidden;
+}
+.invest-table td {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--sand-deep);
+  vertical-align: top;
+}
+.invest-table tr:last-child td { border-bottom: none; }
+.invest-table .it-name { font-weight: 600; color: var(--ink); width: 40%; }
+.invest-table .it-why { color: var(--mid); line-height: 1.55; }
+.invest-table .it-cost { font-weight: 700; color: var(--earth-med); text-align: right; white-space: nowrap; padding-left: 1rem; }
+.invest-table .it-total td {
+  background: var(--sand);
+  font-weight: 700;
+  border-top: 2px solid var(--sand-deep);
+  border-bottom: none;
+  color: var(--ink);
+}
+.invest-table .it-total .it-cost { color: var(--earth-dark); font-size: 1rem; }
+
+.invest-total-bar {
+  background: var(--earth-dark);
+  border-radius: var(--radius-md);
+  padding: 1.5rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: -0.5rem;
+}
+.invest-total-label {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(244,239,230,0.5);
+  margin-bottom: 0.25rem;
+}
+.invest-total-amount {
+  font-family: 'Lora', serif;
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--gold);
+}
+
+/* ── Crypto section ── */
+.crypto-section {
+  background: var(--earth-dark);
+  padding: clamp(4rem, 8vw, 5.5rem) clamp(1.25rem, 6vw, 5rem);
+}
+.crypto-inner {
+  max-width: 680px;
+  margin: 0 auto;
+}
+.crypto-header { margin-bottom: 2.5rem; }
+.crypto-header .eyebrow { color: var(--gold); margin-bottom: 0.75rem; }
+.crypto-header h2 { color: var(--sand); margin-bottom: 1rem; }
+.crypto-header p { color: rgba(244,239,230,0.6); font-size: 0.95rem; line-height: 1.7; }
+
+.crypto-option { margin-bottom: 1.5rem; }
+.crypto-label {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+}
+.crypto-address-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius-md);
+  padding: 0.9rem 1.25rem;
+}
+.crypto-address {
+  font-family: 'Courier New', monospace;
+  font-size: 0.82rem;
+  color: var(--sand);
+  flex: 1;
+  word-break: break-all;
+  line-height: 1.4;
+}
+.crypto-copy {
+  flex-shrink: 0;
+  background: rgba(201,151,58,0.15);
+  border: 1px solid rgba(201,151,58,0.3);
+  border-radius: var(--radius-sm);
+  color: var(--gold);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.4rem 0.75rem;
+  cursor: pointer;
+  transition: background var(--transition);
+}
+.crypto-copy:hover { background: rgba(201,151,58,0.3); }
+.crypto-copy.copied { color: var(--earth-light); border-color: var(--earth-light); background: rgba(90,143,104,0.2); }
+
+.paypal-option {
+  margin-top: 2.5rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.paypal-option .crypto-label { color: rgba(244,239,230,0.5); }
+
+/* ── Why it matters ── */
+.why-section {
+  background: var(--white);
+  padding: clamp(4rem, 8vw, 6rem) clamp(1.25rem, 6vw, 5rem);
+}
+.why-inner { max-width: 820px; margin: 0 auto; }
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  background: var(--sand-deep);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin-top: 2.5rem;
+}
+.why-card { background: var(--white); padding: 2rem 1.75rem; }
+.why-card-number {
+  font-family: 'Lora', serif;
+  font-size: 2.25rem;
+  font-weight: 600;
+  color: var(--earth-dark);
+  line-height: 1;
+  margin-bottom: 0.35rem;
+}
+.why-card-unit {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--earth-med);
+  margin-bottom: 0.75rem;
+}
+.why-card p {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.85rem;
+  color: var(--mid);
+  line-height: 1.65;
+}
+
+@media (max-width: 680px) {
+  .why-grid { grid-template-columns: 1fr; }
+  .invest-table .it-why { display: none; }
+  .invest-table .it-name { width: auto; }
+  .donate-buttons { flex-direction: column; }
+  .donate-buttons .btn-donate-euro,
+  .donate-buttons .btn-donate-crypto { justify-content: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="nav">
+  <a href="index.html" class="nav-logo">Finca Tariqa</a>
+  <ul class="nav-links" id="main-nav">
+    <li><a href="oranges.html">Oranges</a></li>
+    <li><a href="land.html">The Land</a></li>
+    <li><a href="forest.html">The Forest</a></li>
+    <li><a href="mission.html">Our Mission</a></li>
+    <li><a href="blog/index.html">Journal</a></li>
+    <li><a href="fund.html" class="active" style="color:var(--gold)">Support</a></li>
+  </ul>
+  <div class="nav-toggle" role="button" tabindex="0" aria-label="Open navigation"
+       onclick="document.getElementById('main-nav').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="campaign-hero">
+  <div class="campaign-hero-inner">
+    <span class="eyebrow">Fundraising Campaign · 2026</span>
+    <h1>Help us build the farm the land deserves.</h1>
+    <p class="deck">We bought 4.5 hectares of 80-million-year-old limestone hillside in Valencia. We're going organic, planting holm oak where fire-prone pines stand, establishing a soil carbon baseline, and opening the grove to visitors. Two years of focused investment will set the direction for the next fifty.</p>
+    <div class="deadline-pill">
+      <span class="deadline-dot"></span>
+      Campaign closes <strong id="deadline-label">30 November 2026</strong>
+      &nbsp;·&nbsp; <span id="days-left">—</span> days remaining
+    </div>
+  </div>
+</section>
+
+<!-- Progress -->
+<section class="progress-section">
+  <div class="progress-inner">
+    <div class="progress-amounts">
+      <div>
+        <div class="progress-raised">
+          €<span id="raised-display">0</span>
+          <span>raised</span>
+        </div>
+      </div>
+      <div class="progress-goal">
+        Goal: <strong>€20,000</strong><br>
+        <span id="pct-display">0%</span> of campaign target
+      </div>
+    </div>
+
+    <div class="progress-track">
+      <div class="progress-fill" id="progress-fill"></div>
+    </div>
+
+    <div class="progress-meta">
+      <span>Every euro goes directly to the farm — no platform fees on crypto, minimal fees on PayPal.</span>
+      <span class="progress-countdown" id="countdown-meta"></span>
+    </div>
+
+    <div class="donate-buttons">
+      <!-- REPLACE href with your PayPal.me link, e.g. https://paypal.me/YourName -->
+      <a href="https://paypal.me/REPLACE_WITH_YOUR_PAYPAL" class="btn-donate-euro" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9 12l2 2 4-4"/></svg>
+        Donate in Euros (PayPal)
+      </a>
+      <button class="btn-donate-crypto" onclick="document.getElementById('crypto-section').scrollIntoView({behavior:'smooth'})">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        Send Crypto
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- Why it matters -->
+<section class="why-section">
+  <div class="why-inner">
+    <span class="eyebrow" style="color:var(--earth-med)">What we're building toward</span>
+    <h2 style="margin-top:0.5rem;margin-bottom:0">Three outcomes in five years.</h2>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-card-number">€0.00</div>
+        <div class="why-card-unit">synthetic inputs</div>
+        <p>Full CAECV organic certification by 2028. Retroactive recognition means the three-year conversion clock may already be running — if the grove has been clean for the past three years, we could certify early. Every investment in Year 1 advances this.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-card-number">1,000+</div>
+        <div class="why-card-unit">holm oak planted</div>
+        <p>Replacing fire-prone Aleppo pine with native Quercus ilex — the long-lived, fire-resistant, self-seeding oak of the western Mediterranean limestone. A functioning woodland by year 10. The forest that should have been here all along.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-card-number">2028</div>
+        <div class="why-card-unit">EU carbon market opens</div>
+        <p>The soil carbon baseline we establish now becomes five years of documented improvement when the EU CRCF market goes live around 2028. A grove that starts in 2030 starts with nothing. We start now.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Investment breakdown -->
+<section class="invest-section">
+  <div class="invest-inner">
+    <div class="invest-header">
+      <span class="eyebrow">How the money is used</span>
+      <h2>Two years. Eight milestones. One direction.</h2>
+      <p>Every line item below comes directly from the farm's research report — costs sourced from IVIA, CAECV, and Valencia-based suppliers. Nothing is estimated loosely.</p>
+    </div>
+
+    <!-- Year 1 -->
+    <div class="invest-year">
+      <div class="invest-year-header">
+        <div>
+          <div class="invest-year-title">Year 1 — Foundation</div>
+          <div class="invest-year-sub">November 2026 – October 2027</div>
+        </div>
+        <div class="invest-year-total">€10,000</div>
+      </div>
+      <table class="invest-table">
+        <tr>
+          <td class="it-name">Precision monitoring kit</td>
+          <td class="it-why">SPAD chlorophyll meter (detects iron chlorosis weeks before visible symptoms), two soil moisture probes, on-site weather station. The tools that make management decisions data-driven rather than guesswork.</td>
+          <td class="it-cost">€3,500</td>
+        </tr>
+        <tr>
+          <td class="it-name">Soil carbon baseline</td>
+          <td class="it-why">Five soil core samples (0–30 cm and 30–100 cm), IVIA-accredited lab analysis for total organic carbon, bulk density, pH. Without this baseline taken now, there is nothing to compare against when the EU carbon market opens. This single action, taken before any management changes, is what makes future carbon credit claims verifiable.</td>
+          <td class="it-cost">€500</td>
+        </tr>
+        <tr>
+          <td class="it-name">CAECV organic certification</td>
+          <td class="it-why">Registration fee plus retroactive conversion period recognition application (Form FPO05-157e2). If the grove has had no synthetic inputs for 3+ years — which we're verifying now — the full 3-year conversion wait may be waived. Starting the certification clock in Year 1 means organic premium pricing by 2028.</td>
+          <td class="it-cost">€700</td>
+        </tr>
+        <tr>
+          <td class="it-name">Cover crops &amp; mulch</td>
+          <td class="it-why">Hairy vetch (Vicia villosa) and a grass mix across 2.8 ha of citrus terraces; pruning chipper and first season of mulch under all 1,100 trees. These are the first three organic practices — compatible with current GlobalG.A.P. certification, no compliance risk, immediate soil biology improvement.</td>
+          <td class="it-cost">€600</td>
+        </tr>
+        <tr>
+          <td class="it-name">Holm oak — Phase 1</td>
+          <td class="it-why">500 containerised Quercus ilex seedlings (12–17 cm) plus individual tree shelters, planted into the first cleared zone of the pine forest in November. This is the native species the limestone hillside wants. Every tree planted now is a 700-year investment.</td>
+          <td class="it-cost">€2,500</td>
+        </tr>
+        <tr>
+          <td class="it-name">Habitation certificate</td>
+          <td class="it-why">Architect inspection and cédula de habitabilidad for the farmhouse — the prerequisite for legal residential occupation and the first step toward tourism registration. Without it, the farmhouse cannot legally host visitors overnight.</td>
+          <td class="it-cost">€700</td>
+        </tr>
+        <tr>
+          <td class="it-name">Ecotourism registration</td>
+          <td class="it-why">Declaració responsable (Proc. 16214, Decreto 4/2024) to operate guided day visits commercially — geology walks, harvest experiences, forest tours. No permit required beyond this filing. Plus first-year civil liability insurance (minimum €600K/claim required by law).</td>
+          <td class="it-cost">€900</td>
+        </tr>
+        <tr>
+          <td class="it-name">Admin &amp; professional fees</td>
+          <td class="it-why">PTGFS forest management plan (technical drafting, required before any pine felling), agricultor activo registration with Conselleria d'Agricultura (prerequisite for Joven Agricultor €70K grant and all PAC subsidy applications), leaf mineral analysis.</td>
+          <td class="it-cost">€600</td>
+        </tr>
+        <tr class="it-total">
+          <td colspan="2" class="it-name">Year 1 total</td>
+          <td class="it-cost">€10,000</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Year 2 -->
+    <div class="invest-year">
+      <div class="invest-year-header">
+        <div>
+          <div class="invest-year-title">Year 2 — Growth</div>
+          <div class="invest-year-sub">November 2027 – October 2028</div>
+        </div>
+        <div class="invest-year-total">€10,000</div>
+      </div>
+      <table class="invest-table">
+        <tr>
+          <td class="it-name">ERT geophysical survey</td>
+          <td class="it-why">Electrical Resistivity Tomography — electrodes pressed into the soil, maps water-bearing fractures at depth across the property. The 1957 geological survey identifies the lower boundary of the property as the textbook location for a borehole. The ERT finds the crack before drilling starts. Without it, borehole siting is guesswork. With it, success rate goes from chance to science.</td>
+          <td class="it-cost">€3,000</td>
+        </tr>
+        <tr>
+          <td class="it-name">Precision irrigation upgrade</td>
+          <td class="it-why">Smart irrigation controller (Netafim NMC or equivalent), tensiometer network (6 Irrometer Watermark sensors across terrace zones), pH/EC inline sensor on the irrigation line. Overwatering on limestone soil raises local pH at drip emitters — directly worsening iron lockup. This layer prevents that and converts Year 1 soil moisture data into automated decisions.</td>
+          <td class="it-cost">€2,000</td>
+        </tr>
+        <tr>
+          <td class="it-name">Holm oak — Phase 2</td>
+          <td class="it-why">500 additional Quercus ilex seedlings plus tree shelters, planted into the second cleared zone. Year 2 also requires twice-monthly drip irrigation for Year 1 plantings — without supplemental water, survival on exposed limestone in a dry year drops to 15–30%. With it: 60–70%.</td>
+          <td class="it-cost">€2,500</td>
+        </tr>
+        <tr>
+          <td class="it-name">Multispectral drone survey</td>
+          <td class="it-why">Annual NDVI flight by Valencia-based operator (Agropixel or Hemav). Overlaid on cooperative grade data, this map shows exactly which zones of the 1,100-tree grove produce CAT1 premium fruit and which produce low-grade destrio. The single most actionable data product available for a grove of this size.</td>
+          <td class="it-cost">€500</td>
+        </tr>
+        <tr>
+          <td class="it-name">Organic certification Year 2</td>
+          <td class="it-why">Annual CAECV maintenance fee plus GVA subsidy application (Orden 6/2024 — 80% of annual fees covered, up to €2,000/year). The subsidy application must be filed each year; Year 2 is the first full year of certified conversion.</td>
+          <td class="it-cost">€400</td>
+        </tr>
+        <tr>
+          <td class="it-name">Carbon &amp; monitoring</td>
+          <td class="it-why">Sentinel-2 analytics subscription (EOS Crop Monitoring, €200/year) plus Year 2 soil carbon measurement — the second data point that begins to show improvement trend. The difference between the Year 1 and Year 2 baselines is what the carbon credit auditors verify.</td>
+          <td class="it-cost">€400</td>
+        </tr>
+        <tr>
+          <td class="it-name">Contingency &amp; labour</td>
+          <td class="it-why">Tree planting and mulching is manual work on terraced limestone — no machinery can reach the upper grove. Cover crop mowing (2–3 passes/season), tree shelter inspection and replacement, unexpected soil or agronomic interventions.</td>
+          <td class="it-cost">€1,200</td>
+        </tr>
+        <tr class="it-total">
+          <td colspan="2" class="it-name">Year 2 total</td>
+          <td class="it-cost">€10,000</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Grand total -->
+    <div class="invest-total-bar">
+      <div>
+        <div class="invest-total-label">Campaign total</div>
+        <div class="invest-total-amount">€20,000</div>
+      </div>
+      <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:0.82rem;color:rgba(244,239,230,0.55);max-width:36ch;line-height:1.6;">
+        The Joven Agricultor PAC grant (up to €70,000) and LEADER rural development funds are being applied for separately. This campaign covers what can't wait for public funding cycles.
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Crypto donation -->
+<section class="crypto-section" id="crypto-section">
+  <div class="crypto-inner">
+    <div class="crypto-header">
+      <span class="eyebrow">Send crypto</span>
+      <h2>Two wallets. No intermediaries.</h2>
+      <p>Send ETH, USDC, DAI or any ERC-20 token to the Ethereum address. Send Bitcoin to the BTC address. Copy the address, paste into your wallet. Every satoshi and wei arrives in full.</p>
+    </div>
+
+    <div class="crypto-option">
+      <div class="crypto-label">Ethereum · USDC · DAI · ERC-20</div>
+      <div class="crypto-address-row">
+        <!-- REPLACE with your actual Ethereum wallet address -->
+        <span class="crypto-address" id="eth-address">0xREPLACE_WITH_YOUR_ETH_ADDRESS</span>
+        <button class="crypto-copy" onclick="copyAddress('eth-address', this)">Copy</button>
+      </div>
+    </div>
+
+    <div class="crypto-option">
+      <div class="crypto-label">Bitcoin</div>
+      <div class="crypto-address-row">
+        <!-- REPLACE with your actual Bitcoin wallet address -->
+        <span class="crypto-address" id="btc-address">bc1REPLACE_WITH_YOUR_BTC_ADDRESS</span>
+        <button class="crypto-copy" onclick="copyAddress('btc-address', this)">Copy</button>
+      </div>
+    </div>
+
+    <div class="paypal-option">
+      <div class="crypto-label">Prefer euros by card or bank transfer?</div>
+      <div style="margin-top:0.75rem;">
+        <!-- REPLACE href with your PayPal.me link -->
+        <a href="https://paypal.me/REPLACE_WITH_YOUR_PAYPAL" class="btn-donate-euro" target="_blank" rel="noopener" style="display:inline-flex;">
+          Donate in Euros via PayPal →
+        </a>
+      </div>
+      <p style="font-family:'Plus Jakarta Sans',sans-serif;font-size:0.78rem;color:rgba(244,239,230,0.35);margin-top:0.75rem;line-height:1.5;">
+        PayPal takes a small transaction fee (~2–3%). Crypto arrives fee-free.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      Finca Tariqa<br>Carcaixent, Valencia<br>Spain
+    </div>
+    <ul class="footer-links">
+      <li><a href="oranges.html">Oranges</a></li>
+      <li><a href="land.html">Land</a></li>
+      <li><a href="forest.html">Forest</a></li>
+      <li><a href="mission.html">Mission</a></li>
+      <li><a href="report.html">Full Report</a></li>
+      <li><a href="blog/index.html">Journal</a></li>
+      <li><a href="fund.html">Support</a></li>
+      <li><a href="ru.html">По-русски</a></li>
+    </ul>
+  </div>
+  <div class="footer-bottom">Campaign deadline: 30 November 2026</div>
+</footer>
+
+<script>
+  // ── Campaign config ── update RAISED as donations come in
+  const GOAL   = 20000;
+  const RAISED = 0;       // ← UPDATE THIS NUMBER as donations arrive
+
+  // Progress bar
+  const pct = Math.min((RAISED / GOAL) * 100, 100);
+  document.getElementById('raised-display').textContent = RAISED.toLocaleString('de-DE');
+  document.getElementById('pct-display').textContent = pct.toFixed(1) + '%';
+  setTimeout(() => {
+    document.getElementById('progress-fill').style.width = pct + '%';
+  }, 200);
+
+  // Countdown
+  function updateCountdown() {
+    const deadline = new Date('2026-11-30T23:59:59');
+    const now = new Date();
+    const diff = deadline - now;
+    if (diff <= 0) {
+      document.getElementById('days-left').textContent = 'Campaign closed';
+      document.getElementById('countdown-meta').textContent = 'Campaign has closed.';
+      return;
+    }
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    document.getElementById('days-left').textContent = days;
+    document.getElementById('countdown-meta').textContent =
+      days + ' days ' + hours + ' hours until campaign closes — 30 November 2026';
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 60000);
+
+  // Copy wallet address
+  function copyAddress(id, btn) {
+    const addr = document.getElementById(id).textContent.trim();
+    navigator.clipboard.writeText(addr).then(() => {
+      btn.textContent = 'Copied ✓';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = 'Copy';
+        btn.classList.remove('copied');
+      }, 2500);
+    });
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Journal — Finca Tariqa</title>
+  <meta name="description" content="Notes from a farm in transition. Geology, organic certification, founder stories and the slow work of regenerative agriculture on an 80-million-year-old limestone hillside.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="../style.css">
+  <style>
+
+    /* ── Journal hero ── */
+    .journal-hero {
+      background: var(--earth-dark);
+      padding: calc(var(--nav-height) + 4rem) clamp(1.25rem, 6vw, 5rem) 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .journal-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 55% 60% at 5% 90%, rgba(90,143,104,0.18) 0%, transparent 60%),
+        radial-gradient(ellipse 35% 45% at 95% 5%, rgba(201,151,58,0.09) 0%, transparent 55%);
+      pointer-events: none;
+    }
+    .journal-hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 680px;
+    }
+    .journal-hero .eyebrow {
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+    .journal-hero h1 {
+      font-family: 'Lora', serif;
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      font-weight: 500;
+      color: var(--sand);
+      line-height: 1.15;
+      margin-bottom: 1.25rem;
+    }
+    .journal-hero p {
+      font-size: 1.05rem;
+      color: rgba(244,239,230,0.6);
+      line-height: 1.7;
+      max-width: 52ch;
+    }
+
+    /* ── Post list ── */
+    .post-list {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: clamp(3rem, 7vw, 6rem) clamp(1.25rem, 6vw, 5rem);
+    }
+
+    .post-card {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1.5rem;
+      align-items: start;
+      padding: 2.5rem 0;
+      border-bottom: 1px solid var(--sand-deep);
+      text-decoration: none;
+      color: inherit;
+      transition: opacity var(--transition);
+    }
+    .post-card:first-child { border-top: 1px solid var(--sand-deep); }
+    .post-card:hover { opacity: 0.72; }
+
+    .post-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.85rem;
+    }
+    .post-tag {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.6rem;
+      border-radius: 2px;
+    }
+    .post-tag--story { background: var(--earth-dark); color: var(--sand); }
+    .post-tag--organic { background: #d4edda; color: #2d5016; }
+    .post-tag--report { background: var(--sand-deep); color: var(--mid); }
+
+    .post-date {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.72rem;
+      color: var(--mid);
+      opacity: 0.7;
+    }
+
+    .post-title {
+      font-family: 'Lora', serif;
+      font-size: clamp(1.25rem, 2.5vw, 1.7rem);
+      font-weight: 500;
+      color: var(--ink);
+      line-height: 1.25;
+      margin-bottom: 0.75rem;
+    }
+    .post-excerpt {
+      font-size: 0.9rem;
+      color: var(--mid);
+      line-height: 1.7;
+      max-width: 58ch;
+    }
+
+    .post-arrow {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--earth-med);
+      white-space: nowrap;
+      margin-top: 0.25rem;
+      transition: transform var(--transition);
+    }
+    .post-card:hover .post-arrow { transform: translateX(4px); }
+
+    @media (max-width: 580px) {
+      .post-card { grid-template-columns: 1fr; }
+      .post-arrow { display: none; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <a href="../index.html" class="nav-logo">Finca Tariqa</a>
+    <ul class="nav-links" id="main-nav">
+      <li><a href="../oranges.html">Oranges</a></li>
+      <li><a href="../land.html">The Land</a></li>
+      <li><a href="../forest.html">The Forest</a></li>
+      <li><a href="../mission.html">Our Mission</a></li>
+      <li><a href="index.html" aria-current="page">Journal</a></li>
+    </ul>
+    <div class="nav-toggle" role="button" tabindex="0" aria-label="Open navigation"
+         onclick="document.getElementById('main-nav').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="journal-hero">
+    <div class="journal-hero-inner">
+      <span class="eyebrow">Field Notes</span>
+      <h1>From the farm.</h1>
+      <p>Geology, soil, organic certification and the slow work of making a regenerative farm on an 80-million-year-old limestone hillside in Carcaixent, Valencia.</p>
+    </div>
+  </header>
+
+  <!-- Post list -->
+  <main class="post-list">
+
+    <a href="going-organic.html" class="post-card">
+      <div>
+        <div class="post-meta">
+          <span class="post-tag post-tag--organic">Organic</span>
+          <span class="post-date">August 2026</span>
+        </div>
+        <h2 class="post-title">Going Organic: What It Actually Takes</h2>
+        <p class="post-excerpt">A fifty-year-old grove, thin limestone soil, and a European certification process most people never touch. Here is what we learned about CAECV, conversion periods, and why the geology might shorten our wait.</p>
+      </div>
+      <span class="post-arrow">Read →</span>
+    </a>
+
+    <a href="founder-story.html" class="post-card">
+      <div>
+        <div class="post-meta">
+          <span class="post-tag post-tag--story">Founder Story</span>
+          <span class="post-date">August 2026</span>
+        </div>
+        <h2 class="post-title">What I Found When I Bought a Farm I'd Never Farmed.</h2>
+        <p class="post-excerpt">We were living a borrowed life. A rented villa, symmetrical hedges, a topiary spiral shaped by someone else's gardeners. Then I was pregnant, and everything changed.</p>
+      </div>
+      <span class="post-arrow">Read →</span>
+    </a>
+
+    <a href="../report.html" class="post-card">
+      <div>
+        <div class="post-meta">
+          <span class="post-tag post-tag--report">Full Report</span>
+          <span class="post-date">August 2026</span>
+        </div>
+        <h2 class="post-title">Finca Tariqa: Geology, Agriculture &amp; Regenerative Potential</h2>
+        <p class="post-excerpt">The complete technical and narrative report on the farm — 80-million-year-old limestone, soil chemistry, citrus variety profiles, carbon sequestration potential and a roadmap for organic transition.</p>
+      </div>
+      <span class="post-arrow">Read →</span>
+    </a>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        Finca Tariqa<br>Carcaixent, Valencia<br>Spain
+      </div>
+      <ul class="footer-links">
+        <li><a href="../oranges.html">Oranges</a></li>
+        <li><a href="../land.html">Land</a></li>
+        <li><a href="../forest.html">Forest</a></li>
+        <li><a href="../mission.html">Mission</a></li>
+        <li><a href="index.html">Journal</a></li>
+        <li><a href="../ru.html">По-русски</a></li>
+      </ul>
+    </div>
+    <div class="footer-bottom">Last updated August 2026</div>
+  </footer>
+
+</body>
+</html>

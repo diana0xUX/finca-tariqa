@@ -317,9 +317,112 @@ p { color: var(--mid); margin-bottom: 1.4rem; }
 .permit-body strong { color: var(--ink); }
 .permit-body .permit-cost { color: var(--earth-med); font-style: italic; font-size: 0.82rem; }
 
+/* ══ INFOGRAPHIC 1: Geological timeline ══ */
+.geo-timeline { margin: 2rem 0; background: var(--earth-dark); border-radius: var(--radius-md); padding: 2rem; overflow-x: auto; }
+.geo-tl-label { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.75rem; }
+.geo-track { display: flex; align-items: flex-start; min-width: 560px; }
+.geo-node { flex: 1; display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0 0.5rem; }
+.geo-connector { flex-shrink: 0; padding-top: 7px; }
+.geo-connector-line { width: 2rem; height: 2px; background: rgba(244,239,230,0.1); }
+.geo-dot { width: 16px; height: 16px; border-radius: 50%; margin-bottom: 0.65rem; border: 2px solid transparent; }
+.geo-dot--sea    { background: #1a5a9a; border-color: #4a90d0; }
+.geo-dot--tect   { background: #7a3010; border-color: #c4622d; }
+.geo-dot--soil   { background: #8a5c10; border-color: #c9973a; }
+.geo-dot--citrus { background: var(--earth-med); border-color: var(--earth-light); }
+.geo-dot--now    { background: var(--gold); border-color: #e8c060; box-shadow: 0 0 0 4px rgba(201,151,58,0.2); }
+.geo-age { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.58rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.25rem; line-height: 1.3; }
+.geo-event { font-family: 'Lora', serif; font-size: 0.82rem; font-weight: 500; color: var(--sand); margin-bottom: 0.35rem; line-height: 1.25; }
+.geo-detail { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.67rem; color: rgba(244,239,230,0.4); line-height: 1.5; }
+
+/* ══ INFOGRAPHIC 2: Iron availability chart ══ */
+.iron-chart { margin: 2rem 0; background: var(--white); border: 1px solid var(--sand-deep); border-radius: var(--radius-md); padding: 1.75rem; font-family: 'Plus Jakarta Sans', sans-serif; }
+.iron-chart-label { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--earth-med); margin-bottom: 1.25rem; }
+.iron-rows { display: flex; flex-direction: column; gap: 0.55rem; margin-bottom: 0; }
+.iron-row { display: grid; grid-template-columns: 5rem 1fr 5.5rem; align-items: center; gap: 0.75rem; }
+.iron-row--farm .iron-ph { color: var(--terracotta); font-weight: 700; }
+.iron-ph { font-size: 0.78rem; font-weight: 600; color: var(--mid); white-space: nowrap; }
+.iron-bar-wrap { background: var(--sand-deep); border-radius: 2px; height: 8px; }
+.iron-bar { height: 100%; border-radius: 2px; background: var(--earth-med); }
+.iron-bar--farm { background: var(--terracotta); }
+.iron-pct { font-size: 0.72rem; color: var(--mid); font-weight: 600; }
+.iron-pct--farm { color: var(--terracotta); }
+.iron-chart-caption { margin-top: 1rem; padding-top: 0.75rem; border-top: 1px solid var(--sand-deep); font-size: 0.75rem; color: var(--mid); opacity: 0.7; line-height: 1.55; }
+
+/* ══ INFOGRAPHIC 3: Harvest performance grid ══ */
+.harvest-grid { margin: 1.75rem 0; font-family: 'Plus Jakarta Sans', sans-serif; }
+.hg-heading { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--earth-med); margin-bottom: 1rem; }
+.hg-matrix { display: grid; grid-template-columns: 3.5rem repeat(3, 1fr); gap: 3px; background: var(--sand-deep); border-radius: var(--radius-sm); overflow: hidden; }
+.hg-th { background: var(--earth-dark); color: var(--gold); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; text-align: center; padding: 0.65rem 0.4rem; line-height: 1.3; }
+.hg-yr { background: var(--earth-dark); color: rgba(244,239,230,0.5); font-size: 0.65rem; font-weight: 600; display: flex; align-items: center; justify-content: center; text-align: center; padding: 0.5rem 0.25rem; line-height: 1.3; }
+.hg-yr--now { color: var(--gold); }
+.hg-cell { padding: 0.6rem 0.7rem; line-height: 1.35; font-size: 0.75rem; }
+.hg-cell strong { display: block; font-size: 0.72rem; }
+.hg-cell span { font-size: 0.67rem; opacity: 0.75; }
+.hg-peak  { background: #c6e8cc; color: #1a4820; }
+.hg-good  { background: #e0f4e4; color: #2a5838; }
+.hg-avg   { background: #f8f5ef; color: var(--mid); }
+.hg-weak  { background: #fde8d8; color: #7a2800; }
+.hg-crash { background: #fbd5c8; color: #8a1800; }
+.hg-legend { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 0.75rem; }
+.hg-key { font-size: 0.68rem; font-weight: 600; padding: 0.18rem 0.5rem; border-radius: 2px; }
+
+/* ══ INFOGRAPHIC 4: Stress → quality chain ══ */
+.stress-chain { margin: 2rem 0; background: var(--earth-dark); border-radius: var(--radius-md); padding: 2rem; }
+.stress-chain-label { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; }
+.sc-root { text-align: center; margin-bottom: 1rem; }
+.sc-root-box { display: inline-block; background: rgba(90,143,104,0.18); border: 1px solid rgba(90,143,104,0.35); border-radius: var(--radius-sm); padding: 0.6rem 1.5rem; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.82rem; font-weight: 600; color: var(--sand); }
+.sc-arrow-down { text-align: center; color: rgba(244,239,230,0.18); font-size: 1rem; margin: 0.35rem 0; line-height: 1; }
+.sc-branches { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin: 1rem 0; }
+.sc-branch { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); border-radius: var(--radius-sm); padding: 1rem; }
+.sc-branch-label { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.45rem; }
+.sc-branch--brix .sc-branch-label { color: var(--gold); }
+.sc-branch--terpene .sc-branch-label { color: var(--earth-light); }
+.sc-branch-mechanism { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.77rem; color: rgba(244,239,230,0.55); line-height: 1.5; margin-bottom: 0.55rem; }
+.sc-branch-result { font-family: 'Lora', serif; font-size: 0.88rem; font-style: italic; }
+.sc-branch--brix .sc-branch-result { color: var(--gold); }
+.sc-branch--terpene .sc-branch-result { color: var(--earth-light); }
+.sc-conclusion { text-align: center; margin-top: 1.25rem; padding: 0.75rem 1rem; background: rgba(201,151,58,0.08); border: 1px solid rgba(201,151,58,0.18); border-radius: var(--radius-sm); font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.78rem; color: rgba(244,239,230,0.72); line-height: 1.6; }
+
+/* ══ INFOGRAPHIC 5: Revenue activation timeline ══ */
+.rev-timeline { margin: 2rem 0; font-family: 'Plus Jakarta Sans', sans-serif; }
+.rev-tl-label { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--earth-med); margin-bottom: 1.25rem; }
+.rev-streams { display: flex; flex-direction: column; gap: 0; }
+.rev-stream { display: grid; grid-template-columns: 10rem 1fr; gap: 0; align-items: stretch; border-bottom: 1px solid var(--sand-deep); }
+.rev-stream:last-child { border-bottom: none; }
+.rev-stream-name { padding: 0.75rem 1rem 0.75rem 0; }
+.rev-stream-title { font-size: 0.75rem; font-weight: 700; color: var(--ink); }
+.rev-stream-sub { font-size: 0.67rem; color: var(--mid); opacity: 0.7; margin-top: 0.1rem; }
+.rev-bar-area { position: relative; background: var(--white); border-left: 1px solid var(--sand-deep); overflow: hidden; }
+.rev-year-marks { display: flex; }
+.rev-year-mark { flex: 1; border-right: 1px solid var(--sand-deep); text-align: center; padding: 0.25rem 0; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.06em; color: var(--mid); opacity: 0.5; }
+.rev-year-mark:last-child { border-right: none; }
+.rev-bar-row { padding: 0.5rem 0; position: relative; min-height: 28px; }
+.rev-bar {
+  position: absolute;
+  top: 50%; transform: translateY(-50%);
+  height: 12px;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  padding: 0 6px;
+  font-size: 0.6rem;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.rev-bar--citrus   { background: #e0f4e4; color: #2a5838; left: 0; right: 0; }
+.rev-bar--organic  { background: #fdf4e0; color: #5a4000; }
+.rev-bar--cert     { background: #d4edda; color: #1a4820; }
+.rev-bar--carbon   { background: var(--earth-dark); color: var(--gold); }
+.rev-bar--tourism  { background: #edf4fc; color: #1a3060; }
+.rev-note { font-size: 0.65rem; color: var(--mid); opacity: 0.6; font-style: italic; padding: 0 0 0.35rem 0; }
+
 @media (max-width: 600px) {
   .pull { margin: 2rem -0.5rem; }
   .program-grid { grid-template-columns: 1fr; }
+  .sc-branches { grid-template-columns: 1fr; }
+  .rev-stream { grid-template-columns: 1fr; }
+  .rev-bar-area { display: none; }
 }
 </style>
 </head>
@@ -333,6 +436,7 @@ p { color: var(--mid); margin-bottom: 1.4rem; }
     <li><a href="forest.html">The Forest</a></li>
     <li><a href="mission.html">Our Mission</a></li>
     <li><a href="report.html" class="active">Full Report</a></li>
+      <li><a href="blog/index.html">Journal</a></li>
   </ul>
   <div class="nav-toggle" role="button" tabindex="0" aria-label="Open navigation" onclick="document.getElementById('main-nav').classList.toggle('open')">
     <span></span><span></span><span></span>
@@ -393,6 +497,46 @@ p { color: var(--mid); margin-bottom: 1.4rem; }
       <div class="factbox-label">What makes limestone different from other rock</div>
       <p>Most rock is essentially waterproof. Limestone is not. It dissolves — slowly, almost imperceptibly, in slightly acidic rainwater. Over millions of years, that dissolution widens the natural fractures into voids, passages, and sometimes caverns. Geologists call this karst. It may never be visible (it happens underground), but it is the reason limestone hills can hold and release water in ways that granite or sandstone hills cannot. This hill is a slow, invisible reservoir.</p>
       <p><strong>Right now</strong>, with every rainfall, water is percolating down through the rock, cleaning itself as it travels, dissolving calcium as it goes, and collecting in those ancient fractures somewhere below the surface. It is a process that has been running continuously since the Miocene.</p>
+    </div>
+
+    <div class="geo-timeline">
+      <div class="geo-tl-label">This hillside — 80 million years in five moments</div>
+      <div class="geo-track">
+        <div class="geo-node">
+          <div class="geo-dot geo-dot--sea"></div>
+          <div class="geo-age">80 million years ago</div>
+          <div class="geo-event">Cretaceous ocean floor</div>
+          <div class="geo-detail">Marine shells compress into limestone, 60–70% calcium carbonate, hundreds of metres deep</div>
+        </div>
+        <div class="geo-connector"><div class="geo-connector-line"></div></div>
+        <div class="geo-node">
+          <div class="geo-dot geo-dot--tect"></div>
+          <div class="geo-age">35–20 million years</div>
+          <div class="geo-event">Alpine uplift</div>
+          <div class="geo-detail">Tectonic forces fold and fracture the seabed, pushing it skyward. The cracks that form are where water lives.</div>
+        </div>
+        <div class="geo-connector"><div class="geo-connector-line"></div></div>
+        <div class="geo-node">
+          <div class="geo-dot geo-dot--soil"></div>
+          <div class="geo-age">3M – 300,000 years</div>
+          <div class="geo-event">Terra rossa forms</div>
+          <div class="geo-detail">Red clay accumulates from dissolved limestone — 1 cm per 10,000 years. The 30 cm now under the grove took up to 3 million years.</div>
+        </div>
+        <div class="geo-connector"><div class="geo-connector-line"></div></div>
+        <div class="geo-node">
+          <div class="geo-dot geo-dot--citrus"></div>
+          <div class="geo-age">1780s</div>
+          <div class="geo-event">Citrus arrives</div>
+          <div class="geo-detail">Orange cultivation spreads from Carcaixent up the hillside. 50-year-old trees now standing here were planted in the 1970s.</div>
+        </div>
+        <div class="geo-connector"><div class="geo-connector-line"></div></div>
+        <div class="geo-node">
+          <div class="geo-dot geo-dot--now"></div>
+          <div class="geo-age">Today</div>
+          <div class="geo-event">Organic transition</div>
+          <div class="geo-detail">1,100 trees on ancient limestone. Soil carbon baseline, holm oak replanting, CAECV certification underway.</div>
+        </div>
+      </div>
     </div>
 
     <p>The thin red soil here — the material the trees are growing in — is a byproduct of this dissolution. When limestone dissolves, the calcium goes into solution and drains away. What remains behind is the insoluble fraction: clay minerals, iron oxides (which is what makes it red), silica. A centimetre of terra rossa soil takes somewhere between 1,000 and 10,000 years to form from limestone weathering. The thirty centimetres beneath the grove are anywhere from 300,000 to 3 million years old.</p>
@@ -457,6 +601,38 @@ p { color: var(--mid); margin-bottom: 1.4rem; }
 
     <div class="pull">
       The most important decision for iron chlorosis on this land was made decades ago, by whoever selected the rootstock. Not the fertiliser. The rootstock.
+    </div>
+
+    <div class="iron-chart">
+      <div class="iron-chart-label">Iron availability vs soil pH — logarithmic scale</div>
+      <div class="iron-rows">
+        <div class="iron-row">
+          <span class="iron-ph">pH 6.0</span>
+          <div class="iron-bar-wrap"><div class="iron-bar" style="width:100%"></div></div>
+          <span class="iron-pct">100% — baseline</span>
+        </div>
+        <div class="iron-row">
+          <span class="iron-ph">pH 6.5</span>
+          <div class="iron-bar-wrap"><div class="iron-bar" style="width:78%"></div></div>
+          <span class="iron-pct">~3%</span>
+        </div>
+        <div class="iron-row">
+          <span class="iron-ph">pH 7.0</span>
+          <div class="iron-bar-wrap"><div class="iron-bar" style="width:55%"></div></div>
+          <span class="iron-pct">~0.1%</span>
+        </div>
+        <div class="iron-row">
+          <span class="iron-ph">pH 7.5</span>
+          <div class="iron-bar-wrap"><div class="iron-bar" style="width:32%"></div></div>
+          <span class="iron-pct">~0.01%</span>
+        </div>
+        <div class="iron-row iron-row--farm">
+          <span class="iron-ph">pH 8.0–8.5 ★</span>
+          <div class="iron-bar-wrap"><div class="iron-bar iron-bar--farm" style="width:6%"></div></div>
+          <span class="iron-pct iron-pct--farm">~0.0001% — this farm</span>
+        </div>
+      </div>
+      <div class="iron-chart-caption">For every unit rise in pH above 7, iron solubility drops by 1,000×. The grove's soil sits at pH 8–8.5 — iron is physically present in enormous quantities, but chemically locked into a form tree roots cannot absorb. The tree is starving in a warehouse full of food. Bar widths represent logarithmic scale, not linear.</div>
     </div>
 
     <p>This is what most owners don't know. IVIA — the Valencian Institute of Agrarian Research, which runs one of the most active citrus rootstock programmes in the world specifically because of this problem — classifies rootstocks into three categories for lime tolerance. At one end: sour orange (<em>Citrus aurantium</em>), extremely resistant, can access iron even in highly alkaline soil. At the other end: Troyer citrange, which needs fourteen times more dissolved iron than resistant varieties just to function normally. Troyer citrange was planted extensively across Valencia in the 1980s and 90s for its vigour and disease resistance, without full awareness of how it would perform on hillside calcareous soils. Many of the chronically chlorotic groves visible today are Troyer on limestone.</p>
@@ -552,6 +728,48 @@ p { color: var(--mid); margin-bottom: 1.4rem; }
     </table>
     <p style="font-family:'Plus Jakarta Sans',sans-serif;font-size:0.75rem;color:var(--mid);margin-top:-0.75rem;">★ First full season under current ownership. Lane-Late harvest runs April–June; liquidación typically arrives 2–3 months after delivery, so August 2026 — request it from Exagro if not received.</p>
 
+    <div class="harvest-grid">
+      <div class="hg-heading">Five seasons at a glance — volume &amp; price direction per variety</div>
+      <div class="hg-matrix">
+        <div class="hg-th"></div>
+        <div class="hg-th">Clemenules</div>
+        <div class="hg-th">Lane-Late</div>
+        <div class="hg-th">Navelina</div>
+
+        <div class="hg-yr">Yr 1</div>
+        <div class="hg-cell hg-avg"><strong>Large crop</strong><span>Below-avg price</span></div>
+        <div class="hg-cell hg-good"><strong>Solid</strong><span>Low price</span></div>
+        <div class="hg-cell hg-avg"><strong>Good yield</strong><span>Very low price</span></div>
+
+        <div class="hg-yr">Yr 2</div>
+        <div class="hg-cell hg-peak"><strong>★ Record crop</strong><span>Good price</span></div>
+        <div class="hg-cell hg-avg"><strong>Reduced</strong><span>Strong price</span></div>
+        <div class="hg-cell hg-good"><strong>Steady</strong><span>Recovering</span></div>
+
+        <div class="hg-yr">Yr 3</div>
+        <div class="hg-cell hg-weak"><strong>Crash year</strong><span>Premium price</span></div>
+        <div class="hg-cell hg-avg"><strong>Reduced</strong><span>Strong price</span></div>
+        <div class="hg-cell hg-good"><strong>Full yield</strong><span>Strong price</span></div>
+
+        <div class="hg-yr">Yr 4</div>
+        <div class="hg-cell hg-avg"><strong>Recovery</strong><span>Average price</span></div>
+        <div class="hg-cell hg-good"><strong>Rising</strong><span>Strong price</span></div>
+        <div class="hg-cell hg-crash"><strong>Collapse begins</strong><span>2nd consecutive drop</span></div>
+
+        <div class="hg-yr hg-yr--now">Yr 5 ★</div>
+        <div class="hg-cell hg-good"><strong>Steady</strong><span>Good price</span></div>
+        <div class="hg-cell hg-peak"><strong>↑ Rising</strong><span>Liquidación pending</span></div>
+        <div class="hg-cell hg-crash"><strong>Minimal yield</strong><span>Urgent diagnosis</span></div>
+      </div>
+      <div class="hg-legend">
+        <span class="hg-key hg-peak">★ Exceptional</span>
+        <span class="hg-key hg-good">Good</span>
+        <span class="hg-key hg-avg">Average</span>
+        <span class="hg-key hg-weak">Weak</span>
+        <span class="hg-key hg-crash">Crash</span>
+      </div>
+    </div>
+
     <p>Three stories emerge. Each one requires a different response.</p>
 
     <div class="pull">
@@ -631,6 +849,31 @@ p { color: var(--mid); margin-bottom: 1.4rem; }
 
     <div class="pull">
       The Burgundy growers' maxim — "the vine must suffer to produce great wine" — is not mysticism. It is terpene chemistry observed empirically over centuries before the science existed to explain it. The same physics applies to the oranges grown here.
+    </div>
+
+    <div class="stress-chain">
+      <div class="stress-chain-label">The mechanism — how limestone stress becomes quality</div>
+      <div class="sc-root">
+        <div class="sc-root-box">Thin limestone soil · limited water storage · 50-year-old root systems</div>
+      </div>
+      <div class="sc-arrow-down">↓</div>
+      <div class="sc-root">
+        <div class="sc-root-box">Chronic mild water stress during fruit development (July–September)</div>
+      </div>
+      <div class="sc-arrow-down">↙ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ↘</div>
+      <div class="sc-branches">
+        <div class="sc-branch sc-branch--brix">
+          <div class="sc-branch-label">Pathway 1 — concentration</div>
+          <div class="sc-branch-mechanism">Limited soil moisture means sugars can't dilute in fruit juice. The same carbohydrate load is packed into less water. Regulated Deficit Irrigation replicates this deliberately — the hillside does it for free.</div>
+          <div class="sc-branch-result">Higher Brix · sweeter, more intense flavour</div>
+        </div>
+        <div class="sc-branch sc-branch--terpene">
+          <div class="sc-branch-label">Pathway 2 — terpene synthesis</div>
+          <div class="sc-branch-mechanism">Under water stress, the tree redirects carbon away from growth and into secondary metabolites — specifically terpenes, the aromatic compounds that define citrus character. A 2026 study confirmed a measurable limonene spike under deficit conditions.</div>
+          <div class="sc-branch-result">Aromatic complexity · distinctive fragrance profile</div>
+        </div>
+      </div>
+      <div class="sc-conclusion">The Burgundy maxim — "the vine must suffer" — is terpene chemistry observed empirically before the science existed to explain it. The limestone hillside runs the same process on every orange it grows.</div>
     </div>
 
     <p>This is not a romantic theory. There is now a growing body of citrus terroir research — "flavoromics," using mass spectrometry to identify the 44 to 50 volatile compounds that differ between growing locations — and soil type and water availability consistently rank among the primary drivers of flavour divergence. Hillside fruit and valley floor fruit are measurably different in their chemical profile, not just in agricultural mythology.</p>
@@ -735,6 +978,91 @@ p { color: var(--mid); margin-bottom: 1.4rem; }
       <div class="num-cell"><span class="big">€30–80</span><span class="unit">per verified tonne CO₂, current European market</span></div>
       <div class="num-cell"><span class="big">1–5</span><span class="unit">tonnes CO₂/ha potentially stored annually in regenerative citrus</span></div>
       <div class="num-cell"><span class="big">2028</span><span class="unit">approximate year EU CRCF market becomes fully operational</span></div>
+    </div>
+
+    <div class="rev-timeline">
+      <div class="rev-tl-label">When each revenue stream activates — 2026 to 2032</div>
+      <div class="rev-streams">
+        <!-- Header row -->
+        <div class="rev-stream" style="border-bottom:2px solid var(--sand-deep)">
+          <div class="rev-stream-name" style="font-size:0.6rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--mid);padding-bottom:0.4rem;opacity:0.6"></div>
+          <div class="rev-bar-area" style="padding:0">
+            <div class="rev-year-marks">
+              <div class="rev-year-mark">2026</div>
+              <div class="rev-year-mark">2027</div>
+              <div class="rev-year-mark">2028</div>
+              <div class="rev-year-mark">2029</div>
+              <div class="rev-year-mark">2030</div>
+              <div class="rev-year-mark">2031+</div>
+            </div>
+          </div>
+        </div>
+        <!-- Conventional citrus -->
+        <div class="rev-stream">
+          <div class="rev-stream-name">
+            <div class="rev-stream-title">Conventional citrus</div>
+            <div class="rev-stream-sub">Cooperative, 3 varieties</div>
+          </div>
+          <div class="rev-bar-area">
+            <div class="rev-bar-row">
+              <div class="rev-bar rev-bar--citrus" style="left:0;right:0">Active now → continuous</div>
+            </div>
+          </div>
+        </div>
+        <!-- Organic conversion -->
+        <div class="rev-stream">
+          <div class="rev-stream-name">
+            <div class="rev-stream-title">Organic conversion</div>
+            <div class="rev-stream-sub">CAECV, "en conversión" fruit</div>
+          </div>
+          <div class="rev-bar-area">
+            <div class="rev-bar-row">
+              <div class="rev-bar rev-bar--organic" style="left:calc(100%/6 * 0.5);right:calc(100%/6 * 3)">Conversion period (2026–2028)</div>
+            </div>
+            <div class="rev-note" style="padding-left:calc(100%/6 * 0.5)">EU subsidy €300–600/ha/yr during conversion</div>
+          </div>
+        </div>
+        <!-- Organic certified -->
+        <div class="rev-stream">
+          <div class="rev-stream-name">
+            <div class="rev-stream-title">Organic premium</div>
+            <div class="rev-stream-sub">CAECV certified, La Casella eco channel</div>
+          </div>
+          <div class="rev-bar-area">
+            <div class="rev-bar-row">
+              <div class="rev-bar rev-bar--cert" style="left:calc(100%/6 * 2.5);right:0">+30–50% price premium</div>
+            </div>
+          </div>
+        </div>
+        <!-- Carbon credits -->
+        <div class="rev-stream">
+          <div class="rev-stream-name">
+            <div class="rev-stream-title">Carbon credits</div>
+            <div class="rev-stream-sub">Verra VCS / EU CRCF</div>
+          </div>
+          <div class="rev-bar-area">
+            <div class="rev-bar-row">
+              <div class="rev-bar rev-bar--carbon" style="left:calc(100%/6 * 4);right:0">EU CRCF market opens ~2028–2030</div>
+            </div>
+            <div class="rev-note" style="padding-left:0.5rem">Soil baseline must be established <em>now</em> to enter with 5 years of data</div>
+          </div>
+        </div>
+        <!-- Ecotourism -->
+        <div class="rev-stream">
+          <div class="rev-stream-name">
+            <div class="rev-stream-title">Ecotourism</div>
+            <div class="rev-stream-sub">Day visits → casa rural</div>
+          </div>
+          <div class="rev-bar-area">
+            <div class="rev-bar-row">
+              <div class="rev-bar rev-bar--tourism" style="left:calc(100%/6 * 0.2);right:calc(100%/6 * 3.5)">Day visits (no permit needed now)</div>
+            </div>
+            <div class="rev-bar-row" style="margin-top:-0.35rem">
+              <div class="rev-bar rev-bar--tourism" style="left:calc(100%/6 * 2.2);right:0;opacity:0.65">Casa rural + glamping (after cédula)</div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <p>At 4.5 hectares and conservative carbon storage estimates, the direct annual revenue from verified carbon credits is modest — in the low hundreds of euros to low thousands, depending on verification costs. What matters more than the immediate revenue is the <strong>audited baseline</strong>. Carbon credits are valued on the difference between business-as-usual and improved management. A grove that has been regeneratively managed and documented for five years before the EU market opens will have five years of verified improvement to monetise. A grove that starts in 2030 starts with nothing. The credit for starting early is compounding, not fixed.</p>
@@ -1116,6 +1444,7 @@ p { color: var(--mid); margin-bottom: 1.4rem; }
       <li><a href="forest.html">Forest</a></li>
       <li><a href="mission.html">Mission</a></li>
       <li><a href="report.html">Full Report</a></li>
+        <li><a href="blog/index.html">Journal</a></li>
       <li><a href="ru.html">По-русски</a></li>
     </ul>
   </div>

@@ -241,6 +241,61 @@
 }
 .adopt-notes strong { color: var(--ink); }
 
+/* ── Crypto adoption block ── */
+.crypto-adopt {
+  margin-top: 1.5rem;
+  background: var(--earth-dark);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+.crypto-adopt-col {}
+.crypto-adopt-eyebrow {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+}
+.crypto-adopt-title {
+  font-family: 'Lora', serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--sand);
+  margin-bottom: 0.6rem;
+}
+.crypto-adopt-body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.78rem;
+  color: rgba(244,239,230,0.55);
+  line-height: 1.65;
+}
+.crypto-adopt-body a { color: var(--gold); }
+.nft-economics {
+  list-style: none;
+  padding: 0;
+  margin: 0.85rem 0 0;
+}
+.nft-economics li {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.72rem;
+  color: rgba(244,239,230,0.45);
+  padding: 0.3rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.nft-economics li:last-child { border-bottom: none; }
+.nft-economics .nv { color: var(--sand); font-weight: 600; }
+@media (max-width: 600px) {
+  .crypto-adopt { grid-template-columns: 1fr; gap: 1.25rem; }
+}
+
 @media (max-width: 720px) {
   .tier-grid { grid-template-columns: 1fr; }
   .support-nav-inner { grid-template-columns: repeat(3,1fr); }
@@ -733,6 +788,34 @@
     <div class="adopt-notes">
       <strong>About shipping:</strong> Shipping is calculated at checkout based on your country. Spain and Portugal: approx. €8–12 per box. EU: approx. €15–25 per box. We pack in recycled cardboard, no plastic. Deliveries happen within the 9-month harvest season (October–June). You choose when. <br><br>
       <strong>Founding adopters:</strong> The first 30 adopters at any tier lock in their price for 3 years — you're joining us from Year 0 and sharing the transition with us. Oranges from Year 1 may still be delivered through the cooperative while we build our direct logistics; from Year 2, direct from the grove.
+    </div>
+
+    <div class="crypto-adopt">
+
+      <div class="crypto-adopt-col">
+        <div class="crypto-adopt-eyebrow">Pay with crypto</div>
+        <div class="crypto-adopt-title">Send ETH, USDC, or DAI — get an NFT certificate back.</div>
+        <div class="crypto-adopt-body">
+          If you prefer to pay in crypto, you can send the equivalent amount in ETH, USDC, or DAI to our wallet and we'll record your adoption on-chain. Every crypto adopter receives an <strong style="color:var(--sand)">NFT certificate</strong> — a non-transferable token that proves your tree adoption, stamped with the tree's variety, approximate age, and the season. It lives in your wallet permanently, even after the season ends.
+          <br><br>
+          To adopt with crypto: <a href="mailto:alisheryakupov@gmail.com?subject=Crypto%20tree%20adoption&body=I%20would%20like%20to%20adopt%20a%20tree%20with%20crypto.%20Tier%3A%0AWallet%20address%3A">email us first</a> with your tier and wallet address — we'll confirm the current ETH/USDC equivalent and send the receiving address.
+        </div>
+      </div>
+
+      <div class="crypto-adopt-col">
+        <div class="crypto-adopt-eyebrow">NFT certificate economics</div>
+        <div class="crypto-adopt-title">What it costs to mint, honestly.</div>
+        <div class="crypto-adopt-body">We mint on Base (Coinbase's L2 network) — gas fees are fractions of a cent, not the $20–50 you'd pay on Ethereum mainnet. The certificate is a simple ERC-721 token. No speculation, no trading — just permanent on-chain proof.</div>
+        <ul class="nft-economics">
+          <li><span>Contract deployment (one-time)</span> <span class="nv">~$5–15</span></li>
+          <li><span>Gas per mint (Base network)</span> <span class="nv">&lt;$0.01</span></li>
+          <li><span>Platform: Manifold / Zora</span> <span class="nv">Free to deploy</span></li>
+          <li><span>Adoption price (unchanged)</span> <span class="nv">€99 / €175 / €290</span></li>
+          <li><span>Extra cost for NFT certificate</span> <span class="nv">None — included</span></li>
+          <li><span>Secondary market resale</span> <span class="nv">Possible (OpenSea, etc.)</span></li>
+        </ul>
+      </div>
+
     </div>
   </div>
 </section>

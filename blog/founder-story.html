@@ -200,7 +200,7 @@
   <header class="article-hero">
     <span class="eyebrow">Founder story · August 2026</span>
     <h1>What I Found When I Bought a Farm I'd Never Farmed.</h1>
-    <p class="byline">Diana Yakupova &nbsp;·&nbsp; Carcaixent, Valencia</p>
+    <p class="byline">Diana Sage &nbsp;·&nbsp; Carcaixent, Valencia</p>
   </header>
 
   <!-- Article -->
@@ -301,7 +301,7 @@
     <div class="audio-progress-wrap">
       <input type="range" class="audio-progress" id="progress" value="0" min="0" step="0.1"
              oninput="seek(this.value)">
-      <span class="audio-time" id="time-display">0:00 / 9:15</span>
+      <span class="audio-time" id="time-display">0:00 / 14:15</span>
     </div>
     <div class="speed-wrap">
       <label for="speed">Speed</label>
@@ -331,11 +331,11 @@
   </footer>
 
   <script>
-    const TIMING = [{"id":0,"start":0.0,"end":21.035},{"id":1,"start":21.635,"end":39.927},{"id":2,"start":40.527,"end":41.679},{"id":3,"start":42.279,"end":63.314},{"id":4,"start":63.914,"end":72.554},{"id":5,"start":73.154,"end":87.127},{"id":6,"start":87.727,"end":100.389},{"id":7,"start":100.989,"end":106.439},{"id":8,"start":107.039,"end":134.506},{"id":9,"start":135.106,"end":165.634},{"id":10,"start":166.234,"end":172.698},{"id":11,"start":173.298,"end":199.154},{"id":12,"start":199.754,"end":205.898},{"id":13,"start":206.498,"end":229.303},{"id":14,"start":229.903,"end":237.615},{"id":15,"start":238.215,"end":248.199},{"id":16,"start":248.799,"end":256.501},{"id":17,"start":257.101,"end":264.173},{"id":18,"start":264.773,"end":299.545},{"id":19,"start":300.145,"end":303.335},{"id":20,"start":303.935,"end":330.783},{"id":21,"start":331.383,"end":334.007},{"id":22,"start":334.607,"end":375.075},{"id":23,"start":375.675,"end":379.921},{"id":24,"start":380.521,"end":384.094},{"id":25,"start":384.694,"end":412.597},{"id":26,"start":413.197,"end":455.992},{"id":27,"start":456.592,"end":492.421},{"id":28,"start":493.021,"end":495.795},{"id":29,"start":496.395,"end":507.275},{"id":30,"start":507.875,"end":535.256},{"id":31,"start":535.856,"end":541.936},{"id":32,"start":542.536,"end":544.552},{"id":33,"start":545.152,"end":549.515},{"id":34,"start":550.115,"end":552.909},{"id":35,"start":553.509,"end":554.747}];
+    const TIMING = [{"id": 0, "start": 0.0, "end": 34.442}, {"id": 1, "start": 35.042, "end": 63.533}, {"id": 2, "start": 64.133, "end": 65.946}, {"id": 3, "start": 66.546, "end": 98.919}, {"id": 4, "start": 99.519, "end": 113.044}, {"id": 5, "start": 113.644, "end": 135.553}, {"id": 6, "start": 136.153, "end": 155.993}, {"id": 7, "start": 156.593, "end": 165.127}, {"id": 8, "start": 165.727, "end": 208.457}, {"id": 9, "start": 209.057, "end": 256.566}, {"id": 10, "start": 257.166, "end": 267.289}, {"id": 11, "start": 267.889, "end": 307.846}, {"id": 12, "start": 308.446, "end": 318.067}, {"id": 13, "start": 318.667, "end": 354.113}, {"id": 14, "start": 354.713, "end": 366.531}, {"id": 15, "start": 367.131, "end": 382.747}, {"id": 16, "start": 383.347, "end": 395.411}, {"id": 17, "start": 396.011, "end": 407.094}, {"id": 18, "start": 407.694, "end": 462.009}, {"id": 19, "start": 462.609, "end": 467.601}, {"id": 20, "start": 468.201, "end": 509.982}, {"id": 21, "start": 510.582, "end": 514.699}, {"id": 22, "start": 515.299, "end": 578.201}, {"id": 23, "start": 578.801, "end": 585.478}, {"id": 24, "start": 586.078, "end": 591.678}, {"id": 25, "start": 592.278, "end": 635.755}, {"id": 26, "start": 636.355, "end": 703.384}, {"id": 27, "start": 703.984, "end": 759.557}, {"id": 28, "start": 760.157, "end": 764.52}, {"id": 29, "start": 765.12, "end": 782.165}, {"id": 30, "start": 782.765, "end": 825.645}, {"id": 31, "start": 826.245, "end": 835.76}, {"id": 32, "start": 836.36, "end": 839.517}, {"id": 33, "start": 840.117, "end": 846.944}, {"id": 34, "start": 847.544, "end": 851.928}, {"id": 35, "start": 852.528, "end": 854.469}];
 
     const audio = new Audio('../audio/founder-story.mp3');
     audio.preload = 'auto';
-    const DURATION = 555.3;
+    const DURATION = 855.1;
 
     let currentSpeed = 1;
 

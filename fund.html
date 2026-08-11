@@ -387,6 +387,82 @@
   line-height: 1.65;
 }
 
+/* ── Year 0 done section ── */
+.done-section {
+  background: var(--sand);
+  padding: clamp(4rem, 7vw, 5.5rem) clamp(1.25rem, 6vw, 5rem);
+  border-bottom: 1px solid var(--sand-deep);
+}
+.done-inner { max-width: 820px; margin: 0 auto; }
+.done-header { margin-bottom: 2.75rem; }
+.done-header .eyebrow { color: var(--earth-med); margin-bottom: 0.6rem; }
+.done-header h2 { color: var(--ink); margin-bottom: 0.75rem; }
+.done-header p { color: var(--mid); font-size: 0.92rem; line-height: 1.7; max-width: 56ch; }
+.done-list { display: flex; flex-direction: column; gap: 0; }
+.done-item {
+  display: grid;
+  grid-template-columns: 2.5rem 1fr;
+  gap: 0 1.25rem;
+  padding: 1.4rem 0;
+  border-bottom: 1px solid var(--sand-deep);
+  align-items: start;
+}
+.done-item:last-child { border-bottom: none; }
+.done-check {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: #d4edda;
+  color: #1a6630;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+.done-check--progress {
+  background: #fdf4e0;
+  color: #8a6000;
+}
+.done-body {}
+.done-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 0.3rem;
+}
+.done-date {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--earth-med);
+  margin-bottom: 0.35rem;
+}
+.done-desc {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.83rem;
+  color: var(--mid);
+  line-height: 1.62;
+}
+.done-legend {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 1.75rem;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.75rem;
+  color: var(--mid);
+}
+.done-legend-item { display: flex; align-items: center; gap: 0.4rem; }
+.done-legend-dot {
+  width: 12px; height: 12px;
+  border-radius: 50%;
+}
+.done-legend-dot--done { background: #d4edda; }
+.done-legend-dot--progress { background: #fdf4e0; }
+
 @media (max-width: 680px) {
   .why-grid { grid-template-columns: 1fr; }
   .invest-table .it-why { display: none; }
@@ -466,6 +542,108 @@
         Send Crypto
       </button>
     </div>
+  </div>
+</section>
+
+<!-- Year 0 — already done -->
+<section class="done-section">
+  <div class="done-inner">
+    <div class="done-header">
+      <span class="eyebrow">Year 0 — Already done</span>
+      <h2>Before we ask, here's what we've built.</h2>
+      <p>The fundraising campaign starts from a running start, not a blank page. Every item below is complete or actively in motion before a single euro of campaign funding arrives.</p>
+    </div>
+
+    <div class="done-list">
+
+      <div class="done-item">
+        <div class="done-check">✓</div>
+        <div class="done-body">
+          <div class="done-date">November 2025</div>
+          <div class="done-title">Farm acquired</div>
+          <div class="done-desc">4.51 hectares of Upper Cretaceous limestone hillside in Carcaixent, Valencia — purchased for €95,000. 1,100 citrus trees across three varieties (Clemenules, Navelina, Navel Lane-Late), average age 50 years, active cooperative membership, functioning drip irrigation, a farmhouse, and 1.7 ha of pine forest above the grove. The land has income from day one.</div>
+        </div>
+      </div>
+
+      <div class="done-item">
+        <div class="done-check">✓</div>
+        <div class="done-body">
+          <div class="done-date">October 2024 – June 2025</div>
+          <div class="done-title">First harvest delivered under new ownership</div>
+          <div class="done-desc">14,209 kg of Navel Lane-Late oranges harvested and delivered to the cooperative. First full season managed under current ownership. Income confirmed. The cooperative relationship is active and operational.</div>
+        </div>
+      </div>
+
+      <div class="done-item">
+        <div class="done-check">✓</div>
+        <div class="done-body">
+          <div class="done-date">January 2026</div>
+          <div class="done-title">Water tested</div>
+          <div class="done-desc">Two well water samples analysed by accredited laboratory (M-26-0146, M-26-0147). Result: safe for irrigation — pH 7.4, conductivity and salts well within citrus tolerance, Legionella not detected. Not safe to drink without treatment (nitrates 56% above EU limit, E. coli present — agricultural runoff from upslope orchards). The well is confirmed functional. The nitrates in irrigation water are effectively free nitrogen fertiliser.</div>
+        </div>
+      </div>
+
+      <div class="done-item">
+        <div class="done-check">✓</div>
+        <div class="done-body">
+          <div class="done-date">May 2026</div>
+          <div class="done-title">Cooperative responsibilities clarified</div>
+          <div class="done-desc">Direct conversation with Exagro (Coop. del Camp de Vila Nova de Castelló) in May 2026. Confirmed: who prunes, who decides harvest timing, how the canon de amortización works, what technical support is available. Five years of liquidación records (2021–2026) analysed — three distinct performance patterns identified across the three varieties. Lane-Late is the rising variety. Navelina needs urgent diagnosis.</div>
+        </div>
+      </div>
+
+      <div class="done-item">
+        <div class="done-check">✓</div>
+        <div class="done-body">
+          <div class="done-date">August 2026</div>
+          <div class="done-title">Full research report completed</div>
+          <div class="done-desc">15-chapter technical and narrative report covering: the 80-million-year geology, soil chemistry (60–70% calcium carbonate, terra rossa), iron chlorosis mechanism and solutions, water aquifer mapping, five seasons of cooperative data, the stress-to-quality argument for limestone fruit, digital grove management, the organic path, carbon farming frameworks, grants and funding, ecotourism and planning permits, forest management, building on limestone. Every investment in this campaign has a chapter behind it.</div>
+        </div>
+      </div>
+
+      <div class="done-item">
+        <div class="done-check">✓</div>
+        <div class="done-body">
+          <div class="done-date">August 2026</div>
+          <div class="done-title">CAECV certification process fully mapped</div>
+          <div class="done-desc">All seven CAECV application forms identified and downloaded. Parcel declaration spreadsheet (FPO05-175e3) completed with cadastral references, all three citrus varieties, area breakdown, and irrigation source. Retroactive conversion recognition form (FPO05-157e2) located — if the previous owner confirms no synthetic inputs for three years, the certification wait may be waived entirely. Contacts established: CAECV Carlet (96 253 82 41), OCA Alzira (96 245 80 70), Estación Experimental Agraria Carcaixent (96 246 98 60).</div>
+        </div>
+      </div>
+
+      <div class="done-item">
+        <div class="done-check">✓</div>
+        <div class="done-body">
+          <div class="done-date">August 2026</div>
+          <div class="done-title">Organic transition inquiry sent</div>
+          <div class="done-desc">WhatsApp messages sent to the cooperative (requesting phytosanitary treatment records for the grove going back 3–5 years) and to the previous owner José Antonio Iranzo Albelda (requesting confirmation of what inputs were applied during his ownership, and authorisation to share records with CAECV). These replies determine whether retroactive recognition applies — the single highest-value question before filing.</div>
+        </div>
+      </div>
+
+      <div class="done-item">
+        <div class="done-check">✓</div>
+        <div class="done-body">
+          <div class="done-date">August 2026</div>
+          <div class="done-title">Website and journal launched</div>
+          <div class="done-desc">Full public website built and published: geological report, founder story, going-organic blog post with inline infographics explaining the CAECV process and limestone terroir argument. The farm's story is documented and publicly available before the fundraising campaign opens.</div>
+        </div>
+      </div>
+
+      <div class="done-item">
+        <div class="done-check done-check--progress">→</div>
+        <div class="done-body">
+          <div class="done-date">This week</div>
+          <div class="done-title">CAECV call in progress</div>
+          <div class="done-desc">Calling CAECV Carlet (96 253 82 41, mornings) to confirm: whether parcels were previously registered, what evidence is required for retroactive recognition, and whether email submission is accepted. This call precedes formal application filing.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="done-legend">
+      <div class="done-legend-item"><div class="done-legend-dot done-legend-dot--done"></div> Completed</div>
+      <div class="done-legend-item"><div class="done-legend-dot done-legend-dot--progress"></div> In progress</div>
+    </div>
+
   </div>
 </section>
 

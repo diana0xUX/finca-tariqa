@@ -3,644 +3,754 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Support Finca Tariqa — Adopt a Tree, Donate, or Invest</title>
-<meta name="description" content="Three ways to be part of what we're building on an 80-million-year-old limestone hillside in Valencia. Adopt a tree and get oranges. Donate to the farm. Join the waitlist for our ecological certificate.">
+<title>Support Finca Tariqa — Adopt a Tree</title>
+<meta name="description" content="Adopt an orange tree on our limestone hillside. Get fruit delivered. 1,100 real trees. Five rarity tiers. Your connection to the land grows every season.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="style.css">
 <style>
 
-/* ── Page hero ── */
-.campaign-hero {
+/* ═══════════════════════════════════════
+   HERO
+═══════════════════════════════════════ */
+.hero {
   background: var(--earth-dark);
   position: relative;
   overflow: hidden;
-  min-height: 56vh;
-  display: flex;
-  align-items: center;
-  padding: calc(var(--nav-height) + 4rem) clamp(1.25rem, 6vw, 5rem) 5rem;
+  padding: calc(var(--nav-height) + 5rem) clamp(1.25rem,6vw,5rem) 5rem;
 }
-.campaign-hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
+.hero::before {
+  content:'';
+  position:absolute;
+  inset:0;
   background:
-    radial-gradient(ellipse 65% 70% at 5% 90%, rgba(90,143,104,0.22) 0%, transparent 60%),
-    radial-gradient(ellipse 45% 55% at 90% 10%, rgba(201,151,58,0.12) 0%, transparent 55%);
-  pointer-events: none;
+    radial-gradient(ellipse 70% 60% at 8% 85%, rgba(90,143,104,0.25) 0%, transparent 58%),
+    radial-gradient(ellipse 50% 50% at 88% 12%, rgba(201,151,58,0.15) 0%, transparent 52%);
+  pointer-events:none;
 }
-.campaign-hero-inner { position: relative; z-index: 1; max-width: 720px; }
-.campaign-hero .eyebrow { color: var(--gold); margin-bottom: 1rem; }
-.campaign-hero h1 {
-  font-family: 'Lora', serif;
-  font-size: clamp(2.2rem, 5vw, 3.6rem);
-  font-weight: 500;
-  color: var(--sand);
-  line-height: 1.15;
-  margin-bottom: 1.25rem;
+.hero-inner {
+  position:relative;
+  z-index:1;
+  max-width:860px;
+  margin:0 auto;
 }
-.campaign-hero .deck {
-  font-size: 1.05rem;
-  color: rgba(244,239,230,0.62);
-  line-height: 1.72;
-  max-width: 56ch;
+.hero-kicker {
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:0.68rem;
+  font-weight:700;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:1.25rem;
+  display:flex;
+  align-items:center;
+  gap:0.6rem;
+}
+.kicker-dot {
+  width:6px;height:6px;border-radius:50%;
+  background:var(--gold);
+  animation:pulse-k 2s infinite;
+}
+@keyframes pulse-k {
+  0%,100%{opacity:1;transform:scale(1)}
+  50%{opacity:0.4;transform:scale(0.7)}
+}
+.hero h1 {
+  font-family:'Lora',serif;
+  font-size:clamp(2.6rem,5.5vw,4.2rem);
+  font-weight:500;
+  color:var(--sand);
+  line-height:1.12;
+  margin-bottom:1.25rem;
+}
+.hero h1 em { font-style:italic; color:var(--gold); }
+.hero-deck {
+  font-size:1rem;
+  color:rgba(244,239,230,0.6);
+  line-height:1.75;
+  max-width:52ch;
+  margin-bottom:2.5rem;
+}
+.hero-pills {
+  display:flex;
+  gap:0.6rem;
+  flex-wrap:wrap;
+  margin-bottom:2.75rem;
+}
+.hero-pill {
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:0.72rem;
+  font-weight:600;
+  padding:0.35rem 0.85rem;
+  border-radius:100px;
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.1);
+  color:rgba(244,239,230,0.7);
+}
+.hero-pill strong { color:var(--gold); }
+.hero-ctas {
+  display:flex;
+  gap:1rem;
+  flex-wrap:wrap;
+  align-items:center;
+}
+.btn-hero-primary {
+  display:inline-flex;
+  align-items:center;
+  gap:0.5rem;
+  background:var(--gold);
+  color:var(--ink);
+  padding:1rem 2.25rem;
+  border-radius:var(--radius-md);
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:0.92rem;
+  font-weight:700;
+  letter-spacing:0.04em;
+  text-decoration:none;
+  transition:background 0.18s, transform 0.18s;
+}
+.btn-hero-primary:hover { background:#daa93f; transform:translateY(-2px); }
+.btn-hero-ghost {
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:0.82rem;
+  font-weight:600;
+  color:rgba(244,239,230,0.55);
+  text-decoration:none;
+  display:inline-flex;
+  align-items:center;
+  gap:0.35rem;
+}
+.btn-hero-ghost:hover { color:var(--sand); }
+
+/* ═══════════════════════════════════════
+   RARITY BAR
+═══════════════════════════════════════ */
+.rarity-bar {
+  background:var(--earth-dark);
+  border-top:1px solid rgba(255,255,255,0.06);
+  border-bottom:1px solid rgba(255,255,255,0.06);
+  padding:1.5rem clamp(1.25rem,6vw,5rem);
+}
+.rarity-bar-inner {
+  max-width:860px;
+  margin:0 auto;
+  display:flex;
+  align-items:center;
+  gap:0;
+}
+.rb-item {
+  flex:1;
+  text-align:center;
+  padding:0.5rem;
+  border-right:1px solid rgba(255,255,255,0.1);
+}
+.rb-item:last-child { border-right:none; }
+.rb-gem { font-size:1.1rem; line-height:1; margin-bottom:0.2rem; }
+.rb-name {
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:0.62rem;
+  font-weight:700;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  margin-bottom:0.1rem;
+}
+.rb-item:nth-child(1) .rb-name { color:#aaa; }
+.rb-item:nth-child(2) .rb-name { color:var(--earth-light); }
+.rb-item:nth-child(3) .rb-name { color:#7ab4ff; }
+.rb-item:nth-child(4) .rb-name { color:#c07aff; }
+.rb-item:nth-child(5) .rb-name { color:var(--gold); }
+.rb-count {
+  font-family:'Lora',serif;
+  font-size:1rem;
+  font-weight:600;
+  color:var(--sand);
+}
+@media(max-width:500px) {
+  .rb-gem { font-size:0.85rem; }
+  .rb-name { display:none; }
 }
 
-/* ── Three-way nav ── */
-.support-nav {
-  background: var(--white);
-  border-bottom: 1px solid var(--sand-deep);
-  position: sticky;
-  top: 0;
-  z-index: 90;
+/* ═══════════════════════════════════════
+   TIER SECTION
+═══════════════════════════════════════ */
+.tiers-section {
+  background:var(--sand);
+  padding:clamp(4rem,8vw,6rem) clamp(1.25rem,6vw,5rem);
 }
-.support-nav-inner {
-  max-width: 820px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+.tiers-inner { max-width:920px; margin:0 auto; }
+.tiers-header {
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:1.5rem;
+  margin-bottom:2.5rem;
+  flex-wrap:wrap;
 }
-.support-nav-tab {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.3rem;
-  padding: 1.1rem 1rem;
-  text-decoration: none;
-  border-bottom: 3px solid transparent;
-  transition: border-color var(--transition), background var(--transition);
-  text-align: center;
+.tiers-header-left .eyebrow { color:var(--earth-med); margin-bottom:0.5rem; }
+.tiers-header-left h2 { color:var(--ink); margin:0; }
+.tiers-header-right {
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:0.78rem;
+  color:var(--mid);
+  line-height:1.6;
+  max-width:32ch;
+  text-align:right;
 }
-.support-nav-tab:hover { background: var(--sand); }
-.support-nav-tab.active { border-bottom-color: var(--earth-med); }
-.support-nav-icon { font-size: 1.1rem; line-height: 1; }
-.support-nav-label {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--ink);
-}
-.support-nav-sub {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.65rem;
-  color: var(--mid);
-}
-
-/* ── Section wrapper ── */
-.support-section {
-  padding: clamp(4rem, 8vw, 6rem) clamp(1.25rem, 6vw, 5rem);
-}
-.support-inner { max-width: 820px; margin: 0 auto; }
-.section-header { margin-bottom: 3rem; }
-.section-header .eyebrow { margin-bottom: 0.6rem; }
-.section-header h2 { margin-bottom: 0.75rem; }
-.section-header p {
-  font-size: 0.95rem;
-  color: var(--mid);
-  line-height: 1.7;
-  max-width: 58ch;
-}
-
-/* ══════════════════════
-   SECTION 1: ADOPT A TREE
-   ══════════════════════ */
-.adopt-section { background: var(--sand); }
-.adopt-section .eyebrow { color: var(--earth-med); }
+.tiers-header-right a { color:var(--earth-med); }
 
 .tier-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.25rem;
-  margin-bottom: 2rem;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1.25rem;
+  margin-bottom:1.5rem;
 }
 .tier-card {
-  background: var(--white);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  background:var(--white);
+  border-radius:var(--radius-lg);
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  border:1px solid var(--sand-deep);
+  transition:transform 0.18s, box-shadow 0.18s;
 }
-.tier-card--featured { box-shadow: 0 4px 24px rgba(0,0,0,0.12); }
-.tier-header {
-  padding: 1.5rem 1.5rem 1.25rem;
-  background: var(--earth-dark);
+.tier-card:hover { transform:translateY(-3px); box-shadow:0 12px 32px rgba(0,0,0,0.1); }
+.tier-card--featured { border-color:var(--earth-med); box-shadow:0 4px 20px rgba(0,0,0,0.08); }
+.tier-card--featured:hover { box-shadow:0 16px 40px rgba(0,0,0,0.14); }
+
+.tier-head { background:var(--earth-dark); padding:1.5rem 1.5rem 1.25rem; }
+.tier-head--featured { background:var(--earth-mid); }
+.tier-rarity-pill {
+  display:inline-flex;
+  align-items:center;
+  gap:0.3rem;
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:0.58rem;
+  font-weight:700;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  padding:0.18rem 0.55rem;
+  border-radius:3px;
+  margin-bottom:0.75rem;
 }
-.tier-header--featured { background: var(--earth-mid); }
-.tier-badge {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.6rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 0.6rem;
-}
+.pill--common   { background:rgba(180,180,180,0.15); color:#aaa; }
+.pill--uncommon { background:rgba(90,143,104,0.25);  color:var(--earth-light); }
+.pill--rare     { background:rgba(100,160,255,0.15); color:#7ab4ff; }
+.pill--epic     { background:rgba(180,100,255,0.15); color:#c07aff; }
+
 .tier-name {
-  font-family: 'Lora', serif;
-  font-size: 1.15rem;
-  font-weight: 500;
-  color: var(--sand);
-  margin-bottom: 0.15rem;
+  font-family:'Lora',serif;
+  font-size:1.15rem;
+  font-weight:500;
+  color:var(--sand);
+  margin-bottom:0.1rem;
 }
 .tier-name-es {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.7rem;
-  color: rgba(244,239,230,0.4);
-  margin-bottom: 1rem;
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:0.63rem;
+  color:rgba(244,239,230,0.3);
+  margin-bottom:1rem;
 }
 .tier-price {
-  font-family: 'Lora', serif;
-  font-size: 2rem;
-  font-weight: 600;
-  color: var(--gold);
-  line-height: 1;
+  font-family:'Lora',serif;
+  font-size:2.1rem;
+  font-weight:600;
+  color:var(--gold);
+  line-height:1;
 }
-.tier-price-sub {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.72rem;
-  color: rgba(244,239,230,0.45);
-  margin-top: 0.25rem;
+.tier-price sub { font-size:0.85rem; font-weight:400; color:rgba(244,239,230,0.4); }
+
+.tier-body { padding:1.5rem; flex:1; display:flex; flex-direction:column; }
+.tier-fruit-tag {
+  display:flex;
+  align-items:flex-start;
+  gap:0.5rem;
+  background:rgba(90,143,104,0.08);
+  border-radius:var(--radius-sm);
+  padding:0.75rem 0.85rem;
+  margin-bottom:1.1rem;
+  min-height:5rem;
 }
-.tier-body {
-  padding: 1.5rem;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
+.tier-kg {
+  font-family:'Lora',serif;
+  font-size:1.4rem;
+  font-weight:600;
+  color:var(--earth-med);
+  white-space:nowrap;
 }
-.tier-fruit {
-  background: rgba(90,143,104,0.08);
-  border-radius: var(--radius-sm);
-  padding: 0.75rem 1rem;
-  margin-bottom: 1.25rem;
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-}
-.tier-fruit-kg {
-  font-family: 'Lora', serif;
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: var(--earth-med);
-  line-height: 1;
-}
-.tier-fruit-label {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.7rem;
-  color: var(--mid);
-  line-height: 1.4;
-}
-.tier-perks {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 1.5rem;
-  flex: 1;
-}
+.tier-kg-sub { font-family:'Plus Jakarta Sans',sans-serif; font-size:0.68rem; color:var(--mid); line-height:1.5; padding-top:0.2rem; }
+
+.tier-perks { list-style:none; padding:0; margin:0 0 1.25rem; flex:1; }
 .tier-perks li {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.8rem;
-  color: var(--mid);
-  padding: 0.35rem 0;
-  border-bottom: 1px solid var(--sand-deep);
-  display: flex;
-  align-items: flex-start;
-  gap: 0.5rem;
-  line-height: 1.45;
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:0.77rem;
+  color:var(--mid);
+  padding:0.3rem 0;
+  border-bottom:1px solid var(--sand-deep);
+  display:flex;
+  align-items:flex-start;
+  gap:0.45rem;
+  line-height:1.4;
 }
-.tier-perks li:last-child { border-bottom: none; }
-.tier-perks .check { color: var(--earth-med); font-size: 0.75rem; flex-shrink: 0; padding-top: 0.1rem; }
+.tier-perks li:last-child { border-bottom:none; }
+.chk     { color:var(--earth-med); font-size:0.72rem; flex-shrink:0; padding-top:0.1rem; }
+.chk-gld { color:var(--gold);      font-size:0.72rem; flex-shrink:0; padding-top:0.1rem; }
+
 .tier-cta {
-  display: block;
-  text-align: center;
-  background: var(--earth-dark);
-  color: var(--sand);
-  padding: 0.85rem 1.5rem;
-  border-radius: var(--radius-md);
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.82rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  text-decoration: none;
-  transition: background var(--transition);
+  display:block;
+  text-align:center;
+  background:var(--earth-dark);
+  color:var(--sand);
+  padding:0.85rem 1rem;
+  border-radius:var(--radius-md);
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:0.8rem;
+  font-weight:700;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  text-decoration:none;
+  transition:background 0.18s;
 }
-.tier-cta:hover { background: var(--earth-mid); }
-.tier-cta--featured { background: var(--earth-med); }
-.tier-cta--featured:hover { background: var(--earth-light); }
+.tier-cta:hover         { background:var(--earth-mid); }
+.tier-cta--featured     { background:var(--earth-med); }
+.tier-cta--featured:hover { background:var(--earth-light); }
 
-.adopt-notes {
-  background: rgba(0,0,0,0.04);
-  border-radius: var(--radius-md);
-  padding: 1.25rem 1.5rem;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.78rem;
-  color: var(--mid);
-  line-height: 1.7;
+.tiers-sub {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1rem;
 }
-.adopt-notes strong { color: var(--ink); }
+.tiers-sub-note {
+  background:var(--white);
+  border-radius:var(--radius-md);
+  padding:1.1rem 1.5rem;
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:0.78rem;
+  color:var(--mid);
+  line-height:1.7;
+  border-left:3px solid var(--earth-light);
+}
+.tiers-sub-note strong { color:var(--ink); }
 
-/* ── Crypto adoption block ── */
-.crypto-adopt {
-  margin-top: 1.5rem;
-  background: var(--earth-dark);
-  border-radius: var(--radius-lg);
-  padding: 1.75rem 2rem;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-}
-.crypto-adopt-col {}
-.crypto-adopt-eyebrow {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.62rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 0.5rem;
-}
-.crypto-adopt-title {
-  font-family: 'Lora', serif;
-  font-size: 1rem;
-  font-weight: 500;
-  color: var(--sand);
-  margin-bottom: 0.6rem;
-}
-.crypto-adopt-body {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.78rem;
-  color: rgba(244,239,230,0.55);
-  line-height: 1.65;
-}
-.crypto-adopt-body a { color: var(--gold); }
-.nft-economics {
-  list-style: none;
-  padding: 0;
-  margin: 0.85rem 0 0;
-}
-.nft-economics li {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.72rem;
-  color: rgba(244,239,230,0.45);
-  padding: 0.3rem 0;
-  border-bottom: 1px solid rgba(255,255,255,0.05);
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-}
-.nft-economics li:last-child { border-bottom: none; }
-.nft-economics .nv { color: var(--sand); font-weight: 600; }
-@media (max-width: 600px) {
-  .crypto-adopt { grid-template-columns: 1fr; gap: 1.25rem; }
+@media(max-width:720px) {
+  .tier-grid { grid-template-columns:1fr; }
+  .tiers-sub { grid-template-columns:1fr; }
+  .tiers-header { flex-direction:column; align-items:flex-start; }
+  .tiers-header-right { text-align:left; }
 }
 
-@media (max-width: 720px) {
-  .tier-grid { grid-template-columns: 1fr; }
-  .support-nav-inner { grid-template-columns: repeat(3,1fr); }
-  .support-nav-sub { display: none; }
+/* ═══════════════════════════════════════
+   BADGES PREVIEW STRIP
+═══════════════════════════════════════ */
+.badges-strip {
+  background:var(--earth-dark);
+  padding:3rem clamp(1.25rem,6vw,5rem);
+  border-top:1px solid rgba(255,255,255,0.04);
+}
+.badges-strip-inner { max-width:920px; margin:0 auto; }
+.badges-strip-header {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:1.5rem;
+  flex-wrap:wrap;
+  gap:0.75rem;
+}
+.badges-strip-header h3 {
+  font-family:'Lora',serif;
+  font-size:1.2rem;
+  font-weight:500;
+  color:var(--sand);
+  margin:0;
+}
+.badges-strip-header a {
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:0.72rem;
+  font-weight:700;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  color:var(--gold);
+  text-decoration:none;
+  opacity:0.8;
+}
+.badges-strip-header a:hover { opacity:1; }
+.badges-row {
+  display:flex;
+  gap:0.75rem;
+  overflow-x:auto;
+  padding-bottom:0.5rem;
+  scrollbar-width:none;
+}
+.badges-row::-webkit-scrollbar { display:none; }
+.badge-chip {
+  flex-shrink:0;
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:var(--radius-md);
+  padding:0.85rem 1rem;
+  text-align:center;
+  min-width:100px;
+}
+.badge-chip--rare { border-color:rgba(201,151,58,0.3); background:rgba(201,151,58,0.05); }
+.badge-chip-icon { font-size:1.5rem; line-height:1; margin-bottom:0.35rem; }
+.badge-chip-name {
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:0.65rem;
+  font-weight:700;
+  color:var(--sand);
+  line-height:1.35;
 }
 
-/* ══════════════════════
-   SECTION 2: DONATE
-   ══════════════════════ */
-.donate-section { background: var(--white); }
-.donate-section .eyebrow { color: var(--earth-med); }
+/* ═══════════════════════════════════════
+   LEVELS STRIP
+═══════════════════════════════════════ */
+.levels-strip {
+  background:var(--white);
+  padding:3rem clamp(1.25rem,6vw,5rem);
+  border-top:1px solid var(--sand-deep);
+}
+.levels-strip-inner { max-width:920px; margin:0 auto; }
+.levels-strip h3 {
+  font-family:'Lora',serif;
+  font-size:1.2rem;
+  font-weight:500;
+  color:var(--ink);
+  margin:0 0 1.5rem;
+}
+.levels-row {
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:0;
+  position:relative;
+}
+.levels-row::before {
+  content:'';
+  position:absolute;
+  top:1.35rem;
+  left:10%;right:10%;
+  height:2px;
+  background:linear-gradient(90deg,rgba(0,0,0,0.08) 0%,var(--earth-light) 30%,var(--earth-med) 60%,var(--gold) 100%);
+}
+.lv-step {
+  position:relative;
+  z-index:1;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:0.4rem;
+  padding:0 0.25rem;
+}
+.lv-orb {
+  width:2.75rem;height:2.75rem;
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.1rem;
+  border:2px solid var(--lo-b,var(--sand-deep));
+  background:var(--lo-bg,var(--white));
+}
+.lv-step:nth-child(1) .lv-orb { --lo-b:rgba(0,0,0,0.18); --lo-bg:var(--white); }
+.lv-step:nth-child(2) .lv-orb { --lo-b:var(--earth-light); --lo-bg:var(--white); }
+.lv-step:nth-child(3) .lv-orb { --lo-b:var(--earth-med);   --lo-bg:var(--white); }
+.lv-step:nth-child(4) .lv-orb { --lo-b:#7ab4ff; --lo-bg:var(--white); }
+.lv-step:nth-child(5) .lv-orb {
+  --lo-b:var(--gold);
+  --lo-bg:var(--white);
+  box-shadow:0 0 16px rgba(201,151,58,0.25);
+}
+.lv-season {
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:0.58rem;
+  font-weight:700;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  color:var(--mid);
+  text-align:center;
+}
+.lv-title {
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:0.7rem;
+  font-weight:700;
+  color:var(--ink);
+  text-align:center;
+  line-height:1.3;
+}
+@media(max-width:560px) {
+  .levels-row { grid-template-columns:repeat(3,1fr); gap:0.75rem; }
+  .levels-row::before { display:none; }
+  .lv-step:nth-child(4),.lv-step:nth-child(5) { display:none; }
+}
 
+/* ═══════════════════════════════════════
+   OTHER WAYS — COMPACT
+═══════════════════════════════════════ */
+.other-ways {
+  background:var(--sand);
+  padding:clamp(3rem,6vw,5rem) clamp(1.25rem,6vw,5rem);
+  border-top:1px solid var(--sand-deep);
+}
+.other-ways-inner { max-width:920px; margin:0 auto; }
+.other-ways-eyebrow {
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:0.65rem;
+  font-weight:700;
+  letter-spacing:0.16em;
+  text-transform:uppercase;
+  color:var(--mid);
+  margin-bottom:1.5rem;
+}
+.other-ways-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1.25rem;
+}
+
+/* — Donate card — */
+.other-card {
+  background:var(--white);
+  border-radius:var(--radius-lg);
+  padding:2rem;
+  border:1px solid var(--sand-deep);
+}
+.other-card-eyebrow {
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:0.62rem;
+  font-weight:700;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:var(--earth-med);
+  margin-bottom:0.5rem;
+}
+.other-card h3 {
+  font-family:'Lora',serif;
+  font-size:1.2rem;
+  font-weight:500;
+  color:var(--ink);
+  margin-bottom:0.75rem;
+}
+.other-card p {
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:0.82rem;
+  color:var(--mid);
+  line-height:1.65;
+  margin-bottom:1.5rem;
+}
 .deadline-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  background: rgba(201,151,58,0.10);
-  border: 1px solid rgba(201,151,58,0.25);
-  border-radius: 100px;
-  padding: 0.45rem 1rem;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.78rem;
-  font-weight: 600;
-  color: var(--gold);
-  margin-bottom: 2rem;
+  display:inline-flex;
+  align-items:center;
+  gap:0.5rem;
+  background:rgba(201,151,58,0.1);
+  border:1px solid rgba(201,151,58,0.25);
+  border-radius:100px;
+  padding:0.35rem 0.85rem;
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:0.72rem;
+  font-weight:600;
+  color:var(--gold);
+  margin-bottom:1.25rem;
 }
 .deadline-dot {
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: var(--gold);
-  animation: pulse 2s infinite;
+  width:5px;height:5px;border-radius:50%;
+  background:var(--gold);
+  animation:pulse-k 2s infinite;
 }
-@keyframes pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.5; transform: scale(0.85); }
-}
-
-.progress-amounts {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  margin-bottom: 1.1rem;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-.progress-raised {
-  font-family: 'Lora', serif;
-  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
-  font-weight: 600;
-  color: var(--earth-dark);
-  line-height: 1;
-}
-.progress-raised span {
-  font-size: 0.9rem;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-weight: 400;
-  color: var(--mid);
-  margin-left: 0.4rem;
-}
-.progress-goal {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.82rem;
-  color: var(--mid);
-  text-align: right;
-}
-.progress-goal strong { color: var(--ink); }
 .progress-track {
-  height: 12px;
-  background: var(--sand-deep);
-  border-radius: 100px;
-  overflow: hidden;
-  margin-bottom: 1rem;
+  height:8px;
+  background:var(--sand-deep);
+  border-radius:100px;
+  overflow:hidden;
+  margin-bottom:0.6rem;
 }
 .progress-fill {
-  height: 100%;
-  border-radius: 100px;
-  background: linear-gradient(90deg, var(--earth-med) 0%, var(--earth-light) 100%);
-  width: 0%;
-  transition: width 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+  height:100%;border-radius:100px;
+  background:linear-gradient(90deg,var(--earth-med),var(--earth-light));
+  width:0%;
+  transition:width 1.4s cubic-bezier(.22,1,.36,1);
 }
-.progress-meta {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.78rem;
-  color: var(--mid);
-  margin-bottom: 2rem;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 0.4rem;
+.progress-amounts {
+  display:flex;
+  justify-content:space-between;
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:0.75rem;
+  color:var(--mid);
+  margin-bottom:1.25rem;
 }
-.progress-countdown { font-weight: 700; color: var(--terracotta); }
+.progress-raised-val {
+  font-family:'Lora',serif;
+  font-size:1.4rem;
+  font-weight:600;
+  color:var(--ink);
+}
+.donate-btn-row { display:flex; gap:0.75rem; flex-wrap:wrap; }
+.btn-donate {
+  display:inline-flex;
+  align-items:center;
+  gap:0.4rem;
+  background:var(--earth-dark);
+  color:var(--sand);
+  padding:0.7rem 1.25rem;
+  border-radius:var(--radius-md);
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:0.78rem;
+  font-weight:700;
+  text-decoration:none;
+  transition:background 0.18s;
+}
+.btn-donate:hover { background:var(--earth-mid); }
+.btn-donate-ghost {
+  display:inline-flex;
+  align-items:center;
+  gap:0.4rem;
+  background:transparent;
+  color:var(--earth-dark);
+  border:1.5px solid var(--earth-dark);
+  padding:0.7rem 1.25rem;
+  border-radius:var(--radius-md);
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:0.78rem;
+  font-weight:700;
+  cursor:pointer;
+  transition:background 0.18s, color 0.18s;
+}
+.btn-donate-ghost:hover { background:var(--earth-dark); color:var(--sand); }
 
-.donate-buttons {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-  margin-bottom: 3rem;
+/* — Waitlist card — */
+.other-card--dark {
+  background:var(--earth-dark);
+  border-color:rgba(255,255,255,0.06);
 }
-.btn-donate-euro {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  background: var(--earth-dark);
-  color: var(--sand);
-  padding: 0.9rem 2rem;
-  border-radius: var(--radius-md);
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.9rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-decoration: none;
-  transition: background var(--transition), transform var(--transition);
-}
-.btn-donate-euro:hover { background: var(--earth-mid); transform: translateY(-2px); }
-.btn-donate-crypto {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  background: transparent;
-  color: var(--earth-dark);
-  border: 2px solid var(--earth-dark);
-  padding: 0.9rem 2rem;
-  border-radius: var(--radius-md);
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.9rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  cursor: pointer;
-  transition: background var(--transition), color var(--transition), transform var(--transition);
-}
-.btn-donate-crypto:hover { background: var(--earth-dark); color: var(--sand); transform: translateY(-2px); }
-
-.what-funds {
-  border-top: 1px solid var(--sand-deep);
-  padding-top: 2rem;
-}
-.what-funds-title {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--earth-med);
-  margin-bottom: 1.25rem;
-}
-.funds-list {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0.75rem;
-}
-.funds-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.75rem;
-  padding: 0.85rem 1rem;
-  background: var(--sand);
-  border-radius: var(--radius-sm);
-}
-.funds-icon { font-size: 1.1rem; line-height: 1; flex-shrink: 0; }
-.funds-name {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.8rem;
-  font-weight: 700;
-  color: var(--ink);
-  margin-bottom: 0.15rem;
-}
-.funds-cost {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.72rem;
-  color: var(--earth-med);
-  font-weight: 700;
-}
-
-/* ── Crypto ── */
-.crypto-wrap {
-  background: var(--earth-dark);
-  border-radius: var(--radius-lg);
-  padding: 1.75rem;
-  margin-top: 2rem;
-}
-.crypto-header-row {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 1.25rem;
-}
-.crypto-option { margin-bottom: 1rem; }
-.crypto-label {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.62rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: rgba(244,239,230,0.45);
-  margin-bottom: 0.4rem;
-}
-.crypto-address-row {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: var(--radius-sm);
-  padding: 0.75rem 1rem;
-}
-.crypto-address {
-  font-family: 'Courier New', monospace;
-  font-size: 0.78rem;
-  color: var(--sand);
-  flex: 1;
-  word-break: break-all;
-  line-height: 1.4;
-}
-.crypto-copy {
-  flex-shrink: 0;
-  background: rgba(201,151,58,0.15);
-  border: 1px solid rgba(201,151,58,0.3);
-  border-radius: var(--radius-sm);
-  color: var(--gold);
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  padding: 0.35rem 0.65rem;
-  cursor: pointer;
-  transition: background var(--transition);
-}
-.crypto-copy:hover { background: rgba(201,151,58,0.3); }
-.crypto-copy.copied { color: var(--earth-light); border-color: var(--earth-light); background: rgba(90,143,104,0.2); }
-
-@media (max-width: 580px) {
-  .funds-list { grid-template-columns: 1fr; }
-  .donate-buttons { flex-direction: column; }
-}
-
-/* ══════════════════════
-   SECTION 3: WAITLIST
-   ══════════════════════ */
-.waitlist-section { background: var(--earth-dark); position: relative; overflow: hidden; }
-.waitlist-section::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 50% 60% at 10% 80%, rgba(90,143,104,0.18) 0%, transparent 60%),
-    radial-gradient(ellipse 35% 45% at 90% 10%, rgba(201,151,58,0.10) 0%, transparent 55%);
-  pointer-events: none;
-}
-.waitlist-section .support-inner { position: relative; z-index: 1; max-width: 640px; }
-.waitlist-section .eyebrow { color: var(--gold); }
-.waitlist-section h2 { color: var(--sand); }
-.waitlist-section .section-header p { color: rgba(244,239,230,0.58); }
-
-.cert-explainer {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.75rem;
-  margin-bottom: 2.5rem;
-}
-.cert-point {
-  background: rgba(255,255,255,0.05);
-  border-radius: var(--radius-sm);
-  padding: 1.1rem;
-}
-.cert-point-icon { font-size: 1.25rem; line-height: 1; margin-bottom: 0.5rem; }
-.cert-point-title {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.72rem;
-  font-weight: 700;
-  color: var(--sand);
-  margin-bottom: 0.3rem;
-}
-.cert-point-body {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.68rem;
-  color: rgba(244,239,230,0.45);
-  line-height: 1.55;
-}
-
+.other-card--dark .other-card-eyebrow { color:var(--gold); }
+.other-card--dark h3 { color:var(--sand); }
+.other-card--dark p { color:rgba(244,239,230,0.55); }
 .waitlist-form {
-  display: flex;
-  gap: 0.75rem;
-  flex-wrap: wrap;
-  margin-bottom: 1rem;
+  display:flex;
+  gap:0.6rem;
+  flex-wrap:wrap;
 }
 .waitlist-input {
-  flex: 1;
-  min-width: 220px;
-  background: rgba(255,255,255,0.07);
-  border: 1px solid rgba(255,255,255,0.15);
-  border-radius: var(--radius-md);
-  padding: 0.85rem 1.1rem;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.9rem;
-  color: var(--sand);
-  outline: none;
-  transition: border-color var(--transition);
+  flex:1;
+  min-width:160px;
+  background:rgba(255,255,255,0.07);
+  border:1px solid rgba(255,255,255,0.14);
+  border-radius:var(--radius-md);
+  padding:0.7rem 1rem;
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:0.85rem;
+  color:var(--sand);
+  outline:none;
+  transition:border-color 0.18s;
 }
-.waitlist-input::placeholder { color: rgba(244,239,230,0.3); }
-.waitlist-input:focus { border-color: rgba(201,151,58,0.5); }
+.waitlist-input::placeholder { color:rgba(244,239,230,0.3); }
+.waitlist-input:focus { border-color:rgba(201,151,58,0.5); }
 .waitlist-btn {
-  background: var(--gold);
-  color: var(--ink);
-  border: none;
-  border-radius: var(--radius-md);
-  padding: 0.85rem 1.75rem;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.85rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  cursor: pointer;
-  transition: background var(--transition), transform var(--transition);
-  white-space: nowrap;
+  background:var(--gold);
+  color:var(--ink);
+  border:none;
+  border-radius:var(--radius-md);
+  padding:0.7rem 1.25rem;
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:0.8rem;
+  font-weight:700;
+  cursor:pointer;
+  white-space:nowrap;
+  transition:background 0.18s;
 }
-.waitlist-btn:hover { background: #daa93f; transform: translateY(-1px); }
+.waitlist-btn:hover { background:#daa93f; }
 .waitlist-note {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.72rem;
-  color: rgba(244,239,230,0.35);
-  line-height: 1.6;
+  margin-top:0.75rem;
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:0.68rem;
+  color:rgba(244,239,230,0.3);
+  line-height:1.55;
 }
-.waitlist-note a { color: rgba(244,239,230,0.5); }
-
-.waitlist-blog-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.78rem;
-  font-weight: 600;
-  color: var(--gold);
-  text-decoration: none;
-  margin-top: 1.5rem;
-  opacity: 0.8;
+.cert-points {
+  display:flex;
+  gap:0.6rem;
+  margin-bottom:1.25rem;
+  flex-wrap:wrap;
 }
-.waitlist-blog-link:hover { opacity: 1; }
-
-@media (max-width: 580px) {
-  .cert-explainer { grid-template-columns: 1fr; }
+.cert-pt {
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:0.68rem;
+  color:rgba(244,239,230,0.5);
+  background:rgba(255,255,255,0.05);
+  border-radius:var(--radius-sm);
+  padding:0.3rem 0.6rem;
+  display:flex;
+  align-items:center;
+  gap:0.3rem;
 }
 
+/* crypto inline */
+.crypto-toggle-btn {
+  background:transparent;
+  border:none;
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:0.72rem;
+  font-weight:700;
+  color:var(--mid);
+  text-decoration:underline;
+  text-underline-offset:3px;
+  cursor:pointer;
+  padding:0;
+  margin-top:0.5rem;
+  display:block;
+}
+.crypto-panel {
+  display:none;
+  margin-top:1rem;
+  background:var(--earth-dark);
+  border-radius:var(--radius-md);
+  padding:1.25rem;
+}
+.crypto-panel.open { display:block; }
+.crypto-opt { margin-bottom:0.85rem; }
+.crypto-opt:last-child { margin-bottom:0; }
+.crypto-lbl {
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:0.6rem;
+  font-weight:700;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:rgba(244,239,230,0.4);
+  margin-bottom:0.35rem;
+}
+.crypto-addr-row {
+  display:flex;
+  align-items:center;
+  gap:0.5rem;
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:var(--radius-sm);
+  padding:0.6rem 0.85rem;
+}
+.crypto-addr {
+  font-family:'Courier New',monospace;
+  font-size:0.72rem;
+  color:var(--sand);
+  flex:1;
+  word-break:break-all;
+  line-height:1.35;
+}
+.crypto-copy-btn {
+  flex-shrink:0;
+  background:rgba(201,151,58,0.15);
+  border:1px solid rgba(201,151,58,0.3);
+  border-radius:4px;
+  color:var(--gold);
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:0.6rem;
+  font-weight:700;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  padding:0.3rem 0.55rem;
+  cursor:pointer;
+  transition:background 0.15s;
+}
+.crypto-copy-btn:hover { background:rgba(201,151,58,0.3); }
+.crypto-copy-btn.copied { color:var(--earth-light); border-color:var(--earth-light); background:rgba(90,143,104,0.2); }
+
+@media(max-width:620px) {
+  .other-ways-grid { grid-template-columns:1fr; }
+}
 </style>
 </head>
 <body>
@@ -661,328 +771,231 @@
   </div>
 </nav>
 
-<!-- Hero -->
-<section class="campaign-hero">
-  <div class="campaign-hero-inner">
-    <span class="eyebrow">Finca Tariqa · Carcaixent · Valencia</span>
-    <h1>Three ways to be part of what we're building.</h1>
-    <p class="deck">Adopt a tree and get oranges delivered from your hillside. Donate directly to the farm's Year 1 work. Or join the waitlist for our ecological land certificate — something new we're building for 2027.</p>
+<!-- ═══════ HERO ═══════ -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-kicker">
+      <span class="kicker-dot"></span>
+      Finca Tariqa · Carcaixent, Valencia · Grove Membership
+    </div>
+    <h1>Adopt a tree.<br><em>Own a piece of the hillside.</em></h1>
+    <p class="hero-deck">1,100 orange trees on an 80-million-year-old limestone hillside. Pick one. We deliver your fruit and document your tree's life, season by season.</p>
+    <div class="hero-pills">
+      <span class="hero-pill">🍊 <strong>25–80 kg</strong> delivered</span>
+      <span class="hero-pill">🌱 <strong>Level up</strong> every season</span>
+      <span class="hero-pill">🏅 <strong>8</strong> earnable badges</span>
+    </div>
+    <div class="hero-ctas">
+      <a href="#tiers" class="btn-hero-primary">Choose your tree →</a>
+    </div>
   </div>
 </section>
 
-<!-- Sticky nav between sections -->
-<div class="support-nav">
-  <div class="support-nav-inner">
-    <a href="#adopt" class="support-nav-tab active">
-      <span class="support-nav-icon">🍊</span>
-      <span class="support-nav-label">Adopt a Tree</span>
-      <span class="support-nav-sub">oranges delivered</span>
-    </a>
-    <a href="#donate" class="support-nav-tab">
-      <span class="support-nav-icon">🌱</span>
-      <span class="support-nav-label">Donate</span>
-      <span class="support-nav-sub">Year 1 campaign</span>
-    </a>
-    <a href="#certificate" class="support-nav-tab">
-      <span class="support-nav-icon">🔗</span>
-      <span class="support-nav-label">Certificate</span>
-      <span class="support-nav-sub">join the waitlist</span>
-    </a>
-  </div>
-</div>
+<!-- ═══════ RARITY BAR ═══════ -->
 
-<!-- ═══════════════════════════
-     SECTION 1: ADOPT A TREE
-═══════════════════════════ -->
-<section class="support-section adopt-section" id="adopt">
-  <div class="support-inner">
-    <div class="section-header">
-      <span class="eyebrow" style="color:var(--earth-med)">Adopt a Tree</span>
-      <h2>Your tree. Your oranges. Your hillside story.</h2>
-      <p>We have 1,100 orange trees on an 80-million-year-old limestone hillside in Carcaixent — three varieties across a 9-month harvest season. Adopt one and we'll send you its fruit. Every adoption comes with an NFT certificate on Linea — a living token that evolves with the tree, earns badges, and levels up the longer you hold it.</p>
-      <a href="adopt.html" style="display:inline-flex;align-items:center;gap:0.4rem;font-family:'Plus Jakarta Sans',sans-serif;font-size:0.8rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--earth-med);text-decoration:none;margin-top:0.75rem;">Explore the full NFT program — rarity, traits, badges →</a>
+<!-- ═══════ TIERS ═══════ -->
+<section class="tiers-section" id="tiers">
+  <div class="tiers-inner">
+
+    <div class="tiers-header">
+      <div class="tiers-header-left">
+        <div class="eyebrow">Choose your tree</div>
+        <h2>Three tiers. One hillside.</h2>
+      </div>
+      <div class="tiers-header-right">
+        Pay in euros via PayPal, or in ETH/USDC at the equivalent rate.
+      </div>
     </div>
 
     <div class="tier-grid">
 
-      <!-- Tier 1 -->
+      <!-- Amigo -->
       <div class="tier-card">
-        <div class="tier-header">
-          <div class="tier-badge">Tier 1</div>
+        <div class="tier-head">
           <div class="tier-name">Friend of the Tree</div>
           <div class="tier-name-es">Amigo del Árbol</div>
-          <div class="tier-price">€99<span style="font-size:1rem;font-weight:400;color:rgba(244,239,230,0.4)">/year</span></div>
-          <div class="tier-price-sub">~€8/month · shipping additional</div>
+          <div class="tier-price">€99 <sub>/ year</sub></div>
         </div>
         <div class="tier-body">
-          <div class="tier-fruit">
-            <div class="tier-fruit-kg">25 kg</div>
-            <div class="tier-fruit-label">of oranges<br>2 deliveries, you choose timing</div>
+          <div class="tier-fruit-tag">
+            <div class="tier-kg">25 kg</div>
+            <div class="tier-kg-sub">of oranges<br>2 deliveries<br>you choose timing</div>
           </div>
           <ul class="tier-perks">
-            <li><span class="check">✓</span> Pick your variety and delivery months</li>
-            <li><span class="check">✓</span> Digital adoption certificate — tree variety, age, location on the finca</li>
-            <li><span class="check">✓</span> Welcome letter with your tree's story</li>
-            <li><span class="check">✓</span> Harvest photo of your tree's grove section</li>
-            <li><span class="check">✓</span> Early access to renew for next season</li>
+            <li><span class="chk">✓</span> Digital ownership certificate</li>
+            <li><span class="chk">✓</span> Tree traits recorded: variety, age, terrace</li>
+            <li><span class="chk">✓</span> Welcome letter + harvest photo</li>
+            <li><span class="chk">✓</span> Season badges earned as you renew</li>
+            <li><span class="chk">✓</span> Level up each season you renew</li>
           </ul>
-          <a href="mailto:alisheryakupov@gmail.com?subject=Adopt%20a%20Tree%20—%20Amigo%20del%20Árbol&body=Hi%2C%20I%20would%20like%20to%20adopt%20a%20tree%20at%20the%20Friend%20of%20the%20Tree%20level%20(€99%2Fyear).%20Please%20send%20me%20details." class="tier-cta">Adopt — €99 / year</a>
+          <a href="http://127.0.0.1:5173/checkout?tier=amigo" class="tier-cta">Own your tree — €99 →</a>
         </div>
       </div>
 
-      <!-- Tier 2 (featured) -->
+      <!-- Padrino (featured) -->
       <div class="tier-card tier-card--featured">
-        <div class="tier-header tier-header--featured">
-          <div class="tier-badge">Tier 2 · Most popular</div>
+        <div class="tier-head tier-head--featured">
           <div class="tier-name">Godparent of the Tree</div>
           <div class="tier-name-es">Padrino del Árbol</div>
-          <div class="tier-price">€175<span style="font-size:1rem;font-weight:400;color:rgba(244,239,230,0.4)">/year</span></div>
-          <div class="tier-price-sub">~€14/month · shipping additional</div>
+          <div class="tier-price">€175 <sub>/ year</sub></div>
         </div>
         <div class="tier-body">
-          <div class="tier-fruit">
-            <div class="tier-fruit-kg">50 kg</div>
-            <div class="tier-fruit-label">of oranges<br>3 deliveries, you choose timing</div>
+          <div class="tier-fruit-tag">
+            <div class="tier-kg">50 kg</div>
+            <div class="tier-kg-sub">of oranges<br>3 deliveries, all varieties</div>
           </div>
           <ul class="tier-perks">
-            <li><span class="check">✓</span> Everything in Tier 1</li>
-            <li><span class="check">✓</span> <strong>Your name on a wooden plaque on your tree</strong> — for the full season</li>
-            <li><span class="check">✓</span> Printed adoption certificate and welcome card, posted to you</li>
-            <li><span class="check">✓</span> 3 photo updates across the season: bloom, fruit set, harvest</li>
-            <li><span class="check">✓</span> Short harvest video of your tree being picked</li>
-            <li><span class="check">✓</span> Invitation to visit the farm during harvest season</li>
-            <li><span class="check">✓</span> Priority access to additional boxes if surplus</li>
+            <li><span class="chk">✓</span> Everything in Tier 1</li>
+            <li><span class="chk-gld">✓</span> <strong>Named plaque on your physical tree</strong></li>
+            <li><span class="chk-gld">✓</span> Upper terrace and older trees eligible</li>
+            <li><span class="chk">✓</span> 3 seasonal photos + harvest video</li>
+            <li><span class="chk">✓</span> Printed certificate, posted to you</li>
+            <li><span class="chk">✓</span> Farm visit invitation</li>
           </ul>
-          <a href="mailto:alisheryakupov@gmail.com?subject=Adopt%20a%20Tree%20—%20Padrino%20del%20Árbol&body=Hi%2C%20I%20would%20like%20to%20adopt%20a%20tree%20at%20the%20Godparent%20level%20(€175%2Fyear).%20Please%20send%20me%20details." class="tier-cta tier-cta--featured">Adopt — €175 / year</a>
+          <a href="http://127.0.0.1:5173/checkout?tier=padrino" class="tier-cta tier-cta--featured">Own your tree — €175 →</a>
         </div>
       </div>
 
-      <!-- Tier 3 -->
+      <!-- Custodio -->
       <div class="tier-card">
-        <div class="tier-header">
-          <div class="tier-badge">Tier 3</div>
+        <div class="tier-head">
           <div class="tier-name">Custodian of the Tree</div>
           <div class="tier-name-es">Custodio del Árbol</div>
-          <div class="tier-price">€290<span style="font-size:1rem;font-weight:400;color:rgba(244,239,230,0.4)">/year</span></div>
-          <div class="tier-price-sub">~€24/month · shipping additional</div>
+          <div class="tier-price">€290 <sub>/ year</sub></div>
         </div>
         <div class="tier-body">
-          <div class="tier-fruit">
-            <div class="tier-fruit-kg">80 kg</div>
-            <div class="tier-fruit-label">of oranges<br>up to 5 deliveries, 3 varieties</div>
+          <div class="tier-fruit-tag">
+            <div class="tier-kg">80 kg</div>
+            <div class="tier-kg-sub">of oranges<br>5 deliveries, full 9-month season</div>
           </div>
           <ul class="tier-perks">
-            <li><span class="check">✓</span> Everything in Tier 2</li>
-            <li><span class="check">✓</span> <strong>Full-tree adoption</strong> — your name on the plaque all year + GPS coordinates of your exact tree</li>
-            <li><span class="check">✓</span> Choose across all 3 varieties and 9-month season</li>
-            <li><span class="check">✓</span> Annual impact letter — personally signed, describing that season's soil work, wildlife, and regenerative progress</li>
-            <li><span class="check">✓</span> Priority invitation to our Harvest Day event</li>
-            <li><span class="check">✓</span> Your name on the Grove of Friends page on this website</li>
-            <li><span class="check">✓</span> First right of renewal at same price each year</li>
+            <li><span class="chk">✓</span> Everything in Tier 2</li>
+            <li><span class="chk-gld">✓</span> <strong>Oldest trees on the highest terraces</strong></li>
+            <li><span class="chk-gld">✓</span> GPS coordinates of your exact tree recorded</li>
+            <li><span class="chk-gld">✓</span> Governance advisory vote (Season 4+)</li>
+            <li><span class="chk">✓</span> Annual signed impact letter from the farm</li>
+            <li><span class="chk">✓</span> Priority Harvest Day event invite</li>
+            <li><span class="chk">✓</span> Name on Grove of Friends on this site</li>
           </ul>
-          <a href="mailto:alisheryakupov@gmail.com?subject=Adopt%20a%20Tree%20—%20Custodio%20del%20Árbol&body=Hi%2C%20I%20would%20like%20to%20adopt%20a%20tree%20at%20the%20Custodian%20level%20(€290%2Fyear).%20Please%20send%20me%20details." class="tier-cta">Adopt — €290 / year</a>
+          <a href="http://127.0.0.1:5173/checkout?tier=custodio" class="tier-cta">Own your tree — €290 →</a>
         </div>
       </div>
 
     </div>
 
-    <div class="adopt-notes">
-      <strong>About shipping:</strong> Shipping is calculated at checkout based on your country. Spain and Portugal: approx. €8–12 per box. EU: approx. €15–25 per box. We pack in recycled cardboard, no plastic. Deliveries happen within the 9-month harvest season (October–June). You choose when. <br><br>
-      <strong>Founding adopters:</strong> The first 30 adopters at any tier lock in their price for 3 years — you're joining us from Year 0 and sharing the transition with us. Oranges from Year 1 may still be delivered through the cooperative while we build our direct logistics; from Year 2, direct from the grove.
-    </div>
-
-    <div class="crypto-adopt">
-
-      <div class="crypto-adopt-col">
-        <div class="crypto-adopt-eyebrow">Pay with crypto</div>
-        <div class="crypto-adopt-title">Send ETH, USDC, or DAI — get an NFT certificate back.</div>
-        <div class="crypto-adopt-body">
-          If you prefer to pay in crypto, you can send the equivalent amount in ETH, USDC, or DAI to our wallet and we'll record your adoption on-chain. Every crypto adopter receives an <strong style="color:var(--sand)">NFT certificate</strong> — a non-transferable token that proves your tree adoption, stamped with the tree's variety, approximate age, and the season. It lives in your wallet permanently, even after the season ends.
-          <br><br>
-          To adopt with crypto: <a href="mailto:alisheryakupov@gmail.com?subject=Crypto%20tree%20adoption&body=I%20would%20like%20to%20adopt%20a%20tree%20with%20crypto.%20Tier%3A%0AWallet%20address%3A">email us first</a> with your tier and wallet address — we'll confirm the current ETH/USDC equivalent and send the receiving address.
-        </div>
-      </div>
-
-      <div class="crypto-adopt-col">
-        <div class="crypto-adopt-eyebrow">NFT certificate economics</div>
-        <div class="crypto-adopt-title">What it costs to mint, honestly.</div>
-        <div class="crypto-adopt-body">We mint on Base (Coinbase's L2 network) — gas fees are fractions of a cent, not the $20–50 you'd pay on Ethereum mainnet. The certificate is a simple ERC-721 token. No speculation, no trading — just permanent on-chain proof.</div>
-        <ul class="nft-economics">
-          <li><span>Contract deployment (one-time)</span> <span class="nv">~$5–15</span></li>
-          <li><span>Gas per mint (Base network)</span> <span class="nv">&lt;$0.01</span></li>
-          <li><span>Platform: Manifold / Zora</span> <span class="nv">Free to deploy</span></li>
-          <li><span>Adoption price (unchanged)</span> <span class="nv">€99 / €175 / €290</span></li>
-          <li><span>Extra cost for NFT certificate</span> <span class="nv">None — included</span></li>
-          <li><span>Secondary market resale</span> <span class="nv">Possible (OpenSea, etc.)</span></li>
-        </ul>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════
-     SECTION 2: DONATE
-═══════════════════════════ -->
-<section class="support-section donate-section" id="donate">
-  <div class="support-inner">
-    <div class="section-header">
-      <span class="eyebrow" style="color:var(--earth-med)">Year 1 Campaign</span>
-      <h2>Donate directly to the farm.</h2>
-      <p>We need €10,000 by November 2026 to fund Year 1: clearing DANA storm damage, filing organic certification, registering the first ecocredits, and getting the farmhouse ready to host guests. No platform fees on crypto. Minimal fees on PayPal.</p>
-    </div>
-
-    <div class="deadline-pill">
-      <span class="deadline-dot"></span>
-      Campaign closes 30 November 2026 &nbsp;·&nbsp; <span id="days-left">—</span> days remaining
-    </div>
-
-    <div class="progress-amounts">
-      <div>
-        <div class="progress-raised">
-          €<span id="raised-display">0</span>
-          <span>raised</span>
-        </div>
-      </div>
-      <div class="progress-goal">
-        Goal: <strong>€10,000</strong><br>
-        <span id="pct-display">0%</span> of target
-      </div>
-    </div>
-    <div class="progress-track">
-      <div class="progress-fill" id="progress-fill"></div>
-    </div>
-    <div class="progress-meta">
-      <span>Every euro goes directly to the farm.</span>
-      <span class="progress-countdown" id="countdown-meta"></span>
-    </div>
-
-    <div class="donate-buttons">
-      <a href="https://paypal.me/REPLACE_WITH_YOUR_PAYPAL" class="btn-donate-euro" target="_blank" rel="noopener">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9 12l2 2 4-4"/></svg>
-        Donate via PayPal
-      </a>
-      <button class="btn-donate-crypto" onclick="document.getElementById('crypto-box').scrollIntoView({behavior:'smooth'})">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-        Send Crypto
-      </button>
-    </div>
-
-    <div class="what-funds">
-      <div class="what-funds-title">What the campaign funds — Year 1</div>
-      <div class="funds-list">
-        <div class="funds-item">
-          <div class="funds-icon">🌪️</div>
-          <div>
-            <div class="funds-name">DANA storm cleanup</div>
-            <div class="funds-cost">€3,000</div>
-          </div>
-        </div>
-        <div class="funds-item">
-          <div class="funds-icon">🏡</div>
-          <div>
-            <div class="funds-name">Farmhouse habitation cert</div>
-            <div class="funds-cost">€2,000</div>
-          </div>
-        </div>
-        <div class="funds-item">
-          <div class="funds-icon">🌿</div>
-          <div>
-            <div class="funds-name">CAECV organic certification</div>
-            <div class="funds-cost">€700</div>
-          </div>
-        </div>
-        <div class="funds-item">
-          <div class="funds-icon">🌳</div>
-          <div>
-            <div class="funds-name">Holm oak — Phase 1 (500 trees)</div>
-            <div class="funds-cost">€2,500</div>
-          </div>
-        </div>
-        <div class="funds-item">
-          <div class="funds-icon">🔗</div>
-          <div>
-            <div class="funds-name">Ecocredit + soil baseline</div>
-            <div class="funds-cost">€800</div>
-          </div>
-        </div>
-        <div class="funds-item">
-          <div class="funds-icon">📋</div>
-          <div>
-            <div class="funds-name">Cover crops + admin</div>
-            <div class="funds-cost">€1,000</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="crypto-wrap" id="crypto-box">
-      <div class="crypto-header-row">Send crypto — no intermediaries</div>
-      <div class="crypto-option">
-        <div class="crypto-label">Ethereum · USDC · DAI · ERC-20</div>
-        <div class="crypto-address-row">
-          <span class="crypto-address" id="eth-address">0xREPLACE_WITH_YOUR_ETH_ADDRESS</span>
-          <button class="crypto-copy" onclick="copyAddress('eth-address', this)">Copy</button>
-        </div>
-      </div>
-      <div class="crypto-option">
-        <div class="crypto-label">Bitcoin</div>
-        <div class="crypto-address-row">
-          <span class="crypto-address" id="btc-address">bc1REPLACE_WITH_YOUR_BTC_ADDRESS</span>
-          <button class="crypto-copy" onclick="copyAddress('btc-address', this)">Copy</button>
-        </div>
+    <div class="tiers-sub">
+      <div class="tiers-sub-note">
+        <strong>Shipping</strong> is additional: Spain/Portugal ~€8–12/box · EU ~€15–25/box. Packed in recycled cardboard. <strong>Founding adopter</strong> badge and locked price for 3 years goes to the first 30 people.
       </div>
     </div>
 
   </div>
 </section>
 
-<!-- ═══════════════════════════
-     SECTION 3: CERTIFICATE WAITLIST
-═══════════════════════════ -->
-<section class="support-section waitlist-section" id="certificate">
-  <div class="support-inner">
-    <div class="section-header">
-      <span class="eyebrow">Digital Certificate · Coming 2027</span>
-      <h2>Invest in verified ecological land.</h2>
-      <p>We're exploring a new kind of ownership — a blockchain certificate backed by the verified ecological health of this hillside. Part land story, part carbon credit, part stake in a living place. The mechanics are still being designed. Sign up and we'll tell you first.</p>
+<!-- ═══════ BADGES STRIP ═══════ -->
+<div class="badges-strip">
+  <div class="badges-strip-inner">
+    <div class="badges-strip-header">
+      <h3>Earn badges for real milestones.</h3>
+      <a href="adopt.html#badges">All 8 badges →</a>
     </div>
-
-    <div class="cert-explainer">
-      <div class="cert-point">
-        <div class="cert-point-icon">🌍</div>
-        <div class="cert-point-title">Verified impact</div>
-        <div class="cert-point-body">Each certificate will be backed by soil carbon data, organic certification, and on-chain biodiversity monitoring — not just a promise.</div>
-      </div>
-      <div class="cert-point">
-        <div class="cert-point-icon">📈</div>
-        <div class="cert-point-title">Grows with the land</div>
-        <div class="cert-point-body">As the holm oak forest matures and the EU carbon market opens (around 2028), the ecological value of this land increases. The certificate will reflect that.</div>
-      </div>
-      <div class="cert-point">
-        <div class="cert-point-icon">🔗</div>
-        <div class="cert-point-title">On-chain and tradeable</div>
-        <div class="cert-point-body">Issued on blockchain. Transferable. The mechanics are still being built — but we want it to be something real people can hold, sell, or give.</div>
-      </div>
+    <div class="badges-row">
+      <div class="badge-chip"><div class="badge-chip-icon">🍊</div><div class="badge-chip-name">First Harvest</div></div>
+      <div class="badge-chip badge-chip--rare"><div class="badge-chip-icon">⭐</div><div class="badge-chip-name">Founding Adopter</div></div>
+      <div class="badge-chip badge-chip--rare"><div class="badge-chip-icon">🌧️</div><div class="badge-chip-name">DANA Survivor</div></div>
+      <div class="badge-chip badge-chip--rare"><div class="badge-chip-icon">🌿</div><div class="badge-chip-name">Organic Witness</div></div>
+      <div class="badge-chip badge-chip--rare"><div class="badge-chip-icon">🌳</div><div class="badge-chip-name">Forest Maker</div></div>
+      <div class="badge-chip badge-chip--rare"><div class="badge-chip-icon">🔗</div><div class="badge-chip-name">Carbon Witness</div></div>
+      <div class="badge-chip badge-chip--rare"><div class="badge-chip-icon">👑</div><div class="badge-chip-name">Grove Elder</div></div>
+      <div class="badge-chip"><div class="badge-chip-icon">🏡</div><div class="badge-chip-name">First Guest</div></div>
     </div>
+  </div>
+</div>
 
-    <form class="waitlist-form" id="waitlist-form" onsubmit="handleWaitlist(event)">
-      <input type="email" class="waitlist-input" placeholder="your@email.com" required id="waitlist-email">
-      <button type="submit" class="waitlist-btn">Join the waitlist →</button>
-    </form>
-    <p class="waitlist-note" id="waitlist-msg">No spam. One email when the certificate is ready to launch. That's it. <br>Questions? <a href="mailto:alisheryakupov@gmail.com">alisheryakupov@gmail.com</a></p>
+<!-- ═══════ LEVELS STRIP ═══════ -->
+<div class="levels-strip">
+  <div class="levels-strip-inner">
+    <h3>Renew every season. Grow your relationship with the land.</h3>
+    <div class="levels-row">
+      <div class="lv-step"><div class="lv-orb">🌱</div><div class="lv-season">Season 1</div><div class="lv-title">Seedling</div></div>
+      <div class="lv-step"><div class="lv-orb">🌿</div><div class="lv-season">Season 2</div><div class="lv-title">Grove Friend</div></div>
+      <div class="lv-step"><div class="lv-orb">🌳</div><div class="lv-season">Season 3</div><div class="lv-title">Tree Keeper</div></div>
+      <div class="lv-step"><div class="lv-orb">🏔️</div><div class="lv-season">Season 4</div><div class="lv-title">Hillside Guardian</div></div>
+      <div class="lv-step"><div class="lv-orb">👑</div><div class="lv-season">Season 5+</div><div class="lv-title">Grove Elder</div></div>
+    </div>
+  </div>
+</div>
 
-    <a href="blog/land-certificates.html" class="waitlist-blog-link">Read: What is a blockchain land certificate? →</a>
+<!-- ═══════ OTHER WAYS ═══════ -->
+<section class="other-ways" id="other">
+  <div class="other-ways-inner">
+    <div class="other-ways-eyebrow">Other ways to support</div>
+    <div class="other-ways-grid">
 
+      <!-- Donate -->
+      <div class="other-card">
+        <div class="other-card-eyebrow">Year 1 Campaign</div>
+        <h3>Donate directly to the farm.</h3>
+        <p>€10,000 needed by November 2026 to fund DANA cleanup, organic certification, holm oak planting, and the farmhouse. No platform fees on crypto.</p>
+        <div class="deadline-pill">
+          <span class="deadline-dot"></span>
+          <span id="days-left">—</span> days remaining · closes 30 Nov 2026
+        </div>
+        <div class="progress-amounts">
+          <div>
+            <div class="progress-raised-val">€<span id="raised-display">0</span></div>
+            <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:0.68rem;color:var(--mid);">raised of €10,000</div>
+          </div>
+          <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:0.78rem;color:var(--mid);text-align:right;"><span id="pct-display">0%</span></div>
+        </div>
+        <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+        <div class="donate-btn-row" style="margin-top:1rem;">
+          <a href="https://paypal.me/REPLACE_WITH_YOUR_PAYPAL" class="btn-donate" target="_blank" rel="noopener">Donate via PayPal</a>
+          <button class="btn-donate-ghost" onclick="document.getElementById('crypto-panel').classList.toggle('open')">Send Crypto ▾</button>
+        </div>
+        <div class="crypto-panel" id="crypto-panel">
+          <div class="crypto-opt">
+            <div class="crypto-lbl">Ethereum · USDC · ERC-20</div>
+            <div class="crypto-addr-row">
+              <span class="crypto-addr" id="eth-addr">0xREPLACE_WITH_YOUR_ETH_ADDRESS</span>
+              <button class="crypto-copy-btn" onclick="copyAddr('eth-addr',this)">Copy</button>
+            </div>
+          </div>
+          <div class="crypto-opt">
+            <div class="crypto-lbl">Bitcoin</div>
+            <div class="crypto-addr-row">
+              <span class="crypto-addr" id="btc-addr">bc1REPLACE_WITH_YOUR_BTC_ADDRESS</span>
+              <button class="crypto-copy-btn" onclick="copyAddr('btc-addr',this)">Copy</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Certificate waitlist -->
+      <div class="other-card other-card--dark">
+        <div class="other-card-eyebrow">Coming 2027</div>
+        <h3>Digital ecological certificate.</h3>
+        <p>A blockchain certificate backed by the verified ecological health of this hillside — soil carbon, organic certification, biodiversity data. Part land story, part carbon credit, part stake in a living place. Sign up to hear first.</p>
+        <div class="cert-points">
+          <span class="cert-pt">🌍 Verified impact</span>
+          <span class="cert-pt">📈 Grows with the land</span>
+          <span class="cert-pt">🔗 On-chain &amp; tradeable</span>
+        </div>
+        <form class="waitlist-form" onsubmit="handleWaitlist(event)">
+          <input type="email" class="waitlist-input" placeholder="your@email.com" required id="waitlist-email">
+          <button type="submit" class="waitlist-btn">Notify me →</button>
+        </form>
+        <p class="waitlist-note" id="waitlist-msg">No spam. One email when it's ready. <a href="blog/land-certificates.html" style="color:rgba(244,239,230,0.45)">What is a blockchain land certificate? →</a></p>
+      </div>
+
+    </div>
   </div>
 </section>
 
 <!-- Footer -->
 <footer class="site-footer">
   <div class="footer-inner">
-    <div class="footer-brand">
-      Finca Tariqa<br>Carcaixent, Valencia<br>Spain
-    </div>
+    <div class="footer-brand">Finca Tariqa<br>Carcaixent, Valencia<br>Spain</div>
     <ul class="footer-links">
       <li><a href="oranges.html">Oranges</a></li>
       <li><a href="land.html">Land</a></li>
@@ -990,7 +1003,7 @@
       <li><a href="mission.html">Mission</a></li>
       <li><a href="report.html">Full Report</a></li>
       <li><a href="blog/index.html">Journal</a></li>
-      <li><a href="fund.html">Support</a></li>
+      <li><a href="adopt.html">Grove Tokens</a></li>
       <li><a href="ru.html">По-русски</a></li>
     </ul>
   </div>
@@ -998,71 +1011,37 @@
 </footer>
 
 <script>
-  // ── Progress bar ──
-  const GOAL   = 10000;
-  const RAISED = 0; // ← update as donations arrive
-
-  const pct = Math.min((RAISED / GOAL) * 100, 100);
+  // Progress bar
+  const GOAL = 10000, RAISED = 0;
+  const pct = Math.min((RAISED/GOAL)*100, 100);
   document.getElementById('raised-display').textContent = RAISED.toLocaleString('de-DE');
-  document.getElementById('pct-display').textContent = pct.toFixed(1) + '%';
-  setTimeout(() => {
-    document.getElementById('progress-fill').style.width = pct + '%';
-  }, 200);
+  document.getElementById('pct-display').textContent = pct.toFixed(1)+'%';
+  setTimeout(() => { document.getElementById('progress-fill').style.width = pct+'%'; }, 200);
 
-  // ── Countdown ──
-  function updateCountdown() {
-    const deadline = new Date('2026-11-30T23:59:59');
-    const diff = deadline - new Date();
-    if (diff <= 0) {
-      document.getElementById('days-left').textContent = 'Campaign closed';
-      document.getElementById('countdown-meta').textContent = 'Campaign has closed.';
-      return;
-    }
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    document.getElementById('days-left').textContent = days;
-    document.getElementById('countdown-meta').textContent =
-      days + ' days ' + hours + ' hrs remaining';
+  // Countdown
+  function tick() {
+    const diff = new Date('2026-11-30T23:59:59') - new Date();
+    if (diff <= 0) { document.getElementById('days-left').textContent = 'Campaign closed'; return; }
+    document.getElementById('days-left').textContent = Math.floor(diff/(1000*60*60*24));
   }
-  updateCountdown();
-  setInterval(updateCountdown, 60000);
+  tick(); setInterval(tick, 60000);
 
-  // ── Copy wallet address ──
-  function copyAddress(id, btn) {
+  // Copy crypto address
+  function copyAddr(id, btn) {
     navigator.clipboard.writeText(document.getElementById(id).textContent.trim()).then(() => {
-      btn.textContent = 'Copied ✓';
-      btn.classList.add('copied');
+      btn.textContent = 'Copied ✓'; btn.classList.add('copied');
       setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2500);
     });
   }
 
-  // ── Sticky nav highlight ──
-  const sections = ['adopt','donate','certificate'];
-  const tabs = document.querySelectorAll('.support-nav-tab');
-  function updateNav() {
-    let current = sections[0];
-    sections.forEach(id => {
-      const el = document.getElementById(id);
-      if (el && el.getBoundingClientRect().top <= 120) current = id;
-    });
-    tabs.forEach(t => {
-      t.classList.toggle('active', t.getAttribute('href') === '#' + current);
-    });
-  }
-  window.addEventListener('scroll', updateNav, { passive: true });
-
-  // ── Waitlist form (mailto fallback — replace with a form service) ──
+  // Waitlist
   function handleWaitlist(e) {
     e.preventDefault();
     const email = document.getElementById('waitlist-email').value;
-    document.getElementById('waitlist-msg').textContent =
-      '✓ Got it — we\'ll email ' + email + ' when the certificate launches.';
-    document.getElementById('waitlist-form').style.display = 'none';
-    // TODO: replace with Tally / Mailchimp / Buttondown API call
-    // For now, open a pre-filled email as fallback:
-    window.location.href = 'mailto:alisheryakupov@gmail.com?subject=Certificate%20Waitlist&body=Please%20add%20me%20to%20the%20waitlist%3A%20' + encodeURIComponent(email);
+    document.getElementById('waitlist-msg').textContent = '✓ We\'ll email ' + email + ' when it launches.';
+    e.target.style.display = 'none';
+    window.location.href = 'mailto:alisheryakupov@gmail.com?subject=Certificate%20Waitlist&body=Add%20me%3A%20' + encodeURIComponent(email);
   }
 </script>
-
 </body>
 </html>

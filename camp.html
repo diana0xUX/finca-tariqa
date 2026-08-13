@@ -566,6 +566,61 @@
       gap: 1rem;
     }
 
+    /* ── Glamping gallery ── */
+    .glamping-gallery {
+      background: var(--earth-dark);
+    }
+
+    .glamping-gallery-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      height: clamp(420px, 52vw, 720px);
+    }
+
+    .glamping-gallery-img {
+      overflow: hidden;
+    }
+
+    .glamping-gallery-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+
+    .glamping-gallery-img:hover img {
+      transform: scale(1.03);
+    }
+
+    .glamping-caption {
+      background: var(--earth-dark);
+      padding: 1.1rem clamp(1.25rem, 6vw, 6rem);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid rgba(244, 239, 230, 0.06);
+    }
+
+    .glamping-caption span {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(244, 239, 230, 0.3);
+    }
+
+    @media (max-width: 600px) {
+      .glamping-gallery-grid {
+        grid-template-columns: 1fr;
+        height: auto;
+      }
+      .glamping-gallery-img {
+        height: 60vw;
+      }
+    }
+
     /* ── Build the camp (volunteer embed) ── */
     .build-now-section {
       background: var(--earth-dark);
@@ -1009,6 +1064,22 @@
       </div>
     </div>
   </section>
+
+  <!-- Glamping gallery -->
+  <div class="glamping-gallery">
+    <div class="glamping-gallery-grid">
+      <div class="glamping-gallery-img">
+        <img src="images/glamping-hillside-1.png" alt="Glamping tents on the hillside among the orange grove, Finca Tariqa">
+      </div>
+      <div class="glamping-gallery-img">
+        <img src="images/glamping-hillside-2.png" alt="View of glamping tents through the citrus trees on the limestone terraces">
+      </div>
+    </div>
+    <div class="glamping-caption">
+      <span>What the hillside could look like · Rendered vision</span>
+      <span>Finca Tariqa · Carcaixent</span>
+    </div>
+  </div>
 
   <!-- Legal track -->
   <section class="section legal-section">

@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Where your donation goes — 2026 Foundation Campaign · Finca Tariqa</title>
+<meta name="description" content="The €10,000 Year 1 campaign: organic certification, farmhouse registration, soil monitoring, terrace recovery. Every euro accounted for.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="style.css">
+<style>
+
+/* ── Hero ── */
+.page-hero {
+  background: var(--earth-dark);
+  position: relative;
+  overflow: hidden;
+  min-height: 46vh;
+  display: flex;
+  align-items: flex-end;
+  padding: calc(var(--nav-height) + 3rem) clamp(1.25rem, 6vw, 5rem) 4rem;
+}
+.page-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 70% at 5% 90%, rgba(90,143,104,0.25) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 50% at 90% 10%, rgba(201,151,58,0.12) 0%, transparent 55%);
+  pointer-events: none;
+}
+.page-hero-inner { position: relative; z-index: 1; max-width: 680px; }
+.kicker {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+.page-hero h1 {
+  font-family: 'Lora', serif;
+  font-size: clamp(1.9rem, 4.5vw, 3rem);
+  font-weight: 500;
+  color: var(--sand);
+  line-height: 1.2;
+  margin-bottom: 1.25rem;
+}
+.page-hero .deck {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1rem;
+  color: rgba(244,239,230,0.6);
+  line-height: 1.7;
+  max-width: 560px;
+}
+
+/* ── Body ── */
+.page-body {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 4rem clamp(1.25rem, 5vw, 2.5rem) 8rem;
+}
+
+/* ── Prose ── */
+.page-body > p {
+  font-family: 'Lora', Georgia, serif;
+  font-size: clamp(1rem, 2vw, 1.08rem);
+  line-height: 1.9;
+  color: var(--ink);
+  margin-bottom: 1.6rem;
+}
+.page-body h2 {
+  font-family: 'Lora', serif;
+  font-size: clamp(1.35rem, 3vw, 1.75rem);
+  font-weight: 500;
+  color: var(--ink);
+  margin: 3.5rem 0 1.25rem;
+  line-height: 1.25;
+}
+.section-rule {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 3.5rem 0 1.5rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--sand-deep);
+}
+
+/* ── Ornament ── */
+.ornament {
+  text-align: center;
+  color: var(--sand-deep);
+  margin: 2.5rem 0;
+  font-size: 1rem;
+  letter-spacing: 0.6rem;
+}
+
+/* ── Pull quote ── */
+.pull {
+  border-left: 3px solid var(--gold);
+  padding: 1rem 1.5rem;
+  margin: 2.5rem 0;
+  background: rgba(201,151,58,0.05);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  font-family: 'Lora', serif;
+  font-size: clamp(1.05rem, 2.5vw, 1.2rem);
+  font-style: italic;
+  color: var(--ink);
+  line-height: 1.65;
+}
+
+/* ── Infographic shell ── */
+.infographic {
+  background: var(--earth-dark);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  margin: 2.5rem 0;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+.infographic-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+}
+.infographic h3 {
+  font-family: 'Lora', serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--sand);
+  margin-bottom: 1.5rem;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+/* ── Budget bar chart ── */
+.budget-visual { display: flex; flex-direction: column; gap: 1rem; margin: 0.5rem 0; }
+
+.budget-row { display: flex; align-items: center; gap: 1rem; }
+.budget-label-wrap { min-width: 200px; flex-shrink: 0; }
+.budget-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--sand);
+  line-height: 1.3;
+  display: block;
+  margin-bottom: 0.1rem;
+}
+.budget-sublabel {
+  font-size: 0.65rem;
+  color: rgba(244,239,230,0.4);
+  line-height: 1.3;
+}
+.budget-bar-wrap { flex: 1; background: rgba(255,255,255,0.06); border-radius: 4px; height: 10px; overflow: hidden; }
+.budget-bar { height: 100%; border-radius: 4px; }
+.budget-amount {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--sand);
+  text-align: right;
+  min-width: 72px;
+  flex-shrink: 0;
+}
+.budget-pct {
+  font-size: 0.7rem;
+  color: rgba(244,239,230,0.35);
+  text-align: right;
+  min-width: 36px;
+  flex-shrink: 0;
+}
+.bar-orange { background: var(--gold); }
+.bar-green  { background: #5a8f68; }
+.bar-teal   { background: #4a8fa0; }
+.bar-warm   { background: #a07040; }
+.bar-soft   { background: rgba(255,255,255,0.2); }
+
+.budget-total-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  margin-top: 0.5rem;
+}
+.budget-total-label { font-size: 0.78rem; font-weight: 600; color: rgba(244,239,230,0.6); }
+.budget-total-amount { font-family: 'Lora', serif; font-size: 1.5rem; font-weight: 600; color: var(--gold); }
+
+/* ── Project cards ── */
+.project-cards { display: flex; flex-direction: column; gap: 1.5rem; margin: 2rem 0; }
+
+.project-card {
+  background: var(--earth-dark);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+.project-card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 1.5rem 1.75rem 1.25rem;
+  gap: 1rem;
+}
+.project-card-icon { font-size: 1.75rem; flex-shrink: 0; margin-top: 0.1rem; }
+.project-card-title { flex: 1; }
+.project-card-eyebrow {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.3rem;
+}
+.project-card-name {
+  font-family: 'Lora', serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--sand);
+  line-height: 1.3;
+}
+.project-card-budget {
+  font-family: 'Lora', serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--gold);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.project-card-body {
+  padding: 0 1.75rem 1.5rem;
+}
+.project-card-body p {
+  font-family: 'Lora', serif;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: rgba(244,239,230,0.6);
+  margin: 0 0 1rem;
+}
+
+/* ── Line items ── */
+.line-items { display: flex; flex-direction: column; gap: 0; border-top: 1px solid rgba(255,255,255,0.06); }
+.line-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.5rem;
+  padding: 0.55rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+.line-item:last-child { border-bottom: none; }
+.line-desc {
+  font-size: 0.78rem;
+  color: rgba(244,239,230,0.5);
+  line-height: 1.4;
+  flex: 1;
+}
+.line-desc strong { color: rgba(244,239,230,0.7); font-weight: 600; }
+.line-cost {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--sand);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.line-subtotal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 0 0.4rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  margin-top: 0.25rem;
+}
+.line-subtotal-label { font-size: 0.72rem; font-weight: 600; color: rgba(244,239,230,0.4); letter-spacing: 0.06em; text-transform: uppercase; }
+.line-subtotal-amount { font-family: 'Lora', serif; font-size: 1.1rem; color: var(--sand); font-weight: 500; }
+
+/* ── Progress bar ── */
+.campaign-progress-wrap {
+  background: var(--earth-dark);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  margin: 2.5rem 0;
+}
+.campaign-progress-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.75rem;
+}
+.campaign-raised {
+  font-family: 'Lora', serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--gold);
+}
+.campaign-goal {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.8rem;
+  color: rgba(244,239,230,0.4);
+}
+.campaign-track {
+  height: 8px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 0.75rem;
+}
+.campaign-fill {
+  height: 100%;
+  background: var(--gold);
+  border-radius: 4px;
+  transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.campaign-deadline {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.72rem;
+  color: rgba(244,239,230,0.35);
+}
+.campaign-deadline span { color: rgba(244,239,230,0.6); font-weight: 600; }
+
+/* ── CTA ── */
+.donate-cta {
+  background: var(--earth-dark);
+  border-radius: var(--radius-lg);
+  padding: 2rem 2.25rem;
+  margin: 3rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+.donate-cta h3 {
+  font-family: 'Lora', serif;
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--sand);
+  margin: 0;
+  line-height: 1.3;
+}
+.donate-cta p {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.85rem;
+  color: rgba(244,239,230,0.55);
+  line-height: 1.6;
+  margin: 0;
+}
+.btn-donate-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--gold);
+  color: var(--earth-dark);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: opacity 0.15s;
+}
+.btn-donate-cta:hover { opacity: 0.87; }
+.btn-back {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.8rem;
+  color: var(--earth-med);
+  text-decoration: none;
+  margin-bottom: 1rem;
+  display: block;
+}
+.btn-back:hover { color: var(--gold); }
+
+/* ── Note box ── */
+.note-box {
+  padding: 1.1rem 1.4rem;
+  border-radius: var(--radius-md);
+  margin: 1.5rem 0;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.88rem;
+  line-height: 1.65;
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  background: #edf8ee;
+  border: 1px solid #80c880;
+  color: #1a4820;
+}
+.note-box .icon { flex-shrink: 0; font-size: 1rem; margin-top: 0.05rem; }
+
+/* ── Next year deferred card ── */
+.deferred-card {
+  background: var(--sand-deep);
+  border: 1px dashed rgba(0,0,0,0.12);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1.75rem;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+.deferred-icon { font-size: 1.5rem; opacity: 0.45; flex-shrink: 0; }
+.deferred-body {}
+.deferred-label {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.35);
+  margin-bottom: 0.25rem;
+}
+.deferred-name {
+  font-family: 'Lora', serif;
+  font-size: 0.95rem;
+  color: rgba(0,0,0,0.5);
+}
+
+@media (max-width: 580px) {
+  .budget-label-wrap { min-width: 150px; }
+  .budget-pct { display: none; }
+  .project-card-head { flex-wrap: wrap; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav-logo">Finca Tariqa</a>
+  <ul class="nav-links" id="main-nav">
+    <li><a href="oranges.html">Oranges</a></li>
+    <li><a href="land.html">The Land</a></li>
+    <li><a href="forest.html">The Forest</a></li>
+    <li><a href="mission.html">Our Mission</a></li>
+    <li><a href="blog/index.html">Journal</a></li>
+  </ul>
+  <div class="nav-toggle" role="button" tabindex="0" aria-label="Open navigation" onclick="document.getElementById('main-nav').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="kicker">Year 1 Campaign · 2026</div>
+    <h1>Where your €10,000 goes.</h1>
+    <p class="deck">Four projects. One deadline. Every euro tracked and documented. This is the foundation that makes everything else possible.</p>
+  </div>
+</section>
+
+<div class="page-body">
+
+  <a href="fund.html" class="btn-back">← Back to the support page</a>
+
+  <p>The Year 1 campaign closes 30 November 2026. Every euro raised goes directly into operations — not salaries, not overhead, not marketing. Four specific projects, in priority order.</p>
+
+  <!-- OVERALL BUDGET OVERVIEW -->
+  <div class="infographic">
+    <div class="infographic-label">Budget overview — full €10,000 allocation</div>
+    <h3>Where every euro goes</h3>
+    <div class="budget-visual">
+      <div class="budget-row">
+        <div class="budget-label-wrap">
+          <span class="budget-label">Organic certification + tree health</span>
+          <span class="budget-sublabel">CAECV fees, agronomist, lab analysis</span>
+        </div>
+        <div class="budget-bar-wrap"><div class="budget-bar bar-green" style="width:18%"></div></div>
+        <div class="budget-amount">€1,800</div>
+        <div class="budget-pct">18%</div>
+      </div>
+      <div class="budget-row">
+        <div class="budget-label-wrap">
+          <span class="budget-label">Farmhouse legalisation + water</span>
+          <span class="budget-sublabel">Habitability certificate, filtration system</span>
+        </div>
+        <div class="budget-bar-wrap"><div class="budget-bar bar-warm" style="width:27%"></div></div>
+        <div class="budget-amount">€2,700</div>
+        <div class="budget-pct">27%</div>
+      </div>
+      <div class="budget-row">
+        <div class="budget-label-wrap">
+          <span class="budget-label">Soil carbon + monitoring equipment</span>
+          <span class="budget-sublabel">IVIA lab baseline, sensors, data loggers</span>
+        </div>
+        <div class="budget-bar-wrap"><div class="budget-bar bar-teal" style="width:20%"></div></div>
+        <div class="budget-amount">€2,000</div>
+        <div class="budget-pct">20%</div>
+      </div>
+      <div class="budget-row">
+        <div class="budget-label-wrap">
+          <span class="budget-label">Terrace recovery</span>
+          <span class="budget-sublabel">DANA damage repair, lower terraces</span>
+        </div>
+        <div class="budget-bar-wrap"><div class="budget-bar bar-orange" style="width:25%"></div></div>
+        <div class="budget-amount">€2,500</div>
+        <div class="budget-pct">25%</div>
+      </div>
+      <div class="budget-row">
+        <div class="budget-label-wrap">
+          <span class="budget-label">Contingency (10%)</span>
+          <span class="budget-sublabel">Cost overruns, emergency repairs</span>
+        </div>
+        <div class="budget-bar-wrap"><div class="budget-bar bar-soft" style="width:10%"></div></div>
+        <div class="budget-amount">€1,000</div>
+        <div class="budget-pct">10%</div>
+      </div>
+      <div class="budget-total-row">
+        <div class="budget-total-label">Total campaign goal</div>
+        <div class="budget-total-amount">€10,000</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ornament">· · ·</div>
+
+  <!-- PROJECT CARDS -->
+  <div class="project-cards">
+
+    <!-- 1: Organic + tree health -->
+    <div class="project-card">
+      <div class="project-card-head">
+        <div class="project-card-icon">🌿</div>
+        <div class="project-card-title">
+          <div class="project-card-eyebrow">Priority 1 · Highest impact</div>
+          <div class="project-card-name">Organic certification + tree health</div>
+        </div>
+        <div class="project-card-budget">€1,800</div>
+      </div>
+      <div class="project-card-body">
+        <p>The most important question this year is understanding why production has dropped and what it means for the grove's long-term health. That answer drives everything — the organic conversion strategy, the cooperative relationship, and what we can honestly promise to adopters about future harvests.</p>
+        <p>We're applying for organic certification through the CAECV (Comité de Agricultura Ecológica de la Comunitat Valenciana) under EU Reg. 2018/848. If the previous owner can confirm no prohibited inputs in recent years, we may qualify for retroactive recognition — potentially skipping most of the standard 3-year conversion wait. We're pursuing this actively. Separately, Exagro — the cooperative currently handling the grove — has indicated they will accept transition-period oranges, which changes the financial picture significantly: the conversion period becomes revenue-generating, not revenue-neutral.</p>
+        <div class="line-items">
+          <div class="line-item">
+            <span class="line-desc"><strong>CAECV registration fee</strong> — fixed €247.68 + variable €64.04 (2.81 ha citrus × €22.79/ha)</span>
+            <span class="line-cost">€312</span>
+          </div>
+          <div class="line-item">
+            <span class="line-desc"><strong>Retroactive conversion application</strong> — includes required soil and tissue lab analysis to document prior clean management.</span>
+            <span class="line-cost">€357</span>
+          </div>
+          <div class="line-item">
+            <span class="line-desc"><strong>Agronomist consultation</strong> — expert assessment of the production drop. Foliar and soil analysis. Written diagnosis and management recommendations.</span>
+            <span class="line-cost">€800</span>
+          </div>
+          <div class="line-item">
+            <span class="line-desc"><strong>Administrative and travel</strong> — CAECV office (Carlet), cooperative meetings, inspector visit.</span>
+            <span class="line-cost">€331</span>
+          </div>
+          <div class="line-subtotal">
+            <span class="line-subtotal-label">Subtotal</span>
+            <span class="line-subtotal-amount">€1,800</span>
+          </div>
+        </div>
+        <p style="font-size:0.78rem;color:rgba(244,239,230,0.35);margin-top:1rem;margin-bottom:0">Annual maintenance fee (~€281/yr) is eligible for 80% GVA subsidy once registered — effective annual cost ~€56 thereafter.</p>
+      </div>
+    </div>
+
+    <!-- 2: Farmhouse legalisation -->
+    <div class="project-card">
+      <div class="project-card-head">
+        <div class="project-card-icon">🏠</div>
+        <div class="project-card-title">
+          <div class="project-card-eyebrow">Priority 2 · Legal and practical</div>
+          <div class="project-card-name">Farmhouse legalisation + water filtration</div>
+        </div>
+        <div class="project-card-budget">€2,700</div>
+      </div>
+      <div class="project-card-body">
+        <p>The farmhouse is now habitable — windows, doors, floors, walls, bathrooms, and a kitchen in progress. Water and electricity are connected. What remains is making it official: obtaining the cédula de habitabilidad (habitability certificate) from the Generalitat Valenciana, and the licencia de primera ocupación from the Ajuntament de Carcaixent. Without these, the building cannot legally be used for guest stays, which is the eco-tourism revenue stream planned from Year 2.</p>
+        <p>Separately, the connected water supply needs a household filtration system — standard practice for rural agricultural properties where the supply runs through older infrastructure.</p>
+        <div class="line-items">
+          <div class="line-item">
+            <span class="line-desc"><strong>Architect's habitability certificate</strong> — licensed architect inspects and signs off the completed works, issues cédula de habitabilidad documentation for GVA submission.</span>
+            <span class="line-cost">€1,200</span>
+          </div>
+          <div class="line-item">
+            <span class="line-desc"><strong>Licencia de primera ocupación</strong> — municipal application fee to the Ajuntament de Carcaixent. Confirms building was completed per original licence.</span>
+            <span class="line-cost">€400</span>
+          </div>
+          <div class="line-item">
+            <span class="line-desc"><strong>GVA registration fees</strong> — Conselleria de Habitació administrative costs for the cédula de habitabilitat.</span>
+            <span class="line-cost">€300</span>
+          </div>
+          <div class="line-item">
+            <span class="line-desc"><strong>Household water filtration system</strong> — multi-stage unit (sediment + activated carbon + UV) suited to rural agricultural supply. Supply and installation.</span>
+            <span class="line-cost">€800</span>
+          </div>
+          <div class="line-subtotal">
+            <span class="line-subtotal-label">Subtotal</span>
+            <span class="line-subtotal-amount">€2,700</span>
+          </div>
+        </div>
+        <p style="font-size:0.78rem;color:rgba(244,239,230,0.35);margin-top:1rem;margin-bottom:0">Exact administrative fees to be confirmed with local architect. Figures above are estimates based on standard GVA and Ajuntament rates for comparable rural properties.</p>
+      </div>
+    </div>
+
+    <!-- 3: Soil carbon + equipment -->
+    <div class="project-card">
+      <div class="project-card-head">
+        <div class="project-card-icon">🔬</div>
+        <div class="project-card-title">
+          <div class="project-card-eyebrow">Priority 3 · Future value</div>
+          <div class="project-card-name">Soil carbon baseline + monitoring equipment</div>
+        </div>
+        <div class="project-card-budget">€2,000</div>
+      </div>
+      <div class="project-card-body">
+        <p>The EU Carbon Removal Certification Framework opens around 2028. A grove with documented soil carbon records from 2026 has two years of verified improvement to show when that market opens. We need two things: a certified lab baseline now, and our own instruments to collect continuous data ourselves — the kind of ongoing, granular monitoring that backs digital land recovery certificates and makes the data credible year-round, not just at annual inspection time.</p>
+        <div class="line-items">
+          <div class="line-item">
+            <span class="line-desc"><strong>IVIA-accredited lab baseline</strong> — 5 soil cores across the grove, organic carbon %, bulk density, pH, texture. Two depth intervals. Formatted for Agreena / Verra VCS VM0042 registry submission.</span>
+            <span class="line-cost">€450</span>
+          </div>
+          <div class="line-item">
+            <span class="line-desc"><strong>Soil moisture and temperature sensors</strong> — 4–6 units, buried at root depth across terrace zones. Continuous data logging.</span>
+            <span class="line-cost">€600</span>
+          </div>
+          <div class="line-item">
+            <span class="line-desc"><strong>Compact weather station</strong> — on-site microclimate: temperature, humidity, rainfall, solar radiation. Needed for carbon methodology calculations.</span>
+            <span class="line-cost">€450</span>
+          </div>
+          <div class="line-item">
+            <span class="line-desc"><strong>Data logger + connectivity</strong> — low-power hub to collect and transmit sensor readings. Cloud storage integration for digital certificate data pipeline.</span>
+            <span class="line-cost">€350</span>
+          </div>
+          <div class="line-item">
+            <span class="line-desc"><strong>Setup, calibration and first data review</strong> — on-site technician commissioning, baseline readings documented.</span>
+            <span class="line-cost">€150</span>
+          </div>
+          <div class="line-subtotal">
+            <span class="line-subtotal-label">Subtotal</span>
+            <span class="line-subtotal-amount">€2,000</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4: DANA terrace recovery -->
+    <div class="project-card">
+      <div class="project-card-head">
+        <div class="project-card-icon">🪨</div>
+        <div class="project-card-title">
+          <div class="project-card-eyebrow">Priority 4 · Ongoing</div>
+          <div class="project-card-name">Terrace recovery — DANA storm damage</div>
+        </div>
+        <div class="project-card-budget">€2,500</div>
+      </div>
+      <div class="project-card-body">
+        <p>In October 2024 the DANA storm dropped 500 mm of rain in eight hours across the Valencia region. The valley below us flooded catastrophically. The limestone hillside shed the water through its fractures and recharged the aquifer — the geology held. The lower terraces did take some damage: debris, downed branches, terrace wall repairs needed, and trees that will benefit from proper post-stress pruning before this season's fruit matures. This is not emergency work — the trees are producing — but it needs doing before the end of the season.</p>
+        <div class="line-items">
+          <div class="line-item">
+            <span class="line-desc"><strong>Agricultural labour</strong> — experienced team of 2 for 3 weeks. Debris clearing, stress pruning, terrace walk and assessment.</span>
+            <span class="line-cost">€1,800</span>
+          </div>
+          <div class="line-item">
+            <span class="line-desc"><strong>Equipment hire</strong> — tractor and trailer for debris removal, chipper for branch waste into mulch.</span>
+            <span class="line-cost">€400</span>
+          </div>
+          <div class="line-item">
+            <span class="line-desc"><strong>Terrace wall repair materials</strong> — stone and lime mortar for minor structural repairs to lower terrace edges.</span>
+            <span class="line-cost">€300</span>
+          </div>
+          <div class="line-subtotal">
+            <span class="line-subtotal-label">Subtotal</span>
+            <span class="line-subtotal-amount">€2,500</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /project-cards -->
+
+  <!-- Deferred: holm oak -->
+  <h2>Not in Year 1</h2>
+  <div class="deferred-card">
+    <div class="deferred-icon">🌳</div>
+    <div class="deferred-body">
+      <div class="deferred-label">Deferred to Year 2 — 2027</div>
+      <div class="deferred-name">First holm oak planting — 1.7 ha Aleppo pine section</div>
+    </div>
+  </div>
+  <p style="margin-top:1.25rem;">Forest clearing and holm oak planting on the pine section is a Year 2 project. The pine is stable, the ecology is understood, and the priority this year is the grove and the farmhouse. We will plant in autumn 2027.</p>
+
+  <div class="ornament">· · ·</div>
+
+  <!-- Contingency note -->
+  <div class="note-box">
+    <span class="icon">ℹ</span>
+    <span>The remaining €1,000 is held as contingency. Agricultural costs move — certifications require unplanned lab tests, terrace repair scope is confirmed on site, and administrative fees vary. Any unspent contingency rolls into the Year 2 holm oak planting budget.</span>
+  </div>
+
+  <!-- What's not funded -->
+  <h2>What this campaign does not cover</h2>
+
+  <p>This campaign is purely operational — physical and legal work on the land. It does not fund website hosting, our own time, administration of the adoption programme, or any marketing spend. Those are covered by tree adoption subscriptions. The two pots are separate, with separate purposes.</p>
+
+  <div class="pull">Every euro donated goes into the farm — into the ground, the paperwork, or the instruments to read what the ground is doing.</div>
+
+  <!-- Progress -->
+  <h2>Where we are now</h2>
+
+  <div class="campaign-progress-wrap">
+    <div class="campaign-progress-row">
+      <div class="campaign-raised">€<span id="raised">0</span></div>
+      <div class="campaign-goal">of €10,000 goal</div>
+    </div>
+    <div class="campaign-track">
+      <div class="campaign-fill" id="campaign-fill" style="width:0%"></div>
+    </div>
+    <div class="campaign-deadline">Campaign closes <span>30 November 2026</span> · <span id="days-left">—</span> days remaining</div>
+  </div>
+
+  <!-- Donate CTA -->
+  <div class="donate-cta">
+    <h3>Support the 2026 Foundation Campaign.</h3>
+    <p>Any amount helps. Email us directly — we'll confirm which project your donation funds, in priority order.</p>
+    <a href="mailto:fincatariqa@gmail.com?subject=Donation%20to%20Finca%20Tariqa%20%E2%80%94%202026%20Campaign&body=Hi%2C%0A%0AI%27d%20like%20to%20donate%20to%20the%202026%20Foundation%20Campaign.%0A%0AAmount%3A%0AName%20(optional)%3A%0AMessage%20(optional)%3A%0A" class="btn-donate-cta">Donate — email us →</a>
+  </div>
+
+</div><!-- /page-body -->
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">Finca Tariqa<br>Carcaixent, Valencia<br>Spain</div>
+    <ul class="footer-links">
+      <li><a href="oranges.html">Oranges</a></li>
+      <li><a href="land.html">Land</a></li>
+      <li><a href="forest.html">Forest</a></li>
+      <li><a href="mission.html">Mission</a></li>
+      <li><a href="blog/index.html">Journal</a></li>
+      <li><a href="fund.html">Support</a></li>
+      <li><a href="roadmap.html">Our Plans</a></li>
+    </ul>
+  </div>
+  <div class="footer-bottom">August 2026</div>
+</footer>
+
+<script>
+  const RAISED = 0;
+  const GOAL   = 10000;
+  const pct    = Math.min(100, Math.round((RAISED / GOAL) * 100));
+
+  document.getElementById('raised').textContent = RAISED.toLocaleString();
+  document.getElementById('campaign-fill').style.width = pct + '%';
+
+  const deadline = new Date('2026-11-30T23:59:59');
+  const now = new Date();
+  const days = Math.max(0, Math.ceil((deadline - now) / 86400000));
+  document.getElementById('days-left').textContent = days;
+</script>
+
+</body>
+</html>

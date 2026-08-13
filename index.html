@@ -62,13 +62,11 @@
       background: var(--earth-dark);
       position: relative;
       overflow: hidden;
-      text-align: center;
       min-height: 100vh;
       min-height: 100svh;
       display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: calc(var(--nav-height) + 4rem) clamp(1.25rem, 5vw, 5rem) 5rem;
+      align-items: flex-end;
+      padding: calc(var(--nav-height) + 4rem) clamp(1.25rem, 6vw, 6rem) clamp(4rem, 8vw, 6rem);
     }
 
     .home-hero::before {
@@ -85,7 +83,8 @@
     .home-hero-inner {
       position: relative;
       z-index: 1;
-      max-width: 860px;
+      max-width: 1100px;
+      width: 100%;
     }
 
     .home-hero .eyebrow {
@@ -96,20 +95,21 @@
 
     .home-hero h1 {
       color: var(--sand);
-      font-size: clamp(2.8rem, 6vw, 5rem);
+      font-size: clamp(2.8rem, 5.5vw, 4.8rem);
+      line-height: 1.08;
       margin-bottom: 1.5rem;
     }
 
     .home-hero .lead {
       color: rgba(244, 239, 230, 0.68);
-      margin: 0 auto 2.75rem;
+      font-size: clamp(1rem, 1.6vw, 1.1rem);
+      line-height: 1.75;
+      margin-bottom: 2.75rem;
       max-width: 52ch;
     }
 
     .home-hero-actions {
       display: flex;
-      align-items: center;
-      justify-content: center;
       gap: 1rem;
       flex-wrap: wrap;
     }

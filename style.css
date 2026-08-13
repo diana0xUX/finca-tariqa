@@ -146,6 +146,10 @@ p {
   color: var(--terracotta);
 }
 
+.nav-links a.nav-highlight {
+  color: var(--gold);
+}
+
 /* Mobile nav */
 .nav-toggle {
   display: none;
@@ -218,6 +222,15 @@ p {
 
 .btn-sand:hover {
   background: var(--sand-deep);
+}
+
+.btn-gold {
+  background: var(--gold);
+  color: var(--ink);
+}
+
+.btn-gold:hover {
+  opacity: 0.87;
 }
 
 /* ── Footer ── */

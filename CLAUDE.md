@@ -5,6 +5,9 @@ Static site published via GitHub Pages from `diana0xUX/finca-tariqa`.
 Local path: `/Users/diana/Documents/finca-tariqa/`
 CMS lives in a separate project: `/Users/diana/Documents/tariqa-voice/` (Flask, port 5173).
 
+**Private notes** (KNOWLEDGE.md, sensitive documents) → `diana0xUX/tariqa-private` (private repo)
+Local path: `/Users/diana/Documents/finca-tariqa-private/KNOWLEDGE.md`
+
 ## Journal index style
 
 `blog/index.html` uses a full-bleed layout:
@@ -48,6 +51,6 @@ GitHub Pages deploys automatically on push to main.
 ## Writing rules for audio narration
 
 Blog posts are narrated by F5-TTS. Write for the ear.
-Full rules in KNOWLEDGE.md under "Journal writing rules — audio-friendly text".
+Full rules in `/Users/diana/Documents/finca-tariqa-private/KNOWLEDGE.md` under "Journal writing rules — audio-friendly text".
 Short version: spell out numbers, units, and chemical names in the source HTML.
 The server-side normaliser is a fallback — good source text always wins.

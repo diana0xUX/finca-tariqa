@@ -5,6 +5,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Where your donation goes — 2026 Foundation Campaign · Finca Tariqa</title>
 <meta name="description" content="The €10,000 Year 1 campaign: organic certification, farmhouse registration, soil monitoring, terrace recovery. Every euro accounted for.">
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Finca Tariqa">
+<meta property="og:title" content="Where your donation goes — 2026 Foundation Campaign · Finca Tariqa">
+<meta property="og:description" content="The €10,000 Year 1 campaign: organic certification, farmhouse registration, soil monitoring, terrace recovery. Every euro accounted for.">
+<meta property="og:url" content="https://finca-tariqa.com/campaign-2026.html">
+<meta property="og:image" content="https://finca-tariqa.com/blog/images/cover-founder-story.jpg">
+<meta property="og:image:alt" content="Finca Tariqa 2026 foundation campaign — where your donation goes">
+<meta property="og:locale" content="en_GB">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Where your donation goes — 2026 Foundation Campaign · Finca Tariqa">
+<meta name="twitter:description" content="The €10,000 Year 1 campaign: organic certification, farmhouse registration, soil monitoring, terrace recovery. Every euro accounted for.">
+<meta name="twitter:image" content="https://finca-tariqa.com/blog/images/cover-founder-story.jpg">
+<link rel="canonical" href="https://finca-tariqa.com/campaign-2026.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="style.css">
@@ -30,7 +45,7 @@
   pointer-events: none;
 }
 .page-hero-inner { position: relative; z-index: 1; max-width: 680px; }
-.kicker {
+.eyebrow {
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 0.7rem;
   font-weight: 700;
@@ -175,7 +190,7 @@
   flex-shrink: 0;
 }
 .bar-orange { background: var(--gold); }
-.bar-green  { background: #5a8f68; }
+.bar-green  { background: var(--earth-light); }
 .bar-teal   { background: #4a8fa0; }
 .bar-warm   { background: #a07040; }
 .bar-soft   { background: rgba(255,255,255,0.2); }
@@ -349,22 +364,7 @@
   line-height: 1.6;
   margin: 0;
 }
-.btn-donate-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1.5rem;
-  background: var(--gold);
-  color: var(--earth-dark);
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.85rem;
-  font-weight: 700;
-  letter-spacing: 0.03em;
-  border-radius: 4px;
-  text-decoration: none;
-  transition: opacity 0.15s;
-}
-.btn-donate-cta:hover { opacity: 0.87; }
+/* btn-donate-cta replaced by .btn.btn-gold from style.css */
 .btn-back {
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 0.8rem;
@@ -386,9 +386,9 @@
   display: flex;
   gap: 0.75rem;
   align-items: flex-start;
-  background: #edf8ee;
-  border: 1px solid #80c880;
-  color: #1a4820;
+  background: rgba(90,143,104,0.08);
+  border: 1px solid var(--earth-light);
+  color: var(--earth-dark);
 }
 .note-box .icon { flex-shrink: 0; font-size: 1rem; margin-top: 0.05rem; }
 
@@ -443,7 +443,7 @@
 
 <section class="page-hero">
   <div class="page-hero-inner">
-    <div class="kicker">Year 1 Campaign · 2026</div>
+    <div class="eyebrow">Year 1 Campaign · 2026</div>
     <h1>Where your €10,000 goes.</h1>
     <p class="deck">Four projects. One deadline. Every euro tracked and documented. This is the foundation that makes everything else possible.</p>
   </div>
@@ -715,7 +715,7 @@
   <div class="donate-cta">
     <h3>Support the 2026 Foundation Campaign.</h3>
     <p>Any amount helps. Email us directly — we'll confirm which project your donation funds, in priority order.</p>
-    <a href="mailto:fincatariqa@gmail.com?subject=Donation%20to%20Finca%20Tariqa%20%E2%80%94%202026%20Campaign&body=Hi%2C%0A%0AI%27d%20like%20to%20donate%20to%20the%202026%20Foundation%20Campaign.%0A%0AAmount%3A%0AName%20(optional)%3A%0AMessage%20(optional)%3A%0A" class="btn-donate-cta">Donate — email us →</a>
+    <a href="mailto:fincatariqa@gmail.com?subject=Donation%20to%20Finca%20Tariqa%20%E2%80%94%202026%20Campaign&body=Hi%2C%0A%0AI%27d%20like%20to%20donate%20to%20the%202026%20Foundation%20Campaign.%0A%0AAmount%3A%0AName%20(optional)%3A%0AMessage%20(optional)%3A%0A" class="btn btn-gold">Donate — email us →</a>
   </div>
 
 </div><!-- /page-body -->

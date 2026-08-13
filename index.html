@@ -5,6 +5,54 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Finca Tariqa — Regenerative Citrus Farm, Valencia, Spain</title>
   <meta name="description" content="A regenerative citrus farm and forest in transition on an 80-million-year-old limestone hillside in Carcaixent, Valencia, Spain.">
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Finca Tariqa">
+  <meta property="og:title" content="Finca Tariqa — Regenerative Citrus Farm, Valencia, Spain">
+  <meta property="og:description" content="A regenerative citrus farm and forest in transition on an 80-million-year-old limestone hillside in Carcaixent, Valencia, Spain.">
+  <meta property="og:url" content="https://finca-tariqa.com/">
+  <meta property="og:image" content="https://finca-tariqa.com/blog/images/cover-founder-story.jpg">
+  <meta property="og:image:alt" content="Finca Tariqa limestone hillside citrus farm in Carcaixent, Valencia">
+  <meta property="og:locale" content="en_GB">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Finca Tariqa — Regenerative Citrus Farm, Valencia, Spain">
+  <meta name="twitter:description" content="A regenerative citrus farm and forest in transition on an 80-million-year-old limestone hillside in Carcaixent, Valencia.">
+  <meta name="twitter:image" content="https://finca-tariqa.com/blog/images/cover-founder-story.jpg">
+  <link rel="canonical" href="https://finca-tariqa.com/">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://finca-tariqa.com/#organization",
+        "name": "Finca Tariqa",
+        "url": "https://finca-tariqa.com/",
+        "logo": "https://finca-tariqa.com/blog/images/cover-founder-story.jpg",
+        "description": "A regenerative citrus farm and forest in transition on an 80-million-year-old limestone hillside in Carcaixent, Valencia, Spain.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Carcaixent",
+          "addressRegion": "Valencia",
+          "addressCountry": "ES"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 39.118,
+          "longitude": 0.438
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://finca-tariqa.com/#website",
+        "url": "https://finca-tariqa.com/",
+        "name": "Finca Tariqa",
+        "publisher": { "@id": "https://finca-tariqa.com/#organization" }
+      }
+    ]
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="style.css">
@@ -100,12 +148,12 @@
     }
 
     .nav-card--terracotta {
-      background: linear-gradient(145deg, var(--terracotta) 0%, #8f3a14 100%);
+      background: linear-gradient(145deg, var(--terracotta) 0%, var(--earth-dark) 100%);
       color: var(--sand);
     }
 
     .nav-card--dark {
-      background: linear-gradient(145deg, var(--earth-dark) 0%, #0c1610 100%);
+      background: linear-gradient(145deg, var(--earth-dark) 0%, var(--earth-mid) 100%);
       color: var(--sand);
     }
 
@@ -299,7 +347,7 @@
       <li><a href="forest.html">The Forest</a></li>
       <li><a href="mission.html">Our Mission</a></li>
       <li><a href="blog/index.html">Journal</a></li>
-      <li><a href="fund.html" style="color:var(--gold)">Support</a></li>
+      <li><a href="fund.html" class="nav-highlight">Support</a></li>
     </ul>
     <div class="nav-toggle" role="button" tabindex="0" aria-label="Open navigation" onclick="document.getElementById('main-nav').classList.toggle('open')">
       <span></span><span></span><span></span>

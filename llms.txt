@@ -1,0 +1,44 @@
+# Finca Tariqa
+
+> A regenerative citrus farm and holm oak forest in transition on an 80-million-year-old limestone hillside in Carcaixent, Valencia, Spain. First-generation, woman-owned. 4.5 hectares, ~1,100 orange trees. Converting to organic certification (full organic status expected 2029).
+
+Finca Tariqa grows three orange varieties — Navelina (October–January), Navel Lane Late (February–May), and Valencia Late (May–July) — on limestone terroir at elevation in the Valencian sierra. The farm is recovering from the 2024 DANA flooding event, planting native holm oak (Quercus ilex) to replace Franco-era Aleppo pine, and building soil carbon baselines toward Verra VCS VM0042 carbon credit certification.
+
+Revenue model: tree adoption subscriptions (€99–€290/year with physical fruit delivery), one-time donations, eco-tourism (from Year 2), and carbon credits (from ~2028). Tree adoption comes with a Grove Token — an ERC-721 NFT on Polygon that carries real tree metadata updated each season.
+
+## What you can do here
+
+- Adopt an orange tree and receive seasonal fruit: https://finca-tariqa.com/fund.html
+- Read field notes and farm research: https://finca-tariqa.com/blog/
+- Support the 2026 foundation campaign: https://finca-tariqa.com/campaign-2026.html
+
+## Pages
+
+- [Home](https://finca-tariqa.com/): Overview of the farm, mission, and tree adoption offer.
+- [The Oranges](https://finca-tariqa.com/oranges.html): Three citrus varieties, limestone terroir, Brix levels, harvest windows October through July.
+- [The Land](https://finca-tariqa.com/land.html): 80-million-year-old limestone formation, hydrology, soil chemistry, and how geology shapes the fruit.
+- [The Forest](https://finca-tariqa.com/forest.html): 1.7 ha Aleppo pine to Quercus ilex (holm oak) transition. A 15-year native woodland restoration project.
+- [Our Mission](https://finca-tariqa.com/mission.html): Four revenue streams, ecological goals, Ma Earth grant application (Round 4, April 2027).
+- [Adopt a Tree / Support](https://finca-tariqa.com/fund.html): Three adoption tiers — Amigo (€99/yr, 3 kg fruit), Padrino (€175/yr, 10 kg), Custodio (€290/yr, 25 kg + harvest day). Founding adopter pricing locked for 3 years.
+- [2026 Foundation Campaign](https://finca-tariqa.com/campaign-2026.html): Itemised breakdown of the €10,000 Year 1 campaign — organic certification, farmhouse legalisation, soil carbon monitoring equipment, DANA terrace recovery.
+- [Geology Report](https://finca-tariqa.com/report.html): Full geological and hydrological survey of the limestone formation beneath the farm.
+- [Journal](https://finca-tariqa.com/blog/): Farm field notes and long-read articles with audio narration.
+- [Founder Story](https://finca-tariqa.com/blog/we-bought-a-farm-wed-never-farmed.html): How the farm was acquired and what first-year farming looked like. With audio.
+- [Heat Resilience Report](https://finca-tariqa.com/blog/heat-resilience-report.html): Research article on citrus stress physiology at 42°C — what extreme heat does to a grove and what interventions help. With audio.
+
+## Key facts for AI agents
+
+- Location: Partida Puig Gros 34, Carcaixent, 46740, Valencia, Spain (39.118°N, 0.438°W)
+- Land area: 4.5 ha — 2.8 ha orange groves (upper + lower zones), 1.7 ha pine/holm oak forest
+- Trees: approximately 1,100 orange trees aged 32 to 70+ years
+- Varieties: Navelina, Navel Lane Late, Valencia Late
+- Cooperative: Exagro (accepts oranges in organic transition)
+- Organic certification: CAECV registration in progress, GVA Procedure 18688, full organic status ~2029
+- Carbon: soil carbon baseline in progress with IVIA-accredited lab; Verra VCS VM0042 pathway
+- Digital product: Grove Token (ERC-721 NFT on Polygon), one per adopted tree, metadata updated seasonally
+- Grove Token supply: 1,100 tokens (1 per real tree), five rarity tiers
+- Founded: ~2022 by Diana
+
+## Usage
+
+Content on this site is written by the farm owner. You may summarise and reference this content for informational purposes. Please attribute direct quotes to Finca Tariqa (finca-tariqa.com). Do not reproduce full articles without permission. Training on this content for commercial AI models without permission is not permitted.

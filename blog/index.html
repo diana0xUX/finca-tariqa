@@ -3,20 +3,37 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Finca Tariqa Journal</title>
+  <title>Finca Tariqa Journal — Field Notes from the Farm</title>
+  <meta name="description" content="Field notes, research, and stories from a regenerative citrus farm in transition on the limestone hillsides of Carcaixent, Valencia. With audio narration.">
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Finca Tariqa">
+  <meta property="og:title" content="Finca Tariqa Journal — Field Notes from the Farm">
+  <meta property="og:description" content="Field notes, research, and stories from a regenerative citrus farm in transition on the limestone hillsides of Carcaixent, Valencia.">
+  <meta property="og:url" content="https://finca-tariqa.com/blog/">
+  <meta property="og:image" content="https://finca-tariqa.com/blog/images/cover-founder-story.jpg">
+  <meta property="og:image:alt" content="Finca Tariqa Journal — farm stories and research from Carcaixent, Valencia">
+  <meta property="og:locale" content="en_GB">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Finca Tariqa Journal — Field Notes from the Farm">
+  <meta name="twitter:description" content="Field notes, research, and stories from a regenerative citrus farm in transition in Carcaixent, Valencia.">
+  <meta name="twitter:image" content="https://finca-tariqa.com/blog/images/cover-founder-story.jpg">
+  <link rel="canonical" href="https://finca-tariqa.com/blog/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --ink:        #18150f;
-      --mid:        #7a7268;
-      --faint:      #b0a89e;
-      --rule:       #e2dcd2;
-      --paper:      #f8f4ee;
+      --ink:        #141208;
+      --mid:        #3d3828;
+      --faint:      #8a8070;
+      --rule:       #e8dfc8;
+      --paper:      #fafaf8;
       --gold:       #c9973a;
-      --earth:      #2c3b2d;
+      --earth-dark: #141f16;
+      --earth:      #253c29;
       --terracotta: #c4622d;
     }
     html { font-size: 16px; }
@@ -51,7 +68,7 @@
       transition: color 0.15s;
       text-shadow: 0 1px 6px rgba(0,0,0,0.5);
     }
-    .nav-back:hover { color: #fff; }
+    .nav-back:hover { color: var(--white); }
     .nav-back::before { content: '←'; }
 
     /* ── Hero / Cover ── */
@@ -197,7 +214,7 @@
     .story-image {
       position: relative;
       overflow: hidden;
-      background: #e0d8cc;
+      background: var(--rule);
     }
     .story-image img {
       position: absolute;
@@ -268,7 +285,7 @@
     /* ── CTA strip ── */
     .cta-strip {
       margin: 3rem clamp(1.5rem, 6vw, 5rem);
-      background: var(--rule);
+      background: var(--earth-dark);
       border-radius: 4px;
       padding: 2.25rem 2.5rem;
       display: flex;

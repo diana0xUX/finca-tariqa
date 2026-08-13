@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Site Map — Finca Tariqa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;1,400&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#06090a;--card:#0f1619;
+  --sand:#f4efe6;--gold:#c9973a;--mid:rgba(244,239,230,0.4);
+  --green:#3a7a4a;--green-dim:rgba(58,122,74,0.15);
+  --blue:rgba(90,143,208,0.9);--blue-dim:rgba(90,143,208,0.12);
+  --purple:rgba(154,90,208,0.9);--purple-dim:rgba(154,90,208,0.12);
+  --gold-dim:rgba(201,151,58,0.12);
+}
+body{background:var(--bg);color:var(--sand);font-family:'Plus Jakarta Sans',sans-serif;min-height:100vh;padding-bottom:6rem}
+
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:1.25rem clamp(1.25rem,5vw,4rem);border-bottom:1px solid rgba(255,255,255,.05);margin-bottom:3rem}
+.topbar-logo{font-family:'Lora',serif;font-size:1rem;color:var(--sand)}
+.topbar-sub{font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-top:.15rem}
+.back-link{font-size:.7rem;font-weight:600;color:var(--mid);text-decoration:none;border:1px solid rgba(255,255,255,.1);border-radius:6px;padding:.35rem .85rem;transition:all .15s}
+.back-link:hover{color:var(--sand);border-color:rgba(255,255,255,.22)}
+
+.page{max-width:1200px;margin:0 auto;padding:0 clamp(1.25rem,5vw,4rem)}
+
+/* LEGEND */
+.legend{display:flex;gap:1.25rem;flex-wrap:wrap;margin-bottom:3rem}
+.leg{display:flex;align-items:center;gap:.5rem;font-size:.65rem;font-weight:600;color:var(--mid)}
+.leg-dot{width:10px;height:10px;border-radius:3px;flex-shrink:0}
+
+/* TREE LAYOUT */
+.tree{display:flex;flex-direction:column;align-items:center;gap:0}
+
+/* ROOT */
+.root-wrap{display:flex;flex-direction:column;align-items:center}
+.connector-down{width:2px;height:28px;background:rgba(255,255,255,.1)}
+.connector-h{height:2px;background:rgba(255,255,255,.08)}
+
+/* NODES */
+.node{
+  display:inline-flex;flex-direction:column;
+  border-radius:10px;
+  padding:.75rem 1.1rem;
+  text-decoration:none;
+  transition:all .15s;
+  min-width:150px;
+  text-align:center;
+  position:relative;
+}
+.node:hover{transform:translateY(-2px);filter:brightness(1.12)}
+.node-label{font-size:.72rem;font-weight:700;color:var(--sand);line-height:1.2;margin-bottom:.2rem}
+.node-path{font-family:'Courier New',monospace;font-size:.54rem;color:rgba(244,239,230,.35);white-space:nowrap}
+.node-status{font-size:.5rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-top:.3rem;padding:.15rem .45rem;border-radius:3px;display:inline-block}
+
+/* NODE TYPES */
+.n-home    {background:rgba(58,122,74,.2);border:1px solid rgba(58,122,74,.4)}
+.n-public  {background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1)}
+.n-nft     {background:rgba(201,151,58,.1);border:1px solid rgba(201,151,58,.3)}
+.n-blog    {background:rgba(200,120,60,.1);border:1px solid rgba(200,120,60,.3)}
+.n-tool    {background:rgba(90,143,208,.1);border:1px solid rgba(90,143,208,.25)}
+.n-admin   {background:rgba(154,90,208,.1);border:1px solid rgba(154,90,208,.25)}
+
+.st-live   {background:rgba(90,154,104,.15);color:#7ed490}
+.st-wip    {background:rgba(201,151,58,.15);color:#e8b840}
+.st-tool   {background:rgba(90,143,208,.15);color:#88b8ff}
+.st-admin  {background:rgba(154,90,208,.15);color:#c07aff}
+
+/* ROW LAYOUT */
+.level{display:flex;align-items:flex-start;justify-content:center;gap:0;width:100%;position:relative}
+.level-col{display:flex;flex-direction:column;align-items:center}
+
+.branch-row{display:flex;align-items:flex-start;justify-content:center;gap:1rem;width:100%}
+.branch-group{display:flex;flex-direction:column;align-items:center}
+
+/* CONNECTORS */
+.v-line{width:2px;background:rgba(255,255,255,.08);flex-shrink:0}
+.h-bar{height:2px;background:rgba(255,255,255,.08);border-radius:1px}
+.junction{display:flex;align-items:flex-start}
+.junction-v{width:2px;background:rgba(255,255,255,.08)}
+
+/* SECTION DIVIDER */
+.section-row{display:flex;align-items:center;gap:1rem;margin:2.5rem 0 1.5rem;width:100%;max-width:1100px}
+.section-row-line{flex:1;height:1px;background:rgba(255,255,255,.06)}
+.section-row-label{font-size:.58rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(244,239,230,.25);white-space:nowrap}
+
+/* FLAT GRID for tools/admin */
+.flat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:.65rem;width:100%;max-width:1100px;margin:0 auto}
+.flat-node{
+  display:flex;flex-direction:column;
+  border-radius:10px;
+  padding:.85rem 1rem;
+  text-decoration:none;
+  transition:all .15s;
+}
+.flat-node:hover{transform:translateY(-2px);filter:brightness(1.1)}
+.flat-node-label{font-size:.75rem;font-weight:700;color:var(--sand);margin-bottom:.2rem}
+.flat-node-path{font-family:'Courier New',monospace;font-size:.54rem;color:rgba(244,239,230,.3)}
+.flat-node-desc{font-size:.62rem;color:var(--mid);margin-top:.35rem;line-height:1.5}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div>
+    <div class="topbar-logo">Finca Tariqa</div>
+    <div class="topbar-sub">Site Map</div>
+  </div>
+  <a href="https://127.0.0.1:5173/admin/console.html" class="back-link">← Admin</a>
+</div>
+
+<div class="page">
+
+  <!-- LEGEND -->
+  <div class="legend">
+    <div class="leg"><div class="leg-dot" style="background:rgba(58,122,74,.6)"></div> Public page</div>
+    <div class="leg"><div class="leg-dot" style="background:rgba(201,151,58,.5)"></div> NFT / commerce</div>
+    <div class="leg"><div class="leg-dot" style="background:rgba(200,120,60,.5)"></div> Journal / blog</div>
+    <div class="leg"><div class="leg-dot" style="background:rgba(90,143,208,.5)"></div> Tool</div>
+    <div class="leg"><div class="leg-dot" style="background:rgba(154,90,208,.5)"></div> Admin</div>
+    <div class="leg"><div class="leg-dot" style="background:rgba(201,151,58,.15);border:1px solid #e8b840"></div> Work in progress</div>
+  </div>
+
+  <!-- PUBLIC SITE TREE -->
+  <div style="display:flex;flex-direction:column;align-items:center;overflow-x:auto;padding-bottom:1rem">
+
+    <!-- HOME -->
+    <a href="index.html" target="_blank" class="node n-home" style="min-width:180px">
+      <div class="node-label">Home</div>
+      <div class="node-path">index.html</div>
+      <div class="node-status st-live">Live</div>
+    </a>
+
+    <!-- Down from home -->
+    <div class="connector-down"></div>
+
+    <!-- Horizontal connector bar spanning all level-1 children -->
+    <div style="display:flex;width:100%;max-width:1100px;position:relative;justify-content:center">
+      <div style="position:absolute;top:0;left:calc(50% - 500px);right:calc(50% - 500px);height:2px;background:rgba(255,255,255,.08)"></div>
+    </div>
+    <div style="width:100%;max-width:1100px;height:2px;background:rgba(255,255,255,.08);margin:0 auto"></div>
+
+    <!-- LEVEL 1 — main nav pages -->
+    <div style="display:flex;justify-content:space-between;width:100%;max-width:1100px;gap:.5rem">
+
+      <!-- Oranges -->
+      <div style="display:flex;flex-direction:column;align-items:center;flex:1">
+        <div class="connector-down"></div>
+        <a href="oranges.html" target="_blank" class="node n-public" style="width:100%;max-width:160px">
+          <div class="node-label">Oranges</div>
+          <div class="node-path">oranges.html</div>
+          <div class="node-status st-live">Live</div>
+        </a>
+      </div>
+
+      <!-- The Land -->
+      <div style="display:flex;flex-direction:column;align-items:center;flex:1">
+        <div class="connector-down"></div>
+        <a href="land.html" target="_blank" class="node n-public" style="width:100%;max-width:160px">
+          <div class="node-label">The Land</div>
+          <div class="node-path">land.html</div>
+          <div class="node-status st-live">Live</div>
+        </a>
+      </div>
+
+      <!-- The Forest -->
+      <div style="display:flex;flex-direction:column;align-items:center;flex:1">
+        <div class="connector-down"></div>
+        <a href="forest.html" target="_blank" class="node n-public" style="width:100%;max-width:160px">
+          <div class="node-label">The Forest</div>
+          <div class="node-path">forest.html</div>
+          <div class="node-status st-live">Live</div>
+        </a>
+      </div>
+
+      <!-- Mission -->
+      <div style="display:flex;flex-direction:column;align-items:center;flex:1">
+        <div class="connector-down"></div>
+        <a href="mission.html" target="_blank" class="node n-public" style="width:100%;max-width:160px">
+          <div class="node-label">Our Mission</div>
+          <div class="node-path">mission.html</div>
+          <div class="node-status st-live">Live</div>
+        </a>
+      </div>
+
+      <!-- Adopt -->
+      <div style="display:flex;flex-direction:column;align-items:center;flex:1">
+        <div class="connector-down"></div>
+        <a href="adopt.html" target="_blank" class="node n-nft" style="width:100%;max-width:160px">
+          <div class="node-label">Adopt a Tree</div>
+          <div class="node-path">adopt.html</div>
+          <div class="node-status st-live">Live</div>
+        </a>
+        <!-- Adopt children -->
+        <div class="connector-down"></div>
+        <div style="width:100%;max-width:320px;height:2px;background:rgba(255,255,255,.08)"></div>
+        <div style="display:flex;gap:.5rem;width:100%;max-width:320px;justify-content:space-around">
+          <div style="display:flex;flex-direction:column;align-items:center;flex:1">
+            <div class="connector-down"></div>
+            <a href="marketplace.html" target="_blank" class="node n-nft" style="width:100%;font-size:.9em">
+              <div class="node-label">Token Gallery</div>
+              <div class="node-path">marketplace.html</div>
+              <div class="node-status st-live">Live</div>
+            </a>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;flex:1">
+            <div class="connector-down"></div>
+            <a href="fund.html" target="_blank" class="node n-nft" style="width:100%;font-size:.9em">
+              <div class="node-label">Fund</div>
+              <div class="node-path">fund.html</div>
+              <div class="node-status st-wip">⚠ Wallets needed</div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Journal -->
+      <div style="display:flex;flex-direction:column;align-items:center;flex:1">
+        <div class="connector-down"></div>
+        <a href="blog/index.html" target="_blank" class="node n-blog" style="width:100%;max-width:160px">
+          <div class="node-label">Journal</div>
+          <div class="node-path">blog/index.html</div>
+          <div class="node-status st-live">Live</div>
+        </a>
+        <!-- Blog posts -->
+        <div class="connector-down"></div>
+        <div style="width:2px;background:rgba(255,255,255,.08);height:0"></div>
+        <div style="display:flex;flex-direction:column;gap:.4rem;width:100%;max-width:200px">
+          <a href="blog/we-bought-a-farm-wed-never-farmed.html" target="_blank" class="node n-blog" style="font-size:.85em">
+            <div class="node-label">We Bought a Farm</div>
+            <div class="node-path">🎧 Audio post</div>
+            <div class="node-status st-live">Live</div>
+          </a>
+          <a href="blog/what-i-found-when-i-bought-a-farm-id-never-farmed.html" target="_blank" class="node n-blog" style="font-size:.85em">
+            <div class="node-label">What I Found</div>
+            <div class="node-path">blog post</div>
+            <div class="node-status st-live">Live</div>
+          </a>
+          <a href="blog/land-certificates.html" target="_blank" class="node n-blog" style="font-size:.85em">
+            <div class="node-label">Land Certificates</div>
+            <div class="node-path">blog post</div>
+            <div class="node-status st-live">Live</div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Report -->
+      <div style="display:flex;flex-direction:column;align-items:center;flex:1">
+        <div class="connector-down"></div>
+        <a href="report.html" target="_blank" class="node n-public" style="width:100%;max-width:160px">
+          <div class="node-label">Geology Report</div>
+          <div class="node-path">report.html</div>
+          <div class="node-status st-live">Live</div>
+        </a>
+      </div>
+
+    </div><!-- end level 1 -->
+
+  </div><!-- end public tree -->
+
+  <!-- SECTION: TOOLS -->
+  <div class="section-row" style="margin-top:3.5rem">
+    <div class="section-row-line"></div>
+    <div class="section-row-label">NFT Tools</div>
+    <div class="section-row-line"></div>
+  </div>
+  <div class="flat-grid">
+    <a href="grove-ai-generator.html" class="flat-node n-tool">
+      <div class="flat-node-label">AI Image Generator</div>
+      <div class="flat-node-path">grove-ai-generator.html</div>
+      <div class="flat-node-desc">fal.ai FLUX — generate collection images, download ZIP</div>
+    </a>
+    <a href="grove-collection.html" class="flat-node n-tool">
+      <div class="flat-node-label">Collection System</div>
+      <div class="flat-node-path">grove-collection.html</div>
+      <div class="flat-node-desc">8-trait genome, rarity weights, Midjourney prompt builder</div>
+    </a>
+    <a href="grove-generator.html" class="flat-node n-tool">
+      <div class="flat-node-label">SVG Preview Generator</div>
+      <div class="flat-node-path">grove-generator.html</div>
+      <div class="flat-node-desc">Browser-side SVG tree cards, no API needed</div>
+    </a>
+  </div>
+
+  <!-- SECTION: ADMIN -->
+  <div class="section-row" style="margin-top:2.5rem">
+    <div class="section-row-line"></div>
+    <div class="section-row-label">Admin</div>
+    <div class="section-row-line"></div>
+  </div>
+  <div class="flat-grid">
+    <a href="https://127.0.0.1:5173/admin/console.html" class="flat-node n-admin">
+      <div class="flat-node-label">Admin Console</div>
+      <div class="flat-node-path">https://127.0.0.1:5173/admin/console.html</div>
+      <div class="flat-node-desc">Dashboard — all tools, pages, and open tasks</div>
+    </a>
+    <a href="sitemap.html" class="flat-node n-admin">
+      <div class="flat-node-label">Site Map</div>
+      <div class="flat-node-path">sitemap.html</div>
+      <div class="flat-node-desc">This page</div>
+    </a>
+    <a href="ru.html" target="_blank" class="flat-node n-admin" style="opacity:.6">
+      <div class="flat-node-label">RU Version</div>
+      <div class="flat-node-path">ru.html</div>
+      <div class="flat-node-desc">Russian language variant</div>
+    </a>
+  </div>
+
+  <!-- OPEN ISSUES -->
+  <div class="section-row" style="margin-top:2.5rem">
+    <div class="section-row-line"></div>
+    <div class="section-row-label">Open Issues</div>
+    <div class="section-row-line"></div>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:.45rem;max-width:700px">
+    <div style="display:flex;gap:.75rem;align-items:flex-start;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:8px;padding:.75rem 1rem">
+      <span style="color:#e8b840;font-size:.7rem;margin-top:.05rem">⚠</span>
+      <div>
+        <div style="font-size:.72rem;font-weight:700;color:var(--sand);margin-bottom:.15rem">fund.html — wallet addresses placeholder</div>
+        <div style="font-size:.62rem;color:var(--mid)">ETH, BTC, and PayPal links need real addresses before going live</div>
+      </div>
+    </div>
+    <div style="display:flex;gap:.75rem;align-items:flex-start;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:8px;padding:.75rem 1rem">
+      <span style="color:#e8b840;font-size:.7rem;margin-top:.05rem">⚠</span>
+      <div>
+        <div style="font-size:.72rem;font-weight:700;color:var(--sand);margin-bottom:.15rem">Waitlist form not connected</div>
+        <div style="font-size:.62rem;color:var(--mid)">adopt.html form needs Tally.so, Mailchimp, or Buttondown integration</div>
+      </div>
+    </div>
+    <div style="display:flex;gap:.75rem;align-items:flex-start;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:8px;padding:.75rem 1rem">
+      <span style="color:#88b8ff;font-size:.7rem;margin-top:.05rem">◎</span>
+      <div>
+        <div style="font-size:.72rem;font-weight:700;color:var(--sand);margin-bottom:.15rem">marketplace.html — uses SVG placeholder art</div>
+        <div style="font-size:.62rem;color:var(--mid)">Replace with real AI-generated images once collection is complete</div>
+      </div>
+    </div>
+    <div style="display:flex;gap:.75rem;align-items:flex-start;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:8px;padding:.75rem 1rem">
+      <span style="color:#88b8ff;font-size:.7rem;margin-top:.05rem">◎</span>
+      <div>
+        <div style="font-size:.72rem;font-weight:700;color:var(--sand);margin-bottom:.15rem">1,100 NFT images not yet generated</div>
+        <div style="font-size:.62rem;color:var(--mid)">Use grove-ai-generator.html — ~€28 total on FLUX Dev, ~€3.30 on Schnell</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end page -->
+</body>
+</html>

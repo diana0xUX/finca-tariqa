@@ -751,6 +751,7 @@
 @media(max-width:620px) {
   .other-ways-grid { grid-template-columns:1fr; }
 }
+
 </style>
 </head>
 <body>
@@ -791,8 +792,6 @@
   </div>
 </section>
 
-<!-- ═══════ RARITY BAR ═══════ -->
-
 <!-- ═══════ TIERS ═══════ -->
 <section class="tiers-section" id="tiers">
   <div class="tiers-inner">
@@ -828,7 +827,7 @@
             <li><span class="chk">✓</span> Season badges earned as you renew</li>
             <li><span class="chk">✓</span> Level up each season you renew</li>
           </ul>
-          <a href="http://127.0.0.1:5173/checkout?tier=amigo" class="tier-cta">Own your tree — €99 →</a>
+          <a href="mailto:fincatariqa@gmail.com?subject=Tree%20Adoption%20%E2%80%93%20Friend%20of%20the%20Tree%20%28%E2%82%AC99%2Fyr%29&body=Hi%2C%0A%0AI%27d%20like%20to%20adopt%20a%20tree%20at%20the%20Friend%20of%20the%20Tree%20tier%20(%E2%82%AC99%20per%20year%2C%2025%20kg%20oranges).%0A%0AName%3A%0ADelivery%20address%3A%0A" class="tier-cta">Own your tree — €99 →</a>
         </div>
       </div>
 
@@ -852,7 +851,7 @@
             <li><span class="chk">✓</span> Printed certificate, posted to you</li>
             <li><span class="chk">✓</span> Farm visit invitation</li>
           </ul>
-          <a href="http://127.0.0.1:5173/checkout?tier=padrino" class="tier-cta tier-cta--featured">Own your tree — €175 →</a>
+          <a href="mailto:fincatariqa@gmail.com?subject=Tree%20Adoption%20%E2%80%93%20Godparent%20of%20the%20Tree%20%28%E2%82%AC175%2Fyr%29&body=Hi%2C%0A%0AI%27d%20like%20to%20adopt%20a%20tree%20at%20the%20Godparent%20of%20the%20Tree%20tier%20(%E2%82%AC175%20per%20year%2C%2050%20kg%20oranges).%0A%0AName%3A%0ADelivery%20address%3A%0A" class="tier-cta tier-cta--featured">Own your tree — €175 →</a>
         </div>
       </div>
 
@@ -877,7 +876,7 @@
             <li><span class="chk">✓</span> Priority Harvest Day event invite</li>
             <li><span class="chk">✓</span> Name on Grove of Friends on this site</li>
           </ul>
-          <a href="http://127.0.0.1:5173/checkout?tier=custodio" class="tier-cta">Own your tree — €290 →</a>
+          <a href="mailto:fincatariqa@gmail.com?subject=Tree%20Adoption%20%E2%80%93%20Custodian%20of%20the%20Tree%20%28%E2%82%AC290%2Fyr%29&body=Hi%2C%0A%0AI%27d%20like%20to%20adopt%20a%20tree%20at%20the%20Custodian%20of%20the%20Tree%20tier%20(%E2%82%AC290%20per%20year%2C%2080%20kg%20oranges).%0A%0AName%3A%0ADelivery%20address%3A%0A" class="tier-cta">Own your tree — €290 →</a>
         </div>
       </div>
 
@@ -950,24 +949,8 @@
         </div>
         <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
         <div class="donate-btn-row" style="margin-top:1rem;">
-          <a href="https://paypal.me/REPLACE_WITH_YOUR_PAYPAL" class="btn-donate" target="_blank" rel="noopener">Donate via PayPal</a>
-          <button class="btn-donate-ghost" onclick="document.getElementById('crypto-panel').classList.toggle('open')">Send Crypto ▾</button>
-        </div>
-        <div class="crypto-panel" id="crypto-panel">
-          <div class="crypto-opt">
-            <div class="crypto-lbl">Ethereum · USDC · ERC-20</div>
-            <div class="crypto-addr-row">
-              <span class="crypto-addr" id="eth-addr">0xREPLACE_WITH_YOUR_ETH_ADDRESS</span>
-              <button class="crypto-copy-btn" onclick="copyAddr('eth-addr',this)">Copy</button>
-            </div>
-          </div>
-          <div class="crypto-opt">
-            <div class="crypto-lbl">Bitcoin</div>
-            <div class="crypto-addr-row">
-              <span class="crypto-addr" id="btc-addr">bc1REPLACE_WITH_YOUR_BTC_ADDRESS</span>
-              <button class="crypto-copy-btn" onclick="copyAddr('btc-addr',this)">Copy</button>
-            </div>
-          </div>
+          <a href="mailto:fincatariqa@gmail.com?subject=Donation%20to%20Finca%20Tariqa&body=Hi%2C%0A%0AI%27d%20like%20to%20make%20a%20donation%20to%20Finca%20Tariqa.%0A%0AAmount%3A%0AName%20(optional)%3A%0A" class="btn-donate">Donate — email us</a>
+          <a href="campaign-2026.html" class="btn-donate-ghost">Where it goes →</a>
         </div>
       </div>
 
@@ -1005,6 +988,7 @@
       <li><a href="blog/index.html">Journal</a></li>
       <li><a href="adopt.html">Grove Tokens</a></li>
       <li><a href="ru.html">По-русски</a></li>
+      <li><a href="roadmap.html">Our Plans</a></li>
     </ul>
   </div>
   <div class="footer-bottom">Campaign deadline: 30 November 2026</div>
@@ -1040,7 +1024,7 @@
     const email = document.getElementById('waitlist-email').value;
     document.getElementById('waitlist-msg').textContent = '✓ We\'ll email ' + email + ' when it launches.';
     e.target.style.display = 'none';
-    window.location.href = 'mailto:alisheryakupov@gmail.com?subject=Certificate%20Waitlist&body=Add%20me%3A%20' + encodeURIComponent(email);
+    window.location.href = 'mailto:fincatariqa@gmail.com?subject=Certificate%20Waitlist&body=Add%20me%3A%20' + encodeURIComponent(email);
   }
 </script>
 </body>

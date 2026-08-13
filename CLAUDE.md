@@ -38,6 +38,17 @@ These posts have custom CSS/HTML that the CMS cannot reproduce:
 
 For these files: edit HTML directly, set status in JSON manually, push with git.
 
+## Local preview — always use localhost, never file://
+
+Start a local HTTP server before opening any page for preview:
+```bash
+cd /Users/diana/Documents/finca-tariqa
+python3 -m http.server 8765
+```
+Then open: `http://localhost:8765/<page>.html`
+
+Never use `open file:///Users/diana/Documents/finca-tariqa/...` — the file:// protocol causes style rendering issues and the URL is unacceptable to Diana.
+
 ## Commit and push workflow
 
 ```bash

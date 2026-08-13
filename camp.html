@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Camp Tariqa — The Development Project</title>
+  <meta name="description" content="A venue, rural rooms, glamping on the hillside, and a pool. The long-term development plan for Finca Tariqa — and the legal track to build it.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Finca Tariqa">
+  <meta property="og:title" content="Camp Tariqa — The Development Project">
+  <meta property="og:description" content="A venue, rural rooms, glamping on the hillside, and a pool. The long-term development plan for Finca Tariqa.">
+  <meta property="og:url" content="https://finca-tariqa.com/camp.html">
+  <meta property="og:image" content="https://finca-tariqa.com/blog/images/cover-founder-story.jpg">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Camp Tariqa — The Development Project">
+  <meta name="twitter:description" content="A venue, rural rooms, glamping on the hillside, and a pool. The long-term development plan for Finca Tariqa.">
+  <meta name="twitter:image" content="https://finca-tariqa.com/blog/images/cover-founder-story.jpg">
+  <link rel="canonical" href="https://finca-tariqa.com/camp.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="style.css">
+  <style>
+
+    /* ── Hero ── */
+    .camp-hero {
+      background: var(--earth-dark);
+      min-height: 100vh;
+      min-height: 100svh;
+      display: flex;
+      align-items: flex-end;
+      padding: calc(var(--nav-height) + 4rem) clamp(1.25rem, 6vw, 6rem) clamp(4rem, 8vw, 7rem);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .camp-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 90% 70% at 0% 100%, rgba(58, 102, 69, 0.28) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 50% at 85% 10%, rgba(201, 151, 58, 0.1) 0%, transparent 55%),
+        radial-gradient(ellipse 50% 60% at 40% 60%, rgba(37, 60, 41, 0.25) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .camp-hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 1100px;
+      width: 100%;
+    }
+
+    .camp-hero .eyebrow {
+      color: var(--gold);
+      opacity: 0.85;
+      margin-bottom: 1.5rem;
+    }
+
+    .camp-hero h1 {
+      color: var(--sand);
+      font-size: clamp(3rem, 7vw, 6rem);
+      line-height: 1.05;
+      margin-bottom: 2.5rem;
+      max-width: 14ch;
+    }
+
+    .camp-hero-bottom {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .camp-hero .lead {
+      color: rgba(244, 239, 230, 0.58);
+      font-size: clamp(1rem, 1.8vw, 1.15rem);
+      max-width: 50ch;
+      line-height: 1.75;
+    }
+
+    .camp-hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      flex-shrink: 0;
+    }
+
+    /* ── Status bar ── */
+    .status-bar {
+      background: var(--earth-mid);
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .status-bar-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      padding: 0 clamp(1.25rem, 4vw, 3rem);
+    }
+
+    .status-item {
+      flex: 1;
+      padding: 1.75rem 1rem;
+      border-right: 1px solid rgba(244, 239, 230, 0.08);
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .status-item:last-child {
+      border-right: none;
+    }
+
+    .status-label {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(244, 239, 230, 0.4);
+    }
+
+    .status-value {
+      font-family: 'Lora', serif;
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--sand);
+    }
+
+    .status-dot {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      margin-right: 0.5rem;
+      vertical-align: middle;
+      position: relative;
+      top: -1px;
+    }
+
+    .status-dot--active { background: #6fcf8a; }
+    .status-dot--pending { background: var(--gold); }
+    .status-dot--future { background: rgba(244, 239, 230, 0.25); }
+
+    /* ── Vision grid ── */
+    .vision-section {
+      background: var(--sand);
+    }
+
+    .vision-head {
+      max-width: 600px;
+      margin-bottom: 3.5rem;
+    }
+
+    .vision-head .eyebrow {
+      color: var(--earth-med);
+      opacity: 1;
+      margin-bottom: 0.75rem;
+    }
+
+    .vision-head h2 {
+      color: var(--ink);
+      margin-bottom: 1rem;
+    }
+
+    .vision-head p {
+      color: var(--mid);
+      max-width: none;
+    }
+
+    .vision-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--sand-deep);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    .vision-item {
+      background: var(--white);
+      padding: 2.25rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .vision-item-num {
+      font-family: 'Lora', serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--earth-med);
+    }
+
+    .vision-item h3 {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--ink);
+      margin: 0;
+    }
+
+    .vision-item p {
+      font-size: 0.84rem;
+      line-height: 1.65;
+      color: var(--mid);
+      max-width: none;
+      margin: 0;
+      flex: 1;
+    }
+
+    .vision-item-status {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-top: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .tag--now { color: #4a9e62; }
+    .tag--dic { color: var(--gold); }
+    .tag--phase2 { color: var(--earth-med); }
+
+    /* ── Legal track ── */
+    .legal-section {
+      background: var(--earth-dark);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .legal-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 60% 40%, rgba(58, 102, 69, 0.1), transparent 70%);
+      pointer-events: none;
+    }
+
+    .legal-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: clamp(3rem, 6vw, 6rem);
+      align-items: start;
+      position: relative;
+    }
+
+    .legal-left .eyebrow {
+      color: var(--gold);
+      opacity: 0.85;
+      margin-bottom: 0.75rem;
+    }
+
+    .legal-left h2 {
+      color: var(--sand);
+      margin-bottom: 1.5rem;
+    }
+
+    .legal-left p {
+      color: rgba(244, 239, 230, 0.58);
+      max-width: none;
+      margin-bottom: 1rem;
+      line-height: 1.8;
+      font-size: 0.95rem;
+    }
+
+    .legal-left p strong {
+      color: var(--sand);
+      font-weight: 600;
+    }
+
+    .legal-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      background: rgba(244, 239, 230, 0.06);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    .legal-step {
+      background: rgba(255, 255, 255, 0.03);
+      padding: 1.75rem 2rem;
+      display: grid;
+      grid-template-columns: 2.5rem 1fr;
+      gap: 1rem;
+      align-items: start;
+    }
+
+    .legal-step-num {
+      font-family: 'Lora', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--gold);
+      opacity: 0.6;
+      line-height: 1.4;
+    }
+
+    .legal-step h4 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--sand);
+      margin-bottom: 0.35rem;
+    }
+
+    .legal-step p {
+      font-size: 0.82rem;
+      line-height: 1.65;
+      color: rgba(244, 239, 230, 0.5);
+      max-width: none;
+    }
+
+    .legal-step-meta {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(201, 151, 58, 0.6);
+      margin-top: 0.5rem;
+    }
+
+    /* ── Phases timeline ── */
+    .phases-section {
+      background: var(--white);
+    }
+
+    .phases-head {
+      max-width: 560px;
+      margin-bottom: 3.5rem;
+    }
+
+    .phases-head .eyebrow {
+      color: var(--earth-med);
+      opacity: 1;
+      margin-bottom: 0.75rem;
+    }
+
+    .phases-head h2 {
+      color: var(--ink);
+    }
+
+    .phases-track {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      position: relative;
+    }
+
+    .phases-track::before {
+      content: '';
+      position: absolute;
+      top: 2rem;
+      left: 2rem;
+      right: 2rem;
+      height: 1px;
+      background: var(--sand-deep);
+      z-index: 0;
+    }
+
+    .phase {
+      position: relative;
+      padding: 0 1.5rem 0 0;
+    }
+
+    .phase-dot-wrap {
+      position: relative;
+      margin-bottom: 1.5rem;
+      z-index: 1;
+    }
+
+    .phase-dot {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      border: 2px solid var(--sand-deep);
+      background: var(--white);
+      position: relative;
+      z-index: 1;
+    }
+
+    .phase--active .phase-dot {
+      background: var(--earth-med);
+      border-color: var(--earth-med);
+    }
+
+    .phase--pending .phase-dot {
+      background: var(--white);
+      border-color: var(--gold);
+    }
+
+    .phase-tag {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .phase--active .phase-tag { color: var(--earth-med); }
+    .phase--pending .phase-tag { color: var(--gold); }
+    .phase--future .phase-tag { color: rgba(37, 60, 41, 0.35); }
+
+    .phase h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 0.75rem;
+    }
+
+    .phase--future h3 {
+      color: var(--mid);
+    }
+
+    .phase-items {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+
+    .phase-items li {
+      font-size: 0.8rem;
+      color: var(--mid);
+      line-height: 1.5;
+      display: flex;
+      gap: 0.5rem;
+      align-items: flex-start;
+    }
+
+    .phase--future .phase-items li {
+      color: rgba(61, 56, 40, 0.45);
+    }
+
+    .phase-items li::before {
+      content: '—';
+      font-size: 0.7rem;
+      color: var(--sand-deep);
+      flex-shrink: 0;
+      margin-top: 0.15em;
+    }
+
+    /* ── What we need ── */
+    .need-section {
+      background: var(--sand);
+    }
+
+    .need-head {
+      max-width: 600px;
+      margin-bottom: 3rem;
+    }
+
+    .need-head .eyebrow {
+      color: var(--earth-med);
+      opacity: 1;
+      margin-bottom: 0.75rem;
+    }
+
+    .need-head h2 {
+      color: var(--ink);
+      margin-bottom: 1rem;
+    }
+
+    .need-head p {
+      color: var(--mid);
+      max-width: none;
+    }
+
+    .need-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+
+    .need-card {
+      background: var(--white);
+      border: 1px solid var(--sand-deep);
+      border-radius: var(--radius-lg);
+      padding: 2rem 1.75rem;
+    }
+
+    .need-card-icon {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .need-card h4 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+    }
+
+    .need-card p {
+      font-size: 0.82rem;
+      line-height: 1.65;
+      color: var(--mid);
+      max-width: none;
+    }
+
+    /* ── CTA ── */
+    .camp-cta {
+      background: var(--earth-dark);
+      padding: clamp(5rem, 10vw, 9rem) clamp(1.25rem, 4vw, 3rem);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .camp-cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 65% 65% at 50% 50%, rgba(58, 102, 69, 0.14), transparent 70%);
+      pointer-events: none;
+    }
+
+    .camp-cta-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 580px;
+      margin: 0 auto;
+    }
+
+    .camp-cta .eyebrow {
+      color: var(--gold);
+      opacity: 0.85;
+      margin-bottom: 1.25rem;
+    }
+
+    .camp-cta p.pull {
+      font-family: 'Lora', serif;
+      font-size: clamp(1.4rem, 2.8vw, 2rem);
+      font-weight: 400;
+      color: var(--sand);
+      line-height: 1.45;
+      margin-bottom: 1rem;
+      max-width: none;
+    }
+
+    .camp-cta p.sub {
+      font-size: 0.9rem;
+      color: rgba(244, 239, 230, 0.45);
+      margin-bottom: 2.5rem;
+      max-width: 44ch;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.7;
+    }
+
+    .camp-cta-actions {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 1000px) {
+      .vision-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .phases-track {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.5rem;
+      }
+      .phases-track::before {
+        display: none;
+      }
+    }
+
+    @media (max-width: 780px) {
+      .camp-hero-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .legal-grid {
+        grid-template-columns: 1fr;
+      }
+      .vision-grid,
+      .need-grid {
+        grid-template-columns: 1fr;
+      }
+      .phases-track {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .status-bar-inner {
+        flex-wrap: wrap;
+      }
+      .status-item {
+        flex: 0 0 50%;
+        border-right: none;
+        border-bottom: 1px solid rgba(244, 239, 230, 0.08);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">Finca Tariqa</a>
+    <ul class="nav-links" id="main-nav">
+      <li><a href="oranges.html">Oranges</a></li>
+      <li><a href="land.html">The Land</a></li>
+      <li><a href="forest.html">The Forest</a></li>
+      <li><a href="mission.html">Our Mission</a></li>
+      <li><a href="report.html">Full Report</a></li>
+      <li><a href="blog/index.html">Journal</a></li>
+      <li><a href="fund.html" class="nav-highlight">Support</a></li>
+    </ul>
+    <div class="nav-toggle" role="button" tabindex="0" aria-label="Open navigation" onclick="document.getElementById('main-nav').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="camp-hero">
+    <div class="camp-hero-inner">
+      <span class="eyebrow">Camp Tariqa · Long-term development</span>
+      <h1>A venue. Rooms. A hillside for sleeping under.</h1>
+      <div class="camp-hero-bottom">
+        <p class="lead">The long-term plan for the land beyond the grove. A rural event venue, agro-tourism rooms, glamping on the limestone terraces, and the infrastructure that makes a working farm into a place people return to.</p>
+        <div class="camp-hero-actions">
+          <a href="#phases" class="btn btn-gold">See the phases</a>
+          <a href="#get-involved" class="btn btn-outline">Get involved</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Status bar -->
+  <div class="status-bar">
+    <div class="status-bar-inner">
+      <div class="status-item">
+        <span class="status-label">Project status</span>
+        <span class="status-value"><span class="status-dot status-dot--active"></span>Planning</span>
+      </div>
+      <div class="status-item">
+        <span class="status-label">Legal instrument</span>
+        <span class="status-value"><span class="status-dot status-dot--pending"></span>DIC — not yet filed</span>
+      </div>
+      <div class="status-item">
+        <span class="status-label">Architect engaged</span>
+        <span class="status-value"><span class="status-dot status-dot--pending"></span>In search</span>
+      </div>
+      <div class="status-item">
+        <span class="status-label">Est. first structures</span>
+        <span class="status-value"><span class="status-dot status-dot--future"></span>2027</span>
+      </div>
+      <div class="status-item">
+        <span class="status-label">Full operation</span>
+        <span class="status-value"><span class="status-dot status-dot--future"></span>2029–2030</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Vision -->
+  <section class="section vision-section">
+    <div class="section-inner">
+      <div class="vision-head">
+        <span class="eyebrow">What we are building</span>
+        <h2>Six things. Three timelines.</h2>
+        <p>Some of this can start now. Most of it requires a Declaración de Interés Comunitario — the legal instrument that authorises non-agricultural development on rural land in Valencia. Here is what we are planning and when.</p>
+      </div>
+      <div class="vision-grid">
+
+        <div class="vision-item">
+          <div class="vision-item-num">01</div>
+          <h3>Fence</h3>
+          <p>A perimeter fence defining the full plot — security, livestock management, and the clear boundary the land needs before anything else is built on it.</p>
+          <div class="vision-item-status tag--now">
+            <span class="status-dot status-dot--pending"></span>Licencia de obra menor · Can start now
+          </div>
+        </div>
+
+        <div class="vision-item">
+          <div class="vision-item-num">02</div>
+          <h3>Glamping</h3>
+          <p>Tents, shepherd huts, or small timber structures on the terraced hillside. Demountable structures follow a lighter regulatory path than permanent buildings and can be authorised under Decreto 4/2024 agro-tourism rules.</p>
+          <div class="vision-item-status tag--now">
+            <span class="status-dot status-dot--pending"></span>Decreto 4/2024 · Can start in parallel
+          </div>
+        </div>
+
+        <div class="vision-item">
+          <div class="vision-item-num">03</div>
+          <h3>Rural rooms</h3>
+          <p>Four to eight rooms for overnight stays — in the restored farmhouse and new structures. Registered as alojamiento rural under Valencian tourism law. The heart of the accommodation offer.</p>
+          <div class="vision-item-status tag--dic">
+            <span class="status-dot status-dot--pending"></span>Requires DIC · Target 2028
+          </div>
+        </div>
+
+        <div class="vision-item">
+          <div class="vision-item-num">04</div>
+          <h3>Venue</h3>
+          <p>A covered outdoor event space for up to one hundred people — weddings, private dinners, retreats, cultural events. The limestone hillside as backdrop. Agriculture as the reason the place exists.</p>
+          <div class="vision-item-status tag--dic">
+            <span class="status-dot status-dot--pending"></span>Requires DIC · Target 2028–2029
+          </div>
+        </div>
+
+        <div class="vision-item">
+          <div class="vision-item-num">05</div>
+          <h3>Pool</h3>
+          <p>A natural or conventional pool — ancillary to the rural accommodation and venue. The specifics depend on what the DIC authorises and the architect's assessment of the hillside water table and drainage.</p>
+          <div class="vision-item-status tag--dic">
+            <span class="status-dot status-dot--pending"></span>Ancillary to DIC · Target 2029
+          </div>
+        </div>
+
+        <div class="vision-item">
+          <div class="vision-item-num">06</div>
+          <h3>Garage</h3>
+          <p>Vehicle and equipment storage for the farm and the guest operation. Can be partially authorised as an agricultural auxiliary structure before the DIC. The full build follows.</p>
+          <div class="vision-item-status tag--dic">
+            <span class="status-dot status-dot--pending"></span>Partial now · Full after DIC
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Legal track -->
+  <section class="section legal-section">
+    <div class="section-inner">
+      <div class="legal-grid">
+
+        <div class="legal-left">
+          <span class="eyebrow">The legal track</span>
+          <h2>Everything flows from a DIC.</h2>
+          <p>A <strong>Declaración de Interés Comunitario</strong> is Valencia's mechanism for authorising non-agricultural activity on protected rural land — suelo no urbanizable. Without one, permanent structures like rooms and a venue cannot be legally built.</p>
+          <p>It is a two-stage process: the municipality approves first, then the Generalitat Valenciana. Both have to say yes. The application is framed around the farm's agricultural identity and the agro-tourism framework of <strong>Decreto 4/2024</strong> — the strongest current justification for this kind of development in Valencia.</p>
+          <p>Timeline is two to four years from application to authorisation. The fence, glamping, and a basic garage can proceed before the DIC is granted.</p>
+        </div>
+
+        <div class="legal-steps">
+
+          <div class="legal-step">
+            <div class="legal-step-num">01</div>
+            <div>
+              <h4>Check the PGOU classification</h4>
+              <p>Before anything, confirm whether the parcels are classified as suelo no urbanizable común or protegido under Carcaixent's Plan General de Ordenación Urbana. The flood history and DANA designation may affect this. Protegido classification makes the DIC harder.</p>
+              <div class="legal-step-meta">Free · Carcaixent town hall · Do this first</div>
+            </div>
+          </div>
+
+          <div class="legal-step">
+            <div class="legal-step-num">02</div>
+            <div>
+              <h4>Engage a rural planning architect</h4>
+              <p>Not any architect. One who has submitted DICs in the Comunitat Valenciana and knows the Conselleria's current tolerance. They will determine what is packageable, at what scale, and at what cost. Budget €15,000–€30,000 in fees before a building permit is touched.</p>
+              <div class="legal-step-meta">Months · Currently in search</div>
+            </div>
+          </div>
+
+          <div class="legal-step">
+            <div class="legal-step-num">03</div>
+            <div>
+              <h4>File the DIC at municipal level</h4>
+              <p>The application is submitted to Carcaixent town hall with a full project brief, environmental assessment, and justification under Decreto 4/2024. The municipality deliberates and votes.</p>
+              <div class="legal-step-meta">6–18 months at municipal level</div>
+            </div>
+          </div>
+
+          <div class="legal-step">
+            <div class="legal-step-num">04</div>
+            <div>
+              <h4>GVA approval</h4>
+              <p>If the municipality approves, the file goes to the Conselleria de Medi Ambient i Infraestructures at GVA for final authorisation. This is where the project is either confirmed or challenged.</p>
+              <div class="legal-step-meta">12–24 months at GVA level</div>
+            </div>
+          </div>
+
+          <div class="legal-step">
+            <div class="legal-step-num">05</div>
+            <div>
+              <h4>Building permits and construction</h4>
+              <p>With the DIC in hand, standard building permits are issued by the municipality and construction begins. Tourism licence applications run in parallel for the accommodation and venue.</p>
+              <div class="legal-step-meta">2028 earliest · Target full operation 2029–2030</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Phases -->
+  <section class="section phases-section" id="phases">
+    <div class="section-inner">
+      <div class="phases-head">
+        <span class="eyebrow">The phases</span>
+        <h2>What happens and when.</h2>
+      </div>
+      <div class="phases-track">
+
+        <div class="phase phase--active">
+          <div class="phase-dot-wrap"><div class="phase-dot"></div></div>
+          <div class="phase-tag">Now · 2026</div>
+          <h3>Ground work</h3>
+          <ul class="phase-items">
+            <li>PGOU classification confirmed</li>
+            <li>Fence — licencia de obra menor filed</li>
+            <li>Glamping framework researched under Decreto 4/2024</li>
+            <li>Volunteers building basecamp infrastructure</li>
+            <li>Architect search underway</li>
+          </ul>
+        </div>
+
+        <div class="phase phase--pending">
+          <div class="phase-dot-wrap"><div class="phase-dot"></div></div>
+          <div class="phase-tag">2027</div>
+          <h3>DIC filed</h3>
+          <ul class="phase-items">
+            <li>Architect engaged</li>
+            <li>First glamping units in place</li>
+            <li>DIC application submitted to Carcaixent</li>
+            <li>Garage (agricultural auxiliary) built</li>
+            <li>Basecamp operational for harvest volunteers</li>
+          </ul>
+        </div>
+
+        <div class="phase phase--future">
+          <div class="phase-dot-wrap"><div class="phase-dot"></div></div>
+          <div class="phase-tag">2028</div>
+          <h3>DIC approved</h3>
+          <ul class="phase-items">
+            <li>GVA authorisation received</li>
+            <li>Building permits filed</li>
+            <li>Rural rooms construction begins</li>
+            <li>Venue structure begins</li>
+            <li>Tourism licence application filed</li>
+          </ul>
+        </div>
+
+        <div class="phase phase--future">
+          <div class="phase-dot-wrap"><div class="phase-dot"></div></div>
+          <div class="phase-tag">2029–2030</div>
+          <h3>Full operation</h3>
+          <ul class="phase-items">
+            <li>Rooms open to guests</li>
+            <li>Venue takes first bookings</li>
+            <li>Pool complete</li>
+            <li>Glamping fully operational</li>
+            <li>First full harvest and stay season</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- What we need -->
+  <section class="section need-section" id="get-involved">
+    <div class="section-inner">
+      <div class="need-head">
+        <span class="eyebrow">Get involved</span>
+        <h2>What this project needs.</h2>
+        <p>Camp Tariqa is a long project and it needs specific people at specific moments. If any of these fit you, get in touch.</p>
+      </div>
+      <div class="need-grid">
+
+        <div class="need-card">
+          <div class="need-card-icon">🏛️</div>
+          <h4>Rural planning architect — Valencia</h4>
+          <p>Someone with DIC experience in the Comunitat Valenciana. Knows the Conselleria, has submitted successfully, understands what is and is not packageable on suelo no urbanizable in 2026.</p>
+        </div>
+
+        <div class="need-card">
+          <div class="need-card-icon">🪵</div>
+          <h4>Builders and natural builders</h4>
+          <p>People who can build the basecamp, the fence, and eventually the permanent structures. Specialists in timber, earth, lime, dry-stone, and off-grid systems. See the volunteer page for the current call.</p>
+        </div>
+
+        <div class="need-card">
+          <div class="need-card-icon">💶</div>
+          <h4>Patient capital</h4>
+          <p>This is a 3–5 year development project on agricultural land in Valencia. The return is a working agro-tourism operation, not a quick flip. If you understand rural projects and want to back one early, talk to us.</p>
+        </div>
+
+        <div class="need-card">
+          <div class="need-card-icon">📐</div>
+          <h4>Landscape designer</h4>
+          <p>Someone who can help design the glamping layout, the approach paths, and the relationship between the grove, the terraces, and the built elements. The land is the product — the design has to serve it.</p>
+        </div>
+
+        <div class="need-card">
+          <div class="need-card-icon">🎪</div>
+          <h4>Events industry connections</h4>
+          <p>People who know the Spanish wedding, retreat, and private events market and can help position a rural venue in Valencia before it opens. Early relationships shape what a venue becomes.</p>
+        </div>
+
+        <div class="need-card">
+          <div class="need-card-icon">🌱</div>
+          <h4>Just interested</h4>
+          <p>Follow the project, share it with people who might care, come for the harvest. The community that builds around a project like this is part of what makes it work. No formal role required.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="camp-cta">
+    <div class="camp-cta-inner">
+      <span class="eyebrow">Get in touch</span>
+      <p class="pull">If you can help — or just want to watch it happen.</p>
+      <p class="sub">Write to us with who you are and why this project interests you. We will reply.</p>
+      <div class="camp-cta-actions">
+        <a href="mailto:fincatariqa@gmail.com?subject=Camp%20Tariqa%20%E2%80%94%20I%20want%20to%20get%20involved&body=Hello%2C%0A%0AName%3A%0AWho%20I%20am%3A%0AHow%20I%20can%20help%3A%0A" class="btn btn-gold">Write to us</a>
+        <a href="fund.html" class="btn btn-outline">Support the farm</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        Finca Tariqa<br>Carcaixent, Valencia<br>Spain
+      </div>
+      <ul class="footer-links">
+        <li><a href="oranges.html">Oranges</a></li>
+        <li><a href="land.html">Land</a></li>
+        <li><a href="forest.html">Forest</a></li>
+        <li><a href="mission.html">Mission</a></li>
+        <li><a href="report.html">Full Report</a></li>
+        <li><a href="blog/index.html">Journal</a></li>
+        <li><a href="fund.html">Support</a></li>
+        <li><a href="roadmap.html">Our Plans</a></li>
+      </ul>
+    </div>
+    <div class="footer-bottom">Season 2026</div>
+  </footer>
+
+</body>
+</html>

@@ -616,51 +616,28 @@
     }
 
     /* ── Gatherings & events ── */
-    .gatherings-section {
-      background: var(--earth-dark);
-      overflow: hidden;
+    .gatherings-text-section {
+      background: var(--sand);
     }
 
-    .gatherings-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 1fr;
-      min-height: clamp(520px, 65vw, 780px);
+    .gatherings-content {
+      max-width: 680px;
     }
 
-    .gatherings-img {
-      overflow: hidden;
+    .gatherings-content .eyebrow {
+      color: var(--earth-med);
+      opacity: 1;
+      margin-bottom: 0.75rem;
     }
 
-    .gatherings-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .gatherings-text {
-      padding: clamp(3rem, 6vw, 5.5rem);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 0;
-    }
-
-    .gatherings-text .eyebrow {
-      color: var(--gold);
-      opacity: 0.85;
-      margin-bottom: 1.25rem;
-    }
-
-    .gatherings-text h2 {
-      color: var(--sand);
-      font-size: clamp(1.8rem, 3vw, 2.6rem);
+    .gatherings-content h2 {
+      color: var(--ink);
       margin-bottom: 1.5rem;
     }
 
-    .gatherings-text p {
-      color: rgba(244, 239, 230, 0.58);
-      font-size: 0.93rem;
+    .gatherings-content p {
+      color: var(--mid);
+      font-size: 0.95rem;
       line-height: 1.8;
       max-width: none;
       margin-bottom: 1rem;
@@ -679,30 +656,33 @@
       font-weight: 700;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: rgba(244, 239, 230, 0.45);
-      border: 1px solid rgba(244, 239, 230, 0.12);
+      color: var(--earth-med);
+      border: 1px solid rgba(37, 60, 41, 0.2);
       border-radius: 999px;
       padding: 0.35rem 0.85rem;
     }
 
     .gatherings-note {
-      margin-top: 2rem;
+      margin-top: 1.75rem;
       font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: 0.7rem;
       font-weight: 600;
       letter-spacing: 0.09em;
       text-transform: uppercase;
-      color: rgba(201, 151, 58, 0.5);
+      color: var(--earth-med);
+      opacity: 0.55;
     }
 
-    @media (max-width: 780px) {
-      .gatherings-grid {
-        grid-template-columns: 1fr;
-        min-height: auto;
-      }
-      .gatherings-img {
-        height: 65vw;
-      }
+    .gatherings-img-full {
+      height: clamp(460px, 65vw, 820px);
+      overflow: hidden;
+    }
+
+    .gatherings-img-full img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
     /* ── Build the camp (volunteer embed) ── */
@@ -1163,16 +1143,13 @@
   </div>
 
   <!-- Gatherings & events -->
-  <section class="gatherings-section">
-    <div class="gatherings-grid">
-      <div class="gatherings-img">
-        <img src="images/venue-gatherings.png" alt="Event gathering under a large canvas tent on the hillside at Finca Tariqa">
-      </div>
-      <div class="gatherings-text">
+  <section class="section gatherings-text-section">
+    <div class="section-inner">
+      <div class="gatherings-content">
         <span class="eyebrow">Gatherings · Ceremonies · Retreats</span>
         <h2>The land holds space for people.</h2>
         <p>Finca Tariqa is built for the kind of gathering that needs somewhere real — where the setting is not a backdrop but the whole point. The hillside, the limestone, the orange trees, the silence at dusk. These are the venue.</p>
-        <p>We are building towards a permanent event structure, but the land is already ready. From the first season we will host gatherings under canvas — intimate, intentional, rooted in the place.</p>
+        <p>We are building towards a permanent event structure, but the land is already ready. From the first season we will host gatherings under canvas — cacao ceremonies, sound healing, bodywork, ecstatic dance, and retreats that use the grove as the main room.</p>
         <div class="gatherings-tags">
           <span class="gatherings-tag">Cacao ceremony</span>
           <span class="gatherings-tag">Sound healing</span>
@@ -1185,6 +1162,9 @@
       </div>
     </div>
   </section>
+  <div class="gatherings-img-full">
+    <img src="images/venue-gatherings.png" alt="People gathering in a large canvas tent among the orange grove at Finca Tariqa, limestone mountain behind">
+  </div>
 
   <!-- Legal track -->
   <section class="section legal-section">

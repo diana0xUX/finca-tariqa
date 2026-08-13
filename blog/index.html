@@ -4,264 +4,428 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Journal — Finca Tariqa</title>
-  <meta name="description" content="Notes from a farm in transition. Geology, organic certification, founder stories and the slow work of regenerative agriculture on an 80-million-year-old limestone hillside.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="../style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    .journal-hero {
-      background: var(--earth-dark);
-      padding: calc(var(--nav-height) + 4rem) clamp(1.25rem,6vw,5rem) 4rem;
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --ink:        #18150f;
+      --mid:        #7a7268;
+      --faint:      #b0a89e;
+      --rule:       #e2dcd2;
+      --paper:      #f8f4ee;
+      --gold:       #c9973a;
+      --earth:      #2c3b2d;
+      --terracotta: #c4622d;
+    }
+    html { font-size: 16px; }
+    body { background: var(--paper); color: var(--ink); font-family: 'Lora', serif; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ── Nav (transparent over hero) ── */
+    .nav {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.75rem clamp(1.5rem, 6vw, 5rem);
+    }
+    .nav-logo {
+      font-size: 1rem;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      color: rgba(255,255,255,0.9);
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.6);
+    }
+    .nav-links a:hover { color: #fff; }
+    .nav-cta {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.85);
+      border: 1px solid rgba(255,255,255,0.35);
+      padding: 0.45rem 1rem;
+      border-radius: 2px;
+      transition: background 0.15s;
+    }
+    .nav-cta:hover { background: rgba(255,255,255,0.12); }
+
+    /* ── Hero / Cover ── */
+    .hero {
       position: relative;
+      height: 100vh;
+      min-height: 600px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+    .hero-image {
+      position: absolute;
+      inset: 0;
       overflow: hidden;
     }
-    .journal-hero::before {
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 25%;
+    }
+    .hero-image::after {
       content: '';
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(ellipse 55% 60% at 5% 90%, rgba(90,143,104,0.18) 0%, transparent 60%),
-        radial-gradient(ellipse 35% 45% at 95% 5%, rgba(201,151,58,0.09) 0%, transparent 55%);
-      pointer-events: none;
+        linear-gradient(to top, rgba(10,8,5,0.82) 0%, rgba(10,8,5,0.3) 50%, rgba(10,8,5,0.1) 100%);
     }
-    .journal-hero-inner { position: relative; z-index: 1; max-width: 680px; }
-    .journal-hero .eyebrow { color: var(--gold); margin-bottom: 1rem; }
-    .journal-hero h1 {
-      font-family: 'Lora', serif;
-      font-size: clamp(2.2rem,5vw,3.5rem);
-      font-weight: 500;
-      color: var(--sand);
-      line-height: 1.15;
-      margin-bottom: 1.25rem;
-    }
-    .journal-hero p { font-size: 1.05rem; color: rgba(244,239,230,0.6); line-height: 1.7; max-width: 52ch; }
-
-    .post-list {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: clamp(3rem,7vw,6rem) clamp(1.25rem,6vw,5rem);
-    }
-
-    .post-card {
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 clamp(1.5rem, 6vw, 5rem) clamp(2.5rem, 5vw, 4rem);
       display: grid;
       grid-template-columns: 1fr auto;
-      gap: 1.5rem;
-      align-items: start;
-      padding: 2.5rem 0;
-      border-bottom: 1px solid var(--sand-deep);
-      text-decoration: none;
-      color: inherit;
-      transition: opacity var(--transition);
+      align-items: flex-end;
+      gap: 3rem;
     }
-    .post-card:first-child { border-top: 1px solid var(--sand-deep); }
-    .post-card:hover { opacity: 0.72; }
-
-    .post-meta {
+    .hero-kicker {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.58rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.1rem;
       display: flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: 0.6rem;
+    }
+    .hero-kicker::before {
+      content: '';
+      width: 20px; height: 1px;
+      background: var(--gold);
+    }
+    .hero-title {
+      font-size: clamp(2.2rem, 5vw, 4.5rem);
+      font-weight: 400;
+      line-height: 1.1;
+      color: #fff;
+      max-width: 18ch;
+      margin-bottom: 1.25rem;
+    }
+    .hero-excerpt {
+      font-size: 1rem;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.6);
+      max-width: 46ch;
+      font-style: italic;
+    }
+    .hero-aside {
+      text-align: right;
+      flex-shrink: 0;
+    }
+    .hero-read {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.4);
+      padding: 0.75rem 1.5rem;
+      border-radius: 2px;
+      transition: background 0.15s, border-color 0.15s;
+      margin-bottom: 1.25rem;
+      white-space: nowrap;
+    }
+    .hero-read:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.7); }
+    .hero-date {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.58rem;
+      font-weight: 400;
+      color: rgba(255,255,255,0.35);
+      letter-spacing: 0.08em;
+      display: block;
+    }
+
+    /* ── Below the fold ── */
+    .below {
+      background: var(--paper);
+    }
+
+    /* ── Section label ── */
+    .section-label {
+      padding: 2.25rem clamp(1.5rem, 6vw, 5rem) 0;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    .section-label span {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.58rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--faint);
+      white-space: nowrap;
+    }
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+
+    /* ── Story list ── */
+    .story-list {
+      padding: 0 clamp(1.5rem, 6vw, 5rem);
+    }
+    .story-row {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 0;
+      border-bottom: 1px solid var(--rule);
+      min-height: 220px;
+    }
+    .story-row:first-child { border-top: 1px solid var(--rule); margin-top: 1.5rem; }
+    .story-image {
+      position: relative;
+      overflow: hidden;
+      background: #e0d8cc;
+    }
+    .story-image img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(15%);
+      transition: filter 0.3s, transform 0.4s;
+    }
+    .story-row:hover .story-image img {
+      filter: grayscale(0%);
+      transform: scale(1.03);
+    }
+    .story-body {
+      padding: 2.25rem 0 2.25rem 2.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .story-tag {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.58rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--faint);
       margin-bottom: 0.85rem;
+    }
+    .story-title {
+      font-size: clamp(1.15rem, 2vw, 1.55rem);
+      font-weight: 400;
+      line-height: 1.28;
+      color: var(--ink);
+      margin-bottom: 0.85rem;
+      max-width: 28ch;
+    }
+    .story-excerpt {
+      font-size: 0.88rem;
+      line-height: 1.82;
+      color: var(--mid);
+      max-width: 52ch;
+      flex: 1;
+      margin-bottom: 1.5rem;
+    }
+    .story-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.6rem;
+    }
+    .story-date { color: var(--faint); }
+    .story-read {
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--ink);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .story-read::after {
+      content: '→';
+      transition: transform 0.2s;
+    }
+    .story-row:hover .story-read::after { transform: translateX(4px); }
+
+    /* ── CTA strip ── */
+    .cta-strip {
+      margin: 3rem clamp(1.5rem, 6vw, 5rem);
+      background: var(--earth);
+      border-radius: 4px;
+      padding: 2.25rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
       flex-wrap: wrap;
     }
-    .post-tag {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 0.62rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      padding: 0.25rem 0.6rem;
-      border-radius: 2px;
+    .cta-strip h2 {
+      font-size: clamp(1.2rem, 2vw, 1.6rem);
+      font-weight: 400;
+      color: #fff;
+      margin-bottom: 0.35rem;
     }
-    .post-tag--story   { background: var(--earth-dark); color: var(--sand); }
-    .post-tag--organic { background: #d4edda; color: #2d5016; }
-    .post-tag--report  { background: var(--sand-deep); color: var(--mid); }
-    .post-tag--audio   { background: rgba(201,151,58,0.12); color: var(--gold); }
-    .post-tag--carbon  { background: #e0f0e8; color: #1e5c38; }
-    .post-tag--default { background: var(--sand-deep); color: var(--mid); }
-    .post-date {
+    .cta-strip p {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 0.72rem;
-      color: var(--mid);
-      opacity: 0.7;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.5);
     }
-    .post-title {
-      font-family: 'Lora', serif;
-      font-size: clamp(1.25rem,2.5vw,1.7rem);
-      font-weight: 500;
-      color: var(--ink);
-      line-height: 1.25;
-      margin-bottom: 0.75rem;
-    }
-    .post-excerpt { font-size: 0.9rem; color: var(--mid); line-height: 1.7; max-width: 58ch; }
-    .post-arrow {
+    .cta-btn {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 0.72rem;
+      font-size: 0.68rem;
       font-weight: 700;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--earth-med);
-      white-space: nowrap;
-      margin-top: 0.25rem;
-      transition: transform var(--transition);
-    }
-    .post-card:hover .post-arrow { transform: translateX(4px); }
-    .empty-state { text-align: center; padding: 5rem 2rem; color: var(--mid); }
-
-    /* ── 4 directions ── */
-    .directions {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 3rem clamp(1.25rem,6vw,5rem) 0;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1px;
-      background: var(--sand-deep);
-      border-radius: 10px;
-      overflow: hidden;
-    }
-    .direction {
-      background: var(--white);
-      padding: 1.25rem 1.1rem 1.1rem;
-    }
-    .direction-dot {
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      margin-bottom: 0.65rem;
-    }
-    .direction-dot--story   { background: var(--earth-dark); }
-    .direction-dot--organic { background: #3a7a4a; }
-    .direction-dot--carbon  { background: #1e5c38; }
-    .direction-dot--report  { background: var(--mid); }
-    .direction-name {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
+      background: var(--gold);
       color: var(--ink);
-      margin-bottom: 0.3rem;
-    }
-    .direction-desc {
-      font-size: 0.72rem;
-      color: var(--mid);
-      line-height: 1.5;
-    }
-    @media (max-width: 640px) {
-      .directions { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 380px) {
-      .directions { grid-template-columns: 1fr; }
+      padding: 0.85rem 1.75rem;
+      border-radius: 2px;
+      white-space: nowrap;
     }
 
-    @media (max-width: 580px) {
-      .post-card { grid-template-columns: 1fr; }
-      .post-arrow { display: none; }
+    /* ── Footer ── */
+    .footer {
+      border-top: 1px solid var(--rule);
+      padding: 1.75rem clamp(1.5rem, 6vw, 5rem);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.6rem;
+      color: var(--faint);
+    }
+
+    @media (max-width: 700px) {
+      .story-row { grid-template-columns: 1fr; }
+      .story-image { height: 200px; position: relative; }
+      .story-body { padding: 1.5rem 0; }
+      .hero-content { grid-template-columns: 1fr; }
+      .hero-aside { text-align: left; }
+      .nav-links { display: none; }
     }
   </style>
 </head>
 <body>
 
+  <!-- Nav -->
   <nav class="nav">
     <a href="../index.html" class="nav-logo">Finca Tariqa</a>
-    <ul class="nav-links" id="main-nav">
+    <ul class="nav-links">
       <li><a href="../oranges.html">Oranges</a></li>
       <li><a href="../land.html">The Land</a></li>
       <li><a href="../forest.html">The Forest</a></li>
       <li><a href="../mission.html">Our Mission</a></li>
-      <li><a href="index.html" aria-current="page">Journal</a></li>
     </ul>
-    <div class="nav-toggle" role="button" tabindex="0" aria-label="Open navigation"
-         onclick="document.getElementById('main-nav').classList.toggle('open')">
-      <span></span><span></span><span></span>
-    </div>
+    <a href="../fund.html" class="nav-cta">Own a tree</a>
   </nav>
 
-  <header class="journal-hero">
-    <div class="journal-hero-inner">
-      <span class="eyebrow">Field Notes</span>
-      <h1>From the farm.</h1>
-      <p>Geology, soil, organic certification and the slow work of making a regenerative farm on an 80-million-year-old limestone hillside in Carcaixent, Valencia.</p>
+  <!-- Hero -->
+  <a href="we-bought-a-farm-wed-never-farmed.html" class="hero">
+    <div class="hero-image">
+      <img src="images/cover-founder-story.jpg" alt="The farmhouse on the day of first viewing">
     </div>
-  </header>
+    <div class="hero-content">
+      <div>
+        <div class="hero-kicker">Founder Story · 🎧 Audio</div>
+        <h1 class="hero-title">We Bought a Farm. We'd Never Farmed.</h1>
+        <p class="hero-excerpt">For the last 4 years, every week, the gardeners came and shaped the bush beside the pool into a topiary spiral. An awkward shape for a plant.</p>
+      </div>
+      <div class="hero-aside">
+        <span class="hero-read">Read the story →</span>
+        <span class="hero-date">August 2026</span>
+      </div>
+    </div>
+  </a>
 
-  <div class="directions">
-    <div class="direction">
-      <div class="direction-dot direction-dot--story"></div>
-      <div class="direction-name">Founder Story</div>
-      <div class="direction-desc">How we got here and why</div>
+  <!-- Below fold -->
+  <div class="below">
+
+    <div class="section-label">
+      <span>Also in the journal</span>
     </div>
-    <div class="direction">
-      <div class="direction-dot direction-dot--organic"></div>
-      <div class="direction-name">Going Organic</div>
-      <div class="direction-desc">The certification journey</div>
+
+    <div class="story-list">
+
+      <a href="heat-resilience-report.html" class="story-row">
+        <div class="story-image">
+          <img src="images/cover-heat-resilience.png" alt="Orange tree in summer heat">
+        </div>
+        <div class="story-body">
+          <div>
+            <div class="story-tag">Research &nbsp;·&nbsp; 🎧 Audio</div>
+            <h2 class="story-title">What Happens to an Orange Tree at 42°C</h2>
+            <p class="story-excerpt">A heat wave doesn't kill trees all at once. It taxes them — flower drop, fruit sunburn, root stress — and the damage compounds year on year. Five case studies on what actually works.</p>
+          </div>
+          <div class="story-footer">
+            <span class="story-date">August 2026</span>
+            <span class="story-read">Read</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="../report.html" class="story-row">
+        <div class="story-image">
+          <img src="images/cover-geology.png" alt="Limestone rock face">
+        </div>
+        <div class="story-body">
+          <div>
+            <div class="story-tag">Research</div>
+            <h2 class="story-title">What Lives in the Rock: Geology, Water and Agriculture at Finca Tariqa</h2>
+            <p class="story-excerpt">At the top of Puig Gros, the rock underfoot is the floor of a warm shallow sea. The full geological and agricultural report on what makes this hillside different.</p>
+          </div>
+          <div class="story-footer">
+            <span class="story-date">August 2026</span>
+            <span class="story-read">Read</span>
+          </div>
+        </div>
+      </a>
+
     </div>
-    <div class="direction">
-      <div class="direction-dot direction-dot--carbon"></div>
-      <div class="direction-name">Carbon &amp; Land</div>
-      <div class="direction-desc">Ecocredits and land value</div>
+
+    <!-- CTA -->
+    <div class="cta-strip">
+      <div>
+        <h2>Own a tree. Get the fruit.</h2>
+        <p>Yearly subscriptions from €99. Your oranges delivered from the hillside.</p>
+      </div>
+      <a href="../fund.html" class="cta-btn">Own a tree — from €99 →</a>
     </div>
-    <div class="direction">
-      <div class="direction-dot direction-dot--report"></div>
-      <div class="direction-name">Research</div>
-      <div class="direction-desc">Field reports and science</div>
-    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <span>Finca Tariqa · Carcaixent, Valencia · Spain</span>
+      <span>Season 2026</span>
+    </footer>
+
   </div>
-
-  <main class="post-list">
-
-    <a href="heat-resilience-report.html" class="post-card">
-      <div>
-        <div class="post-meta">
-          <span class="post-tag post-tag--report">Research</span>
-          <span class="post-tag post-tag--audio">🎧 Audio</span>
-          <span class="post-date">August 2026</span>
-        </div>
-        <h2 class="post-title">What Happens to an Orange Tree at 42°C</h2>
-        <p class="post-excerpt">A heat wave doesn’t kill trees all at once. It taxes them — flower drop, fruit sunburn, root stress — and the damage compounds year on year. Five case studies on what actually works.</p>
-      </div>
-      <span class="post-arrow">Read →</span>
-    </a>
-
-    <a href="we-bought-a-farm-wed-never-farmed.html" class="post-card">
-      <div>
-        <div class="post-meta">
-          <span class="post-tag post-tag--story">Founder Story</span>
-          <span class="post-tag post-tag--audio">🎧 Audio</span>
-          <span class="post-date">August 2026</span>
-        </div>
-        <h2 class="post-title">We Bought a Farm. We’d Never Farmed.</h2>
-        <p class="post-excerpt">For the last 4 years, every week, the gardeners came and shaped the bush beside the pool into a topiary spiral. An awkward shape for a plant. We felt awkward for it…</p>
-      </div>
-      <span class="post-arrow">Read →</span>
-    </a>
-
-    <a href="../report.html" class="post-card">
-      <div>
-        <div class="post-meta">
-          <span class="post-tag post-tag--report">Research</span>
-          <span class="post-date">August 2026</span>
-        </div>
-        <h2 class="post-title">What Lives in the Rock: Geology, Water and Agriculture at Finca Tariqa</h2>
-        <p class="post-excerpt">At the top of Puig Gros, the rock underfoot is the floor of a warm shallow sea. The full geological and agricultural report on what makes this hillside different.</p>
-      </div>
-      <span class="post-arrow">Read →</span>
-    </a>
-
-  </main>
-
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <div class="footer-brand">Finca Tariqa<br>Carcaixent, Valencia<br>Spain</div>
-      <ul class="footer-links">
-        <li><a href="../oranges.html">Oranges</a></li>
-        <li><a href="../land.html">Land</a></li>
-        <li><a href="../forest.html">Forest</a></li>
-        <li><a href="../mission.html">Mission</a></li>
-        <li><a href="index.html">Journal</a></li>
-      </ul>
-    </div>
-    <div class="footer-bottom">Last updated August 2026</div>
-  </footer>
 
 </body>
 </html>

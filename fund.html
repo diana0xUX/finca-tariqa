@@ -95,21 +95,11 @@
   align-items:center;
 }
 .btn-hero-primary {
-  display:inline-flex;
-  align-items:center;
-  gap:0.5rem;
-  background:var(--gold);
-  color:var(--ink);
   padding:1rem 2.25rem;
-  border-radius:var(--radius-md);
-  font-family:'Plus Jakarta Sans',sans-serif;
   font-size:0.92rem;
-  font-weight:700;
-  letter-spacing:0.04em;
-  text-decoration:none;
   transition:background 0.18s, transform 0.18s;
 }
-.btn-hero-primary:hover { background:#daa93f; transform:translateY(-2px); }
+.btn-hero-primary:hover { transform:translateY(-2px); }
 .btn-hero-ghost {
   font-family:'Plus Jakarta Sans',sans-serif;
   font-size:0.82rem;
@@ -298,17 +288,8 @@
 .tier-cta {
   display:block;
   text-align:center;
-  background:var(--earth-dark);
-  color:var(--sand);
   padding:0.85rem 1rem;
-  border-radius:var(--radius-md);
-  font-family:'Plus Jakarta Sans',sans-serif;
   font-size:0.8rem;
-  font-weight:700;
-  letter-spacing:0.06em;
-  text-transform:uppercase;
-  text-decoration:none;
-  transition:background 0.18s;
 }
 .tier-cta:hover         { background:var(--earth-mid); }
 .tier-cta--featured     { background:var(--earth-med); }
@@ -331,11 +312,91 @@
 }
 .tiers-sub-note strong { color:var(--ink); }
 
+/* ── Gift note variant ── */
+.tiers-sub-note--gift { border-left-color: var(--gold); }
+.gift-note-eyebrow {
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:0.6rem;
+  font-weight:700;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:0.5rem;
+}
+.tiers-sub-note--gift strong { display:block; margin-bottom:0.4rem; font-size:0.82rem; }
+.tiers-sub-note--gift p { margin:0 0 0.85rem; }
+.gift-cta {
+  display:inline-flex;
+  align-items:center;
+  gap:0.35rem;
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:0.72rem;
+  font-weight:700;
+  letter-spacing:0.04em;
+  color:var(--earth-dark);
+  background:var(--gold);
+  padding:0.48rem 0.9rem;
+  border-radius:5px;
+  text-decoration:none;
+  transition:opacity 0.15s;
+}
+.gift-cta:hover { opacity:0.85; }
+
+/* ── How adoption works ── */
+.how-works {
+  background:var(--white);
+  padding:2.75rem clamp(1.25rem,6vw,5rem);
+  border-bottom:1px solid var(--sand-deep);
+}
+.how-works-inner { max-width:860px; margin:0 auto; }
+.how-steps {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:2rem;
+}
+.how-step { display:flex; gap:1rem; align-items:flex-start; }
+.how-step-n {
+  font-family:'Lora',serif;
+  font-size:1.6rem;
+  font-weight:500;
+  color:var(--gold);
+  line-height:1;
+  flex-shrink:0;
+  padding-top:0.1rem;
+  min-width:1.4rem;
+}
+.how-step strong {
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:0.82rem;
+  font-weight:700;
+  color:var(--ink);
+  display:block;
+  margin-bottom:0.3rem;
+}
+.how-step p {
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:0.77rem;
+  color:var(--mid);
+  line-height:1.6;
+  margin:0;
+}
+
+/* ── CTA note under tier buttons ── */
+.cta-note {
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:0.63rem;
+  color:var(--mid);
+  text-align:center;
+  margin-top:0.55rem;
+  line-height:1.4;
+}
+
 @media(max-width:720px) {
   .tier-grid { grid-template-columns:1fr; }
   .tiers-sub { grid-template-columns:1fr; }
   .tiers-header { flex-direction:column; align-items:flex-start; }
   .tiers-header-right { text-align:left; }
+  .how-steps { grid-template-columns:1fr; gap:1.25rem; }
 }
 
 /* ═══════════════════════════════════════
@@ -581,34 +642,15 @@
 }
 .donate-btn-row { display:flex; gap:0.75rem; flex-wrap:wrap; }
 .btn-donate {
-  display:inline-flex;
-  align-items:center;
-  gap:0.4rem;
-  background:var(--earth-dark);
-  color:var(--sand);
   padding:0.7rem 1.25rem;
-  border-radius:var(--radius-md);
-  font-family:'Plus Jakarta Sans',sans-serif;
   font-size:0.78rem;
-  font-weight:700;
-  text-decoration:none;
-  transition:background 0.18s;
 }
 .btn-donate:hover { background:var(--earth-mid); }
 .btn-donate-ghost {
-  display:inline-flex;
-  align-items:center;
-  gap:0.4rem;
-  background:transparent;
-  color:var(--earth-dark);
-  border:1.5px solid var(--earth-dark);
   padding:0.7rem 1.25rem;
-  border-radius:var(--radius-md);
-  font-family:'Plus Jakarta Sans',sans-serif;
   font-size:0.78rem;
-  font-weight:700;
-  cursor:pointer;
-  transition:background 0.18s, color 0.18s;
+  color:var(--earth-dark);
+  border-color:var(--earth-dark);
 }
 .btn-donate-ghost:hover { background:var(--earth-dark); color:var(--sand); }
 
@@ -641,19 +683,12 @@
 .waitlist-input::placeholder { color:rgba(244,239,230,0.3); }
 .waitlist-input:focus { border-color:rgba(201,151,58,0.5); }
 .waitlist-btn {
-  background:var(--gold);
-  color:var(--ink);
   border:none;
-  border-radius:var(--radius-md);
-  padding:0.7rem 1.25rem;
-  font-family:'Plus Jakarta Sans',sans-serif;
-  font-size:0.8rem;
-  font-weight:700;
   cursor:pointer;
-  white-space:nowrap;
-  transition:background 0.18s;
+  padding:0.7rem 1.25rem;
+  font-size:0.8rem;
 }
-.waitlist-btn:hover { background:#daa93f; }
+.waitlist-btn:hover { opacity:0.87; }
 .waitlist-note {
   margin-top:0.75rem;
   font-family:'Plus Jakarta Sans',sans-serif;
@@ -764,7 +799,7 @@
     <li><a href="forest.html">The Forest</a></li>
     <li><a href="mission.html">Our Mission</a></li>
     <li><a href="blog/index.html">Journal</a></li>
-    <li><a href="fund.html" class="active" style="color:var(--gold)">Support</a></li>
+    <li><a href="fund.html" class="active nav-highlight">Support</a></li>
   </ul>
   <div class="nav-toggle" role="button" tabindex="0" aria-label="Open navigation"
        onclick="document.getElementById('main-nav').classList.toggle('open')">
@@ -787,10 +822,40 @@
       <span class="hero-pill">🏅 <strong>8</strong> earnable badges</span>
     </div>
     <div class="hero-ctas">
-      <a href="#tiers" class="btn-hero-primary">Choose your tree →</a>
+      <a href="#tiers" class="btn btn-gold btn-hero-primary">Choose your tree →</a>
     </div>
   </div>
 </section>
+
+<!-- ═══════ HOW IT WORKS ═══════ -->
+<div class="how-works">
+  <div class="how-works-inner">
+    <div class="eyebrow" style="color:var(--earth-med);margin-bottom:1.5rem;">How adoption works</div>
+    <div class="how-steps">
+      <div class="how-step">
+        <div class="how-step-n">1</div>
+        <div>
+          <strong>Email us your choice</strong>
+          <p>Click any tier button. It opens a short pre-filled email — just confirm your name and tier. No account needed.</p>
+        </div>
+      </div>
+      <div class="how-step">
+        <div class="how-step-n">2</div>
+        <div>
+          <strong>We send a payment link</strong>
+          <p>Within 24 hours we reply with a PayPal link, or a crypto address if you prefer. No platform takes a cut.</p>
+        </div>
+      </div>
+      <div class="how-step">
+        <div class="how-step-n">3</div>
+        <div>
+          <strong>Your tree is confirmed</strong>
+          <p>We assign your specific tree, send your digital certificate, and schedule your first fruit delivery.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- ═══════ TIERS ═══════ -->
 <section class="tiers-section" id="tiers">
@@ -827,7 +892,8 @@
             <li><span class="chk">✓</span> Season badges earned as you renew</li>
             <li><span class="chk">✓</span> Level up each season you renew</li>
           </ul>
-          <a href="mailto:fincatariqa@gmail.com?subject=Tree%20Adoption%20%E2%80%93%20Friend%20of%20the%20Tree%20%28%E2%82%AC99%2Fyr%29&body=Hi%2C%0A%0AI%27d%20like%20to%20adopt%20a%20tree%20at%20the%20Friend%20of%20the%20Tree%20tier%20(%E2%82%AC99%20per%20year%2C%2025%20kg%20oranges).%0A%0AName%3A%0ADelivery%20address%3A%0A" class="tier-cta">Own your tree — €99 →</a>
+          <a href="mailto:fincatariqa@gmail.com?subject=Tree%20Adoption%20%E2%80%93%20Friend%20of%20the%20Tree%20%28%E2%82%AC99%2Fyr%29&body=Hi%2C%0A%0AI%27d%20like%20to%20adopt%20a%20tree%20at%20the%20Friend%20of%20the%20Tree%20tier%20(%E2%82%AC99%20per%20year%2C%2025%20kg%20oranges).%0A%0AName%3A%0ADelivery%20address%3A%0A" class="btn btn-dark tier-cta">Own your tree — €99 →</a>
+          <p class="cta-note">Opens email · payment link within 24h</p>
         </div>
       </div>
 
@@ -851,7 +917,8 @@
             <li><span class="chk">✓</span> Printed certificate, posted to you</li>
             <li><span class="chk">✓</span> Farm visit invitation</li>
           </ul>
-          <a href="mailto:fincatariqa@gmail.com?subject=Tree%20Adoption%20%E2%80%93%20Godparent%20of%20the%20Tree%20%28%E2%82%AC175%2Fyr%29&body=Hi%2C%0A%0AI%27d%20like%20to%20adopt%20a%20tree%20at%20the%20Godparent%20of%20the%20Tree%20tier%20(%E2%82%AC175%20per%20year%2C%2050%20kg%20oranges).%0A%0AName%3A%0ADelivery%20address%3A%0A" class="tier-cta tier-cta--featured">Own your tree — €175 →</a>
+          <a href="mailto:fincatariqa@gmail.com?subject=Tree%20Adoption%20%E2%80%93%20Godparent%20of%20the%20Tree%20%28%E2%82%AC175%2Fyr%29&body=Hi%2C%0A%0AI%27d%20like%20to%20adopt%20a%20tree%20at%20the%20Godparent%20of%20the%20Tree%20tier%20(%E2%82%AC175%20per%20year%2C%2050%20kg%20oranges).%0A%0AName%3A%0ADelivery%20address%3A%0A" class="btn btn-dark tier-cta tier-cta--featured">Own your tree — €175 →</a>
+          <p class="cta-note">Opens email · payment link within 24h</p>
         </div>
       </div>
 
@@ -876,7 +943,8 @@
             <li><span class="chk">✓</span> Priority Harvest Day event invite</li>
             <li><span class="chk">✓</span> Name on Grove of Friends on this site</li>
           </ul>
-          <a href="mailto:fincatariqa@gmail.com?subject=Tree%20Adoption%20%E2%80%93%20Custodian%20of%20the%20Tree%20%28%E2%82%AC290%2Fyr%29&body=Hi%2C%0A%0AI%27d%20like%20to%20adopt%20a%20tree%20at%20the%20Custodian%20of%20the%20Tree%20tier%20(%E2%82%AC290%20per%20year%2C%2080%20kg%20oranges).%0A%0AName%3A%0ADelivery%20address%3A%0A" class="tier-cta">Own your tree — €290 →</a>
+          <a href="mailto:fincatariqa@gmail.com?subject=Tree%20Adoption%20%E2%80%93%20Custodian%20of%20the%20Tree%20%28%E2%82%AC290%2Fyr%29&body=Hi%2C%0A%0AI%27d%20like%20to%20adopt%20a%20tree%20at%20the%20Custodian%20of%20the%20Tree%20tier%20(%E2%82%AC290%20per%20year%2C%2080%20kg%20oranges).%0A%0AName%3A%0ADelivery%20address%3A%0A" class="btn btn-dark tier-cta">Own your tree — €290 →</a>
+          <p class="cta-note">Opens email · payment link within 24h</p>
         </div>
       </div>
 
@@ -885,6 +953,12 @@
     <div class="tiers-sub">
       <div class="tiers-sub-note">
         <strong>Shipping</strong> is additional: Spain/Portugal ~€8–12/box · EU ~€15–25/box. Packed in recycled cardboard. <strong>Founding adopter</strong> badge and locked price for 3 years goes to the first 30 people.
+      </div>
+      <div class="tiers-sub-note tiers-sub-note--gift">
+        <div class="gift-note-eyebrow">Give as a gift</div>
+        <strong>Give a tree to someone you love.</strong>
+        <p>Any tier works as a gift. We handle everything — the certificate and fruit delivery go to the recipient. You don't need their delivery address when you order; we coordinate with them directly.</p>
+        <a href="mailto:fincatariqa@gmail.com?subject=Tree%20Adoption%20as%20a%20Gift&body=Hi%2C%0A%0AI%27d%20like%20to%20give%20a%20tree%20adoption%20as%20a%20gift.%0A%0ATier%3A%20%5BFriend%20%E2%82%AC99%20%2F%20Godparent%20%E2%82%AC175%20%2F%20Custodian%20%E2%82%AC290%5D%0ARecipient%20name%3A%0ARecipient%20email%20(for%20delivery%20coordination)%3A%0AOccasion%20(optional)%3A%0AMy%20name%20(so%20they%20know%20who%20it%27s%20from)%3A%0A" class="gift-cta">Give a tree as a gift →</a>
       </div>
     </div>
 
@@ -949,8 +1023,8 @@
         </div>
         <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
         <div class="donate-btn-row" style="margin-top:1rem;">
-          <a href="mailto:fincatariqa@gmail.com?subject=Donation%20to%20Finca%20Tariqa&body=Hi%2C%0A%0AI%27d%20like%20to%20make%20a%20donation%20to%20Finca%20Tariqa.%0A%0AAmount%3A%0AName%20(optional)%3A%0A" class="btn-donate">Donate — email us</a>
-          <a href="campaign-2026.html" class="btn-donate-ghost">Where it goes →</a>
+          <a href="mailto:fincatariqa@gmail.com?subject=Donation%20to%20Finca%20Tariqa&body=Hi%2C%0A%0AI%27d%20like%20to%20make%20a%20donation%20to%20Finca%20Tariqa.%0A%0AAmount%3A%0AName%20(optional)%3A%0A" class="btn btn-dark btn-donate">Donate — email us</a>
+          <a href="campaign-2026.html" class="btn btn-outline btn-donate-ghost">Where it goes →</a>
         </div>
       </div>
 
@@ -966,7 +1040,7 @@
         </div>
         <form class="waitlist-form" onsubmit="handleWaitlist(event)">
           <input type="email" class="waitlist-input" placeholder="your@email.com" required id="waitlist-email">
-          <button type="submit" class="waitlist-btn">Notify me →</button>
+          <button type="submit" class="btn btn-gold waitlist-btn">Notify me →</button>
         </form>
         <p class="waitlist-note" id="waitlist-msg">No spam. One email when it's ready. <a href="blog/land-certificates.html" style="color:rgba(244,239,230,0.45)">What is a blockchain land certificate? →</a></p>
       </div>

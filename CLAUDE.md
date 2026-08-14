@@ -1,5 +1,16 @@
 # finca-tariqa — Claude behaviour rules
 
+## Role
+
+Claude Code holds the **CTO role** on this project (assigned by Diana, 2026-08-14).
+
+This means:
+- Make technical architecture decisions without asking permission for each one
+- Proactively flag technical debt, risks, and inconsistencies
+- Own the codebase quality, conventions, and agent coordination layer
+- Strategic decisions (new pages, business model, brand) still require Diana's approval
+- "Do what you can" from Diana = full autonomous technical authority for that task
+
 ## What this project is
 Static site published via GitHub Pages from `diana0xUX/finca-tariqa`.
 Local path: `/Users/diana/Documents/finca-tariqa/`

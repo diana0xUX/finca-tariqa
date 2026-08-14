@@ -4,27 +4,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Our Mission — Finca Tariqa</title>
-  <meta name="description" content="Citrus, eco-tourism, carbon credits, and a forest in transition. Woman-owned, first-generation, post-DANA. Applying to Ma Earth Round 4, April 2027.">
-  <!-- Open Graph -->
+  <meta name="description" content="Citrus, eco-tourism, glamping, carbon credits, and a forest in transition. Woman-owned, first-generation, post-DANA. Applying to Ma Earth Round 4, April 2027.">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Finca Tariqa">
   <meta property="og:title" content="Our Mission — Finca Tariqa">
-  <meta property="og:description" content="Citrus, eco-tourism, carbon credits, and a forest in transition. Woman-owned, first-generation, post-DANA. Applying to Ma Earth Round 4, April 2027.">
+  <meta property="og:description" content="Citrus, eco-tourism, glamping, carbon credits, and a forest in transition. Woman-owned, first-generation, post-DANA.">
   <meta property="og:url" content="https://finca-tariqa.com/mission.html">
   <meta property="og:image" content="https://finca-tariqa.com/blog/images/cover-founder-story.jpg">
-  <meta property="og:image:alt" content="Finca Tariqa regenerative farm mission — Carcaixent, Valencia">
   <meta property="og:locale" content="en_GB">
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Our Mission — Finca Tariqa">
-  <meta name="twitter:description" content="Citrus, eco-tourism, carbon credits, and a forest in transition. Woman-owned, first-generation, post-DANA.">
+  <meta name="twitter:description" content="Citrus, eco-tourism, glamping, carbon credits, and a forest in transition. Woman-owned, first-generation, post-DANA.">
   <meta name="twitter:image" content="https://finca-tariqa.com/blog/images/cover-founder-story.jpg">
   <link rel="canonical" href="https://finca-tariqa.com/mission.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="style.css">
   <style>
-    /* ── Mission Hero ── */
+
+    /* ── Hero ── */
     .mission-hero {
       background: var(--earth-dark);
       position: relative;
@@ -74,33 +72,28 @@
       max-width: 52ch;
     }
 
-    /* ── Four cards section ── */
-    .four-section {
+    /* ── Five cards ── */
+    .five-section {
       background: var(--white);
     }
 
-    .four-section .section-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .four-head {
+    .five-head {
       margin-bottom: 3rem;
     }
 
-    .four-head .eyebrow {
+    .five-head .eyebrow {
       color: var(--earth-med);
       opacity: 1;
       margin-bottom: 0.75rem;
     }
 
-    .four-head h2 {
+    .five-head h2 {
       color: var(--ink);
     }
 
-    .four-grid {
+    .five-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 1.25rem;
     }
 
@@ -111,23 +104,11 @@
       overflow: hidden;
     }
 
-    .mission-card--dark {
-      background: var(--earth-dark);
-    }
-
-    .mission-card--terra {
-      background: var(--sand);
-      border: 1px solid var(--sand-deep);
-    }
-
-    .mission-card--sand {
-      background: var(--sand-deep);
-      border: 1px solid var(--sand-deep);
-    }
-
-    .mission-card--mid {
-      background: var(--earth-mid);
-    }
+    .mission-card--dark    { background: var(--earth-dark); }
+    .mission-card--terra   { background: var(--sand); border: 1px solid var(--sand-deep); }
+    .mission-card--sand    { background: var(--sand-deep); border: 1px solid var(--sand-deep); }
+    .mission-card--mid     { background: var(--earth-mid); }
+    .mission-card--span    { grid-column: span 2; background: var(--earth-dark); }
 
     .mission-card-num {
       font-family: 'Lora', serif;
@@ -141,14 +122,10 @@
     }
 
     .mission-card--dark .mission-card-num,
-    .mission-card--mid .mission-card-num {
-      color: var(--sand);
-    }
-
+    .mission-card--mid .mission-card-num,
+    .mission-card--span .mission-card-num  { color: var(--sand); }
     .mission-card--terra .mission-card-num,
-    .mission-card--sand .mission-card-num {
-      color: var(--ink);
-    }
+    .mission-card--sand .mission-card-num  { color: var(--ink); }
 
     .mission-card-tag {
       display: inline-block;
@@ -162,25 +139,11 @@
       position: relative;
     }
 
-    .mission-card--dark .mission-card-tag {
-      background: rgba(90, 143, 104, 0.2);
-      color: var(--earth-light);
-    }
-
-    .mission-card--mid .mission-card-tag {
-      background: rgba(201, 151, 58, 0.18);
-      color: var(--gold);
-    }
-
-    .mission-card--terra .mission-card-tag {
-      background: rgba(196, 98, 45, 0.1);
-      color: var(--terracotta);
-    }
-
-    .mission-card--sand .mission-card-tag {
-      background: rgba(37, 60, 41, 0.08);
-      color: var(--earth-med);
-    }
+    .mission-card--dark .mission-card-tag,
+    .mission-card--span .mission-card-tag  { background: rgba(90,143,104,0.2); color: var(--earth-light); }
+    .mission-card--mid .mission-card-tag   { background: rgba(201,151,58,0.18); color: var(--gold); }
+    .mission-card--terra .mission-card-tag { background: rgba(196,98,45,0.1); color: var(--terracotta); }
+    .mission-card--sand .mission-card-tag  { background: rgba(37,60,41,0.08); color: var(--earth-med); }
 
     .mission-card h3 {
       font-size: 1.25rem;
@@ -190,14 +153,10 @@
     }
 
     .mission-card--dark h3,
-    .mission-card--mid h3 {
-      color: var(--sand);
-    }
-
+    .mission-card--mid h3,
+    .mission-card--span h3  { color: var(--sand); }
     .mission-card--terra h3,
-    .mission-card--sand h3 {
-      color: var(--ink);
-    }
+    .mission-card--sand h3  { color: var(--ink); }
 
     .mission-card p {
       font-size: 0.88rem;
@@ -207,13 +166,242 @@
     }
 
     .mission-card--dark p,
-    .mission-card--mid p {
-      color: rgba(244, 239, 230, 0.62);
+    .mission-card--mid p,
+    .mission-card--span p   { color: rgba(244,239,230,0.62); }
+    .mission-card--terra p,
+    .mission-card--sand p   { color: var(--mid); }
+
+    .mission-card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--gold);
+      margin-top: 1.25rem;
+      position: relative;
+      transition: color var(--transition);
     }
 
-    .mission-card--terra p,
-    .mission-card--sand p {
+    .mission-card-link:hover { color: var(--sand); }
+
+    /* ── Tourism section ── */
+    .tourism-section {
+      background: var(--sand);
+    }
+
+    .tourism-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(3rem, 6vw, 6rem);
+      align-items: start;
+    }
+
+    .tourism-left .eyebrow {
+      color: var(--earth-med);
+      opacity: 1;
+      margin-bottom: 0.75rem;
+    }
+
+    .tourism-left h2 {
+      color: var(--ink);
+      margin-bottom: 1.5rem;
+    }
+
+    .tourism-left p {
       color: var(--mid);
+      margin-bottom: 1.1rem;
+      max-width: none;
+      line-height: 1.8;
+    }
+
+    .tourism-left p strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .tourism-phases {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      background: var(--sand-deep);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    .tourism-phase {
+      background: var(--white);
+      padding: 1.75rem 2rem;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 1.25rem;
+      align-items: start;
+    }
+
+    .tourism-phase-marker {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.35rem;
+      padding-top: 0.15rem;
+    }
+
+    .tourism-phase-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .tourism-phase-dot--active { background: var(--earth-med); }
+    .tourism-phase-dot--soon   { background: var(--gold); }
+    .tourism-phase-dot--later  { background: var(--sand-deep); border: 2px solid var(--earth-light); }
+
+    .tourism-phase-year {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.6rem;
+      font-weight: 700;
+      color: var(--earth-light);
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      letter-spacing: 0.08em;
+    }
+
+    .tourism-phase h4 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 0.4rem;
+    }
+
+    .tourism-phase p {
+      font-size: 0.82rem;
+      line-height: 1.6;
+      color: var(--mid);
+      max-width: none;
+    }
+
+    /* ── Glamping section ── */
+    .glamping-section {
+      background: var(--earth-dark);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .glamping-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 60% at 10% 80%, rgba(58,102,69,0.2) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 50% at 90% 10%, rgba(201,151,58,0.08) 0%, transparent 55%);
+      pointer-events: none;
+    }
+
+    .glamping-inner {
+      position: relative;
+    }
+
+    .glamping-head {
+      max-width: 620px;
+      margin-bottom: 3.5rem;
+    }
+
+    .glamping-head .eyebrow {
+      color: var(--gold);
+      opacity: 0.85;
+      margin-bottom: 0.75rem;
+    }
+
+    .glamping-head h2 {
+      color: var(--sand);
+      margin-bottom: 1rem;
+    }
+
+    .glamping-head p {
+      color: rgba(244,239,230,0.55);
+      max-width: none;
+      line-height: 1.8;
+    }
+
+    .glamping-offers {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(244,239,230,0.06);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin-bottom: 2.5rem;
+    }
+
+    .glamping-offer {
+      background: rgba(255,255,255,0.03);
+      padding: 2.25rem 2rem;
+    }
+
+    .glamping-offer-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .glamping-offer-status--coming {
+      color: rgba(244,239,230,0.35);
+    }
+
+    .glamping-offer-status-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: currentColor;
+    }
+
+    .glamping-offer h4 {
+      font-family: 'Lora', serif;
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--sand);
+      margin-bottom: 0.65rem;
+    }
+
+    .glamping-offer p {
+      font-size: 0.82rem;
+      line-height: 1.65;
+      color: rgba(244,239,230,0.5);
+      max-width: none;
+    }
+
+    .glamping-note {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+      padding: 1.75rem 2rem;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(244,239,230,0.08);
+      border-radius: var(--radius-lg);
+    }
+
+    .glamping-note p {
+      font-size: 0.86rem;
+      color: rgba(244,239,230,0.45);
+      max-width: 54ch;
+      line-height: 1.65;
+    }
+
+    .glamping-note p strong {
+      color: rgba(244,239,230,0.75);
+      font-weight: 600;
     }
 
     /* ── Story section ── */
@@ -264,7 +452,6 @@
       background: var(--white);
     }
 
-    /* Ma Earth panel */
     .maearth-panel {
       background: var(--earth-dark);
       border-radius: var(--radius-xl);
@@ -280,7 +467,7 @@
       right: -50px;
       width: 220px;
       height: 220px;
-      background: radial-gradient(circle, rgba(201, 151, 58, 0.1), transparent 70%);
+      background: radial-gradient(circle, rgba(201,151,58,0.1), transparent 70%);
       border-radius: 50%;
       pointer-events: none;
     }
@@ -302,7 +489,7 @@
 
     .maearth-panel p {
       font-size: 0.88rem;
-      color: rgba(244, 239, 230, 0.62);
+      color: rgba(244,239,230,0.62);
       line-height: 1.72;
       margin-bottom: 1.25rem;
       max-width: none;
@@ -320,9 +507,7 @@
       position: relative;
     }
 
-    .maearth-panel a.panel-link:hover {
-      color: var(--terracotta);
-    }
+    .maearth-panel a.panel-link:hover { color: var(--terracotta); }
 
     /* ── Final CTA ── */
     .final-cta {
@@ -337,7 +522,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse 70% 70% at 50% 50%, rgba(58, 102, 69, 0.15), transparent 70%);
+      background: radial-gradient(ellipse 70% 70% at 50% 50%, rgba(58,102,69,0.15), transparent 70%);
       pointer-events: none;
     }
 
@@ -365,11 +550,27 @@
       gap: 1rem;
     }
 
-    @media (max-width: 900px) {
-      .four-grid {
+    /* ── Responsive ── */
+    @media (max-width: 1000px) {
+      .five-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .mission-card--span {
+        grid-column: span 2;
+      }
+      .glamping-offers {
         grid-template-columns: 1fr;
       }
+    }
 
+    @media (max-width: 780px) {
+      .five-grid {
+        grid-template-columns: 1fr;
+      }
+      .mission-card--span {
+        grid-column: span 1;
+      }
+      .tourism-grid,
       .story-grid {
         grid-template-columns: 1fr;
       }
@@ -399,19 +600,19 @@
   <section class="mission-hero">
     <div class="mission-hero-inner">
       <span class="eyebrow">Finca Tariqa</span>
-      <h1>A farm that earns in four directions at once.</h1>
-      <p class="lead">Citrus, eco-tourism, carbon credits, and a forest in transition. Woman-owned, first-generation, post-DANA. Applying to Ma Earth Round 4, April 2027.</p>
+      <h1>A farm that earns in five directions at once.</h1>
+      <p class="lead">Citrus, eco-tourism, glamping, carbon credits, and a native forest in transition. Woman-owned, first-generation, post-DANA. Applying to Ma Earth Round 4, April 2027.</p>
     </div>
   </section>
 
-  <!-- Four mission cards -->
-  <section class="section four-section">
+  <!-- Five mission cards -->
+  <section class="section five-section">
     <div class="section-inner">
-      <div class="four-head">
-        <span class="eyebrow">Four directions</span>
+      <div class="five-head">
+        <span class="eyebrow">Five directions</span>
         <h2>What we're building.</h2>
       </div>
-      <div class="four-grid">
+      <div class="five-grid">
 
         <div class="mission-card mission-card--dark">
           <span class="mission-card-num">01</span>
@@ -422,30 +623,151 @@
 
         <div class="mission-card mission-card--terra">
           <span class="mission-card-num">02</span>
-          <span class="mission-card-tag">Targeting 2026</span>
+          <span class="mission-card-tag">Launching 2027</span>
           <h3>Eco-Farm Tourism</h3>
-          <p>Guided grove tours, harvest experiences, geology and forest walks — to be registered under Decreto 4/2024 (Valencian ecotourism regulation). Casa rural accommodation in the restored farmhouse. The hillside is the product.</p>
+          <p>Guided grove walks, geology tours, harvest experiences, and overnight stays registered under Decreto 4/2024. The hillside is the product — visitors come to understand what limestone, altitude, and time do to a piece of fruit.</p>
         </div>
 
         <div class="mission-card mission-card--sand">
           <span class="mission-card-num">03</span>
           <span class="mission-card-tag">Baseline 2026</span>
           <h3>Carbon Farming</h3>
-          <p>Soil carbon baseline to be established with IVIA-accredited laboratory in 2026. Agreena platform for Verra VCS verified credits. EU CRCF market opens approximately 2028 — baseline started now means documented improvement ready to sell.</p>
+          <p>Soil carbon baseline established with IVIA-accredited laboratory in 2026. Agreena platform for Verra VCS verified credits. EU CRCF market opens approximately 2028 — baseline started now means documented improvement ready to sell.</p>
         </div>
 
         <div class="mission-card mission-card--mid">
           <span class="mission-card-num">04</span>
           <span class="mission-card-tag">15-year project</span>
           <h3>Native Reforestation</h3>
-          <p>1.7 ha Aleppo pine to Quercus ilex — PTGFS forest management plan in preparation for Q4 2026 submission. FEADER up to 85% EU co-financing — eligible to apply. In 15 years, native Mediterranean limestone woodland.</p>
+          <p>1.7 ha Aleppo pine to Quercus ilex — PTGFS forest management plan in preparation for Q4 2026 submission. FEADER up to 85% EU co-financing. In 15 years, native Mediterranean limestone woodland and sequestered carbon.</p>
+        </div>
+
+        <div class="mission-card mission-card--span">
+          <span class="mission-card-num">05</span>
+          <span class="mission-card-tag">Camp Tariqa · 2026–2030</span>
+          <h3>Glamping, a Venue, and a Place to Stay</h3>
+          <p>The long-term development of the land beyond the grove. Glamping structures on the limestone terraces, rural accommodation rooms, an outdoor event venue, and the infrastructure to host people on the hillside properly. Currently in planning and construction — the basecamp is being built by hand, this season. Full operation targeted for 2029–2030 via Declaración de Interés Comunitario.</p>
+          <a href="camp.html" class="mission-card-link">See the full development plan →</a>
         </div>
 
       </div>
     </div>
   </section>
 
-  <!-- Story section -->
+  <!-- Tourism section -->
+  <section class="section tourism-section">
+    <div class="section-inner">
+      <div class="tourism-grid">
+
+        <div class="tourism-left">
+          <span class="eyebrow">Eco-tourism · what it looks like</span>
+          <h2>The hillside is the product.</h2>
+          <p>Finca Tariqa sits on an 80-million-year-old Cretaceous limestone hillside. The geology creates the terroir that makes the oranges what they are. That same story — the water, the rock, the altitude, the varieties — is what visitors come to understand.</p>
+          <p><strong>We are not building a resort.</strong> Eco-tourism at Finca Tariqa means small groups, real work, and genuine access to the farm. A walk through the grove explaining how limestone stress concentrates flavour. A morning picking oranges in the harvest season. A night sleeping on the terrace under the Valencian sky.</p>
+          <p>The tourism offer builds in phases — from guided experiences and harvest stays in 2027, toward permanent glamping and a venue over the following years, as the Declaración de Interés Comunitario makes its way through the Valencian planning system.</p>
+        </div>
+
+        <div class="tourism-phases">
+
+          <div class="tourism-phase">
+            <div class="tourism-phase-marker">
+              <div class="tourism-phase-dot tourism-phase-dot--active"></div>
+              <div class="tourism-phase-year">2026</div>
+            </div>
+            <div>
+              <h4>Building the basecamp</h4>
+              <p>Volunteers and skilled builders are constructing the first infrastructure on the hillside — sleeping structures, compost toilets, a working basecamp. This is the foundation everything else rests on. The work is happening now.</p>
+            </div>
+          </div>
+
+          <div class="tourism-phase">
+            <div class="tourism-phase-marker">
+              <div class="tourism-phase-dot tourism-phase-dot--soon"></div>
+              <div class="tourism-phase-year">2027</div>
+            </div>
+            <div>
+              <h4>First guests — harvest stays and grove tours</h4>
+              <p>Registered under Decreto 4/2024 agro-tourism rules. Guided geology and grove walks. Harvest weekends during the picking season. Glamping structures (demountable) in place on the terraces. Meals from the farm and local market.</p>
+            </div>
+          </div>
+
+          <div class="tourism-phase">
+            <div class="tourism-phase-marker">
+              <div class="tourism-phase-dot tourism-phase-dot--later"></div>
+              <div class="tourism-phase-year">2028</div>
+            </div>
+            <div>
+              <h4>DIC approved — permanent structures begin</h4>
+              <p>If the Declaración de Interés Comunitario is granted by the Generalitat Valenciana, permanent accommodation rooms and the event venue begin construction. Pool, garage, full perimeter fence in place.</p>
+            </div>
+          </div>
+
+          <div class="tourism-phase">
+            <div class="tourism-phase-marker">
+              <div class="tourism-phase-dot tourism-phase-dot--later"></div>
+              <div class="tourism-phase-year">2029</div>
+            </div>
+            <div>
+              <h4>Camp Tariqa fully operational</h4>
+              <p>Rural rooms open. Venue takes first event bookings — private dinners, retreats, weddings. The farm runs as a dual-revenue operation: citrus and hospitality, each feeding the other's story.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Glamping section -->
+  <section class="section glamping-section">
+    <div class="section-inner">
+      <div class="glamping-inner">
+        <div class="glamping-head">
+          <span class="eyebrow">Glamping on the limestone terraces</span>
+          <h2>Sleep where the oranges grow.</h2>
+          <p>The terraced hillside at Finca Tariqa is one of the most distinctive agricultural landscapes in Valencia. The plan is to put people on it — in well-built, small-footprint structures that let the landscape do the work.</p>
+        </div>
+
+        <div class="glamping-offers">
+
+          <div class="glamping-offer">
+            <div class="glamping-offer-status">
+              <div class="glamping-offer-status-dot"></div>
+              Coming 2027
+            </div>
+            <h4>Terrace tents</h4>
+            <p>Canvas bell tents or similar demountable structures on the stone terraces. Set among the orange trees, looking across the valley. Each pitch is a cleared terrace with a level platform, a private outdoor space, and the hillside as the view.</p>
+          </div>
+
+          <div class="glamping-offer">
+            <div class="glamping-offer-status">
+              <div class="glamping-offer-status-dot"></div>
+              Coming 2027
+            </div>
+            <h4>Shepherd huts</h4>
+            <p>Small timber or steel-framed huts on wheels — insulated, with a wood burner for winter stays. Positioned on the upper terraces near the holm oak reforestation zone. Waking up to the forest and the grove below.</p>
+          </div>
+
+          <div class="glamping-offer">
+            <div class="glamping-offer-status glamping-offer-status--coming">
+              <div class="glamping-offer-status-dot"></div>
+              After DIC · 2029
+            </div>
+            <h4>Rural rooms</h4>
+            <p>Four to eight permanent rooms in the restored farmhouse and new structures — registered as alojamiento rural under Valencian tourism law. For visitors who want more than a tent but the same view and the same farm.</p>
+          </div>
+
+        </div>
+
+        <div class="glamping-note">
+          <p><strong>The legal track:</strong> Demountable glamping structures can be authorised under Decreto 4/2024 as ancillary agro-tourism infrastructure — no land use change required. Permanent accommodation requires a Declaración de Interés Comunitario from the Generalitat Valenciana. We are pursuing both tracks simultaneously.</p>
+          <a href="camp.html" class="btn btn-outline">Full development plan →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Story / people section -->
   <section class="section story-section">
     <div class="section-inner">
       <div class="story-grid">
@@ -454,7 +776,7 @@
           <span class="eyebrow">The People Behind It</span>
           <h2>First-generation. Post-DANA. A hillside nobody was watching.</h2>
           <p>Finca Tariqa was purchased in November 2025 by a woman under 40 with no inherited farming tradition. The first season was spent reading five years of cooperative records, commissioning a geology report, and learning what an 80-million-year-old hillside was trying to say.</p>
-          <p>The farm is registered with Coop. del Camp de Vila Nova de Castelló (Exagro). Organic certification through CAECV is in preparation. The forest management plan is in preparation. Eco-tourism registration is in preparation.</p>
+          <p>The farm is registered with Coop. del Camp de Vila Nova de Castelló (Exagro). Organic certification through CAECV is in preparation. The forest management plan is in preparation. Eco-tourism registration under Decreto 4/2024 is in preparation.</p>
           <div class="story-badges">
             <span class="badge">Woman-owned</span>
             <span class="badge">First generation</span>
@@ -463,6 +785,8 @@
             <span class="badge">Valencia, Spain</span>
             <span class="badge">Native reforestation</span>
             <span class="badge">Carbon farming</span>
+            <span class="badge">Agro-tourism</span>
+            <span class="badge">Glamping · 2027</span>
           </div>
         </div>
 
@@ -470,6 +794,7 @@
           <span class="eyebrow">Seeking support &amp; partners</span>
           <h3>Applying to Ma Earth Round 4 — Earth Day, April 22, 2027.</h3>
           <p>Ma Earth runs quadratic crowdfunding for grassroots nature regeneration projects. Every supporter multiplies the matching funds available. Finca Tariqa will be one of the first Spanish projects on the platform.</p>
+          <p>If you want to follow the project, support the Ma Earth application when it launches, or explore partnership around eco-tourism, glamping, or the development plan — get in touch now.</p>
           <a href="mailto:fincatariqa@gmail.com" class="panel-link">Get in touch →</a>
         </div>
 
@@ -482,6 +807,7 @@
     <div class="final-cta-inner">
       <p class="pull">The limestone is 80 million years old. The farm is just getting started.</p>
       <div class="final-cta-actions">
+        <a href="camp.html" class="btn btn-gold">See Camp Tariqa</a>
         <a href="report.html" class="btn btn-primary">Read the full report</a>
         <a href="mailto:fincatariqa@gmail.com" class="btn btn-outline">Get in touch</a>
       </div>
@@ -494,7 +820,7 @@
       <div class="footer-brand">
         Finca Tariqa<br>Carcaixent, Valencia<br>Spain
       </div>
-            <ul class="footer-links">
+      <ul class="footer-links">
         <li><a href="oranges.html">Oranges</a></li>
         <li><a href="land.html">Land</a></li>
         <li><a href="forest.html">Forest</a></li>

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What going organic actually means — Finca Tariqa</title>
+  <meta name="description" content="I went into this thinking organic was mostly a marketing thing. Then I found a study. Then another. Then I couldn't stop. Here's what changed my mind — and what we're doing about it on our farm.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    .article-hero {
+      background: var(--earth-dark);
+      padding: calc(var(--nav-height) + 5rem) clamp(1.25rem,5vw,5rem) 4rem;
+      text-align: center;
+    }
+    .article-hero .eyebrow { color: var(--gold); margin-bottom: 1.5rem; }
+    .article-hero h1 {
+      font-family: 'Lora', serif;
+      font-size: clamp(2rem,5vw,3.5rem);
+      font-weight: 500;
+      color: var(--sand);
+      line-height: 1.2;
+      max-width: 18ch;
+      margin: 0 auto 1.5rem;
+    }
+    .article-hero .byline { font-size: 0.85rem; color: rgba(244,239,230,0.45); letter-spacing: 0.05em; }
+    .article-body {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 4rem clamp(1.25rem,5vw,2rem) 8rem;
+    }
+    .article-body p {
+      font-family: 'Lora', Georgia, serif;
+      font-size: clamp(1rem,2vw,1.1rem);
+      line-height: 1.9;
+      color: var(--ink);
+      margin-bottom: 1.6rem;
+      cursor: pointer;
+      border-left: 3px solid transparent;
+      padding-left: 1rem;
+      margin-left: -1.15rem;
+      border-radius: 0 4px 4px 0;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .article-body p:hover { border-left-color: rgba(201,151,58,0.3); }
+    .article-body p.reading-now { border-left-color: var(--gold); background: rgba(201,151,58,0.07); }
+    .section-label {
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--gold);
+      margin: 3.5rem 0 1.5rem; padding-top: 2.5rem;
+      border-top: 1px solid var(--sand-deep);
+    }
+    .audio-bar {
+      position: fixed; bottom: 0; left: 0; right: 0;
+      background: var(--earth-dark); border-top: 1px solid rgba(255,255,255,0.07);
+      padding: 0.8rem clamp(1rem,4vw,2.5rem); display: flex; align-items: center; gap: 1rem; z-index: 500;
+    }
+    .audio-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(244,239,230,0.35); white-space: nowrap; }
+    .audio-play-btn { width: 36px; height: 36px; border-radius: 50%; border: none; background: var(--gold); color: var(--earth-dark); font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: opacity 0.15s; }
+    .audio-play-btn:hover { opacity: 0.85; }
+    .audio-progress-wrap { flex: 1; display: flex; flex-direction: column; gap: 0.2rem; min-width: 0; }
+    .audio-progress { width: 100%; height: 3px; appearance: none; background: rgba(255,255,255,0.12); border-radius: 2px; cursor: pointer; accent-color: var(--gold); }
+    .audio-time { font-size: 0.65rem; color: rgba(244,239,230,0.3); font-variant-numeric: tabular-nums; }
+    .speed-wrap { display: flex; align-items: center; gap: 0.4rem; white-space: nowrap; }
+    .speed-wrap label { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(244,239,230,0.3); }
+    .speed-wrap input[type=range] { width: 70px; accent-color: var(--gold); cursor: pointer; }
+    .speed-val { font-size: 0.72rem; font-weight: 600; color: var(--gold); min-width: 2.2rem; text-align: right; }
+    @media (max-width: 600px) { .audio-label, .speed-wrap label { display: none; } .speed-wrap input { width: 55px; } }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="../index.html" class="nav-logo">Finca Tariqa</a>
+    <ul class="nav-links" id="main-nav">
+      <li><a href="../oranges.html">Oranges</a></li>
+      <li><a href="../land.html">The Land</a></li>
+      <li><a href="../forest.html">The Forest</a></li>
+      <li><a href="../mission.html">Our Mission</a></li>
+      <li><a href="index.html" aria-current="page">Journal</a></li>
+    </ul>
+    <div class="nav-toggle" role="button" tabindex="0" aria-label="Open navigation"
+         onclick="document.getElementById('main-nav').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <header class="article-hero">
+    <span class="eyebrow">Journal · August 2026</span>
+    <h1>What going organic actually means</h1>
+    <p class="byline">Diana Sage &nbsp;·&nbsp; Carcaixent, Valencia</p>
+  </header>
+
+  <article class="article-body" id="article">
+<p data-para="0">So we bought a farm. Four and a half hectares of orange trees on a limestone hillside in Valencia, Spain. I am a UX designer. My partner is not a farmer either. We did it anyway, because we believe land matters and we wanted our kids to grow up knowing where food comes from.</p>
+<p data-para="1">And then I started reading about what's actually in the food.</p>
+<p data-para="2">I want to be honest with you: I went into this assuming organic was mostly a marketing thing. A premium you pay to feel better about yourself. I was not a zealot. I bought conventional fruit. I didn't think much about it.</p>
+<p data-para="3">Then I found a study. And then another one. And I kept going, which turned out to be a bad idea for my peace of mind and a good idea for everything else.</p>
+<p data-para="4">Here's what I found out.</p>
+<h2>It's already in your body. Including mine.</h2>
+<p data-para="5">In two thousand and twenty-two, a French research team ran the largest glyphosate biomonitoring study in European history. Glyphosate is the active ingredient in Roundup — the world's most widely used herbicide, sprayed on crops, parks, roadsides, and golf courses pretty much everywhere. The researchers tested six thousand eight hundred and forty-eight people. Not farmers. Not chemical workers. Just ordinary people, recruited from the general French population, tested with proper hospital-grade lab methods.</p>
+<p data-para="6">Glyphosate showed up in ninety-nine point eight percent of them.</p>
+<p data-para="7">Not most people. Not people who lived near farms. Essentially everyone. The study was published in the peer-reviewed journal Environmental Science and Pollution Research. The conclusion was straightforward: glyphosate exposure in the European general population is universal.</p>
+<p data-para="8">I read that sentence a few times. Then I went and looked at my kids.</p>
+<p data-para="9">Here's the part that actually made me feel better, weirdly: the body clears it fast. What you eat controls how much you're carrying at any given time.</p>
+<p data-para="10">In two thousand and six, researchers from Emory University, the University of Washington, and the US Centers for Disease Control did something clever. They took twenty-three elementary school kids in Seattle, measured the pesticide breakdown products in their urine over three normal days of eating, then switched them to a fully organic diet for five days. Then back to normal.</p>
+<p data-para="11">The pesticide metabolites dropped to nondetectable levels the day the organic food started. Not reduced. Gone. Below the threshold of detection, gone. They stayed gone every day of the organic phase.</p>
+<p data-para="12">The day the kids went back to conventional food, the levels spiked. One pesticide — chlorpyrifos, now banned across the EU — came back at six times its previous level within twenty-four hours.</p>
+<p data-para="13">Five days on, five days off. Like a light switch.</p>
+<p data-para="14">An Australian study from RMIT University, published in the journal Environmental Research in two thousand and fourteen, found the same thing in adults. One week on mostly organic food and total organophosphate pesticide metabolites in urine dropped by eighty-nine percent. For some compounds, the drop was ninety-six percent.</p>
+<p data-para="15">So the body isn't permanently contaminated. It's more like a bucket with a hole in it. What you put in determines the level. Which means: if I'm growing the oranges, what I put on my land determines what ends up in the body of whoever eats them. Including my kids.</p>
+<p data-para="16">That was the moment it stopped being abstract.</p>
+<h2>I thought it was somebody else's problem</h2>
+<p data-para="17">I'd always assumed, if I'm honest, that pesticide exposure was a farmworker issue. People who spray chemicals directly, without adequate protection, in hot fields. Not my situation. Not my family's situation.</p>
+<p data-para="18">I was wrong about that.</p>
+<p data-para="19">Spain's own National Center for Epidemiology — the Carlos III Institute of Health, which is as official as it gets — published a study in two thousand and sixteen. They looked at more than three thousand three hundred childhood cancer cases across Madrid and northern Spain. Then they did something simple: they drew a circle of one kilometre around each child's home and measured how much farmland was inside it, using satellite data.</p>
+<p data-para="20">Kids who lived inside that circle, near cultivated fields, had non-Hodgkin's lymphoma at between two and five and a half times the rate of kids with no nearby farmland. Leukaemia at one point eight to two point six times the rate. The authors — Spanish government researchers, not activists — concluded that living near cultivated land appears to be a risk factor for several types of childhood cancer in Spain.</p>
+<p data-para="21">Not the kids whose parents are spraying. The kids who just happen to live nearby.</p>
+<p data-para="22">Valencia accounts for more than twelve percent of Spain's total national pesticide consumption. One region out of seventeen. The INMA study — Infancia y Medio Ambiente, which means Childhood and Environment — tracked more than five hundred pregnant women in Valencia between two thousand and three and two thousand and six and found measurable organophosphate pesticide exposure in the majority of them. The study exists because Spanish researchers were already alarmed enough to look. Our farm is in Carcaixent, Valencia. We're not adjacent to this data. We're sitting inside it.</p>
+<h2>What's actually being sprayed</h2>
+<p data-para="23">Okay, so what are these chemicals? The big one is glyphosate, which I mentioned. The International Agency for Research on Cancer — part of the World Health Organisation — classified it as probably carcinogenic to humans in two thousand and fifteen. A big study in the journal Mutation Research in two thousand and nineteen pooled data from more than fifty thousand people and found a forty-one percent increased risk of non-Hodgkin's lymphoma with high glyphosate exposure. Forty-one percent is not a small number.</p>
+<p data-para="24">Then there are organophosphate insecticides, which are in the same chemical family as nerve agents — developed from the same research, at dramatically lower concentrations, but operating on the same biological mechanism: they interfere with the signalling between nerve cells. They're used widely on citrus in Spain.</p>
+<p data-para="25">And here's one that I didn't know until I started digging: imazalil. It's a fungicide now classified as a possible human carcinogen. It's not sprayed on the growing tree. It's sprayed on the orange after harvest, to stop mould during shipping. It sits on the skin. A study published in the journal Food Additives and Contaminants found imazalil on seventy-four point seven percent of Valencia orange samples.</p>
+<p data-para="26">Not trace amounts from spray drift. Applied deliberately, to the skin of the fruit, after picking.</p>
+<p data-para="27">None of this is illegal. It's all normal. That's the thing I kept coming back to — not that someone was doing something wrong, but that the wrong thing is the standard thing.</p>
+<p data-para="28">The EU has banned over one thousand three hundred pesticide ingredients. The US has banned around three hundred of the same list. The gap isn't about agricultural productivity — European farms produce just fine. It's about what level of evidence you require before saying something is too risky to put on food. Glyphosate is still authorised in Spain. The EU keeps reviewing it and provisionally extending the licence while the science debate continues.</p>
+<h2>The seven IQ points study</h2>
+<p data-para="29">My partner thinks I've become mildly obsessed with this research. He's not wrong. But this one is the one I keep coming back to.</p>
+<p data-para="30">UC Berkeley ran a study called CHAMACOS — the Center for the Health Assessment of Mothers and Children of Salinas — in California's Salinas Valley, one of the most intensively farmed areas in the US. They tracked three hundred and twenty-nine children from before they were born. They measured pesticide exposure in the mothers' blood and urine during pregnancy. Then they followed the kids and tested their cognitive development at ages two, three and a half, five, and seven.</p>
+<p data-para="31">Children in the highest fifth of prenatal pesticide exposure scored seven IQ points lower at age seven than children in the lowest fifth. Seven points. The researchers controlled for everything they could think of — maternal education, income, other chemicals, home environment. The effect stayed.</p>
+<p data-para="32">Seven IQ points isn't subtle. Depending on where you start, it's the difference between coping and thriving. And it happened not because mothers were handling pesticides — but because of what they ate and breathed while pregnant.</p>
+<p data-para="33">In two thousand and fifteen, Denmark launched a plan to convert sixty percent of publicly owned land to organic farming by two thousand and twenty. Their reasons weren't romantic — they were practical. Pesticide runoff was contaminating drinking water. Biodiversity was declining. The health data was piling up. By two thousand and twenty-three, Denmark had the highest proportion of organic farmland in Europe. Organic food accounts for over thirteen percent of all Danish food sales — the highest market share in the world. Their water quality improved. Their organic farmers earned better net margins than conventional farmers. They didn't do it because someone told them to. They did it because it made sense and the health evidence was too consistent to keep ignoring.</p>
+<h2>What organic actually means in Spain</h2>
+<p data-para="34">In Spain the label isn't organic — it's ecológico. And you don't just print it on a box.</p>
+<p data-para="35">To use it, you register with an accredited certification body — in Valencia that's CAECV, the Comité d'Agricultura Ecològica de la Comunitat Valenciana. An inspector comes to your farm every year. They go through your field diary entry by entry, check your storage for prohibited products, and can take soil samples. If you've used something you shouldn't have, you lose the certificate.</p>
+<p data-para="36">No synthetic pesticides. No synthetic herbicides. No synthetic fertilisers. No sewage sludge. No GMOs. Copper is allowed as a fungicide but within strict dose limits. Natural pest controls are fine. The soil is supposed to rebuild itself and do more of the work.</p>
+<p data-para="37">For citrus trees, you can't call yourself certified organic for three years after you apply. During that time you're farming organically — no prohibited inputs — but you're waiting for the land to clear. From year two you can use the label en conversión — in conversion — and many cooperatives now buy in-conversion fruit at a price between conventional and fully organic. The three years are about the soil, not bureaucracy. Residues take time to break down. The soil biology — all the fungi and bacteria and microorganisms that healthy soil depends on — takes time to recover.</p>
+<h2>A teaspoon of soil</h2>
+<p data-para="38">One teaspoon of genuinely healthy, living soil contains more organisms than there are human beings on Earth. Bacteria, fungi, nematodes, protozoa, mites, and more — all communicating chemically, breaking down organic matter, releasing nutrients in forms that plant roots can absorb.</p>
+<p data-para="39">Synthetic nitrogen fertiliser bypasses that entire ecosystem. It feeds the plant directly. The soil organisms have nothing to do, so they decline. Over years of conventional farming, the soil becomes dependent on the fertiliser — it can no longer feed the crop unaided. Farmers call it the yield treadmill: every year you need slightly more input to get the same result.</p>
+<p data-para="40">Organic farming tries to work with that underground biology instead of replacing it. The Rodale Institute in Pennsylvania has been running a side-by-side comparison trial since nineteen eighty-one — same crops, same land, conventional versus organic, measured every year. After the difficult three-to-five year transition, organic yields matched conventional for most crops. Organic plots retained more water in drought years and used forty-five percent less energy overall.</p>
+<p data-para="41">Emilia-Romagna — the Italian region that gave us Parmesan, Prosciutto di Parma, and Lambrusco — decided in the nineteen nineties that its agricultural future depended on land quality, not volume. They built regional certification systems and supported small farms converting to organic. Today it has one of the densest concentrations of certified organic farms in Europe. Its small farms survived globalisation when comparable regions didn't — because they compete on provenance and quality, not on price. The organic certification became the mechanism for telling a credible story. Buyers willing to pay a premium showed up. The economics held.</p>
+<h2>So here's where we are</h2>
+<p data-para="42">We have one thousand one hundred orange trees. Three varieties: Navelina, Navel Lane Late, and Valencia Late. They grow on a hillside of eighty-million-year-old limestone in Carcaixent. One person manages them.</p>
+<p data-para="43">We don't fully know what went into the land before we got here. The previous owner farmed conventionally. We're currently trying to piece together the input history — talking to the people who planted the trees, waiting on a reply from the previous owner, and commissioning soil tests this autumn that will tell us more than any document could.</p>
+<p data-para="44">What I do know is that we're going to grow food our kids eat. And after everything I've read, I need the thing I say about that food to be documentably true, not just something we believe about ourselves. Organic certification forces the documentation. An inspector comes every year and checks. If I'm wrong, I find out.</p>
+<p data-para="45">That accountability is part of why I wanted it. Not just the absence of chemicals — the verification.</p>
+<h2>Is it harder? Yes. Is it worth it?</h2>
+<p data-para="46">Organic farming is more work. Pest pressure is real without synthetic backup. Weather matters more when you're not using systemic fungicides. Managing the ground between trees takes more hours without herbicide. Yields in the transition years are harder to predict.</p>
+<p data-para="47">The financial picture improves with time — organic certified citrus gets a meaningful premium in the European market, and in-conversion fruit is increasingly accepted by cooperatives at intermediate prices. But the first three years are a long view.</p>
+<p data-para="48">We're comfortable with the long view. Partly because of the evidence — the costs of the short view don't appear on the invoice but they do appear in soil samples and blood tests and studies tracking three hundred children over twenty years. And partly because of something simpler: we live on this land. Our kids play in it. Whatever goes into the soil eventually goes somewhere else, and I'd rather know what that is.</p>
+<p data-para="49">We're registering with CAECV this September. Three years of conversion. By two thousand and twenty-seven we can put en conversión on the boxes. By two thousand and twenty-nine, our first certified organic harvest.</p>
+<p data-para="50">It's a long wait for a label. But honestly, the label isn't the point. It's just the proof that the point happened.</p>
+  </article>
+
+
+  <div class="audio-bar">
+    <span class="audio-label">Listen</span>
+    <button class="audio-play-btn" id="play-btn" onclick="togglePlay()">▶</button>
+    <div class="audio-progress-wrap">
+      <input type="range" class="audio-progress" id="progress" value="0" min="0" step="0.1"
+             oninput="seek(this.value)">
+      <span class="audio-time" id="time-display">0:00</span>
+    </div>
+    <div class="speed-wrap">
+      <label for="speed">Speed</label>
+      <input type="range" id="speed" min="0.5" max="1.5" step="0.05" value="1"
+             oninput="setSpeed(this.value)">
+      <span class="speed-val" id="speed-val">1×</span>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">Finca Tariqa<br>Carcaixent, Valencia<br>Spain</div>
+      <ul class="footer-links">
+        <li><a href="../oranges.html">Oranges</a></li>
+        <li><a href="../land.html">Land</a></li>
+        <li><a href="../forest.html">Forest</a></li>
+        <li><a href="../mission.html">Mission</a></li>
+        <li><a href="index.html">Journal</a></li>
+      </ul>
+    </div>
+    <div class="footer-bottom">August 2026</div>
+  </footer>
+
+
+  <script>
+    const TIMING = [];
+    const audio = new Audio('../audio/going-organic.mp3');
+    audio.preload = 'auto';
+    let currentSpeed = 1;
+
+    function fmt(s) {
+      const m = Math.floor(s / 60);
+      return m + ':' + Math.floor(s % 60).toString().padStart(2, '0');
+    }
+    function setSpeed(v) {
+      currentSpeed = parseFloat(v);
+      audio.playbackRate = currentSpeed;
+      document.getElementById('speed-val').textContent =
+        currentSpeed.toFixed(2).replace(/\.?0+$/, '') + '×';
+    }
+    function togglePlay() {
+      if (audio.paused) { audio.playbackRate = currentSpeed; audio.play(); document.getElementById('play-btn').textContent = '⏸'; }
+      else { audio.pause(); document.getElementById('play-btn').textContent = '▶'; }
+    }
+    function seek(v) { audio.currentTime = parseFloat(v); }
+    audio.addEventListener('timeupdate', () => {
+      const t = audio.currentTime;
+      document.getElementById('progress').value = t;
+      document.getElementById('time-display').textContent = fmt(t);
+      const cur = TIMING.find(e => t >= e.start && t < e.end);
+      document.querySelectorAll('#article p.reading-now').forEach(p => p.classList.remove('reading-now'));
+      if (cur) {
+        const el = document.querySelector('#article p[data-para="' + cur.id + '"]');
+        if (el) el.classList.add('reading-now');
+      }
+    });
+    audio.addEventListener('loadedmetadata', () => {
+      document.getElementById('progress').max = audio.duration;
+    });
+    audio.addEventListener('ended', () => { document.getElementById('play-btn').textContent = '▶'; });
+    document.querySelectorAll('#article p[data-para]').forEach(p => {
+      p.addEventListener('click', () => {
+        if (window.getSelection().toString()) return;
+        const entry = TIMING.find(t => t.id === parseInt(p.dataset.para));
+        if (!entry) return;
+        function onSeeked() { audio.removeEventListener('seeked', onSeeked); audio.playbackRate = currentSpeed; audio.play(); document.getElementById('play-btn').textContent = '⏸'; }
+        audio.addEventListener('seeked', onSeeked);
+        audio.currentTime = entry.start;
+      });
+    });
+  </script>
+</body>
+</html>

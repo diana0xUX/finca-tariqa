@@ -165,9 +165,9 @@
     </div>
     <div class="speed-wrap">
       <label for="speed">Speed</label>
-      <input type="range" id="speed" min="0.5" max="1.5" step="0.05" value="1"
+      <input type="range" id="speed" min="0.5" max="2" step="0.05" value="1.2"
              oninput="setSpeed(this.value)">
-      <span class="speed-val" id="speed-val">1×</span>
+      <span class="speed-val" id="speed-val">1.2×</span>
     </div>
   </div>
 
@@ -187,10 +187,10 @@
 
 
   <script>
-    const TIMING = [];
+    const TIMING = [{"id": 0, "start": 0.0, "end": 18.496}, {"id": 1, "start": 18.796, "end": 22.945}, {"id": 2, "start": 23.245, "end": 38.136}, {"id": 3, "start": 38.436, "end": 48.783}, {"id": 4, "start": 49.083, "end": 50.704}, {"id": 5, "start": 51.004, "end": 53.852}, {"id": 6, "start": 54.152, "end": 88.883}, {"id": 7, "start": 89.183, "end": 93.535}, {"id": 8, "start": 93.835, "end": 112.416}, {"id": 9, "start": 112.716, "end": 117.335}, {"id": 10, "start": 117.635, "end": 127.768}, {"id": 11, "start": 128.068, "end": 153.668}, {"id": 12, "start": 153.968, "end": 167.376}, {"id": 13, "start": 167.676, "end": 180.945}, {"id": 14, "start": 181.245, "end": 184.573}, {"id": 15, "start": 184.873, "end": 206.857}, {"id": 16, "start": 207.157, "end": 224.907}, {"id": 17, "start": 225.207, "end": 228.332}, {"id": 18, "start": 228.632, "end": 231.341}, {"id": 19, "start": 231.641, "end": 245.647}, {"id": 20, "start": 245.947, "end": 247.504}, {"id": 21, "start": 247.804, "end": 277.575}, {"id": 22, "start": 277.875, "end": 306.013}, {"id": 23, "start": 306.313, "end": 311.828}, {"id": 24, "start": 312.128, "end": 351.256}, {"id": 25, "start": 351.556, "end": 353.519}, {"id": 26, "start": 353.819, "end": 388.88}, {"id": 27, "start": 389.18, "end": 410.495}, {"id": 28, "start": 410.795, "end": 438.187}, {"id": 29, "start": 438.487, "end": 445.068}, {"id": 30, "start": 445.368, "end": 457.283}, {"id": 31, "start": 457.583, "end": 488.185}, {"id": 32, "start": 488.485, "end": 490.171}, {"id": 33, "start": 490.471, "end": 499.111}, {"id": 34, "start": 499.411, "end": 531.965}, {"id": 35, "start": 532.265, "end": 552.404}, {"id": 36, "start": 552.704, "end": 568.277}, {"id": 37, "start": 568.577, "end": 620.812}, {"id": 38, "start": 621.112, "end": 623.555}, {"id": 39, "start": 623.855, "end": 630.052}, {"id": 40, "start": 630.352, "end": 656.763}, {"id": 41, "start": 657.063, "end": 674.673}, {"id": 42, "start": 674.973, "end": 714.952}, {"id": 43, "start": 715.252, "end": 716.468}, {"id": 44, "start": 716.768, "end": 736.043}, {"id": 45, "start": 736.343, "end": 761.452}, {"id": 46, "start": 761.752, "end": 793.965}, {"id": 47, "start": 794.265, "end": 838.244}, {"id": 48, "start": 838.544, "end": 840.027}, {"id": 49, "start": 840.327, "end": 854.385}, {"id": 50, "start": 854.685, "end": 878.12}, {"id": 51, "start": 878.42, "end": 899.988}, {"id": 52, "start": 900.288, "end": 907.211}, {"id": 53, "start": 907.511, "end": 909.815}, {"id": 54, "start": 910.115, "end": 927.939}, {"id": 55, "start": 928.239, "end": 945.263}, {"id": 56, "start": 945.563, "end": 973.936}, {"id": 57, "start": 974.236, "end": 988.657}, {"id": 58, "start": 988.957, "end": 996.701}];
     const audio = new Audio('../audio/going-organic.mp3');
     audio.preload = 'auto';
-    let currentSpeed = 1;
+    let currentSpeed = 1.2;
 
     function fmt(s) {
       const m = Math.floor(s / 60);

@@ -86,22 +86,49 @@
       margin: 3.5rem 0 1.5rem; padding-top: 2.5rem;
       border-top: 1px solid var(--sand-deep);
     }
+    /* ── Mini-player bar ── */
     .audio-bar {
-      position: fixed; bottom: 0; left: 0; right: 0;
-      background: var(--earth-dark); border-top: 1px solid rgba(255,255,255,0.07);
-      padding: 0.8rem clamp(1rem,4vw,2.5rem); display: flex; align-items: center; gap: 1rem; z-index: 500;
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 500;
+      border-top: 1px solid rgba(122,92,62,0.4);
+      background: rgba(20,32,26,0.96);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      padding-bottom: env(safe-area-inset-bottom);
     }
-    .audio-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(244,239,230,0.35); white-space: nowrap; }
-    .audio-play-btn { width: 36px; height: 36px; border-radius: 50%; border: none; background: var(--gold); color: var(--earth-dark); font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: opacity 0.15s; }
-    .audio-play-btn:hover { opacity: 0.85; }
-    .audio-progress-wrap { flex: 1; display: flex; flex-direction: column; gap: 0.2rem; min-width: 0; }
-    .audio-progress { width: 100%; height: 3px; appearance: none; background: rgba(255,255,255,0.12); border-radius: 2px; cursor: pointer; accent-color: var(--gold); }
-    .audio-time { font-size: 0.65rem; color: rgba(244,239,230,0.3); font-variant-numeric: tabular-nums; }
-    .speed-wrap { display: flex; align-items: center; gap: 0.4rem; white-space: nowrap; }
-    .speed-wrap label { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(244,239,230,0.3); }
-    .speed-wrap input[type=range] { width: 70px; accent-color: var(--gold); cursor: pointer; }
-    .speed-val { font-size: 0.72rem; font-weight: 600; color: var(--gold); min-width: 2.2rem; text-align: right; }
-    @media (max-width: 600px) { .audio-label, .speed-wrap label { display: none; } .speed-wrap input { width: 55px; } }
+    .ab-track { height: 4px; width: 100%; background: rgba(122,92,62,0.2); position: relative; }
+    .ab-fill { position: absolute; top: 0; bottom: 0; left: 0; background: #E8792B; transition: width 0.3s linear; width: 0%; }
+    .ab-row {
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 0.75rem 1rem;
+      max-width: 48rem; margin: 0 auto;
+    }
+    .ab-play {
+      flex-shrink: 0; width: 40px; height: 40px; border-radius: 50%;
+      background: #E8792B; color: #14201A; border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      touch-action: manipulation; transition: opacity 0.15s;
+    }
+    .ab-play:hover { opacity: 0.85; }
+    .ab-info { flex: 1; min-width: 0; }
+    .ab-title {
+      font-family: 'Lora', serif; font-size: 0.88rem; color: #EFE9DA;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-bottom: 0.1rem;
+    }
+    .ab-time { font-family: monospace; font-size: 0.7rem; color: #8FA394; }
+    .ab-skip {
+      flex-shrink: 0; display: flex; flex-direction: column; align-items: center; gap: 1px;
+      background: none; border: none; cursor: pointer; color: #EFE9DA; opacity: 0.65;
+      padding: 4px; touch-action: manipulation; transition: opacity 0.15s;
+    }
+    .ab-skip:hover { opacity: 1; }
+    .ab-skip span { font-family: monospace; font-size: 0.5rem; color: #8FA394; }
+    .ab-speed {
+      flex-shrink: 0; font-family: monospace; font-size: 0.72rem;
+      background: #1D2B22; border: none; border-radius: 999px;
+      padding: 0.25rem 0.6rem; color: #EFE9DA; cursor: pointer;
+      touch-action: manipulation; transition: color 0.15s; white-space: nowrap;
+    }
+    .ab-speed:hover { color: #E8792B; }
   </style>
 </head>
 <body>
@@ -178,18 +205,32 @@
 
 
   <div class="audio-bar">
-    <span class="audio-label">Listen</span>
-    <button class="audio-play-btn" id="play-btn" onclick="togglePlay()">▶</button>
-    <div class="audio-progress-wrap">
-      <input type="range" class="audio-progress" id="progress" value="0" min="0" step="0.1"
-             oninput="seek(this.value)">
-      <span class="audio-time" id="time-display">0:00</span>
-    </div>
-    <div class="speed-wrap">
-      <label for="speed">Speed</label>
-      <input type="range" id="speed" min="0.5" max="1.5" step="0.05" value="1"
-             oninput="setSpeed(this.value)">
-      <span class="speed-val" id="speed-val">1×</span>
+    <div class="ab-track"><div class="ab-fill" id="ab-fill"></div></div>
+    <div class="ab-row">
+      <button class="ab-play" id="play-btn" onclick="togglePlay()" aria-label="Play">
+        <svg id="play-icon" width="12" height="12" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true">
+          <polygon points="2,1 10,6 2,11"/>
+        </svg>
+      </button>
+      <div class="ab-info">
+        <p class="ab-title">We Bought a Farm. We'd Never Farmed.</p>
+        <p class="ab-time" id="time-display">0:00</p>
+      </div>
+      <button class="ab-skip" onclick="skipBack()" aria-label="Skip back 15 seconds">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+          <path d="M3 3v5h5"/>
+        </svg>
+        <span>15</span>
+      </button>
+      <button class="ab-skip" onclick="skipForward()" aria-label="Skip forward 15 seconds">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12a9 9 0 1 1-9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/>
+          <path d="M16 8h5V3"/>
+        </svg>
+        <span>15</span>
+      </button>
+      <button class="ab-speed" id="speed-btn" onclick="cycleSpeed()">1×</button>
     </div>
   </div>
 
@@ -212,30 +253,49 @@
 
 
   <script>
-    const TIMING = [];
-    const audio = new Audio('../audio/founder-story.mp3');
+    const TIMING = [{"id": 0, "start": 0.0, "end": 19.861}, {"id": 1, "start": 20.161, "end": 36.428}, {"id": 2, "start": 36.728, "end": 37.731}, {"id": 3, "start": 38.031, "end": 55.044}, {"id": 4, "start": 55.344, "end": 66.352}, {"id": 5, "start": 66.652, "end": 77.873}, {"id": 6, "start": 78.173, "end": 82.931}, {"id": 7, "start": 83.231, "end": 107.305}, {"id": 8, "start": 107.605, "end": 134.411}, {"id": 9, "start": 134.711, "end": 140.353}, {"id": 10, "start": 140.653, "end": 162.776}, {"id": 11, "start": 163.076, "end": 168.516}, {"id": 12, "start": 168.816, "end": 180.656}, {"id": 13, "start": 180.956, "end": 187.623}, {"id": 14, "start": 187.923, "end": 194.643}, {"id": 15, "start": 194.943, "end": 204.745}, {"id": 16, "start": 205.045, "end": 235.456}, {"id": 17, "start": 235.756, "end": 238.54}, {"id": 18, "start": 238.84, "end": 262.296}, {"id": 19, "start": 262.596, "end": 264.964}, {"id": 20, "start": 265.264, "end": 300.752}, {"id": 21, "start": 301.052, "end": 304.924}, {"id": 22, "start": 305.224, "end": 308.349}, {"id": 23, "start": 308.649, "end": 333.161}, {"id": 24, "start": 333.461, "end": 370.699}, {"id": 25, "start": 370.999, "end": 402.209}, {"id": 26, "start": 402.509, "end": 405.016}, {"id": 27, "start": 405.316, "end": 414.969}, {"id": 28, "start": 415.269, "end": 434.331}, {"id": 29, "start": 434.631, "end": 440.071}, {"id": 30, "start": 440.371, "end": 442.131}, {"id": 31, "start": 442.431, "end": 446.164}];
+    const audio = new Audio('../audio/we-bought-a-farm-wed-never-farmed.mp3');
     audio.preload = 'auto';
-    let currentSpeed = 1;
+
+    const SPEEDS = [1, 1.5, 2, 0.75];
+    let speedIdx = 0;
+
+    const PLAY_SVG  = '<polygon points="2,1 10,6 2,11"/>';
+    const PAUSE_SVG = '<rect x="2" y="1" width="3.5" height="10" rx="1"/><rect x="6.5" y="1" width="3.5" height="10" rx="1"/>';
 
     function fmt(s) {
+      if (!isFinite(s) || s < 0) return '0:00';
       const m = Math.floor(s / 60);
       return m + ':' + Math.floor(s % 60).toString().padStart(2, '0');
     }
-    function setSpeed(v) {
-      currentSpeed = parseFloat(v);
-      audio.playbackRate = currentSpeed;
-      document.getElementById('speed-val').textContent =
-        currentSpeed.toFixed(2).replace(/\.?0+$/, '') + '×';
+
+    function setPlayIcon(playing) {
+      const icon = document.getElementById('play-icon');
+      icon.innerHTML = playing ? PAUSE_SVG : PLAY_SVG;
+      icon.setAttribute('viewBox', playing ? '0 0 12 12' : '0 0 12 12');
     }
+
     function togglePlay() {
-      if (audio.paused) { audio.playbackRate = currentSpeed; audio.play(); document.getElementById('play-btn').textContent = '⏸'; }
-      else { audio.pause(); document.getElementById('play-btn').textContent = '▶'; }
+      if (audio.paused) { audio.playbackRate = SPEEDS[speedIdx]; audio.play(); setPlayIcon(true); }
+      else { audio.pause(); setPlayIcon(false); }
     }
-    function seek(v) { audio.currentTime = parseFloat(v); }
+
+    function skipBack()    { audio.currentTime = Math.max(0, audio.currentTime - 15); }
+    function skipForward() { audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 15); }
+
+    function cycleSpeed() {
+      speedIdx = (speedIdx + 1) % SPEEDS.length;
+      audio.playbackRate = SPEEDS[speedIdx];
+      const val = SPEEDS[speedIdx];
+      document.getElementById('speed-btn').textContent = (val % 1 === 0 ? val : val) + '×';
+    }
+
     audio.addEventListener('timeupdate', () => {
       const t = audio.currentTime;
-      document.getElementById('progress').value = t;
-      document.getElementById('time-display').textContent = fmt(t);
+      const pct = audio.duration > 0 ? (t / audio.duration) * 100 : 0;
+      document.getElementById('ab-fill').style.width = pct + '%';
+      document.getElementById('time-display').textContent =
+        fmt(t) + (audio.duration > 0 ? ' / ' + fmt(audio.duration) : '');
       const cur = TIMING.find(e => t >= e.start && t < e.end);
       document.querySelectorAll('#article p.reading-now').forEach(p => p.classList.remove('reading-now'));
       if (cur) {
@@ -243,16 +303,20 @@
         if (el) el.classList.add('reading-now');
       }
     });
-    audio.addEventListener('loadedmetadata', () => {
-      document.getElementById('progress').max = audio.duration;
-    });
-    audio.addEventListener('ended', () => { document.getElementById('play-btn').textContent = '▶'; });
+
+    audio.addEventListener('ended', () => setPlayIcon(false));
+
     document.querySelectorAll('#article p[data-para]').forEach(p => {
       p.addEventListener('click', () => {
         if (window.getSelection().toString()) return;
         const entry = TIMING.find(t => t.id === parseInt(p.dataset.para));
         if (!entry) return;
-        function onSeeked() { audio.removeEventListener('seeked', onSeeked); audio.playbackRate = currentSpeed; audio.play(); document.getElementById('play-btn').textContent = '⏸'; }
+        function onSeeked() {
+          audio.removeEventListener('seeked', onSeeked);
+          audio.playbackRate = SPEEDS[speedIdx];
+          audio.play();
+          setPlayIcon(true);
+        }
         audio.addEventListener('seeked', onSeeked);
         audio.currentTime = entry.start;
       });

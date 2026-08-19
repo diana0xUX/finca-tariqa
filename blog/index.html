@@ -4,158 +4,239 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Journal — Finca Tariqa</title>
-  <meta name="description" content="Notes from a farm in transition. Geology, organic certification, founder stories and the slow work of regenerative agriculture on an 80-million-year-old limestone hillside.">
+  <meta name="description" content="Stories, field notes and research from Finca Tariqa — things to listen to, read and watch as we transition a citrus grove to organic farming.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@400;500&family=IBM+Plex+Mono:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../style.css">
   <style>
-    .journal-hero {
-      background: var(--earth-dark);
-      padding: calc(var(--nav-height) + 4rem) clamp(1.25rem,6vw,5rem) 4rem;
+    /* ── Dark theme ── */
+    body {
+      background: #14201A;
+      color: #EFE9DA;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* ── Hero ── */
+    .rn-hero {
       position: relative;
       overflow: hidden;
+      border-bottom: 1px solid rgba(122,92,62,0.3);
+      padding: calc(68px + 3.5rem) clamp(1.5rem,6vw,3rem) 3.5rem;
     }
-    .journal-hero::before {
-      content: '';
+    .rn-motif {
       position: absolute;
       inset: 0;
-      background:
-        radial-gradient(ellipse 55% 60% at 5% 90%, rgba(90,143,104,0.18) 0%, transparent 60%),
-        radial-gradient(ellipse 35% 45% at 95% 5%, rgba(201,151,58,0.09) 0%, transparent 55%);
+      width: 100%;
+      height: 100%;
+      opacity: 0.4;
       pointer-events: none;
     }
-    .journal-hero-inner { position: relative; z-index: 1; max-width: 680px; }
-    .journal-hero .eyebrow { color: var(--gold); margin-bottom: 1rem; }
-    .journal-hero h1 {
-      font-family: 'Lora', serif;
-      font-size: clamp(2.2rem,5vw,3.5rem);
-      font-weight: 500;
-      color: var(--sand);
-      line-height: 1.15;
-      margin-bottom: 1.25rem;
-    }
-    .journal-hero p { font-size: 1.05rem; color: rgba(244,239,230,0.6); line-height: 1.7; max-width: 52ch; }
-
-    .post-list {
-      max-width: 800px;
+    .rn-hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 42rem;
       margin: 0 auto;
-      padding: clamp(3rem,7vw,6rem) clamp(1.25rem,6vw,5rem);
+    }
+    .rn-eyebrow {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #E8792B;
+      display: block;
+      margin-bottom: 0.7rem;
+    }
+    .rn-hero h1 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(2.25rem,5vw,3.5rem);
+      font-weight: 600;
+      color: #EFE9DA;
+      line-height: 1.1;
+      margin-bottom: 0.7rem;
+    }
+    .rn-hero p {
+      font-size: 1rem;
+      color: #8FA394;
+      line-height: 1.65;
+      max-width: 36ch;
     }
 
-    .post-card {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 1.5rem;
-      align-items: start;
-      padding: 2.5rem 0;
-      border-bottom: 1px solid var(--sand-deep);
+    /* ── Episode list ── */
+    .rn-episodes {
+      max-width: 42rem;
+      margin: 0 auto;
+      padding: 0.5rem clamp(1.5rem,6vw,3rem) 5rem;
+    }
+
+    /* ── Shared row base ── */
+    .ep-row {
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+      padding: 2rem 0;
+      border-bottom: 1px solid rgba(122,92,62,0.2);
       text-decoration: none;
       color: inherit;
-      transition: opacity var(--transition);
     }
-    .post-card:first-child { border-top: 1px solid var(--sand-deep); }
-    .post-card:hover { opacity: 0.72; }
+    .ep-row:last-child { border-bottom: none; }
 
-    .post-meta {
+    /* Cover */
+    .ep-cover {
+      flex-shrink: 0;
+      width: 96px;
+      height: 96px;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #1D2B22;
+    }
+    .ep-cover img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: grayscale(100%);
+      transition: filter 0.45s ease;
+    }
+    .ep-row:hover .ep-cover img { filter: grayscale(0%); }
+
+    .ep-cover-placeholder {
+      width: 100%;
+      height: 100%;
       display: flex;
       align-items: center;
-      gap: 0.75rem;
-      margin-bottom: 0.85rem;
-      flex-wrap: wrap;
+      justify-content: center;
+      font-size: 1.75rem;
     }
-    .post-tag {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 0.62rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      padding: 0.25rem 0.6rem;
-      border-radius: 2px;
-    }
-    .post-tag--story   { background: var(--earth-dark); color: var(--sand); }
-    .post-tag--organic { background: #d4edda; color: #2d5016; }
-    .post-tag--report  { background: var(--sand-deep); color: var(--mid); }
-    .post-tag--audio   { background: rgba(201,151,58,0.12); color: var(--gold); }
-    .post-tag--carbon  { background: #e0f0e8; color: #1e5c38; }
-    .post-tag--default { background: var(--sand-deep); color: var(--mid); }
-    .post-date {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 0.72rem;
-      color: var(--mid);
-      opacity: 0.7;
-    }
-    .post-title {
-      font-family: 'Lora', serif;
-      font-size: clamp(1.25rem,2.5vw,1.7rem);
-      font-weight: 500;
-      color: var(--ink);
-      line-height: 1.25;
-      margin-bottom: 0.75rem;
-    }
-    .post-excerpt { font-size: 0.9rem; color: var(--mid); line-height: 1.7; max-width: 58ch; }
-    .post-arrow {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--earth-med);
-      white-space: nowrap;
-      margin-top: 0.25rem;
-      transition: transform var(--transition);
-    }
-    .post-card:hover .post-arrow { transform: translateX(4px); }
-    .empty-state { text-align: center; padding: 5rem 2rem; color: var(--mid); }
 
-    /* ── 4 directions ── */
-    .directions {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 3rem clamp(1.25rem,6vw,5rem) 0;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1px;
-      background: var(--sand-deep);
-      border-radius: 10px;
-      overflow: hidden;
+    /* Content */
+    .ep-content { flex: 1; min-width: 0; }
+
+    .ep-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.45rem;
     }
-    .direction {
-      background: var(--white);
-      padding: 1.25rem 1.1rem 1.1rem;
-    }
-    .direction-dot {
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      margin-bottom: 0.65rem;
-    }
-    .direction-dot--story   { background: var(--earth-dark); }
-    .direction-dot--organic { background: #3a7a4a; }
-    .direction-dot--carbon  { background: #1e5c38; }
-    .direction-dot--report  { background: var(--mid); }
-    .direction-name {
-      font-family: 'Plus Jakarta Sans', sans-serif;
+    .ep-tag {
+      font-family: 'IBM Plex Mono', monospace;
       font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
+      font-weight: 500;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--ink);
-      margin-bottom: 0.3rem;
+      color: #E8792B;
     }
-    .direction-desc {
-      font-size: 0.72rem;
-      color: var(--mid);
-      line-height: 1.5;
+    .ep-tag--read { color: #6FA98C; }
+    .ep-sep {
+      width: 1px;
+      height: 0.75rem;
+      background: rgba(122,92,62,0.4);
     }
-    @media (max-width: 640px) {
-      .directions { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 380px) {
-      .directions { grid-template-columns: 1fr; }
+    .ep-dur {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      color: #8FA394;
     }
 
-    @media (max-width: 580px) {
-      .post-card { grid-template-columns: 1fr; }
-      .post-arrow { display: none; }
+    .ep-title {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(1rem,2.2vw,1.2rem);
+      font-weight: 600;
+      color: #EFE9DA;
+      line-height: 1.3;
+      margin-bottom: 0.4rem;
+      transition: color 0.2s ease;
+    }
+    .ep-row:hover .ep-title { color: #6FA98C; }
+
+    .ep-excerpt {
+      font-size: 0.82rem;
+      color: #8FA394;
+      line-height: 1.6;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      margin-bottom: 0.85rem;
+    }
+
+    /* Play pill */
+    .ep-play {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      border: 1px solid rgba(122,92,62,0.4);
+      border-radius: 999px;
+      padding: 0.35rem 0.85rem 0.35rem 0.4rem;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.7rem;
+      color: #EFE9DA;
+      background: none;
+      cursor: pointer;
+      transition: border-color 0.2s ease, color 0.2s ease;
+      touch-action: manipulation;
+    }
+    .ep-play:hover { border-color: rgba(111,169,140,0.6); color: #6FA98C; }
+    .ep-play.is-playing { border-color: #E8792B; color: #E8792B; }
+
+    .ep-play-icon {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: #1D2B22;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: #E8792B;
+    }
+    .ep-play.is-playing .ep-play-icon { background: #E8792B; color: #14201A; }
+
+    /* Read link */
+    .ep-read-link {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.7rem;
+      color: #6FA98C;
+      display: inline-block;
+      transition: transform 0.2s ease;
+    }
+    .ep-row:hover .ep-read-link { transform: translateX(4px); }
+
+    /* Episode number — right */
+    .ep-num {
+      flex-shrink: 0;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 2rem;
+      font-weight: 700;
+      color: rgba(122,92,62,0.2);
+      line-height: 1;
+      margin-top: 0.2rem;
+    }
+
+    /* ── Section divider ── */
+    .section-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(143,163,148,0.45);
+      padding-top: 0.75rem;
+    }
+
+    /* ── Footer override ── */
+    .site-footer { background: #1D2B22; border-top: 1px solid rgba(122,92,62,0.3); }
+    .footer-brand, .footer-links a { color: #8FA394; }
+    .footer-bottom { color: rgba(143,163,148,0.45); border-top-color: rgba(122,92,62,0.2); }
+
+    /* ── Responsive ── */
+    @media (min-width: 768px) {
+      .ep-cover { width: 144px; height: 144px; border-radius: 14px; }
+      .ep-row { gap: 1.75rem; }
+    }
+    @media (max-width: 600px) {
+      .ep-excerpt { display: none; }
+      .ep-num { display: none; }
     }
   </style>
 </head>
@@ -176,72 +257,127 @@
     </div>
   </nav>
 
-  <header class="journal-hero">
-    <div class="journal-hero-inner">
-      <span class="eyebrow">Field Notes</span>
+  <!-- ── Hero ── -->
+  <header class="rn-hero">
+    <svg class="rn-motif" viewBox="0 0 800 320" fill="none" aria-hidden="true">
+      <circle cx="120" cy="160" r="6" fill="#6FA98C" opacity="0.9"/>
+      <circle cx="280" cy="80"  r="5" fill="#6FA98C" opacity="0.7"/>
+      <circle cx="400" cy="200" r="7" fill="#E8792B" opacity="0.9"/>
+      <circle cx="540" cy="100" r="5" fill="#6FA98C" opacity="0.7"/>
+      <circle cx="680" cy="180" r="6" fill="#6FA98C" opacity="0.8"/>
+      <circle cx="200" cy="240" r="4" fill="#8FA394" opacity="0.5"/>
+      <circle cx="460" cy="270" r="4" fill="#8FA394" opacity="0.5"/>
+      <circle cx="620" cy="260" r="4" fill="#8FA394" opacity="0.5"/>
+      <path d="M120 160 C180 120 220 100 280 80" stroke="#6FA98C" stroke-width="1.5" opacity="0.5" stroke-linecap="round"/>
+      <path d="M280 80 C330 80 360 140 400 200" stroke="#6FA98C" stroke-width="1.5" opacity="0.5" stroke-linecap="round"/>
+      <path d="M400 200 C460 200 500 120 540 100" stroke="#6FA98C" stroke-width="1.5" opacity="0.5" stroke-linecap="round"/>
+      <path d="M540 100 C600 100 640 150 680 180" stroke="#6FA98C" stroke-width="1.5" opacity="0.5" stroke-linecap="round"/>
+      <path d="M120 160 C150 190 170 220 200 240" stroke="#8FA394" stroke-width="1" opacity="0.35" stroke-linecap="round"/>
+      <path d="M400 200 C425 230 440 255 460 270" stroke="#8FA394" stroke-width="1" opacity="0.35" stroke-linecap="round"/>
+      <path d="M680 180 C650 215 635 240 620 260" stroke="#8FA394" stroke-width="1" opacity="0.35" stroke-linecap="round"/>
+      <path d="M280 80 C310 150 360 200 400 200" stroke="#E8792B" stroke-width="1" opacity="0.2" stroke-linecap="round" stroke-dasharray="4 6"/>
+      <path d="M540 100 C570 160 610 200 680 180" stroke="#6FA98C" stroke-width="1" opacity="0.25" stroke-linecap="round" stroke-dasharray="4 6"/>
+    </svg>
+    <div class="rn-hero-inner">
+      <span class="rn-eyebrow">Journal</span>
       <h1>From the farm.</h1>
-      <p>Geology, soil, organic certification and the slow work of making a regenerative farm on an 80-million-year-old limestone hillside in Carcaixent, Valencia.</p>
+      <p>Stories, field notes and research as we transition a citrus grove to organic farming and build a different kind of community life alongside it.</p>
     </div>
   </header>
 
-  <div class="directions">
-    <div class="direction">
-      <div class="direction-dot direction-dot--story"></div>
-      <div class="direction-name">Founder Story</div>
-      <div class="direction-desc">How we got here and why</div>
-    </div>
-    <div class="direction">
-      <div class="direction-dot direction-dot--organic"></div>
-      <div class="direction-name">Going Organic</div>
-      <div class="direction-desc">The certification journey</div>
-    </div>
-    <div class="direction">
-      <div class="direction-dot direction-dot--carbon"></div>
-      <div class="direction-name">Carbon &amp; Land</div>
-      <div class="direction-desc">Ecocredits and land value</div>
-    </div>
-    <div class="direction">
-      <div class="direction-dot direction-dot--report"></div>
-      <div class="direction-name">Research</div>
-      <div class="direction-desc">Field reports and science</div>
-    </div>
-  </div>
+  <!-- ── Episode list ── -->
+  <main class="rn-episodes">
 
-  <main class="post-list">
-    
-    <a href="what-going-organic-actually-means.html" class="post-card">
-      <div>
-        <div class="post-meta">
-           <span class="post-tag post-tag--audio">🎧 Audio</span>
-          <span class="post-date">August 2026</span>
-        </div>
-        <h2 class="post-title">What going organic actually means</h2>
-        <p class="post-excerpt">I went into this thinking organic was mostly a marketing thing. Then I found a study. Then another. Then I couldn't stop. Here's what changed my mind — and what we're doing about it on our farm.</p>
+    <!-- E3 — Heat resilience -->
+    <a class="ep-row" href="heat-resilience-report.html">
+      <div class="ep-cover">
+        <img src="images/cover-heat-resilience.png" alt="Orange tree in summer heat">
       </div>
-      <span class="post-arrow">Read →</span>
-    </a>
-    <a href="we-bought-a-farm-wed-never-farmed.html" class="post-card">
-      <div>
-        <div class="post-meta">
-          <span class="post-tag post-tag--story">Founder Story</span> <span class="post-tag post-tag--audio">🎧 Audio</span>
-          <span class="post-date">August 2026</span>
+      <div class="ep-content">
+        <div class="ep-meta">
+          <span class="ep-tag">Field Notes</span>
+          <span class="ep-sep"></span>
+          <span class="ep-dur">8 min</span>
         </div>
-        <h2 class="post-title">We Bought a Farm. We'd Never Farmed.</h2>
-        <p class="post-excerpt">For the last 4 years, every week, the gardeners came and shaped the bush beside the pool into a topiary spiral. An awkward shape for a plant. We felt awkward for it…</p>
+        <h2 class="ep-title">What Happens to an Orange Tree at 42°C</h2>
+        <p class="ep-excerpt">Heat stress, dropped fruit and what the grove has been teaching us this summer about resilience — and where it breaks.</p>
+        <audio id="a3" src="../audio/what-happens-to-an-orange-tree-at-42c.mp3" preload="none"></audio>
+        <button class="ep-play" onclick="togglePlay(event,'a3',this)" aria-label="Play episode">
+          <span class="ep-play-icon" aria-hidden="true">
+            <svg width="6" height="7" viewBox="0 0 6 7" fill="currentColor"><polygon points="1,0.5 5.5,3.5 1,6.5"/></svg>
+          </span>
+          <span>Play</span>
+        </button>
       </div>
-      <span class="post-arrow">Read →</span>
+      <span class="ep-num" aria-hidden="true">03</span>
     </a>
-    <a href="../report.html" class="post-card">
-      <div>
-        <div class="post-meta">
-          <span class="post-tag post-tag--report">Full Report</span>
-          <span class="post-date">August 2026</span>
+
+    <!-- E2 — Going Organic -->
+    <a class="ep-row" href="what-going-organic-actually-means.html">
+      <div class="ep-cover">
+        <img src="images/cover-organic.jpg" alt="Orange grove in full leaf">
+      </div>
+      <div class="ep-content">
+        <div class="ep-meta">
+          <span class="ep-tag">Research</span>
+          <span class="ep-sep"></span>
+          <span class="ep-dur">24 min</span>
         </div>
-        <h2 class="post-title">What Lives in the Rock: Geology, Water and Agriculture at Finca Tariqa</h2>
-        <p class="post-excerpt">At the top of Puig Gros, the rock underfoot is the floor of a warm shallow sea. The full geological and agricultural report on what makes this hillside different.</p>
+        <h2 class="ep-title">What Going Organic Actually Means</h2>
+        <p class="ep-excerpt">I went into this thinking organic was mostly a marketing thing. Then I found a study. Then another. Then I couldn't stop.</p>
+        <audio id="a2" src="../audio/what-going-organic-actually-means.mp3" preload="none"></audio>
+        <button class="ep-play" onclick="togglePlay(event,'a2',this)" aria-label="Play episode">
+          <span class="ep-play-icon" aria-hidden="true">
+            <svg width="6" height="7" viewBox="0 0 6 7" fill="currentColor"><polygon points="1,0.5 5.5,3.5 1,6.5"/></svg>
+          </span>
+          <span>Play</span>
+        </button>
       </div>
-      <span class="post-arrow">Read →</span>
+      <span class="ep-num" aria-hidden="true">02</span>
     </a>
+
+    <!-- E1 — We Bought a Farm -->
+    <a class="ep-row" href="we-bought-a-farm-wed-never-farmed.html">
+      <div class="ep-cover">
+        <img src="images/cover-founder-story.jpg" alt="The farm surrounded by orange trees">
+      </div>
+      <div class="ep-content">
+        <div class="ep-meta">
+          <span class="ep-tag">S1 E1</span>
+          <span class="ep-sep"></span>
+          <span class="ep-dur">7 min</span>
+        </div>
+        <h2 class="ep-title">We Bought a Farm. We'd Never Farmed.</h2>
+        <p class="ep-excerpt">For the last four years, every week, the gardeners came and shaped the bush beside the pool into a topiary spiral. An awkward shape for a plant.</p>
+        <audio id="a1" src="../audio/we-bought-a-farm-wed-never-farmed.mp3" preload="none"></audio>
+        <button class="ep-play" onclick="togglePlay(event,'a1',this)" aria-label="Play episode">
+          <span class="ep-play-icon" aria-hidden="true">
+            <svg width="6" height="7" viewBox="0 0 6 7" fill="currentColor"><polygon points="1,0.5 5.5,3.5 1,6.5"/></svg>
+          </span>
+          <span>Play</span>
+        </button>
+      </div>
+      <span class="ep-num" aria-hidden="true">01</span>
+    </a>
+
+    <!-- Divider -->
+    <p class="section-label">From the archive</p>
+
+    <!-- Geology report -->
+    <a class="ep-row" href="../report.html">
+      <div class="ep-cover">
+        <div class="ep-cover-placeholder">⛰</div>
+      </div>
+      <div class="ep-content">
+        <div class="ep-meta">
+          <span class="ep-tag ep-tag--read">Read</span>
+        </div>
+        <h2 class="ep-title">What Lives in the Rock: Geology, Water and Agriculture at Finca Tariqa</h2>
+        <p class="ep-excerpt">At the top of Puig Gros, the rock underfoot is the floor of a warm shallow sea. The full geological and agricultural report.</p>
+        <span class="ep-read-link">Read full report →</span>
+      </div>
+    </a>
+
   </main>
 
   <footer class="site-footer">
@@ -257,6 +393,39 @@
     </div>
     <div class="footer-bottom">Last updated August 2026</div>
   </footer>
+
+  <script>
+    const PLAY_SVG  = '<svg width="6" height="7" viewBox="0 0 6 7" fill="currentColor"><polygon points="1,0.5 5.5,3.5 1,6.5"/></svg>';
+    const PAUSE_SVG = '<svg width="6" height="7" viewBox="0 0 14 14" fill="currentColor"><rect x="2" y="1" width="4" height="12" rx="1"/><rect x="8" y="1" width="4" height="12" rx="1"/></svg>';
+
+    function togglePlay(e, id, btn) {
+      e.preventDefault();
+      e.stopPropagation();
+      const audio = document.getElementById(id);
+      const icon = btn.querySelector('.ep-play-icon');
+      const label = btn.lastElementChild;
+
+      if (audio.paused) {
+        document.querySelectorAll('audio').forEach(a => {
+          if (a !== audio) {
+            a.pause();
+            const b = document.querySelector(`[onclick*="'${a.id}'"]`);
+            if (b) { b.classList.remove('is-playing'); b.querySelector('.ep-play-icon').innerHTML = PLAY_SVG; b.lastElementChild.textContent = 'Play'; }
+          }
+        });
+        audio.play();
+        btn.classList.add('is-playing');
+        icon.innerHTML = PAUSE_SVG;
+        label.textContent = 'Pause';
+        audio.onended = () => { btn.classList.remove('is-playing'); icon.innerHTML = PLAY_SVG; label.textContent = 'Play'; };
+      } else {
+        audio.pause();
+        btn.classList.remove('is-playing');
+        icon.innerHTML = PLAY_SVG;
+        label.textContent = 'Play';
+      }
+    }
+  </script>
 
 </body>
 </html>

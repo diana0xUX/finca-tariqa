@@ -136,6 +136,7 @@ p {
   color: rgba(244, 239, 230, 0.65);
   transition: color var(--transition);
   white-space: nowrap;
+  padding: 0.5rem 0;
 }
 
 .nav-links a:hover {
@@ -156,7 +157,8 @@ p {
   flex-direction: column;
   gap: 5px;
   cursor: pointer;
-  padding: 4px;
+  padding: 10px;
+  margin: -10px;
 }
 
 .nav-toggle span {

@@ -156,3 +156,13 @@ lead: clamp(1rem, 1.6vw, 1.1rem), line-height: 1.75;
 **Status:** Proposed
 
 **Source:** camp.html legal track section
+
+---
+
+## 2026-08-19 — Wallet addresses in fund.html added before domain launch
+
+**Decision:** The placeholder wallet addresses (ETH, BTC, PayPal) in `fund.html` will be filled in before the site moves to its permanent domain. Do not flag them as bugs or prompt Diana to add them during pre-launch work sessions.
+
+**Status:** Accepted — deferred to domain launch
+
+**Source:** Diana (session 2026-08-19)

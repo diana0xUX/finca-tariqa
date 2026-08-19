@@ -61,12 +61,13 @@ Creating `docs/`, `skills/`, and `AGENTS.md` to establish shared context and con
 
 ## Known problems (don't fix without Diana's input)
 
-- `mission-v2.html` — draft, needs approval or deletion
-- `volunteers.html` — not in top nav, may be intentional
-- `sitemap.xml` — missing `camp.html` and `volunteers.html`
-- `blog/land-certificates.html` — exists but not in blog index or sitemap
-- No live payment processing
 - No real farm photography on the site
+
+## Not bugs — intentional or deferred
+
+- `volunteers.html` — footer only, not in top nav (intentional per 2026-08-14 decision)
+- `fund.html` wallet addresses — placeholders, Diana adds before domain launch (decision 2026-08-19)
+- `sitemap.xml` / `blog/index.html` / `blog/land-certificates.html` — all fixed 2026-08-19
 
 ---
 

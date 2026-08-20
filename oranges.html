@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Oranges — Finca Tariqa</title>
-  <meta name="description" content="Three citrus varieties grown under limestone terroir conditions in Carcaixent, Valencia. Stressed to perfection — higher Brix, deeper aromatics.">
+  <meta name="description" content="Three citrus varieties grown on limestone terroir in Carcaixent, Valencia. Nine months of fresh fruit — Navelina, Navel Lane Late, and the rare Valencia Late summer orange.">
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Finca Tariqa">
   <meta property="og:title" content="The Oranges — Finca Tariqa">
-  <meta property="og:description" content="Three citrus varieties grown under limestone terroir conditions in Carcaixent, Valencia. Stressed to perfection — higher Brix, deeper aromatics.">
+  <meta property="og:description" content="Three citrus varieties grown on limestone terroir in Carcaixent, Valencia. Nine months of fresh fruit — Navelina, Navel Lane Late, and the rare Valencia Late summer orange.">
   <meta property="og:url" content="https://finca-tariqa.com/oranges.html">
   <meta property="og:image" content="https://finca-tariqa.com/blog/images/cover-heat-resilience.png">
   <meta property="og:image:alt" content="Navelina, Navel Lane Late, and Valencia Late orange trees growing on limestone terroir at Finca Tariqa">
@@ -17,7 +17,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="The Oranges — Finca Tariqa">
-  <meta name="twitter:description" content="Three citrus varieties on limestone terroir in Carcaixent, Valencia. Stressed to perfection — higher Brix, deeper aromatics.">
+  <meta name="twitter:description" content="Three citrus varieties on limestone terroir in Carcaixent, Valencia. Nine months of fresh fruit, October to July.">
   <meta name="twitter:image" content="https://finca-tariqa.com/blog/images/cover-heat-resilience.png">
   <link rel="canonical" href="https://finca-tariqa.com/oranges.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -171,7 +171,7 @@
       position: relative;
     }
 
-    .variety-header--clemenules {
+    .variety-header--navelina {
       background: linear-gradient(150deg, var(--gold) 0%, var(--terracotta) 100%);
     }
 
@@ -179,8 +179,8 @@
       background: linear-gradient(150deg, var(--terracotta) 0%, var(--earth-dark) 100%);
     }
 
-    .variety-header--navelina {
-      background: linear-gradient(150deg, #9a8e7a 0%, #5e5648 100%);
+    .variety-header--valencia-late {
+      background: linear-gradient(150deg, #7a9e5f 0%, #3a5c2e 100%);
     }
 
     .variety-header h3 {
@@ -206,6 +206,191 @@
       color: var(--mid);
       line-height: 1.72;
       max-width: none;
+    }
+
+    .variety-body p + p {
+      margin-top: 0.75rem;
+    }
+
+    /* ── Season timeline ── */
+    .season-section {
+      background: var(--white);
+    }
+
+    .season-section .section-inner {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .season-head {
+      margin-bottom: 2.5rem;
+    }
+
+    .season-head .eyebrow {
+      color: var(--terracotta);
+      opacity: 1;
+      margin-bottom: 0.75rem;
+    }
+
+    .season-head h2 {
+      color: var(--ink);
+    }
+
+    .season-timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    .season-row {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+
+    .season-row:last-child {
+      border-bottom: none;
+    }
+
+    .season-label {
+      padding: 1.25rem 1.5rem;
+      background: var(--sand);
+      border-right: 1px solid rgba(0,0,0,0.06);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 0.2rem;
+    }
+
+    .season-label strong {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .season-label span {
+      font-size: 0.78rem;
+      color: var(--mid);
+    }
+
+    .season-bar-wrap {
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .season-months {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      width: 100%;
+      gap: 3px;
+    }
+
+    .month-cell {
+      height: 28px;
+      border-radius: 3px;
+      background: rgba(0,0,0,0.05);
+    }
+
+    .month-cell.active {
+      background: var(--terracotta);
+      opacity: 0.85;
+    }
+
+    .month-cell.peak {
+      background: var(--terracotta);
+      opacity: 1;
+    }
+
+    .months-legend {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      width: 100%;
+      gap: 3px;
+      margin-top: 0.5rem;
+      padding: 0 1.5rem;
+      padding-left: calc(160px + 1.5rem + 1.5rem);
+    }
+
+    .months-legend span {
+      font-size: 0.62rem;
+      color: var(--mid);
+      text-align: center;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+    }
+
+    /* ── Grove facts strip ── */
+    .grove-facts {
+      background: var(--earth-dark);
+      padding: clamp(2.5rem, 5vw, 4rem) clamp(1.25rem, 4vw, 3rem);
+    }
+
+    .grove-facts-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+    }
+
+    .grove-fact {
+      text-align: center;
+    }
+
+    .grove-fact-number {
+      font-family: 'Lora', serif;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 500;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .grove-fact-label {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(244,239,230,0.5);
+    }
+
+    /* ── Organic section ── */
+    .organic-section {
+      background: var(--sand);
+    }
+
+    .organic-section .section-inner {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .organic-section .eyebrow {
+      color: var(--earth-med);
+      opacity: 1;
+      margin-bottom: 0.75rem;
+    }
+
+    .organic-section h2 {
+      color: var(--ink);
+      margin-bottom: 1.25rem;
+    }
+
+    .organic-section p {
+      color: var(--mid);
+      font-size: 0.95rem;
+      line-height: 1.8;
+      max-width: 66ch;
+    }
+
+    .organic-section p + p {
+      margin-top: 1rem;
     }
 
     /* ── Oranges CTA ── */
@@ -249,6 +434,42 @@
       .varieties-grid {
         grid-template-columns: 1fr;
       }
+
+      .grove-facts-inner {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .season-row {
+        grid-template-columns: 120px 1fr;
+      }
+
+      .months-legend {
+        padding-left: calc(120px + 1.5rem + 1.5rem);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .grove-facts-inner {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .season-row {
+        grid-template-columns: 1fr;
+      }
+
+      .season-bar-wrap {
+        padding-top: 0;
+      }
+
+      .months-legend {
+        padding-left: 1.5rem;
+      }
+
+      .season-label {
+        border-right: none;
+        border-bottom: 1px solid rgba(0,0,0,0.06);
+        padding-bottom: 0.75rem;
+      }
     }
   </style>
 </head>
@@ -280,6 +501,28 @@
     </div>
   </section>
 
+  <!-- Grove facts strip -->
+  <section class="grove-facts">
+    <div class="grove-facts-inner">
+      <div class="grove-fact">
+        <div class="grove-fact-number">1,100</div>
+        <div class="grove-fact-label">Trees on the hillside</div>
+      </div>
+      <div class="grove-fact">
+        <div class="grove-fact-number">9 months</div>
+        <div class="grove-fact-label">Continuous fresh harvest</div>
+      </div>
+      <div class="grove-fact">
+        <div class="grove-fact-number">70+</div>
+        <div class="grove-fact-label">Years — oldest trees</div>
+      </div>
+      <div class="grove-fact">
+        <div class="grove-fact-number">2.8 ha</div>
+        <div class="grove-fact-label">Of citrus terraces</div>
+      </div>
+    </div>
+  </section>
+
   <!-- Science section -->
   <section class="section science-section">
     <div class="section-inner">
@@ -292,13 +535,13 @@
         <div class="science-card">
           <div class="science-card-icon">&#9825;</div>
           <h3>Mineral profile</h3>
-          <p>Cretaceous limestone, dissolved slowly over 80 million years, feeds the trees minerals that valley alluvial soil cannot replicate.</p>
+          <p>Cretaceous limestone, dissolved slowly over 80 million years, feeds the trees minerals that valley alluvial soil cannot replicate. The karst aquifer beneath Puig Gros means water passes through ancient rock before it reaches the roots.</p>
         </div>
 
         <div class="science-card">
           <div class="science-card-icon">&#9675;</div>
           <h3>Natural deficit</h3>
-          <p>Thin soil, fast drainage, Mediterranean sun — the tree experiences mild water stress every summer. Brix (sugar concentration) rises. Valley fruit cannot match it. The same mechanism that winemakers in Burgundy and Priorat deliberately engineer — here, the geology provides it for free.</p>
+          <p>Thin rendzina soil, fast drainage, Mediterranean sun — the tree experiences mild water stress every summer. Brix (sugar concentration) rises. Valley fruit cannot match it. The same mechanism that winemakers in Burgundy and Priorat deliberately engineer — here, the geology provides it for free.</p>
         </div>
 
         <div class="science-card">
@@ -311,48 +554,138 @@
     </div>
   </section>
 
+  <!-- Season timeline -->
+  <section class="section season-section">
+    <div class="section-inner">
+      <div class="season-head">
+        <span class="eyebrow">Harvest Calendar</span>
+        <h2>October to July. Without a gap.</h2>
+      </div>
+      <div class="season-timeline">
+        <!-- Navelina: Oct–Jan -->
+        <div class="season-row">
+          <div class="season-label">
+            <strong>Navelina</strong>
+            <span>Oct – Jan</span>
+          </div>
+          <div class="season-bar-wrap">
+            <div class="season-months">
+              <!-- Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec -->
+              <div class="month-cell"></div><!-- Jan -->
+              <div class="month-cell"></div><!-- Feb -->
+              <div class="month-cell"></div><!-- Mar -->
+              <div class="month-cell"></div><!-- Apr -->
+              <div class="month-cell"></div><!-- May -->
+              <div class="month-cell"></div><!-- Jun -->
+              <div class="month-cell"></div><!-- Jul -->
+              <div class="month-cell"></div><!-- Aug -->
+              <div class="month-cell"></div><!-- Sep -->
+              <div class="month-cell peak"></div><!-- Oct -->
+              <div class="month-cell peak"></div><!-- Nov -->
+              <div class="month-cell active"></div><!-- Dec -->
+            </div>
+          </div>
+        </div>
+        <!-- Navelina Jan cont. + Navel Lane Late: Feb–May -->
+        <div class="season-row">
+          <div class="season-label">
+            <strong>Navel Lane Late</strong>
+            <span>Feb – May</span>
+          </div>
+          <div class="season-bar-wrap">
+            <div class="season-months">
+              <div class="month-cell active"></div><!-- Jan -->
+              <div class="month-cell peak"></div><!-- Feb -->
+              <div class="month-cell peak"></div><!-- Mar -->
+              <div class="month-cell peak"></div><!-- Apr -->
+              <div class="month-cell active"></div><!-- May -->
+              <div class="month-cell"></div><!-- Jun -->
+              <div class="month-cell"></div><!-- Jul -->
+              <div class="month-cell"></div><!-- Aug -->
+              <div class="month-cell"></div><!-- Sep -->
+              <div class="month-cell"></div><!-- Oct -->
+              <div class="month-cell"></div><!-- Nov -->
+              <div class="month-cell"></div><!-- Dec -->
+            </div>
+          </div>
+        </div>
+        <!-- Valencia Late: May–Jul -->
+        <div class="season-row">
+          <div class="season-label">
+            <strong>Valencia Late</strong>
+            <span>May – Jul</span>
+          </div>
+          <div class="season-bar-wrap">
+            <div class="season-months">
+              <div class="month-cell"></div><!-- Jan -->
+              <div class="month-cell"></div><!-- Feb -->
+              <div class="month-cell"></div><!-- Mar -->
+              <div class="month-cell"></div><!-- Apr -->
+              <div class="month-cell active"></div><!-- May -->
+              <div class="month-cell peak"></div><!-- Jun -->
+              <div class="month-cell peak"></div><!-- Jul -->
+              <div class="month-cell"></div><!-- Aug -->
+              <div class="month-cell"></div><!-- Sep -->
+              <div class="month-cell"></div><!-- Oct -->
+              <div class="month-cell"></div><!-- Nov -->
+              <div class="month-cell"></div><!-- Dec -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Month labels -->
+      <div class="months-legend">
+        <span>J</span><span>F</span><span>M</span><span>A</span><span>M</span><span>J</span>
+        <span>J</span><span>A</span><span>S</span><span>O</span><span>N</span><span>D</span>
+      </div>
+    </div>
+  </section>
+
   <!-- Three varieties -->
   <section class="section varieties-section">
     <div class="section-inner">
       <div class="varieties-head">
         <span class="eyebrow">Three Varieties</span>
-        <h2>October to June. Without a gap.</h2>
+        <h2>Each one chosen for when it ripens.</h2>
       </div>
       <div class="varieties-grid">
-
-        <!-- Clemenules -->
-        <div class="variety-card">
-          <div class="variety-header variety-header--clemenules">
-            <span class="season-badge">Oct – Dec</span>
-            <h3>Clemenules</h3>
-            <p class="variety-tagline-hero">The mandarin the world wants, right when it peaks.</p>
-          </div>
-          <div class="variety-body">
-            <p>The grove's most abundant variety. In strong seasons, over half grades CAT1 — the top commercial classification. Biennial rhythm: record harvest one year, quieter the next. On this hillside, the Brix is consistently higher than valley floor fruit — perceptible to any taster who eats both side by side.</p>
-          </div>
-        </div>
-
-        <!-- Lane-Late Navel -->
-        <div class="variety-card">
-          <div class="variety-header variety-header--lane-late">
-            <span class="season-badge">Apr – Jun</span>
-            <h3>Lane-Late Navel</h3>
-            <p class="variety-tagline-hero">The late one. Worth waiting for.</p>
-          </div>
-          <div class="variety-body">
-            <p>Arrives in April, alone in a market with fewer competitors. Five consecutive seasons of growing volume. Agronomic research on warming Mediterranean climates identifies late navels as a strategic variety — their harvest window shifts later, into space that earlier navels cannot fill. This hillside is positioned for it now.</p>
-          </div>
-        </div>
 
         <!-- Navelina -->
         <div class="variety-card">
           <div class="variety-header variety-header--navelina">
-            <span class="season-badge">Dec – Mar</span>
+            <span class="season-badge">Oct – Jan</span>
             <h3>Navelina</h3>
-            <p class="variety-tagline-hero">The classic. In recovery.</p>
+            <p class="variety-tagline-hero">First of the season. Sweet from the start.</p>
           </div>
           <div class="variety-body">
-            <p>300 trees on limestone, actively managed through diagnosis after the October 2024 DANA floods. When healthy — and these trees have been — they produce the most deeply flavoured fruit of the winter season. The diagnosis is underway. The second season is about acting on what was found.</p>
+            <p>The first orange of the new season, ready in October when most groves are still quiet. Sweet, easy to peel, reliably high Brix on this hillside — the limestone terroir does what warmer valley soils cannot.</p>
+            <p>The Navelina trees on the lower terraces took the brunt of the October 2024 DANA storm. They are being worked through systematically — diagnosed tree by tree, managed back to full health. The second season is about acting on what was found.</p>
+          </div>
+        </div>
+
+        <!-- Navel Lane Late -->
+        <div class="variety-card">
+          <div class="variety-header variety-header--lane-late">
+            <span class="season-badge">Feb – May</span>
+            <h3>Navel Lane Late</h3>
+            <p class="variety-tagline-hero">The late one. Worth waiting for.</p>
+          </div>
+          <div class="variety-body">
+            <p>Arrives in February and runs into May — alone in a market that most navels have already left. The longest-keeping navel variety, with five consecutive seasons of growing volume on this land. Planted on the upper terraces where drainage is sharpest.</p>
+            <p>Agronomic research on warming Mediterranean climates identifies late navels as strategically well-positioned: their harvest window shifts later as winters shorten, into space that earlier varieties cannot fill. This hillside is positioned for it now.</p>
+          </div>
+        </div>
+
+        <!-- Valencia Late -->
+        <div class="variety-card">
+          <div class="variety-header variety-header--valencia-late">
+            <span class="season-badge">May – Jul</span>
+            <h3>Valencia Late</h3>
+            <p class="variety-tagline-hero">The summer orange. Rare on the market.</p>
+          </div>
+          <div class="variety-body">
+            <p>The true summer orange — still ripening in June and July when every other variety has finished. Valencia Late is uncommon in Spanish groves precisely because it demands patience: the tree holds fruit through the heat, and only rewards you in the market window when competition has almost disappeared.</p>
+            <p>It completes the nine-month harvest calendar. From the first Navelina in October to the last Valencia Late in July — a single hillside, three varieties, fresh fruit every month of the year except August and September.</p>
           </div>
         </div>
 
@@ -360,11 +693,27 @@
     </div>
   </section>
 
+  <!-- Organic transition -->
+  <section class="section organic-section">
+    <div class="section-inner">
+      <span class="eyebrow">Going Organic</span>
+      <h2>Converting the grove — one season at a time.</h2>
+      <p>The grove is in transition to certified organic production under CAECV, the Valencian organic certification authority. The three-year conversion period, required under EU Regulation 2018/848 for perennial crops, begins when we register — which we are doing now.</p>
+      <p>From the second year of conversion, the fruit can carry the "en conversión a ecológico" label — a real quality signal, with a documented price premium in cooperative and direct channels. Full organic certification follows in the third year. Every input, every application, every soil reading is logged in a field diary from day one. The records are the proof.</p>
+      <p>The trees are old enough that the limestone terroir has been doing the work for decades. The certification makes it legible to the market.</p>
+      <p style="margin-top:1.75rem;">
+        <a href="blog/what-going-organic-actually-means.html" style="font-family:'Plus Jakarta Sans',sans-serif;font-size:0.88rem;font-weight:600;color:var(--earth-med);text-decoration:none;display:inline-flex;align-items:center;gap:0.4rem;">
+          Read the full story — what going organic actually means &rarr;
+        </a>
+      </p>
+    </div>
+  </section>
+
   <!-- CTA -->
   <section class="oranges-cta">
     <div class="oranges-cta-inner">
       <h2>Get the fruit.</h2>
-      <p>Own a tree and we deliver your oranges straight from the hillside — 20, 50, or 80 kg across the season, depending on your tier.</p>
+      <p>Own a tree and we deliver your oranges straight from the hillside — 25, 50, or 80 kg across the season, depending on your tier. Harvested to order. Delivered fresh.</p>
       <a href="fund.html" class="btn btn-primary" style="margin-bottom:1rem;display:inline-block;">Own a tree — from €99 / year</a>
       <p style="font-size:0.8rem;color:rgba(244,239,230,0.35);margin:0;">Trade or bulk enquiries — <a href="mailto:fincatariqa@gmail.com" style="color:rgba(244,239,230,0.5);">fincatariqa@gmail.com</a></p>
     </div>
@@ -376,7 +725,7 @@
       <div class="footer-brand">
         Finca Tariqa<br>Carcaixent, Valencia<br>Spain
       </div>
-            <ul class="footer-links">
+      <ul class="footer-links">
         <li><a href="oranges.html">Oranges</a></li>
         <li><a href="land.html">Land</a></li>
         <li><a href="forest.html">Forest</a></li>

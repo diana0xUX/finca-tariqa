@@ -4,243 +4,253 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Forest — Finca Tariqa</title>
-  <meta name="description" content="1.7 hectares of Franco-era Aleppo pine being cleared and replanted with Quercus ilex — the native holm oak of the western Mediterranean limestone. A 15-year transition.">
-  <!-- Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Finca Tariqa">
+  <meta name="description" content="1.7 hectares of Aleppo pine being cleared and replanted with Quercus ilex — the native holm oak of the western Mediterranean limestone.">
   <meta property="og:title" content="The Forest — Finca Tariqa">
-  <meta property="og:description" content="1.7 hectares of Franco-era Aleppo pine being cleared and replanted with Quercus ilex — the native holm oak of the western Mediterranean limestone. A 15-year transition.">
   <meta property="og:url" content="https://finca-tariqa.com/forest.html">
   <meta property="og:image" content="https://finca-tariqa.com/blog/images/cover-founder-story.jpg">
-  <meta property="og:image:alt" content="Holm oak forest restoration at Finca Tariqa, Carcaixent, Valencia">
-  <meta property="og:locale" content="en_GB">
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="The Forest — Finca Tariqa">
-  <meta name="twitter:description" content="1.7 hectares of Franco-era Aleppo pine being cleared and replanted with Quercus ilex — the native holm oak. A 15-year transition.">
-  <meta name="twitter:image" content="https://finca-tariqa.com/blog/images/cover-founder-story.jpg">
   <link rel="canonical" href="https://finca-tariqa.com/forest.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="style.css">
   <style>
-    /* ── Forest Hero ── */
+
+    /* ── Hero ── */
     .forest-hero {
-      background: var(--earth-mid);
+      background: var(--earth-dark);
       position: relative;
       overflow: hidden;
       min-height: 100vh;
       min-height: 100svh;
       display: flex;
       align-items: flex-end;
-      padding: calc(var(--nav-height) + 4rem) clamp(1.25rem, 6vw, 6rem) clamp(4rem, 8vw, 6rem);
+      padding: calc(var(--nav-height) + 4rem) clamp(1.25rem,6vw,6rem) clamp(4rem,8vw,6rem);
     }
-
     .forest-hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
+      content:'';
+      position:absolute;
+      inset:0;
       background:
-        radial-gradient(ellipse 80% 70% at 0% 100%, rgba(20, 31, 22, 0.7) 0%, transparent 60%),
-        radial-gradient(ellipse 60% 60% at 100% 0%, rgba(90, 143, 104, 0.15) 0%, transparent 65%),
-        radial-gradient(ellipse 40% 40% at 50% 50%, rgba(37, 60, 41, 0.3) 0%, transparent 70%);
-      pointer-events: none;
+        radial-gradient(ellipse 80% 60% at 80% 30%, rgba(58,102,69,0.22) 0%, transparent 65%),
+        radial-gradient(ellipse 50% 80% at 5% 85%, rgba(201,151,58,0.1) 0%, transparent 60%),
+        radial-gradient(ellipse 35% 50% at 50% 50%, rgba(37,60,41,0.4) 0%, transparent 70%);
+      pointer-events:none;
+    }
+    .forest-hero-inner { position:relative; z-index:1; max-width:740px; }
+    .forest-hero .eyebrow { color:var(--gold); opacity:.9; margin-bottom:1.25rem; }
+    .forest-hero h1 { color:var(--sand); font-size:clamp(2.8rem,5.5vw,4.8rem); line-height:1.08; margin-bottom:1.5rem; }
+    .forest-hero .lead { color:rgba(244,239,230,0.68); max-width:60ch; }
+
+    /* ── Facts strip ── */
+    .forest-facts { background:var(--earth-dark); padding:clamp(2rem,4vw,3rem) clamp(1.25rem,4vw,3rem); border-bottom:1px solid rgba(255,255,255,0.05); }
+    .forest-facts-inner { max-width:960px; margin:0 auto; display:grid; grid-template-columns:repeat(4,1fr); gap:2rem; }
+    .forest-fact { text-align:center; }
+    .forest-fact-value { font-family:'Lora',serif; font-size:clamp(1.6rem,3vw,2.2rem); font-weight:500; color:var(--earth-light); line-height:1; margin-bottom:.5rem; }
+    .forest-fact-label { font-family:'Plus Jakarta Sans',sans-serif; font-size:.75rem; font-weight:600; letter-spacing:.07em; text-transform:uppercase; color:rgba(244,239,230,.4); line-height:1.4; }
+
+    /* ── History section ── */
+    .history-section { background:var(--white); }
+    .history-section .section-inner { max-width:1000px; margin:0 auto; }
+    .history-text { max-width:72ch; }
+    .history-text .eyebrow { color:var(--earth-med); opacity:1; margin-bottom:.75rem; }
+    .history-text h2 { color:var(--ink); margin-bottom:1.5rem; }
+    .history-text p { color:var(--mid); margin-bottom:1.25rem; max-width:none; }
+    .history-text p:last-child { margin-bottom:0; }
+
+    /* ── SHOWDOWN infographic ── */
+    .showdown { background:var(--earth-dark); padding:0; overflow:hidden; }
+    .showdown-inner { max-width:1100px; margin:0 auto; padding:clamp(3rem,6vw,5rem) clamp(1.25rem,5vw,4rem); }
+    .showdown-header { text-align:center; margin-bottom:3rem; }
+    .showdown-header .eyebrow { color:var(--earth-light); opacity:1; margin-bottom:.75rem; }
+    .showdown-header h2 { color:var(--sand); }
+
+    .showdown-grid {
+      display:flex;
+      align-items:stretch;
+      gap:0;
+    }
+    .showdown-side {
+      flex:1;
+      min-width:0;
+      padding:2rem 2.5rem 2.5rem;
+      border-radius:var(--radius-lg);
+      display:flex;
+      flex-direction:column;
+      gap:1.5rem;
+    }
+    .showdown-vs {
+      width:60px;
+      flex-shrink:0;
+    }
+    .showdown-side--pine  { background:rgba(180,60,20,0.12); border:1px solid rgba(180,60,20,0.25); }
+    .showdown-side--oak   { background:rgba(58,102,69,0.18); border:1px solid rgba(90,143,104,0.3); }
+    .showdown-vs {
+      display:flex; align-items:center; justify-content:center;
+      font-family:'Lora',serif; font-size:1.1rem; font-weight:600;
+      color:rgba(244,239,230,.25); writing-mode:vertical-rl; letter-spacing:.15em;
+      width:60px; flex-shrink:0;
+    }
+    .showdown-tree-label {
+      font-family:'Plus Jakarta Sans',sans-serif; font-size:.65rem; font-weight:700;
+      letter-spacing:.14em; text-transform:uppercase; margin-bottom:-.5rem;
+    }
+    .showdown-side--pine .showdown-tree-label  { color:rgba(220,100,50,.8); }
+    .showdown-side--oak  .showdown-tree-label  { color:var(--earth-light); }
+    .showdown-tree-name { font-family:'Lora',serif; font-size:1.6rem; font-weight:500; color:var(--sand); line-height:1.1; }
+
+    /* SVG tree wrapper */
+    .tree-svg-wrap { display:flex; justify-content:center; padding:.5rem 0 1rem; }
+
+    /* stat rows */
+    .showdown-stats { display:flex; flex-direction:column; gap:.75rem; margin-top:auto; padding-top:.5rem; }
+    .showdown-stat {
+      display:flex; align-items:center; justify-content:space-between;
+      padding:.9rem 1.1rem; border-radius:8px; gap:1rem;
+    }
+    .showdown-side--pine .showdown-stat  { background:rgba(180,60,20,.1); }
+    .showdown-side--oak  .showdown-stat  { background:rgba(58,102,69,.2); }
+    .ss-label { font-family:'Plus Jakarta Sans',sans-serif; font-size:.78rem; font-weight:500; color:rgba(244,239,230,.55); }
+    .ss-value { font-family:'Plus Jakarta Sans',sans-serif; font-size:.82rem; font-weight:700; white-space:nowrap; }
+    .showdown-side--pine .ss-value { color:#e07050; }
+    .showdown-side--oak  .ss-value { color:#7abf8a; }
+
+    /* ── Root cross-section ── */
+    .roots-section { background:var(--sand); overflow:hidden; }
+    .roots-section .section-inner { max-width:960px; margin:0 auto; }
+    .roots-header { text-align:center; margin-bottom:2.5rem; }
+    .roots-header .eyebrow { color:var(--earth-med); opacity:1; margin-bottom:.75rem; }
+    .roots-header h2 { color:var(--ink); }
+    .roots-svg-wrap { width:100%; overflow:hidden; border-radius:var(--radius-lg); border:1px solid rgba(0,0,0,.08); }
+
+    /* ── Growth timeline ── */
+    .growth-section { background:var(--earth-dark); }
+    .growth-section .section-inner { max-width:1000px; margin:0 auto; }
+    .growth-header { text-align:center; margin-bottom:3.5rem; }
+    .growth-header .eyebrow { color:var(--earth-light); opacity:1; margin-bottom:.75rem; }
+    .growth-header h2 { color:var(--sand); }
+    .growth-track {
+      display:grid;
+      grid-template-columns:repeat(5,1fr);
+      gap:0;
+      align-items:flex-end;
+    }
+    /* floor line */
+    .growth-floor {
+      grid-column:1/-1;
+      height:1px;
+      background:rgba(255,255,255,.08);
+      margin:0 0 2.5rem;
+    }
+    .growth-step { display:flex; flex-direction:column; align-items:center; gap:0; padding:0 .75rem; }
+    .growth-bar-wrap {
+      display:flex; align-items:flex-end; justify-content:center;
+      height:160px; width:100%;
+      padding-bottom:0;
+    }
+    .growth-bar {
+      width:clamp(26px,3.5vw,40px);
+      border-radius:3px 3px 0 0;
+      background:linear-gradient(to top,
+        rgba(37,80,48,.6) 0%,
+        rgba(58,102,69,.75) 60%,
+        rgba(90,143,104,.9) 100%);
+      position:relative;
+      flex-shrink:0;
+    }
+    /* canopy glow at top */
+    .growth-bar::after {
+      content:'';
+      position:absolute;
+      top:-8px; left:50%;
+      transform:translateX(-50%);
+      width:180%;
+      height:16px;
+      background:radial-gradient(ellipse at center, rgba(90,143,104,.55) 0%, transparent 70%);
+      border-radius:50%;
+    }
+    .growth-step-divider {
+      width:1px; height:16px; background:rgba(255,255,255,.1); flex-shrink:0;
+    }
+    .growth-step-year {
+      font-family:'Plus Jakarta Sans',sans-serif; font-size:.7rem; font-weight:700;
+      letter-spacing:.1em; text-transform:uppercase; color:var(--gold);
+      margin-top:1rem; margin-bottom:.6rem;
+    }
+    .growth-step-label {
+      font-family:'Lora',serif; font-size:.78rem; color:rgba(244,239,230,.5);
+      text-align:center; line-height:1.45; max-width:9rem;
     }
 
-    .forest-hero-inner {
-      position: relative;
-      z-index: 1;
-      max-width: 740px;
+    /* ── Carbon build-up ── */
+    .carbon-section { background:var(--earth-dark); }
+    .carbon-section .section-inner { max-width:900px; margin:0 auto; }
+    .carbon-header { margin-bottom:3rem; }
+    .carbon-header .eyebrow { color:var(--earth-light); opacity:1; margin-bottom:.75rem; }
+    .carbon-header h2 { color:var(--sand); }
+    .carbon-chart { display:flex; flex-direction:column; gap:1rem; }
+    .carbon-bar-row { display:grid; grid-template-columns:90px 1fr 70px; gap:1rem; align-items:center; }
+    .cb-year { font-family:'Plus Jakarta Sans',sans-serif; font-size:.8rem; font-weight:700; color:var(--gold); text-align:right; }
+    .cb-track { background:rgba(255,255,255,.06); border-radius:999px; height:22px; overflow:hidden; position:relative; }
+    .cb-fill {
+      height:100%; border-radius:999px;
+      background:linear-gradient(90deg, rgba(90,143,104,.5), var(--earth-light));
+      position:relative;
+      transition: width 1s ease;
+    }
+    .cb-fill::after {
+      content:''; position:absolute; top:0; right:0; bottom:0; width:40px;
+      background:linear-gradient(90deg, transparent, rgba(255,255,255,.15));
+      border-radius:0 999px 999px 0;
+    }
+    .cb-val { font-family:'Lora',serif; font-size:.88rem; font-weight:500; color:var(--earth-light); text-align:right; white-space:nowrap; }
+    .carbon-note { margin-top:2rem; font-size:.8rem; color:rgba(244,239,230,.35); line-height:1.6; }
+    .carbon-verification { margin-top:2.5rem; display:flex; gap:1rem; flex-wrap:wrap; }
+    .cv-pill {
+      background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.09);
+      border-radius:999px; padding:.4rem 1rem;
+      font-family:'Plus Jakarta Sans',sans-serif; font-size:.72rem; font-weight:600;
+      letter-spacing:.05em; color:rgba(244,239,230,.5);
     }
 
-    .forest-hero .eyebrow {
-      color: var(--earth-light);
-      opacity: 1;
-      margin-bottom: 1.25rem;
-    }
+    /* ── Measure table ── */
+    .measure-section { background:var(--sand); }
+    .measure-section .section-inner { max-width:900px; margin:0 auto; }
+    .measure-section .eyebrow { color:var(--earth-med); opacity:1; margin-bottom:.75rem; }
+    .measure-section h2 { color:var(--ink); margin-bottom:2.5rem; }
+    .measure-rows { display:flex; flex-direction:column; gap:0; border:1px solid rgba(0,0,0,.08); border-radius:var(--radius-lg); overflow:hidden; }
+    .measure-row { display:grid; grid-template-columns:44px 1fr 160px; align-items:stretch; border-bottom:1px solid rgba(0,0,0,.06); background:var(--white); }
+    .measure-row:last-child { border-bottom:none; }
+    .measure-icon { background:var(--sand); border-right:1px solid rgba(0,0,0,.06); display:flex; align-items:center; justify-content:center; font-size:1.1rem; }
+    .measure-body { padding:1.1rem 1.25rem; }
+    .measure-body strong { display:block; font-family:'Plus Jakarta Sans',sans-serif; font-size:.88rem; font-weight:600; color:var(--ink); margin-bottom:.25rem; }
+    .measure-body p { font-size:.82rem; color:var(--mid); line-height:1.5; margin:0; }
+    .measure-when { padding:1.1rem 1.25rem; font-family:'Lora',serif; font-size:.82rem; color:var(--gold); border-left:1px solid rgba(0,0,0,.06); display:flex; align-items:center; line-height:1.4; }
 
-    .forest-hero h1 {
-      color: var(--sand);
-      font-size: clamp(2.8rem, 5.5vw, 4.8rem);
-      line-height: 1.08;
-      margin-bottom: 1.5rem;
-    }
+    /* ── CTA ── */
+    .forest-cta { background:var(--earth-mid); padding:clamp(3.5rem,7vw,6rem) clamp(1.25rem,4vw,3rem); text-align:center; position:relative; overflow:hidden; }
+    .forest-cta::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 60% 80% at 50% 50%, rgba(90,143,104,.12), transparent 65%); pointer-events:none; }
+    .forest-cta-inner { position:relative; z-index:1; max-width:540px; margin:0 auto; }
+    .forest-cta h2 { color:var(--sand); margin-bottom:.75rem; font-size:clamp(1.8rem,3.5vw,2.4rem); }
+    .forest-cta p { color:rgba(244,239,230,.6); margin:0 auto 2rem; }
+    .btn-ghost { display:inline-block; padding:.75rem 1.5rem; border:1px solid rgba(244,239,230,.25); border-radius:var(--radius-sm); color:rgba(244,239,230,.75); font-family:'Plus Jakarta Sans',sans-serif; font-size:.88rem; font-weight:500; text-decoration:none; margin-left:.75rem; }
 
-    .forest-hero .lead {
-      color: rgba(244, 239, 230, 0.65);
-      max-width: 60ch;
+    @media (max-width:900px) {
+      .forest-facts-inner { grid-template-columns:repeat(2,1fr); }
+      .showdown-grid { flex-direction:column; }
+      .showdown-vs { width:auto; writing-mode:horizontal-tb; padding:.5rem; }
+      .growth-track { grid-template-columns:repeat(3,1fr); }
+      .growth-bar-wrap { height:120px; }
+      .carbon-bar-row { grid-template-columns:60px 1fr 55px; }
+      .measure-row { grid-template-columns:44px 1fr; }
+      .measure-when { display:none; }
     }
-
-    /* ── Why section ── */
-    .why-section {
-      background: var(--white);
-    }
-
-    .why-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: clamp(2.5rem, 5vw, 4.5rem);
-      align-items: start;
-    }
-
-    .why-text .eyebrow {
-      color: var(--earth-med);
-      opacity: 1;
-      margin-bottom: 0.75rem;
-    }
-
-    .why-text h2 {
-      color: var(--ink);
-      margin-bottom: 2rem;
-    }
-
-    .why-text p {
-      color: var(--mid);
-      margin-bottom: 1.25rem;
-      max-width: none;
-    }
-
-    /* Timeline panel */
-    .timeline-panel {
-      background: var(--earth-dark);
-      border-radius: var(--radius-xl);
-      padding: 2.5rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .timeline-panel::before {
-      content: '';
-      position: absolute;
-      top: -40px;
-      right: -40px;
-      width: 180px;
-      height: 180px;
-      background: radial-gradient(circle, rgba(201, 151, 58, 0.1), transparent 70%);
-      border-radius: 50%;
-      pointer-events: none;
-    }
-
-    .timeline-panel-label {
-      font-size: 0.68rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: rgba(244,239,230,0.4);
-      margin-bottom: 2rem;
-    }
-
-    .timeline-steps {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-    }
-
-    .timeline-step {
-      display: flex;
-      gap: 1.25rem;
-      padding: 1.25rem 0;
-      border-bottom: 1px solid rgba(244,239,230,0.07);
-      align-items: flex-start;
-    }
-
-    .timeline-step:last-child {
-      border-bottom: none;
-      padding-bottom: 0;
-    }
-
-    .timeline-year {
-      font-family: 'Lora', serif;
-      font-size: 0.78rem;
-      font-weight: 600;
-      color: var(--gold);
-      min-width: 54px;
-      padding-top: 0.1rem;
-      flex-shrink: 0;
-    }
-
-    .timeline-step-content strong {
-      display: block;
-      font-size: 0.88rem;
-      font-weight: 600;
-      color: var(--sand);
-      margin-bottom: 0.3rem;
-    }
-
-    .timeline-step-content p {
-      font-size: 0.82rem;
-      color: rgba(244,239,230,0.55);
-      line-height: 1.6;
-      max-width: none;
-    }
-
-    /* ── Carbon section ── */
-    .carbon-section {
-      background: var(--sand);
-    }
-
-    .carbon-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: clamp(2.5rem, 5vw, 5rem);
-      align-items: start;
-    }
-
-    .carbon-text .eyebrow {
-      color: var(--earth-med);
-      opacity: 1;
-      margin-bottom: 0.75rem;
-    }
-
-    .carbon-text h2 {
-      color: var(--ink);
-      margin-bottom: 2rem;
-    }
-
-    .carbon-text p {
-      color: var(--mid);
-      max-width: none;
-    }
-
-    .carbon-numbers {
-      display: flex;
-      flex-direction: column;
-      gap: 1.25rem;
-    }
-
-    .carbon-number-item {
-      padding: 1.5rem;
-      background: var(--white);
-      border-radius: var(--radius-md);
-      border-left: 3px solid var(--earth-med);
-    }
-
-    .carbon-number-item .value {
-      font-family: 'Lora', serif;
-      font-size: clamp(1.4rem, 2.5vw, 1.9rem);
-      font-weight: 600;
-      color: var(--earth-dark);
-      display: block;
-      margin-bottom: 0.3rem;
-    }
-
-    .carbon-number-item .label {
-      font-size: 0.78rem;
-      color: var(--mid);
-      opacity: 0.7;
-    }
-
-    @media (max-width: 900px) {
-      .why-grid,
-      .carbon-grid {
-        grid-template-columns: 1fr;
-      }
+    @media (max-width:580px) {
+      .growth-track { grid-template-columns:repeat(2,1fr); }
+      .growth-bar-wrap { height:90px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Navigation -->
   <nav class="nav">
     <a href="index.html" class="nav-logo">Finca Tariqa</a>
     <ul class="nav-links" id="main-nav">
@@ -260,60 +270,189 @@
   <!-- Hero -->
   <section class="forest-hero">
     <div class="forest-hero-inner">
-      <span class="eyebrow">The Forest</span>
-      <h1>Replacing fire risk with deep roots.</h1>
-      <p class="lead">1.7 hectares of Franco-era Aleppo pine are being cleared and replanted with Quercus ilex — the native holm oak of the western Mediterranean limestone. A 15-year transition that changes the ecology of the hillside.</p>
+      <span class="eyebrow">The Forest · 1.7 hectares</span>
+      <h1>Replacing fire risk<br>with deep roots.</h1>
+      <p class="lead">The Aleppo pine on this hillside is the wrong tree in the wrong place — fire-prone, shallow-rooted, foreign to limestone. We are replacing it with Quercus ilex, the native holm oak of the western Mediterranean. A long transition that changes everything about this hillside.</p>
     </div>
   </section>
 
-  <!-- Why section -->
-  <section class="section why-section">
-    <div class="section-inner">
-      <div class="why-grid">
+  <!-- Facts strip -->
+  <section class="forest-facts">
+    <div class="forest-facts-inner">
+      <div class="forest-fact">
+        <div class="forest-fact-value">1.7 ha</div>
+        <div class="forest-fact-label">In transition</div>
+      </div>
+      <div class="forest-fact">
+        <div class="forest-fact-value">2026</div>
+        <div class="forest-fact-label">First plantings</div>
+      </div>
+      <div class="forest-fact">
+        <div class="forest-fact-value">~2028</div>
+        <div class="forest-fact-label">EU carbon market opens</div>
+      </div>
+      <div class="forest-fact">
+        <div class="forest-fact-value">1–5 t</div>
+        <div class="forest-fact-label">CO₂/ha/yr sequestration</div>
+      </div>
+    </div>
+  </section>
 
-        <div class="why-text">
-          <span class="eyebrow">Why</span>
-          <h2>The wrong tree, for 70 years.</h2>
-          <p>Aleppo pine was planted across Valencia's hillsides in the 1950s and 60s under Franco's reforestation programme, primarily to stop erosion. It worked. The trees are now mature, highly flammable, and ecologically foreign to this substrate.</p>
-          <p>Quercus ilex — holm oak, alzina — is the native climax species for this elevation, aspect, and limestone substrate. It lives for 700 years. It does not burn the way Aleppo pine does. And it is beginning to regenerate naturally in the gaps where the pine canopy opens.</p>
+  <!-- ── History ── -->
+  <section class="section history-section">
+    <div class="section-inner">
+      <div class="history-text">
+          <span class="eyebrow">How the pines got here</span>
+          <h2>A 1950s decision we are still living with.</h2>
+          <p>In the 1950s, Francisco Franco's regime launched the Patrimonio Forestal del Estado — one of the largest reforestation programmes in European history. The goal was legitimate: decades of deforestation had left Spanish hillsides bare and eroding. Over three billion trees were planted across the country.</p>
+          <p>On this hillside, the programme chose Aleppo pine. It grows fast in thin soils, which made it effective at stopping erosion quickly. What it could not do was belong here. This limestone slope is holm oak territory — a species with deep roots, low fire risk, and a relationship with the soil that Aleppo pine never built. The pine displaced what was already beginning to grow back naturally.</p>
+          <p>Seventy years later, the trees are mature, resinous, and highly flammable — sitting directly above orange groves that took decades to establish. The holm oak has been pushing back slowly in the gaps where the pine canopy opens. We are accelerating that process: clearing pine section by section, planting Quercus ilex, and letting the hillside return to what it was always trying to become.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SHOWDOWN infographic ── -->
+  <section class="section showdown">
+    <div class="showdown-inner">
+      <div class="showdown-header">
+        <span class="eyebrow">The switch</span>
+        <h2>Pine vs Oak — why it matters.</h2>
+      </div>
+
+      <div class="showdown-grid">
+
+        <!-- Pine side -->
+        <div class="showdown-side showdown-side--pine">
+          <div>
+            <div class="showdown-tree-label">Going out</div>
+            <div class="showdown-tree-name">Aleppo Pine<br><em style="font-size:.9rem;color:rgba(244,239,230,.4);font-style:italic;">Pinus halepensis</em></div>
+          </div>
+          <div class="tree-svg-wrap">
+            <img src="forest-pine-photo.jpg" alt="Aleppo pine — Pinus halepensis, Mediterranean coast" style="width:100%;border-radius:10px;display:block;object-fit:cover;max-height:280px;">
+            <svg style="display:none" width="140" height="200" viewBox="0 0 140 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- trunk — tapered -->
+              <path d="M64 200 Q66 178 67 162 L73 162 Q74 178 76 200 Z" fill="#6a3a18" opacity=".88"/>
+              <!-- crown tier 4 — widest, very jagged -->
+              <path d="M70,78 L76,90 L82,78 L89,94 L96,82 L106,100 L110,88 L120,112 L113,120 L120,136 L112,128 L116,154 L24,154 L28,128 L20,136 L27,120 L20,112 L30,88 L34,100 L44,82 L51,94 L58,78 L64,90 Z" fill="#8a4e26" opacity=".52"/>
+              <!-- crown tier 3 -->
+              <path d="M70,52 L75,63 L80,52 L87,67 L93,55 L102,73 L106,62 L114,82 L108,90 L114,106 L106,99 L110,118 L30,118 L34,99 L26,106 L32,90 L26,82 L34,62 L38,73 L47,55 L53,67 L60,52 L65,63 Z" fill="#a05c30" opacity=".57"/>
+              <!-- crown tier 2 -->
+              <path d="M70,28 L74,39 L79,28 L85,43 L90,32 L98,50 L102,40 L109,60 L104,68 L109,82 L31,82 L36,68 L31,60 L38,40 L42,50 L50,32 L55,43 L61,28 L66,39 Z" fill="#b86c35" opacity=".61"/>
+              <!-- crown tier 1 — top -->
+              <path d="M70,8 L74,20 L78,10 L83,24 L87,14 L94,32 L90,40 L95,54 L45,54 L50,40 L46,32 L53,14 L57,24 L62,10 L66,20 Z" fill="#cc7a3c" opacity=".67"/>
+              <!-- needle tips left -->
+              <line x1="46" y1="102" x2="26" y2="90" stroke="#8a4e26" stroke-width="1.4" stroke-linecap="round" opacity=".55"/>
+              <line x1="46" y1="102" x2="22" y2="104" stroke="#8a4e26" stroke-width="1" stroke-linecap="round" opacity=".4"/>
+              <line x1="42" y1="78" x2="24" y2="67" stroke="#a05c30" stroke-width="1.4" stroke-linecap="round" opacity=".5"/>
+              <line x1="42" y1="78" x2="20" y2="80" stroke="#a05c30" stroke-width="1" stroke-linecap="round" opacity=".38"/>
+              <!-- needle tips right -->
+              <line x1="94" y1="102" x2="114" y2="90" stroke="#8a4e26" stroke-width="1.4" stroke-linecap="round" opacity=".55"/>
+              <line x1="94" y1="102" x2="118" y2="104" stroke="#8a4e26" stroke-width="1" stroke-linecap="round" opacity=".4"/>
+              <line x1="98" y1="78" x2="116" y2="67" stroke="#a05c30" stroke-width="1.4" stroke-linecap="round" opacity=".5"/>
+              <line x1="98" y1="78" x2="120" y2="80" stroke="#a05c30" stroke-width="1" stroke-linecap="round" opacity=".38"/>
+              <!-- warmth glow at base -->
+              <ellipse cx="70" cy="154" rx="44" ry="10" fill="rgba(200,70,15,.1)"/>
+            </svg>
+          </div>
+          <p style="font-family:'Lora',serif;font-size:.88rem;line-height:1.7;color:rgba(244,239,230,.65);margin:-.25rem 0 .25rem;">
+            Aleppo pine moved in after the original holm oak was cleared. It grows fast and burns easily — resin-soaked wood, shallow roots, no soil benefit. A placeholder, not a permanent species. Above orange groves, it is a fire risk we cannot afford.
+          </p>
+          <div class="showdown-stats">
+            <div class="showdown-stat">
+              <span class="ss-label">🔥 Fire risk</span>
+              <span class="ss-value">Very high</span>
+            </div>
+            <div class="showdown-stat">
+              <span class="ss-label">🌱 Native to limestone</span>
+              <span class="ss-value">No</span>
+            </div>
+            <div class="showdown-stat">
+              <span class="ss-label">🌿 Root depth</span>
+              <span class="ss-value">Shallow</span>
+            </div>
+            <div class="showdown-stat">
+              <span class="ss-label">💨 Carbon storage</span>
+              <span class="ss-value">Low</span>
+            </div>
+            <div class="showdown-stat">
+              <span class="ss-label">🍄 Soil biodiversity</span>
+              <span class="ss-value">Poor</span>
+            </div>
+          </div>
         </div>
 
-        <div class="timeline-panel">
-          <div class="timeline-panel-label">The transition — 2026 to 2040+</div>
-          <div class="timeline-steps">
+        <div class="showdown-vs">VS</div>
 
-            <div class="timeline-step">
-              <span class="timeline-year">2026</span>
-              <div class="timeline-step-content">
-                <strong>Forest management plan in preparation.</strong>
-                <p>PTGFS submission targeted Q4 2026. First clearing phase planned for Nov–Jan window.</p>
-              </div>
+        <!-- Oak side -->
+        <div class="showdown-side showdown-side--oak">
+          <div>
+            <div class="showdown-tree-label">Coming in</div>
+            <div class="showdown-tree-name">Holm Oak<br><em style="font-size:.9rem;color:rgba(244,239,230,.4);font-style:italic;">Quercus ilex</em></div>
+          </div>
+          <div class="tree-svg-wrap">
+            <img src="forest-oak-photo.jpg" alt="Mature holm oak — Quercus ilex" style="width:100%;border-radius:10px;display:block;object-fit:cover;max-height:280px;">
+            <svg style="display:none" width="140" height="200" viewBox="0 0 140 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- trunk — wide, gnarled -->
+              <path d="M57 200 Q60 180 62 162 Q66 155 74 155 Q78 162 80 180 L83 200 Z" fill="#3d2510" opacity=".92"/>
+              <!-- main branches -->
+              <path d="M68 168 Q52 158 36 145" stroke="#3d2510" stroke-width="6" stroke-linecap="round" fill="none" opacity=".62"/>
+              <path d="M72 165 Q88 153 104 140" stroke="#3d2510" stroke-width="5" stroke-linecap="round" fill="none" opacity=".56"/>
+              <path d="M70 162 Q70 148 70 130" stroke="#3d2510" stroke-width="7" stroke-linecap="round" fill="none" opacity=".5"/>
+              <!-- sub-branches -->
+              <path d="M36 145 Q22 132 18 120" stroke="#3d2510" stroke-width="3" stroke-linecap="round" fill="none" opacity=".45"/>
+              <path d="M104 140 Q118 128 122 116" stroke="#3d2510" stroke-width="3" stroke-linecap="round" fill="none" opacity=".45"/>
+              <!-- deep shadow base -->
+              <ellipse cx="70" cy="108" rx="64" ry="58" fill="#132a1a" opacity=".68"/>
+              <!-- lower canopy masses -->
+              <ellipse cx="28" cy="126" rx="32" ry="28" fill="#1c3c26" opacity=".72"/>
+              <ellipse cx="112" cy="122" rx="30" ry="26" fill="#1c3c26" opacity=".68"/>
+              <ellipse cx="70" cy="134" rx="44" ry="25" fill="#213e2a" opacity=".64"/>
+              <!-- mid canopy -->
+              <ellipse cx="70" cy="94" rx="58" ry="52" fill="#265a34" opacity=".65"/>
+              <ellipse cx="34" cy="108" rx="38" ry="32" fill="#2c6238" opacity=".62"/>
+              <ellipse cx="106" cy="104" rx="36" ry="30" fill="#2c6238" opacity=".58"/>
+              <!-- upper irregular blob -->
+              <path d="M70,34 C56,22 22,38 18,66 C14,90 30,118 52,122 C62,124 66,114 70,117 C74,114 78,124 88,122 C110,118 126,90 122,66 C118,38 84,22 70,34 Z" fill="#347244" opacity=".64"/>
+              <!-- bright mid -->
+              <ellipse cx="46" cy="72" rx="28" ry="24" fill="#3e8050" opacity=".62"/>
+              <ellipse cx="94" cy="68" rx="26" ry="22" fill="#3e8050" opacity=".58"/>
+              <ellipse cx="70" cy="58" rx="30" ry="24" fill="#4e9060" opacity=".65"/>
+              <!-- top highlights -->
+              <ellipse cx="54" cy="48" rx="20" ry="17" fill="#5eaa70" opacity=".60"/>
+              <ellipse cx="86" cy="44" rx="18" ry="15" fill="#5eaa70" opacity=".56"/>
+              <ellipse cx="70" cy="36" rx="18" ry="15" fill="#6ebc80" opacity=".60"/>
+              <ellipse cx="65" cy="28" rx="12" ry="10" fill="#80cc90" opacity=".52"/>
+              <!-- catchlight -->
+              <ellipse cx="50" cy="54" rx="9" ry="7" fill="rgba(180,248,160,.16)"/>
+              <!-- acorn dots -->
+              <circle cx="28" cy="118" r="2.5" fill="#6ebc80" opacity=".42"/>
+              <circle cx="110" cy="114" r="2.2" fill="#6ebc80" opacity=".38"/>
+            </svg>
+          </div>
+          <p style="font-family:'Lora',serif;font-size:.88rem;line-height:1.7;color:rgba(244,239,230,.65);margin:-.25rem 0 .25rem;">
+            Quercus ilex is the climax species of this limestone hillside — the tree this land has been trying to grow for thousands of years. Deep taproot through karst. Leathery leaves that resist drought and fire. Soil carbon the pine never built. It does not need managing. It needs planting.
+          </p>
+          <div class="showdown-stats">
+            <div class="showdown-stat">
+              <span class="ss-label">🔥 Fire risk</span>
+              <span class="ss-value">Low</span>
             </div>
-
-            <div class="timeline-step">
-              <span class="timeline-year">2027</span>
-              <div class="timeline-step-content">
-                <strong>First Quercus ilex planting.</strong>
-                <p>800 native plants/ha. Drip-supported for 4 years of establishment.</p>
-              </div>
+            <div class="showdown-stat">
+              <span class="ss-label">🌱 Native to limestone</span>
+              <span class="ss-value">Yes — climax species</span>
             </div>
-
-            <div class="timeline-step">
-              <span class="timeline-year">2030</span>
-              <div class="timeline-step-content">
-                <strong>Soil carbon baseline verifiable.</strong>
-                <p>EU carbon market opens. Documented management ready to monetise.</p>
-              </div>
+            <div class="showdown-stat">
+              <span class="ss-label">🌿 Root depth</span>
+              <span class="ss-value">Deep</span>
             </div>
-
-            <div class="timeline-step">
-              <span class="timeline-year">2040+</span>
-              <div class="timeline-step-content">
-                <strong>Mature holm oak woodland.</strong>
-                <p>Self-sustaining. Carbon-certified. The landscape this hillside was always building toward.</p>
-              </div>
+            <div class="showdown-stat">
+              <span class="ss-label">💨 Carbon storage</span>
+              <span class="ss-value">High — wood + soil</span>
             </div>
-
+            <div class="showdown-stat">
+              <span class="ss-label">🍄 Soil biodiversity</span>
+              <span class="ss-value">Rich mycorrhizal network</span>
+            </div>
           </div>
         </div>
 
@@ -321,43 +460,403 @@
     </div>
   </section>
 
-  <!-- Carbon section -->
+  <!-- ── Root cross-section SVG ── -->
+  <section class="section roots-section">
+    <div class="section-inner">
+      <div class="roots-header">
+        <span class="eyebrow">Underground</span>
+        <h2>Where the difference really is.</h2>
+        <p style="font-family:'Lora',serif;font-size:1rem;line-height:1.75;color:var(--mid);max-width:62ch;margin:1.25rem auto 0;">Aleppo pine roots stay in the topsoil — shallow, lateral, gone at 40 cm. They hold the surface but do nothing below it. Holm oak drives a single taproot straight through the subsoil and into the limestone, following cracks to water three metres down. That root is what builds drought resilience, carbon depth, and soil structure that outlasts the tree itself.</p>
+      </div>
+      <div class="roots-svg-wrap">
+        <img src="forest-roots-final.png" alt="Root cross-section — Aleppo pine shallow lateral roots vs holm oak deep taproot through limestone" style="display:block;width:100%;height:auto;border-radius:var(--radius-lg);">
+        <svg style="display:none" viewBox="0 0 900 500" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <!-- limestone crack texture -->
+            <pattern id="limestone-cracks" x="0" y="0" width="60" height="40" patternUnits="userSpaceOnUse">
+              <line x1="0" y1="12" x2="20" y2="28" stroke="#b8b0a0" stroke-width="0.8" opacity=".5"/>
+              <line x1="20" y1="28" x2="45" y2="18" stroke="#b8b0a0" stroke-width="0.8" opacity=".5"/>
+              <line x1="45" y1="18" x2="60" y2="32" stroke="#b8b0a0" stroke-width="0.8" opacity=".4"/>
+              <line x1="8" y1="0" x2="18" y2="20" stroke="#b8b0a0" stroke-width="0.6" opacity=".4"/>
+              <line x1="35" y1="5" x2="28" y2="38" stroke="#b8b0a0" stroke-width="0.6" opacity=".35"/>
+            </pattern>
+          </defs>
+
+          <!-- ── SOIL LAYERS ── -->
+          <!-- Topsoil -->
+          <rect x="0" y="220" width="900" height="70" fill="#7a5236" opacity=".22"/>
+          <!-- Subsoil -->
+          <rect x="0" y="290" width="900" height="90" fill="#b89060" opacity=".20"/>
+          <!-- Limestone -->
+          <rect x="0" y="380" width="900" height="120" fill="#d0c8b4" opacity=".55"/>
+          <rect x="0" y="380" width="900" height="120" fill="url(#limestone-cracks)"/>
+
+          <!-- Layer labels -->
+          <text x="16" y="262" font-family="'Plus Jakarta Sans',sans-serif" font-size="10" font-weight="700" fill="#7a5236" letter-spacing="2" opacity=".7">TOPSOIL</text>
+          <text x="16" y="340" font-family="'Plus Jakarta Sans',sans-serif" font-size="10" font-weight="700" fill="#9a7848" letter-spacing="2" opacity=".6">SUBSOIL</text>
+          <text x="16" y="418" font-family="'Plus Jakarta Sans',sans-serif" font-size="10" font-weight="700" fill="#9a9080" letter-spacing="2" opacity=".6">LIMESTONE</text>
+
+          <!-- Ground surface line -->
+          <rect x="0" y="212" width="900" height="10" fill="#5a8040" opacity=".3"/>
+          <!-- Grass texture -->
+          <line x1="30"  y1="212" x2="26"  y2="200" stroke="#5a8040" stroke-width="1.5" opacity=".4"/>
+          <line x1="60"  y1="212" x2="64"  y2="200" stroke="#5a8040" stroke-width="1.5" opacity=".4"/>
+          <line x1="100" y1="212" x2="96"  y2="199" stroke="#5a8040" stroke-width="1.5" opacity=".35"/>
+          <line x1="145" y1="212" x2="149" y2="201" stroke="#5a8040" stroke-width="1.5" opacity=".4"/>
+          <line x1="190" y1="212" x2="186" y2="200" stroke="#5a8040" stroke-width="1.5" opacity=".35"/>
+          <line x1="310" y1="212" x2="314" y2="200" stroke="#5a8040" stroke-width="1.5" opacity=".4"/>
+          <line x1="370" y1="212" x2="366" y2="200" stroke="#5a8040" stroke-width="1.5" opacity=".35"/>
+          <line x1="530" y1="212" x2="534" y2="200" stroke="#5a8040" stroke-width="1.5" opacity=".4"/>
+          <line x1="590" y1="212" x2="586" y2="200" stroke="#5a8040" stroke-width="1.5" opacity=".35"/>
+          <line x1="640" y1="212" x2="644" y2="200" stroke="#5a8040" stroke-width="1.5" opacity=".4"/>
+          <line x1="720" y1="212" x2="716" y2="200" stroke="#5a8040" stroke-width="1.5" opacity=".35"/>
+          <line x1="800" y1="212" x2="804" y2="201" stroke="#5a8040" stroke-width="1.5" opacity=".4"/>
+          <line x1="860" y1="212" x2="856" y2="200" stroke="#5a8040" stroke-width="1.5" opacity=".35"/>
+
+          <!-- Centre divider -->
+          <line x1="450" y1="0" x2="450" y2="500" stroke="rgba(0,0,0,.08)" stroke-width="1" stroke-dasharray="5,4"/>
+
+          <!-- ═══════════════════════════════
+               PINE SIDE — LEFT (x centre 225)
+          ════════════════════════════════ -->
+          <text x="225" y="22" font-family="'Plus Jakarta Sans',sans-serif" font-size="11" font-weight="700" fill="#a05830" text-anchor="middle" letter-spacing="1.5" opacity=".85">ALEPPO PINE</text>
+
+          <!-- Pine silhouette — triangular tiers -->
+          <path d="M225,30 L230,44 L235,34 L241,50 L246,38 L255,58 L258,46 L268,70 L262,78 L270,96 L264,90 L270,112 L264,105 L268,130 L182,130 L186,105 L180,112 L186,90 L180,96 L188,78 L182,70 L192,46 L195,58 L204,38 L209,50 L215,34 L220,44 Z" fill="#b86835" opacity=".5"/>
+          <path d="M225,48 L230,60 L234,51 L240,65 L244,54 L252,72 L255,62 L263,82 L258,90 L264,108 L186,108 L192,90 L187,82 L195,62 L198,72 L206,54 L210,65 L216,51 L220,60 Z" fill="#c87840" opacity=".52"/>
+          <path d="M225,72 L229,82 L233,73 L238,86 L242,76 L248,92 L244,100 L248,118 L202,118 L206,100 L202,92 L208,76 L212,86 L217,73 L221,82 Z" fill="#d88840" opacity=".48"/>
+          <!-- Pine trunk -->
+          <rect x="219" y="122" width="12" height="94" rx="3" fill="#7a4a28" opacity=".75"/>
+
+          <!-- PINE ROOTS — shallow, spreading laterally, CONFINED TO TOPSOIL (y 220–280) -->
+          <!-- Main lateral root left -->
+          <path d="M225,222 Q200,226 170,228 Q145,230 118,234" stroke="#a06030" stroke-width="3" stroke-linecap="round" fill="none" opacity=".7"/>
+          <!-- Main lateral root right -->
+          <path d="M225,222 Q250,226 280,229 Q305,232 332,236" stroke="#a06030" stroke-width="3" stroke-linecap="round" fill="none" opacity=".7"/>
+          <!-- Secondary root left -->
+          <path d="M225,230 Q196,236 165,242 Q140,246 108,248" stroke="#a06030" stroke-width="2" stroke-linecap="round" fill="none" opacity=".55"/>
+          <!-- Secondary root right -->
+          <path d="M225,230 Q256,237 288,243 Q314,248 344,252" stroke="#a06030" stroke-width="2" stroke-linecap="round" fill="none" opacity=".55"/>
+          <!-- Thin rootlets left -->
+          <path d="M170,228 Q155,232 138,242" stroke="#a06030" stroke-width="1.2" stroke-linecap="round" fill="none" opacity=".45"/>
+          <path d="M145,234 Q130,238 114,246" stroke="#a06030" stroke-width="1" stroke-linecap="round" fill="none" opacity=".38"/>
+          <path d="M118,234 Q102,238 88,244" stroke="#a06030" stroke-width="0.9" stroke-linecap="round" fill="none" opacity=".32"/>
+          <!-- Thin rootlets right -->
+          <path d="M280,229 Q298,234 316,242" stroke="#a06030" stroke-width="1.2" stroke-linecap="round" fill="none" opacity=".45"/>
+          <path d="M305,232 Q322,238 340,246" stroke="#a06030" stroke-width="1" stroke-linecap="round" fill="none" opacity=".38"/>
+          <path d="M332,236 Q348,240 362,248" stroke="#a06030" stroke-width="0.9" stroke-linecap="round" fill="none" opacity=".32"/>
+          <!-- Downward tap NO deeper than topsoil -->
+          <path d="M225,222 L225,270" stroke="#a06030" stroke-width="2.5" stroke-linecap="round" fill="none" opacity=".5"/>
+          <!-- Rootlet tips ending at topsoil bottom -->
+          <line x1="165" y1="242" x2="162" y2="270" stroke="#a06030" stroke-width="1" stroke-linecap="round" opacity=".3"/>
+          <line x1="288" y1="243" x2="291" y2="268" stroke="#a06030" stroke-width="1" stroke-linecap="round" opacity=".3"/>
+
+          <!-- Pine depth marker -->
+          <line x1="72" y1="220" x2="72" y2="272" stroke="#a06030" stroke-width="1.2" stroke-dasharray="3,3" opacity=".6"/>
+          <line x1="66" y1="220" x2="78" y2="220" stroke="#a06030" stroke-width="1.2" opacity=".6"/>
+          <line x1="66" y1="272" x2="78" y2="272" stroke="#a06030" stroke-width="1.2" opacity=".6"/>
+          <text x="58" y="250" font-family="'Plus Jakarta Sans',sans-serif" font-size="9" fill="#a06030" text-anchor="middle" font-weight="600" opacity=".8">~40 cm</text>
+
+          <!-- ════════════════════════════════
+               OAK SIDE — RIGHT (x centre 675)
+          ════════════════════════════════ -->
+          <text x="675" y="22" font-family="'Plus Jakarta Sans',sans-serif" font-size="11" font-weight="700" fill="#2d6040" text-anchor="middle" letter-spacing="1.5" opacity=".85">HOLM OAK</text>
+
+          <!-- Oak silhouette — round layered canopy -->
+          <ellipse cx="675" cy="100" rx="78" ry="68" fill="#1a3822" opacity=".55"/>
+          <ellipse cx="640" cy="115" rx="46" ry="38" fill="#224832" opacity=".55"/>
+          <ellipse cx="710" cy="112" rx="44" ry="36" fill="#224832" opacity=".52"/>
+          <ellipse cx="675" cy="80"  rx="60" ry="52" fill="#2a5838" opacity=".58"/>
+          <ellipse cx="655" cy="68"  rx="38" ry="32" fill="#366844" opacity=".58"/>
+          <ellipse cx="695" cy="64"  rx="36" ry="30" fill="#366844" opacity=".55"/>
+          <ellipse cx="675" cy="52"  rx="34" ry="28" fill="#448850" opacity=".60"/>
+          <ellipse cx="668" cy="42"  rx="22" ry="18" fill="#56a060" opacity=".55"/>
+          <!-- Oak trunk — wide, gnarled -->
+          <path d="M662,128 Q665,150 666,175 L684,175 Q685,150 688,128 Z" fill="#3a2010" opacity=".85"/>
+          <line x1="675" y1="160" x2="654" y2="175" stroke="#3a2010" stroke-width="5" stroke-linecap="round" opacity=".5"/>
+          <line x1="675" y1="160" x2="696" y2="175" stroke="#3a2010" stroke-width="4" stroke-linecap="round" opacity=".45"/>
+
+          <!-- OAK ROOTS — TAPROOT GOES DEEP THROUGH ALL LAYERS INTO LIMESTONE -->
+          <!-- Main taproot — straight down through everything -->
+          <path d="M675,220 L675,488" stroke="#2d6038" stroke-width="4.5" stroke-linecap="round" fill="none" opacity=".7"/>
+          <!-- Lateral roots — ONLY in topsoil zone (y 220–285) -->
+          <path d="M675,228 Q648,234 622,240" stroke="#2d6038" stroke-width="2.8" stroke-linecap="round" fill="none" opacity=".65"/>
+          <path d="M675,228 Q702,235 728,242" stroke="#2d6038" stroke-width="2.8" stroke-linecap="round" fill="none" opacity=".65"/>
+          <path d="M675,242 Q644,250 612,258" stroke="#2d6038" stroke-width="2" stroke-linecap="round" fill="none" opacity=".55"/>
+          <path d="M675,242 Q706,252 738,260" stroke="#2d6038" stroke-width="2" stroke-linecap="round" fill="none" opacity=".55"/>
+          <!-- Lateral rootlets -->
+          <path d="M622,240 Q604,246 588,254" stroke="#2d6038" stroke-width="1.2" stroke-linecap="round" fill="none" opacity=".44"/>
+          <path d="M728,242 Q746,248 762,256" stroke="#2d6038" stroke-width="1.2" stroke-linecap="round" fill="none" opacity=".44"/>
+          <path d="M612,258 Q596,264 580,272" stroke="#2d6038" stroke-width="1" stroke-linecap="round" fill="none" opacity=".36"/>
+          <path d="M738,260 Q754,266 770,274" stroke="#2d6038" stroke-width="1" stroke-linecap="round" fill="none" opacity=".36"/>
+          <!-- Deep root branches in subsoil -->
+          <path d="M675,320 Q652,338 634,360" stroke="#2d6038" stroke-width="1.8" stroke-linecap="round" fill="none" opacity=".5"/>
+          <path d="M675,320 Q698,340 716,362" stroke="#2d6038" stroke-width="1.8" stroke-linecap="round" fill="none" opacity=".5"/>
+          <!-- Taproot threading limestone cracks -->
+          <path d="M675,395 Q660,418 648,448" stroke="#2d6038" stroke-width="1.4" stroke-linecap="round" fill="none" opacity=".42"/>
+          <path d="M675,395 Q690,420 702,452" stroke="#2d6038" stroke-width="1.4" stroke-linecap="round" fill="none" opacity=".42"/>
+
+          <!-- Oak depth marker -->
+          <line x1="828" y1="220" x2="828" y2="488" stroke="#2d6038" stroke-width="1.2" stroke-dasharray="3,3" opacity=".6"/>
+          <line x1="822" y1="220" x2="834" y2="220" stroke="#2d6038" stroke-width="1.2" opacity=".6"/>
+          <line x1="822" y1="488" x2="834" y2="488" stroke="#2d6038" stroke-width="1.2" opacity=".6"/>
+          <text x="848" y="360" font-family="'Plus Jakarta Sans',sans-serif" font-size="9" fill="#2d6038" text-anchor="start" font-weight="600" opacity=".8">3+ m</text>
+
+          <!-- ── LEGEND ── -->
+          <rect x="0" y="470" width="900" height="30" fill="rgba(244,239,230,.6)"/>
+          <line x1="32" y1="485" x2="60" y2="485" stroke="#a06030" stroke-width="2.5" stroke-linecap="round" opacity=".8"/>
+          <text x="68" y="489" font-family="'Plus Jakarta Sans',sans-serif" font-size="10" fill="#6a4020" font-weight="600">Aleppo pine — shallow lateral roots, topsoil only (~40 cm)</text>
+          <line x1="482" y1="485" x2="510" y2="485" stroke="#2d6038" stroke-width="2.5" stroke-linecap="round" opacity=".8"/>
+          <text x="518" y="489" font-family="'Plus Jakarta Sans',sans-serif" font-size="10" fill="#1a4028" font-weight="600">Holm oak — deep taproot through limestone (3+ m)</text>
+        </svg>
+        <svg style="display:none" viewBox="0 0 900 380" xmlns="http://www.w3.org/2000/svg">
+
+          <!-- Sky / above ground -->
+          <rect x="0" y="0" width="900" height="140" fill="#d4e8d8"/>
+
+          <!-- Soil layer label -->
+          <rect x="0" y="140" width="900" height="40" fill="#c8a87a" opacity=".4"/>
+          <text x="16" y="166" font-family="'Plus Jakarta Sans',sans-serif" font-size="11" font-weight="700" fill="#7a5a38" letter-spacing="2" text-anchor="start">TOPSOIL</text>
+
+          <!-- Sub-soil -->
+          <rect x="0" y="180" width="900" height="60" fill="#b89060" opacity=".3"/>
+          <text x="16" y="215" font-family="'Plus Jakarta Sans',sans-serif" font-size="11" font-weight="700" fill="#7a5a38" letter-spacing="2">SUBSOIL</text>
+
+          <!-- Limestone -->
+          <rect x="0" y="240" width="900" height="140" fill="#d0c8b4" opacity=".6"/>
+          <!-- limestone texture cracks -->
+          <line x1="120" y1="250" x2="160" y2="310" stroke="#b0a898" stroke-width="1.5" opacity=".5"/>
+          <line x1="160" y1="310" x2="200" y2="270" stroke="#b0a898" stroke-width="1.5" opacity=".5"/>
+          <line x1="300" y1="260" x2="350" y2="340" stroke="#b0a898" stroke-width="1.5" opacity=".5"/>
+          <line x1="500" y1="245" x2="480" y2="300" stroke="#b0a898" stroke-width="1.5" opacity=".5"/>
+          <line x1="480" y1="300" x2="530" y2="360" stroke="#b0a898" stroke-width="1.5" opacity=".5"/>
+          <line x1="650" y1="255" x2="700" y2="320" stroke="#b0a898" stroke-width="1.5" opacity=".5"/>
+          <line x1="700" y1="320" x2="740" y2="280" stroke="#b0a898" stroke-width="1.5" opacity=".5"/>
+          <text x="16" y="275" font-family="'Plus Jakarta Sans',sans-serif" font-size="11" font-weight="700" fill="#9a8878" letter-spacing="2">LIMESTONE</text>
+
+          <!-- Dividing line -->
+          <line x1="450" y1="0" x2="450" y2="380" stroke="rgba(0,0,0,.1)" stroke-width="1" stroke-dasharray="6,4"/>
+
+          <!-- ─── PINE SIDE (left) ─── -->
+          <text x="225" y="28" font-family="'Plus Jakarta Sans',sans-serif" font-size="13" font-weight="700" fill="#b06840" text-anchor="middle" letter-spacing="1">ALEPPO PINE</text>
+
+          <!-- Pine tree silhouette — jagged tiers -->
+          <path d="M225,28 L229,40 L233,30 L238,44 L242,33 L250,54 L254,42 L264,66 L258,74 L266,92 L260,86 L265,108 L259,101 L263,130 L187,130 L191,101 L185,108 L190,86 L184,92 L192,74 L186,66 L196,42 L200,54 L208,33 L212,44 L217,30 L221,40 Z" fill="#9a5530" opacity=".52"/>
+          <path d="M225,44 L229,54 L233,45 L238,57 L242,47 L249,64 L244,72 L251,88 L245,82 L249,104 L201,104 L205,82 L199,88 L206,72 L201,64 L208,47 L212,57 L217,45 L221,54 Z" fill="#b06035" opacity=".57"/>
+          <path d="M225,62 L229,71 L233,62 L238,74 L242,63 L248,78 L244,86 L249,100 L201,100 L206,86 L202,78 L208,63 L212,74 L217,62 L221,71 Z" fill="#c07040" opacity=".60"/>
+          <!-- trunk -->
+          <rect x="219" y="122" width="12" height="22" rx="2" fill="#7a4a28" opacity=".78"/>
+
+          <!-- Pine roots — SHALLOW, spreading wide but not deep -->
+          <path d="M225 144 L225 168" stroke="#a06838" stroke-width="3" stroke-linecap="round" opacity=".7"/>
+          <!-- lateral roots — stop at limestone -->
+          <path d="M225 155 Q190 160 165 168" stroke="#a06838" stroke-width="2.5" stroke-linecap="round" opacity=".6"/>
+          <path d="M225 155 Q260 162 285 170" stroke="#a06838" stroke-width="2.5" stroke-linecap="round" opacity=".6"/>
+          <path d="M225 162 Q200 168 175 178" stroke="#a06838" stroke-width="1.8" stroke-linecap="round" opacity=".5"/>
+          <path d="M225 162 Q250 170 278 180" stroke="#a06838" stroke-width="1.8" stroke-linecap="round" opacity=".5"/>
+          <!-- thin rootlets -->
+          <path d="M165 168 Q150 172 140 178" stroke="#a06838" stroke-width="1" stroke-linecap="round" opacity=".4"/>
+          <path d="M285 170 Q300 175 310 180" stroke="#a06838" stroke-width="1" stroke-linecap="round" opacity=".4"/>
+          <path d="M225 168 L224 178" stroke="#a06838" stroke-width="1.2" opacity=".4"/>
+          <!-- depth marker for pine -->
+          <line x1="80" y1="144" x2="80" y2="182" stroke="#b06840" stroke-width="1.5" stroke-dasharray="3,3" opacity=".7"/>
+          <line x1="74" y1="144" x2="86" y2="144" stroke="#b06840" stroke-width="1.5" opacity=".7"/>
+          <line x1="74" y1="182" x2="86" y2="182" stroke="#b06840" stroke-width="1.5" opacity=".7"/>
+          <text x="62" y="166" font-family="'Plus Jakarta Sans',sans-serif" font-size="10" fill="#b06840" text-anchor="middle" font-weight="600">Shallow</text>
+
+          <!-- ─── OAK SIDE (right) ─── -->
+          <text x="675" y="28" font-family="'Plus Jakarta Sans',sans-serif" font-size="13" font-weight="700" fill="#3a7048" text-anchor="middle" letter-spacing="1">HOLM OAK</text>
+
+          <!-- Oak tree silhouette — layered, lush -->
+          <!-- deep shadow base -->
+          <ellipse cx="675" cy="82" rx="76" ry="62" fill="#132a1a" opacity=".65"/>
+          <!-- lower canopy masses -->
+          <ellipse cx="628" cy="100" rx="44" ry="36" fill="#1c3c24" opacity=".70"/>
+          <ellipse cx="722" cy="96" rx="40" ry="34" fill="#1c3c24" opacity=".66"/>
+          <ellipse cx="675" cy="112" rx="52" ry="30" fill="#223a28" opacity=".62"/>
+          <!-- mid canopy -->
+          <ellipse cx="675" cy="68" rx="66" ry="54" fill="#265a32" opacity=".66"/>
+          <ellipse cx="636" cy="82" rx="44" ry="36" fill="#2c6238" opacity=".62"/>
+          <ellipse cx="714" cy="78" rx="42" ry="34" fill="#2c6238" opacity=".58"/>
+          <!-- upper crown blob -->
+          <path d="M675,22 C650,10 612,26 608,56 C604,82 622,110 646,116 C660,120 668,110 675,113 C682,110 690,120 704,116 C728,110 746,82 742,56 C738,26 700,10 675,22 Z" fill="#367044" opacity=".65"/>
+          <!-- top highlights -->
+          <ellipse cx="648" cy="52" rx="32" ry="28" fill="#3e8050" opacity=".64"/>
+          <ellipse cx="702" cy="48" rx="30" ry="26" fill="#3e8050" opacity=".60"/>
+          <ellipse cx="675" cy="38" rx="34" ry="26" fill="#4a9060" opacity=".68"/>
+          <ellipse cx="660" cy="28" rx="22" ry="18" fill="#56a46e" opacity=".62"/>
+          <ellipse cx="688" cy="24" rx="20" ry="16" fill="#56a46e" opacity=".58"/>
+          <!-- catchlight -->
+          <ellipse cx="644" cy="44" rx="12" ry="10" fill="rgba(170,248,140,.16)"/>
+          <!-- trunk -->
+          <rect x="667" y="128" width="16" height="16" rx="3" fill="#3d2510" opacity=".88"/>
+          <!-- branch suggestion -->
+          <line x1="675" y1="136" x2="652" y2="120" stroke="#3d2510" stroke-width="5" stroke-linecap="round" opacity=".55"/>
+          <line x1="675" y1="134" x2="698" y2="118" stroke="#3d2510" stroke-width="4.5" stroke-linecap="round" opacity=".50"/>
+
+          <!-- Oak roots — DEEP, going into limestone with a taproot -->
+          <!-- main taproot goes deep through limestone -->
+          <path d="M675 144 L675 370" stroke="#4a7838" stroke-width="3.5" stroke-linecap="round" opacity=".65"/>
+          <!-- lateral roots at topsoil -->
+          <path d="M675 155 Q640 158 615 165" stroke="#4a7838" stroke-width="2.5" stroke-linecap="round" opacity=".6"/>
+          <path d="M675 155 Q710 160 738 165" stroke="#4a7838" stroke-width="2.5" stroke-linecap="round" opacity=".6"/>
+          <!-- mid roots into subsoil -->
+          <path d="M675 175 Q645 185 622 200" stroke="#4a7838" stroke-width="2" stroke-linecap="round" opacity=".55"/>
+          <path d="M675 175 Q705 185 728 200" stroke="#4a7838" stroke-width="2" stroke-linecap="round" opacity=".55"/>
+          <!-- deep roots through limestone following cracks -->
+          <path d="M675 250 Q655 280 640 320" stroke="#4a7838" stroke-width="1.5" stroke-linecap="round" opacity=".5"/>
+          <path d="M675 250 Q695 290 708 340" stroke="#4a7838" stroke-width="1.5" stroke-linecap="round" opacity=".5"/>
+          <path d="M675 300 Q660 330 650 370" stroke="#4a7838" stroke-width="1" stroke-linecap="round" opacity=".4"/>
+          <!-- fine lateral rootlets -->
+          <path d="M615 165 Q600 168 588 172" stroke="#4a7838" stroke-width="1" opacity=".4"/>
+          <path d="M738 165 Q752 169 763 174" stroke="#4a7838" stroke-width="1" opacity=".4"/>
+          <!-- depth marker for oak -->
+          <line x1="818" y1="144" x2="818" y2="365" stroke="#4a7838" stroke-width="1.5" stroke-dasharray="3,3" opacity=".7"/>
+          <line x1="812" y1="144" x2="824" y2="144" stroke="#4a7838" stroke-width="1.5" opacity=".7"/>
+          <line x1="812" y1="365" x2="824" y2="365" stroke="#4a7838" stroke-width="1.5" opacity=".7"/>
+          <text x="840" y="260" font-family="'Plus Jakarta Sans',sans-serif" font-size="10" fill="#4a7838" text-anchor="start" font-weight="600">Deep</text>
+
+          <!-- Layer labels right side -->
+          <text x="884" y="166" font-family="'Plus Jakarta Sans',sans-serif" font-size="10" fill="#9a8878" text-anchor="end" opacity=".6">topsoil</text>
+          <text x="884" y="215" font-family="'Plus Jakarta Sans',sans-serif" font-size="10" fill="#9a8878" text-anchor="end" opacity=".6">subsoil</text>
+          <text x="884" y="270" font-family="'Plus Jakarta Sans',sans-serif" font-size="10" fill="#9a8878" text-anchor="end" opacity=".6">limestone</text>
+
+        </svg>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ── Carbon build-up chart ── -->
   <section class="section carbon-section">
     <div class="section-inner">
-      <div class="carbon-grid">
-
-        <div class="carbon-text">
-          <span class="eyebrow">The Carbon Connection</span>
-          <h2>The baseline starts now. The market opens in 2028.</h2>
-          <p>The EU Carbon Removal Certification Framework (Regulation 2024/3012) becomes operational approximately 2028. Agricultural producers with established soil carbon baselines and documented management records will have verified credits to sell. A grove that starts the baseline now enters that market with years of data. One that waits starts with nothing.</p>
-        </div>
-
-        <div class="carbon-numbers">
-          <div class="carbon-number-item">
-            <span class="value">€30–80</span>
-            <span class="label">estimated per tonne CO₂ — European voluntary carbon market range</span>
-          </div>
-          <div class="carbon-number-item">
-            <span class="value">1–5 t/ha/yr</span>
-            <span class="label">carbon sequestration potential — regenerative citrus and holm oak</span>
-          </div>
-          <div class="carbon-number-item">
-            <span class="value">2028</span>
-            <span class="label">EU CRCF operational — baseline established now means documented improvement ready to sell</span>
-          </div>
-        </div>
-
+      <div class="carbon-header">
+        <span class="eyebrow">Carbon sequestration</span>
+        <h2>The accumulation, year by year.</h2>
+        <p style="font-size:.82rem;color:rgba(244,239,230,.5);line-height:1.6;margin-top:.75rem;max-width:62ch;">These are projections, not confirmed figures. The carbon market pathway is real but not yet open — eligibility, methodology, and registration depend on outcomes we do not yet know. We are building the documentation now so the option exists when it does.</p>
       </div>
+      <div class="carbon-chart">
+        <div class="carbon-bar-row">
+          <div class="cb-year">2026</div>
+          <div class="cb-track"><div class="cb-fill" style="width:8%"></div></div>
+          <div class="cb-val">Baseline</div>
+        </div>
+        <div class="carbon-bar-row">
+          <div class="cb-year">2027</div>
+          <div class="cb-track"><div class="cb-fill" style="width:20%"></div></div>
+          <div class="cb-val">~4–8 t</div>
+        </div>
+        <div class="carbon-bar-row">
+          <div class="cb-year">2028</div>
+          <div class="cb-track"><div class="cb-fill" style="width:38%"></div></div>
+          <div class="cb-val">~8–16 t</div>
+        </div>
+        <div class="carbon-bar-row">
+          <div class="cb-year">2029</div>
+          <div class="cb-track"><div class="cb-fill" style="width:58%"></div></div>
+          <div class="cb-val">~12–22 t</div>
+        </div>
+        <div class="carbon-bar-row">
+          <div class="cb-year">2030+</div>
+          <div class="cb-track"><div class="cb-fill" style="width:85%"></div></div>
+          <div class="cb-val">~16–22 t+</div>
+        </div>
+      </div>
+      <p class="carbon-note">Cumulative CO₂ removal potential, 4.5 ha combined citrus + holm oak. Range based on 1–5 t/ha/yr sequestration potential as the system matures. Actual performance depends on growth rate and soil response. Soil carbon baseline to be measured autumn 2026 via IVIA-accredited laboratory.</p>
+      <div style="margin-top:2rem;">
+        <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(244,239,230,.3);margin-bottom:.75rem;">Frameworks we are monitoring</div>
+        <div class="carbon-verification">
+          <span class="cv-pill">Verra VCS VM0042 — under review</span>
+          <span class="cv-pill">Agreena — exploring</span>
+          <span class="cv-pill">EU CRCF — expected ~2028</span>
+          <span class="cv-pill">IVIA Lab — baseline planned</span>
+          <span class="cv-pill">Ma Earth — not yet applied</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── What we measure ── -->
+  <section class="section measure-section">
+    <div class="section-inner">
+      <span class="eyebrow">The Records</span>
+      <h2>What we're measuring, and when.</h2>
+      <div class="measure-rows">
+        <div class="measure-row">
+          <div class="measure-icon">🌍</div>
+          <div class="measure-body">
+            <strong>Soil carbon</strong>
+            <p>One composite sample per parcel, root zone (0–30 cm). IVIA-accredited laboratory, Valencia. Re-measured every two years to document improvement vs baseline.</p>
+          </div>
+          <div class="measure-when">Baseline: Autumn 2026</div>
+        </div>
+        <div class="measure-row">
+          <div class="measure-icon">🌳</div>
+          <div class="measure-body">
+            <strong>Forest biomass</strong>
+            <p>Holm oak growth tracked from first planting. Survival rate, height, and canopy coverage measured annually.</p>
+          </div>
+          <div class="measure-when">From first planting, 2026</div>
+        </div>
+        <div class="measure-row">
+          <div class="measure-icon">📓</div>
+          <div class="measure-body">
+            <strong>Organic matter</strong>
+            <p>Inputs, treatments, and soil observations logged in the cuaderno de campo from day one of CAECV registration. Every entry timestamped and parcel-referenced.</p>
+          </div>
+          <div class="measure-when">From September 2026</div>
+        </div>
+        <div class="measure-row">
+          <div class="measure-icon">🦎</div>
+          <div class="measure-body">
+            <strong>Biodiversity baseline</strong>
+            <p>Flora, fauna, and invertebrate survey of the 1.7 ha section before and after pine removal. Documents recovery of native species as holm oak establishes.</p>
+          </div>
+          <div class="measure-when">Year 4 — 2029</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="forest-cta">
+    <div class="forest-cta-inner">
+      <h2>Support the transition.</h2>
+      <p>Year 1 funds the first plantings, the soil baseline, and the field records that make everything else possible.</p>
+      <div style="text-align:left;margin:1.75rem 0 2rem;display:flex;flex-direction:column;gap:.75rem;">
+        <div style="display:flex;gap:.85rem;align-items:flex-start;">
+          <span style="color:var(--gold);font-size:.8rem;margin-top:.1rem;flex-shrink:0;">→</span>
+          <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:.82rem;color:rgba(244,239,230,.72);line-height:1.5;"><strong style="color:var(--sand);font-weight:600;">First holm oak plantings</strong> — 1.7 ha section, first batch of Quercus ilex saplings in the ground</span>
+        </div>
+        <div style="display:flex;gap:.85rem;align-items:flex-start;">
+          <span style="color:var(--gold);font-size:.8rem;margin-top:.1rem;flex-shrink:0;">→</span>
+          <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:.82rem;color:rgba(244,239,230,.72);line-height:1.5;"><strong style="color:var(--sand);font-weight:600;">Soil carbon baseline</strong> — IVIA-accredited laboratory, one composite sample per parcel</span>
+        </div>
+        <div style="display:flex;gap:.85rem;align-items:flex-start;">
+          <span style="color:var(--gold);font-size:.8rem;margin-top:.1rem;flex-shrink:0;">→</span>
+          <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:.82rem;color:rgba(244,239,230,.72);line-height:1.5;"><strong style="color:var(--sand);font-weight:600;">DANA storm cleanup</strong> — document and clear damage on the lower terraces</span>
+        </div>
+        <div style="display:flex;gap:.85rem;align-items:flex-start;">
+          <span style="color:var(--gold);font-size:.8rem;margin-top:.1rem;flex-shrink:0;">→</span>
+          <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:.82rem;color:rgba(244,239,230,.72);line-height:1.5;"><strong style="color:var(--sand);font-weight:600;">Field documentation</strong> — cuaderno de campo from day one, published as it happens</span>
+        </div>
+      </div>
+      <div style="display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;align-items:center;">
+        <a href="fund.html" class="btn btn-primary">Donate</a>
+        <a href="fund.html" class="btn-ghost">Adopt a tree</a>
+      </div>
+      <p style="margin-top:1.75rem;font-family:'Plus Jakarta Sans',sans-serif;font-size:.82rem;color:rgba(244,239,230,.4);">
+        Follow the restoration as it happens —
+        <a href="#podcast" style="color:rgba(244,239,230,.65);text-decoration:underline;text-underline-offset:3px;">subscribe to the podcast</a>
+      </p>
     </div>
   </section>
 
   <!-- Footer -->
   <footer class="site-footer">
     <div class="footer-inner">
-      <div class="footer-brand">
-        Finca Tariqa<br>Carcaixent, Valencia<br>Spain
-      </div>
-            <ul class="footer-links">
+      <div class="footer-brand">Finca Tariqa<br>Carcaixent, Valencia<br>Spain</div>
+      <ul class="footer-links">
         <li><a href="oranges.html">Oranges</a></li>
         <li><a href="land.html">Land</a></li>
         <li><a href="forest.html">Forest</a></li>

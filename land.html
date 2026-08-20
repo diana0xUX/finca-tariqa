@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Land — Finca Tariqa</title>
-  <meta name="description" content="The limestone beneath Finca Tariqa formed 80 million years ago from the compressed shells of marine creatures. This is the rock the oranges grow from.">
+  <meta name="description" content="4.5 hectares on an 80-million-year-old limestone hillside above Carcaixent, Valencia. Orange terraces, a farmhouse, and a forest in transition.">
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Finca Tariqa">
   <meta property="og:title" content="The Land — Finca Tariqa">
-  <meta property="og:description" content="The limestone beneath Finca Tariqa formed 80 million years ago from the compressed shells of marine creatures. This is the rock the oranges grow from.">
+  <meta property="og:description" content="4.5 hectares on an 80-million-year-old limestone hillside above Carcaixent, Valencia. Orange terraces, a farmhouse, and a forest in transition.">
   <meta property="og:url" content="https://finca-tariqa.com/land.html">
   <meta property="og:image" content="https://finca-tariqa.com/blog/images/cover-geology.png">
   <meta property="og:image:alt" content="80-million-year-old limestone rock formation beneath the orange groves at Finca Tariqa">
@@ -17,7 +17,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="The Land — Finca Tariqa">
-  <meta name="twitter:description" content="The limestone beneath Finca Tariqa formed 80 million years ago from the compressed shells of marine creatures. This is the rock the oranges grow from.">
+  <meta name="twitter:description" content="4.5 hectares on a limestone hillside above Carcaixent, Valencia. Orange terraces, a farmhouse, a forest in transition.">
   <meta name="twitter:image" content="https://finca-tariqa.com/blog/images/cover-geology.png">
   <link rel="canonical" href="https://finca-tariqa.com/land.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -71,7 +71,7 @@
       max-width: 58ch;
     }
 
-    /* ── Story section ── */
+    /* ── Geology story + stats ── */
     .story-section {
       background: var(--white);
     }
@@ -100,7 +100,6 @@
       max-width: none;
     }
 
-    /* Stats grid */
     .stats-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -129,6 +128,94 @@
       font-weight: 400;
       color: rgba(244,239,230,0.5);
       line-height: 1.5;
+    }
+
+    /* ── Land zones ── */
+    .zones-section {
+      background: var(--sand);
+    }
+
+    .zones-section .section-inner {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .zones-head {
+      margin-bottom: 2.5rem;
+    }
+
+    .zones-head .eyebrow {
+      color: var(--earth-med);
+      opacity: 1;
+      margin-bottom: 0.75rem;
+    }
+
+    .zones-head h2 {
+      color: var(--ink);
+    }
+
+    .zones-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    .zone-row {
+      display: grid;
+      grid-template-columns: 80px 1fr auto;
+      align-items: stretch;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      background: var(--white);
+    }
+
+    .zone-row:last-child {
+      border-bottom: none;
+    }
+
+    .zone-colour {
+      width: 100%;
+      min-height: 72px;
+    }
+
+    .zone-colour--groves-upper  { background: linear-gradient(160deg, #5a8f68, #3a6645); }
+    .zone-colour--groves-lower  { background: linear-gradient(160deg, #7a9e5f, #4a6e3a); }
+    .zone-colour--forest        { background: linear-gradient(160deg, #4a7060, #253c29); }
+    .zone-colour--margins       { background: linear-gradient(160deg, #9a8e7a, #6a5e4a); }
+
+    .zone-body {
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 0.2rem;
+    }
+
+    .zone-name {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .zone-desc {
+      font-size: 0.85rem;
+      color: var(--mid);
+      line-height: 1.5;
+    }
+
+    .zone-area {
+      font-family: 'Lora', serif;
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--gold);
+      padding: 1.25rem 1.75rem;
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
+      border-left: 1px solid rgba(0,0,0,0.06);
     }
 
     /* ── What limestone does ── */
@@ -181,8 +268,277 @@
       max-width: none;
     }
 
+    /* ── Trees ── */
+    .trees-section {
+      background: var(--white);
+    }
+
+    .trees-section .section-inner {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .trees-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(2.5rem, 5vw, 4rem);
+      align-items: center;
+    }
+
+    .trees-text .eyebrow {
+      color: var(--earth-med);
+      opacity: 1;
+      margin-bottom: 0.75rem;
+    }
+
+    .trees-text h2 {
+      color: var(--ink);
+      margin-bottom: 1.5rem;
+    }
+
+    .trees-text p {
+      color: var(--mid);
+      margin-bottom: 1.1rem;
+      font-size: 0.95rem;
+      line-height: 1.75;
+      max-width: none;
+    }
+
+    .trees-facts {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .tree-fact {
+      background: var(--sand);
+      border-radius: var(--radius-md);
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .tree-fact-num {
+      font-family: 'Lora', serif;
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: var(--terracotta);
+      line-height: 1;
+      min-width: 4rem;
+      flex-shrink: 0;
+    }
+
+    .tree-fact-label {
+      font-size: 0.85rem;
+      color: var(--mid);
+      line-height: 1.55;
+    }
+
+    .tree-fact-label strong {
+      display: block;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 0.2rem;
+      font-size: 0.88rem;
+    }
+
+    /* ── DANA section ── */
+    .dana-section {
+      background: var(--earth-dark);
+    }
+
+    .dana-section .section-inner {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .dana-section .eyebrow {
+      color: var(--earth-light);
+      opacity: 1;
+      margin-bottom: 0.75rem;
+    }
+
+    .dana-section h2 {
+      color: var(--sand);
+      margin-bottom: 1.5rem;
+    }
+
+    .dana-section p {
+      color: rgba(244,239,230,0.65);
+      font-size: 0.95rem;
+      line-height: 1.8;
+      max-width: 66ch;
+    }
+
+    .dana-section p + p {
+      margin-top: 1rem;
+    }
+
+    .dana-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 2.5rem;
+    }
+
+    .dana-stat {
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius-md);
+      padding: 1.5rem 1.25rem;
+      text-align: center;
+    }
+
+    .dana-stat-val {
+      font-family: 'Lora', serif;
+      font-size: 1.8rem;
+      font-weight: 500;
+      color: var(--gold);
+      display: block;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .dana-stat-label {
+      font-size: 0.75rem;
+      color: rgba(244,239,230,0.4);
+      line-height: 1.5;
+    }
+
+    /* ── Carbon section ── */
+    .carbon-section {
+      background: var(--sand);
+    }
+
+    .carbon-section .section-inner {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .carbon-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(2.5rem, 5vw, 4rem);
+      align-items: center;
+    }
+
+    .carbon-text .eyebrow {
+      color: var(--earth-med);
+      opacity: 1;
+      margin-bottom: 0.75rem;
+    }
+
+    .carbon-text h2 {
+      color: var(--ink);
+      margin-bottom: 1.5rem;
+    }
+
+    .carbon-text p {
+      color: var(--mid);
+      font-size: 0.95rem;
+      line-height: 1.8;
+      max-width: none;
+    }
+
+    .carbon-text p + p {
+      margin-top: 1rem;
+    }
+
+    .carbon-numbers {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .carbon-num {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      padding: 1.4rem 1.5rem;
+      display: flex;
+      gap: 1.25rem;
+      align-items: center;
+    }
+
+    .carbon-num-val {
+      font-family: 'Lora', serif;
+      font-size: 1.6rem;
+      font-weight: 500;
+      color: var(--earth-med);
+      line-height: 1;
+      min-width: 5rem;
+      flex-shrink: 0;
+    }
+
+    .carbon-num-label {
+      font-size: 0.83rem;
+      color: var(--mid);
+      line-height: 1.5;
+    }
+
+    /* ── CTA ── */
+    .land-cta {
+      background: var(--earth-dark);
+      padding: clamp(3.5rem, 7vw, 6rem) clamp(1.25rem, 4vw, 3rem);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .land-cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(58,102,69,0.15), transparent 65%);
+      pointer-events: none;
+    }
+
+    .land-cta-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .land-cta h2 {
+      color: var(--sand);
+      margin-bottom: 0.75rem;
+      font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+    }
+
+    .land-cta p {
+      color: rgba(244,239,230,0.6);
+      margin: 0 auto 2rem;
+    }
+
+    .land-cta .btn-pair {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-ghost {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      border: 1px solid rgba(244,239,230,0.25);
+      border-radius: var(--radius-sm);
+      color: rgba(244,239,230,0.75);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: border-color 0.15s, color 0.15s;
+    }
+
+    .btn-ghost:hover {
+      border-color: rgba(244,239,230,0.5);
+      color: var(--sand);
+    }
+
     @media (max-width: 900px) {
-      .story-grid {
+      .story-grid,
+      .trees-grid,
+      .carbon-grid {
         grid-template-columns: 1fr;
       }
 
@@ -194,11 +550,19 @@
       .stats-grid {
         grid-template-columns: 1fr 1fr;
       }
+
+      .dana-stats {
+        grid-template-columns: 1fr;
+      }
     }
 
     @media (max-width: 480px) {
       .stats-grid {
         grid-template-columns: 1fr;
+      }
+
+      .zone-row {
+        grid-template-columns: 40px 1fr auto;
       }
     }
   </style>
@@ -225,23 +589,26 @@
   <!-- Hero -->
   <section class="land-hero">
     <div class="land-hero-inner">
-      <span class="eyebrow">The Geology</span>
+      <span class="eyebrow">The Land · Carcaixent, Valencia</span>
       <h1>Before the grove, this was a warm shallow sea.</h1>
-      <p class="lead">The limestone beneath Finca Tariqa formed 80 million years ago from the compressed shells of marine creatures. This is the rock the oranges grow from.</p>
+      <p class="lead">4.5 hectares on an 80-million-year-old limestone hillside above the Júcar valley. Orange terraces, a farmhouse, and a forest in transition.</p>
     </div>
   </section>
 
-  <!-- Story + stats -->
+  <!-- Geology story + stats -->
   <section class="section story-section">
     <div class="section-inner">
       <div class="story-grid">
 
         <div class="story-text">
-          <span class="eyebrow">The Story</span>
+          <span class="eyebrow">The Geology</span>
           <h2>Seabed to hillside. 80 million years.</h2>
-          <p>When the tectonic forces that built the Alps began compressing Iberia, this ancient seabed was squeezed, folded, and pushed upward. The fractures that now run through it hold the water that feeds the farm's karst well, 41 metres below the grove.</p>
-          <p>The limestone dissolves slowly, releasing calcium and trace minerals into the shallow soil. No alluvial valley soil can replicate this mineral profile — and minerals are a primary driver of flavour in citrus, as they are in Burgundy or Priorat wine.</p>
-          <p>The hillside sits above the Júcar valley flood plain. When the DANA storm dropped 500mm of rain in 8 hours in October 2024, the valley flooded. The limestone shed water through its fractures and recharged the aquifer. Height is structural resilience.</p>
+          <p>The limestone beneath Finca Tariqa formed from the compressed shells of marine creatures that lived in a warm shallow sea over the Cretaceous period. When the tectonic forces that built the Alps began compressing Iberia, this ancient seabed was squeezed, folded, and pushed upward to form Puig Gros — the hillside we farm today.</p>
+          <p>The fractures that run through it now hold the water that feeds the farm's karst aquifer below the grove. The limestone dissolves slowly, releasing calcium and trace minerals into the shallow rendzina soil above. No alluvial valley soil can replicate this mineral profile — and minerals are a primary driver of flavour in citrus, just as they are in Burgundy or Priorat wine.</p>
+          <p>The hillside sits above the Júcar valley flood plain. When DANA struck in October 2024, the valley flooded. The limestone shed water through its fractures and recharged the aquifer. Height is structural resilience.</p>
+          <p style="margin-top:1.75rem;">
+            <a href="report.html" style="font-family:'Plus Jakarta Sans',sans-serif;font-size:0.88rem;font-weight:600;color:var(--earth-med);text-decoration:none;">Read the full geological report &rarr;</a>
+          </p>
         </div>
 
         <div class="stats-grid">
@@ -250,17 +617,66 @@
             <span class="stat-card-label">Years since this rock was the floor of a warm shallow sea</span>
           </div>
           <div class="stat-card">
-            <span class="stat-card-value">41m</span>
-            <span class="stat-card-label">Depth of the karst well — clean water from below the grove</span>
-          </div>
-          <div class="stat-card">
-            <span class="stat-card-value">500mm</span>
-            <span class="stat-card-label">Rain in 8 hours during the October 2024 DANA. The hillside survived.</span>
+            <span class="stat-card-value">Karst</span>
+            <span class="stat-card-label">Aquifer below the grove — clean water from the limestone massif above</span>
           </div>
           <div class="stat-card">
             <span class="stat-card-value">4.5 ha</span>
-            <span class="stat-card-label">Above the flood plain, on limestone terrain — fire resilience improving as pine transitions to native holm oak</span>
+            <span class="stat-card-label">Total land — terraced groves, pine forest, farmhouse and access track</span>
           </div>
+          <div class="stat-card">
+            <span class="stat-card-value">1957</span>
+            <span class="stat-card-label">Earliest documented date for the oldest trees — still bearing fruit today</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Land zones -->
+  <section class="section zones-section">
+    <div class="section-inner">
+      <div class="zones-head">
+        <span class="eyebrow">Four Zones</span>
+        <h2>How the 4.5 hectares divide.</h2>
+      </div>
+      <div class="zones-list">
+
+        <div class="zone-row">
+          <div class="zone-colour zone-colour--groves-upper"></div>
+          <div class="zone-body">
+            <span class="zone-name">Upper orange terraces</span>
+            <span class="zone-desc">Navel Lane Late variety — sharpest drainage on the hillside, highest natural water stress, concentrated fruit.</span>
+          </div>
+          <div class="zone-area">~1.5 ha</div>
+        </div>
+
+        <div class="zone-row">
+          <div class="zone-colour zone-colour--groves-lower"></div>
+          <div class="zone-body">
+            <span class="zone-name">Lower orange terraces</span>
+            <span class="zone-desc">Navelina and other varieties. Older stock on the lower slopes. Some trees took DANA storm damage in 2024 — under active management and recovery.</span>
+          </div>
+          <div class="zone-area">~1.3 ha</div>
+        </div>
+
+        <div class="zone-row">
+          <div class="zone-colour zone-colour--forest"></div>
+          <div class="zone-body">
+            <span class="zone-name">Aleppo pine forest</span>
+            <span class="zone-desc">Fire-prone monoculture, currently in transition to native holm oak. First plantings this year. Goal: a mixed canopy that reduces fire risk and builds long-term carbon stock.</span>
+          </div>
+          <div class="zone-area">~1.7 ha</div>
+        </div>
+
+        <div class="zone-row">
+          <div class="zone-colour zone-colour--margins"></div>
+          <div class="zone-body">
+            <span class="zone-name">Farmhouse, track and margins</span>
+            <span class="zone-desc">The renovated farmhouse, access track, and field margins. Water and electricity connected. Legal registration in progress.</span>
+          </div>
+          <div class="zone-area">~0.5 ha</div>
         </div>
 
       </div>
@@ -278,12 +694,12 @@
 
         <div class="limestone-col">
           <h3>For the fruit</h3>
-          <p>Thin soil and fast drainage create natural water deficit — the same stress winemakers chase. The Brix rises. The aromatics deepen. Minerals dissolved from 80 million years of limestone enter the root system and show up in the flavour profile of the fruit.</p>
+          <p>Thin rendzina soil and fast drainage create natural water deficit — the same stress winemakers deliberately chase. Brix rises. Aromatics deepen. Minerals dissolved from 80 million years of limestone enter the root system and show up in the flavour profile of the fruit.</p>
         </div>
 
         <div class="limestone-col">
           <h3>For the water</h3>
-          <p>The karst aquifer beneath the grove is fed by rainfall on the limestone massif. It sits on its own geological formation, structurally separate from the Júcar valley floor water system — and at 40km inland, well beyond the reach of coastal salinisation. An advantage that grows more valuable as Mediterranean water competition intensifies.</p>
+          <p>The karst aquifer beneath the grove is fed by rainfall on the limestone massif. It sits on its own geological formation, structurally separate from the Júcar valley floor water system. An advantage that grows more valuable as Mediterranean water competition intensifies.</p>
         </div>
 
         <div class="limestone-col">
@@ -295,13 +711,126 @@
     </div>
   </section>
 
+  <!-- The trees -->
+  <section class="section trees-section">
+    <div class="section-inner">
+      <div class="trees-grid">
+
+        <div class="trees-text">
+          <span class="eyebrow">The Trees</span>
+          <h2>Some of them have been here since 1957.</h2>
+          <p>The 1,100 orange trees on the hillside range from around 32 to over 70 years old. The oldest were documented in a 1957 geological survey of Puig Gros — they were already established then. They are grafted on portaín, bitter orange rootstock, a traditional choice for citrus on limestone terrain in Valencia.</p>
+          <p>Each tree is on the same hillside, in the same soil, under the same sky — but because they vary in age, variety, and position on the slope, no two behave identically in the harvest. That variability is part of what makes them interesting to track.</p>
+        </div>
+
+        <div class="trees-facts">
+          <div class="tree-fact">
+            <div class="tree-fact-num">1,100</div>
+            <div class="tree-fact-label">
+              <strong>Trees in the grove</strong>
+              Across upper and lower terraces, three varieties, all grafted on bitter orange rootstock.
+            </div>
+          </div>
+          <div class="tree-fact">
+            <div class="tree-fact-num">70+</div>
+            <div class="tree-fact-label">
+              <strong>Years — oldest trees</strong>
+              Documented in a 1957 geological survey. Still bearing fruit. These are the trees with the longest memory of the land.
+            </div>
+          </div>
+          <div class="tree-fact">
+            <div class="tree-fact-num">32–70</div>
+            <div class="tree-fact-label">
+              <strong>Year age range across the grove</strong>
+              Mixed ages mean the trees respond differently to heat and drought — natural resilience diversity.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- DANA storm -->
+  <section class="section dana-section">
+    <div class="section-inner">
+      <span class="eyebrow">October 2024</span>
+      <h2>The storm. And what the hillside did.</h2>
+      <p>Storm DANA hit the Júcar valley in October 2024. The valley floor flooded catastrophically. The grove, on limestone hillside above the plain, shed water through the rock's natural fracture network and recharged the karst aquifer below.</p>
+      <p>The lower terraces took damage. Some Navelina trees were stressed. The full assessment is underway — Ian begins the field baseline in September 2026, working through each tree systematically. Some will recover with management. The count of genuinely lost trees will be documented and published when we know it.</p>
+      <p>The hillside survived as geography. What DANA showed is that position on limestone above the flood plain is a structural asset in an era of extreme weather — not a legacy decision but a relevant one for the decades ahead.</p>
+      <div class="dana-stats">
+        <div class="dana-stat">
+          <span class="dana-stat-val">Oct '24</span>
+          <span class="dana-stat-label">Storm DANA — valley flooded, hillside held</span>
+        </div>
+        <div class="dana-stat">
+          <span class="dana-stat-val">Above</span>
+          <span class="dana-stat-label">The flood plain — hillside position held</span>
+        </div>
+        <div class="dana-stat">
+          <span class="dana-stat-val">Sept '26</span>
+          <span class="dana-stat-label">Full damage assessment begins</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Carbon & ecology -->
+  <section class="section carbon-section">
+    <div class="section-inner">
+      <div class="carbon-grid">
+
+        <div class="carbon-text">
+          <span class="eyebrow">Carbon & Ecology</span>
+          <h2>The land as a carbon sink.</h2>
+          <p>Regenerative citrus and a maturing holm oak forest can sequester 1 to 5 tonnes of carbon dioxide per hectare per year. At 4.5 hectares, that puts the farm's potential removal in the range of 4 to 22 tonnes annually once the system is established.</p>
+          <p>We are starting the soil carbon baseline this autumn — one composite sample per parcel, taken to the IVIA-accredited laboratory in Valencia. That measurement becomes the reference point for everything that follows: organic certification, carbon credit documentation, and the annual record of what the land is actually doing.</p>
+          <p>The EU Carbon Removal Certification Framework opens around 2028. The record starts now so we enter with years of data, not months.</p>
+        </div>
+
+        <div class="carbon-numbers">
+          <div class="carbon-num">
+            <div class="carbon-num-val">4–22t</div>
+            <div class="carbon-num-label">CO₂ per year removal potential across 4.5 ha once system matures</div>
+          </div>
+          <div class="carbon-num">
+            <div class="carbon-num-val">1.7 ha</div>
+            <div class="carbon-num-label">Pine forest converting to native holm oak — first plantings 2026</div>
+          </div>
+          <div class="carbon-num">
+            <div class="carbon-num-val">~2028</div>
+            <div class="carbon-num-label">EU Carbon Removal Certification Framework expected to open</div>
+          </div>
+          <div class="carbon-num">
+            <div class="carbon-num-val">Sept '26</div>
+            <div class="carbon-num-label">Soil carbon baseline sample — IVIA lab, one per parcel</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="land-cta">
+    <div class="land-cta-inner">
+      <h2>Own a piece of the hillside.</h2>
+      <p>Adopt a tree on this land and receive its fruit each season — harvested from the same limestone soil, delivered fresh. From €99 per year.</p>
+      <div class="btn-pair">
+        <a href="fund.html" class="btn btn-primary">Adopt a tree</a>
+        <a href="report.html" class="btn-ghost">Read the geological report</a>
+      </div>
+    </div>
+  </section>
+
   <!-- Footer -->
   <footer class="site-footer">
     <div class="footer-inner">
       <div class="footer-brand">
         Finca Tariqa<br>Carcaixent, Valencia<br>Spain
       </div>
-            <ul class="footer-links">
+      <ul class="footer-links">
         <li><a href="oranges.html">Oranges</a></li>
         <li><a href="land.html">Land</a></li>
         <li><a href="forest.html">Forest</a></li>

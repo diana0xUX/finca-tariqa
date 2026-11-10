@@ -20,7 +20,7 @@ The website is the primary public face of the project. It serves as: a funding p
 
 ## Current state (August 2026)
 
-The site is live at `https://finca-tariqa.com`. Deployed automatically from the `main` branch of `diana0xUX/finca-tariqa` via GitHub Pages.
+The site is live at `https://tariqa.land`. Deployed automatically from the `main` branch of `diana0xUX/finca-tariqa` via GitHub Pages.
 
 The farm is in Year 1 of its public campaign (€10,000 goal). Organic certification is in progress (CAECV registration, full organic status expected 2029). No Stripe integration is live yet — the "Support" page is a soft launch / signal-gathering stage. Camp Tariqa is in early planning — DIC (Declaración de Interés Comunitario) application has not yet been filed.
 
@@ -175,7 +175,7 @@ None. Pure static HTML + CSS + vanilla JS. No build system, no bundler, no npm.
 ### Hosting & deployment
 - GitHub Pages, auto-deploy from `main` branch
 - Repo: `diana0xUX/finca-tariqa`
-- Domain: `finca-tariqa.com`
+- Domain: `tariqa.land`
 - Local path: `/Users/diana/Documents/finca-tariqa/`
 
 ### Stylesheets

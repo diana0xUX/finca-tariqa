@@ -122,7 +122,7 @@ Examples from this project's history:
 GitHub Pages usually deploys within 1–2 minutes of a push to main.
 
 To check:
-1. Go to `https://finca-tariqa.com/<page>.html` after ~2 minutes
+1. Go to `https://tariqa.land/<page>.html` after ~2 minutes
 2. Or check the GitHub Actions / Pages tab on `diana0xUX/finca-tariqa`
 
 If something breaks after a push, the last working commit is visible in `git log`. Revert if needed:

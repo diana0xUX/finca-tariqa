@@ -6,7 +6,7 @@
 
 ## Current project state (2026-08-14)
 
-The site is live at `finca-tariqa.com`. All recent changes are pushed to `main` and deployed via GitHub Pages. The site is a static HTML/CSS project — no build step, no framework.
+The site is live at `tariqa.land`. All recent changes are pushed to `main` and deployed via GitHub Pages. The site is a static HTML/CSS project — no build step, no framework.
 
 ---
 

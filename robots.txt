@@ -29,4 +29,4 @@ Disallow: /
 User-agent: Google-Extended
 Disallow: /
 
-Sitemap: https://finca-tariqa.com/sitemap.xml
+Sitemap: https://tariqa.land/sitemap.xml

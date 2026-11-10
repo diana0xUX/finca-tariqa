@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1200">
+<title>tariqa.land — Social Image</title>
+<meta name="hz:canvas-width"  content="1200">
+<meta name="hz:canvas-height" content="630">
+<meta name="hz:slide-selector" content=".slide">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { width:1200px; height:630px; overflow:hidden; background:#141f16; }
+
+.slide {
+  width:1200px;
+  height:630px;
+  position:relative;
+  display:flex;
+  align-items:center;
+  overflow:hidden;
+  font-family:'Plus Jakarta Sans', sans-serif;
+}
+
+/* ── Background ── */
+.bg {
+  position:absolute; inset:0;
+  background:
+    radial-gradient(ellipse 55% 90% at 75% 55%, #253c29 0%, transparent 65%),
+    radial-gradient(ellipse 35% 45% at 15% 85%, rgba(90,143,104,0.3) 0%, transparent 55%),
+    linear-gradient(148deg, #0e1810 0%, #1a2e1d 50%, #141f16 100%);
+}
+
+/* ── Left accent line ── */
+.accent {
+  position:absolute;
+  left:0; top:0; bottom:0;
+  width:4px;
+  background:linear-gradient(180deg, #c4622d 0%, #c9973a 60%, transparent 100%);
+}
+
+/* ── Concentric rings (top-right) ── */
+.rings {
+  position:absolute;
+  right:-90px; top:-110px;
+  width:460px; height:460px;
+  pointer-events:none;
+}
+.rings span {
+  position:absolute; border-radius:50%;
+  border:1px solid rgba(201,151,58,0.12);
+}
+.rings span:nth-child(1) { inset:0; }
+.rings span:nth-child(2) { inset:44px; border-color:rgba(201,151,58,0.09); }
+.rings span:nth-child(3) { inset:92px; border-color:rgba(201,151,58,0.07); }
+.rings span:nth-child(4) { inset:140px; border-color:rgba(201,151,58,0.05); }
+
+/* ── Main content ── */
+.content {
+  position:relative; z-index:10;
+  padding:0 90px;
+  flex:1;
+  max-width:700px;
+}
+
+.eyebrow {
+  display:flex; align-items:center; gap:12px;
+  font-size:12px; font-weight:600;
+  letter-spacing:0.18em; text-transform:uppercase;
+  color:#c9973a;
+  margin-bottom:28px;
+}
+.eyebrow-line {
+  width:28px; height:1px;
+  background:linear-gradient(90deg,#c9973a,transparent);
+}
+
+.headline {
+  font-family:'Lora', Georgia, serif;
+  font-size:82px; font-weight:600;
+  line-height:0.95;
+  letter-spacing:-0.025em;
+  color:#f4efe6;
+  margin-bottom:24px;
+}
+.headline em {
+  font-style:italic;
+  color:#e0d9c4;
+  font-weight:400;
+}
+
+.tagline {
+  font-size:17px; font-weight:300;
+  color:rgba(244,239,230,0.55);
+  line-height:1.55;
+  margin-bottom:48px;
+  max-width:420px;
+}
+
+/* ── URL pill ── */
+.url-pill {
+  display:inline-flex; align-items:center; gap:9px;
+  background:rgba(244,239,230,0.06);
+  border:1px solid rgba(244,239,230,0.13);
+  border-radius:28px;
+  padding:11px 22px;
+  font-size:15px; font-weight:500;
+  color:rgba(244,239,230,0.7);
+  letter-spacing:0.04em;
+}
+.dot {
+  width:8px; height:8px; border-radius:50%;
+  background:#5a8f68; flex-shrink:0;
+}
+
+/* ── Citrus cross-section ── */
+.citrus-wrap {
+  position:absolute;
+  right:88px; top:50%;
+  transform:translateY(-50%);
+  width:220px; height:220px;
+}
+
+.citrus-outer {
+  width:220px; height:220px;
+  border-radius:50%;
+  background:conic-gradient(
+    #b8762a 0deg 30deg, #c9973a 30deg 60deg,
+    #b8762a 60deg 90deg, #c9973a 90deg 120deg,
+    #b8762a 120deg 150deg, #c9973a 150deg 180deg,
+    #b8762a 180deg 210deg, #c9973a 210deg 240deg,
+    #b8762a 240deg 270deg, #c9973a 270deg 300deg,
+    #b8762a 300deg 330deg, #c9973a 330deg 360deg
+  );
+  position:relative;
+  display:flex; align-items:center; justify-content:center;
+  box-shadow:
+    0 0 0 8px rgba(201,151,58,0.08),
+    0 0 0 18px rgba(201,151,58,0.05);
+  opacity:0.82;
+}
+
+.citrus-inner {
+  width:166px; height:166px;
+  border-radius:50%;
+  background:radial-gradient(circle at 50% 48%,
+    #f4efe6 0%, #e8dfc8 35%, #d8c898 65%, #c0a060 100%
+  );
+  position:relative;
+  overflow:hidden;
+  display:flex; align-items:center; justify-content:center;
+}
+
+/* Segment lines from center */
+.seg {
+  position:absolute;
+  width:83px; height:1px;
+  background:rgba(130,90,20,0.22);
+  top:50%; left:50%;
+  transform-origin:left center;
+}
+
+.pip {
+  position:absolute; z-index:10;
+  width:22px; height:22px; border-radius:50%;
+  background:radial-gradient(circle at 40% 40%, #c9973a 0%, #8c5c1a 100%);
+}
+
+/* ── Bottom strip ── */
+.bottom {
+  position:absolute;
+  bottom:30px; left:94px; right:94px;
+  display:flex; align-items:center; justify-content:space-between;
+  border-top:1px solid rgba(244,239,230,0.07);
+  padding-top:16px;
+}
+.b-domain {
+  font-family:'Lora', serif;
+  font-style:italic;
+  font-size:14px;
+  color:rgba(244,239,230,0.28);
+  letter-spacing:0.02em;
+}
+.b-location {
+  font-size:11px; font-weight:500;
+  letter-spacing:0.12em; text-transform:uppercase;
+  color:rgba(244,239,230,0.28);
+}
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="bg"></div>
+  <div class="accent"></div>
+  <div class="rings">
+    <span></span><span></span><span></span><span></span>
+  </div>
+
+  <div class="content">
+    <div class="eyebrow">
+      <span class="eyebrow-line"></span>
+      Regenerative Farm
+    </div>
+    <h1 class="headline">Finca<br><em>Tariqa</em></h1>
+    <p class="tagline">A citrus farm and forest in transition<br>on limestone hillside in Valencia, Spain.</p>
+    <div class="url-pill">
+      <span class="dot"></span>
+      tariqa.land
+    </div>
+  </div>
+
+  <!-- Citrus cross-section illustration -->
+  <div class="citrus-wrap">
+    <div class="citrus-outer">
+      <div class="citrus-inner">
+        <div class="seg" style="transform:rotate(0deg)"></div>
+        <div class="seg" style="transform:rotate(30deg)"></div>
+        <div class="seg" style="transform:rotate(60deg)"></div>
+        <div class="seg" style="transform:rotate(90deg)"></div>
+        <div class="seg" style="transform:rotate(120deg)"></div>
+        <div class="seg" style="transform:rotate(150deg)"></div>
+        <div class="seg" style="transform:rotate(180deg)"></div>
+        <div class="seg" style="transform:rotate(210deg)"></div>
+        <div class="seg" style="transform:rotate(240deg)"></div>
+        <div class="seg" style="transform:rotate(270deg)"></div>
+        <div class="seg" style="transform:rotate(300deg)"></div>
+        <div class="seg" style="transform:rotate(330deg)"></div>
+        <div class="pip"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom">
+    <span class="b-domain">tariqa.land</span>
+    <span class="b-location">Carcaixent · Valencia, Spain</span>
+  </div>
+</div>
+</body>
+</html>

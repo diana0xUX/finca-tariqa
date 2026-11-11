@@ -26,7 +26,10 @@
   <style>
     /* ── Oranges Hero ── */
     .oranges-hero {
-      background: linear-gradient(135deg, var(--earth-dark) 0%, var(--terracotta) 40%, var(--gold) 100%);
+      background: var(--earth-dark);
+      background-image: url('photos/web/oranges-on-branch.jpg');
+      background-size: cover;
+      background-position: center center;
       position: relative;
       overflow: hidden;
       min-height: 100vh;
@@ -40,9 +43,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background:
-        radial-gradient(ellipse 60% 70% at 90% 20%, rgba(255,255,255,0.07) 0%, transparent 60%),
-        radial-gradient(ellipse 50% 60% at 10% 90%, rgba(0,0,0,0.25) 0%, transparent 65%);
+      background: linear-gradient(to top, rgba(10,18,12,0.90) 0%, rgba(10,18,12,0.65) 50%, rgba(10,18,12,0.35) 100%);
       pointer-events: none;
     }
 
@@ -172,15 +173,52 @@
     }
 
     .variety-header--navelina {
-      background: linear-gradient(150deg, var(--gold) 0%, var(--terracotta) 100%);
+      background-image: url('photos/web/oranges-on-branch.jpg');
+      background-size: cover;
+      background-position: center center;
+    }
+
+    .variety-header--navelina::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(10,18,12,0.88) 0%, rgba(10,18,12,0.45) 100%);
+      z-index: 0;
     }
 
     .variety-header--lane-late {
-      background: linear-gradient(150deg, var(--terracotta) 0%, var(--earth-dark) 100%);
+      background-image: url('photos/web/orange-halves-masia.jpg');
+      background-size: cover;
+      background-position: center center;
+    }
+
+    .variety-header--lane-late::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(10,18,12,0.88) 0%, rgba(10,18,12,0.45) 100%);
+      z-index: 0;
     }
 
     .variety-header--valencia-late {
-      background: linear-gradient(150deg, #7a9e5f 0%, #3a5c2e 100%);
+      background-image: url('photos/web/orange-halves-closeup.jpg');
+      background-size: cover;
+      background-position: center center;
+    }
+
+    .variety-header--valencia-late::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(10,18,12,0.88) 0%, rgba(10,18,12,0.45) 100%);
+      z-index: 0;
+    }
+
+    .variety-header h3,
+    .variety-header .season-badge,
+    .variety-header .variety-tagline-hero {
+      position: relative;
+      z-index: 1;
     }
 
     .variety-header h3 {
@@ -712,6 +750,7 @@
   <!-- CTA -->
   <section class="oranges-cta">
     <div class="oranges-cta-inner">
+      <img src="photos/web/diana-box-golden.jpg" alt="Diana holding a box of mixed orange varieties at golden hour" style="width:160px;height:160px;object-fit:cover;object-position:center top;border-radius:50%;margin:0 auto 2rem;display:block;border:3px solid rgba(201,151,58,0.25);">
       <h2>Get the fruit.</h2>
       <p>Own a tree and we deliver your oranges straight from the hillside — 25, 50, or 80 kg across the season, depending on your tier. Harvested to order. Delivered fresh.</p>
       <a href="fund.html" class="btn btn-primary" style="margin-bottom:1rem;display:inline-block;">Own a tree — from €99 / year</a>

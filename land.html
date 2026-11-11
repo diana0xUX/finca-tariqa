@@ -27,6 +27,9 @@
     /* ── Land Hero ── */
     .land-hero {
       background: var(--earth-dark);
+      background-image: url('photos/web/limestone-wall.jpg');
+      background-size: cover;
+      background-position: center center;
       position: relative;
       overflow: hidden;
       min-height: 100vh;
@@ -40,10 +43,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background:
-        radial-gradient(ellipse 80% 60% at 80% 30%, rgba(58, 102, 69, 0.22) 0%, transparent 65%),
-        radial-gradient(ellipse 50% 80% at 5% 85%, rgba(201, 151, 58, 0.1) 0%, transparent 60%),
-        radial-gradient(ellipse 35% 50% at 50% 50%, rgba(37, 60, 41, 0.4) 0%, transparent 70%);
+      background: linear-gradient(to top, rgba(10,18,12,0.92) 0%, rgba(10,18,12,0.72) 50%, rgba(10,18,12,0.50) 100%);
       pointer-events: none;
     }
 
@@ -611,23 +611,26 @@
           </p>
         </div>
 
-        <div class="stats-grid">
-          <div class="stat-card">
-            <span class="stat-card-value">80M</span>
-            <span class="stat-card-label">Years since this rock was the floor of a warm shallow sea</span>
+        <div>
+          <div class="stats-grid">
+            <div class="stat-card">
+              <span class="stat-card-value">80M</span>
+              <span class="stat-card-label">Years since this rock was the floor of a warm shallow sea</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-card-value">Karst</span>
+              <span class="stat-card-label">Aquifer below the grove — clean water from the limestone massif above</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-card-value">4.5 ha</span>
+              <span class="stat-card-label">Total land — terraced groves, pine forest, farmhouse and access track</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-card-value">1957</span>
+              <span class="stat-card-label">Earliest documented date for the oldest trees — still bearing fruit today</span>
+            </div>
           </div>
-          <div class="stat-card">
-            <span class="stat-card-value">Karst</span>
-            <span class="stat-card-label">Aquifer below the grove — clean water from the limestone massif above</span>
-          </div>
-          <div class="stat-card">
-            <span class="stat-card-value">4.5 ha</span>
-            <span class="stat-card-label">Total land — terraced groves, pine forest, farmhouse and access track</span>
-          </div>
-          <div class="stat-card">
-            <span class="stat-card-value">1957</span>
-            <span class="stat-card-label">Earliest documented date for the oldest trees — still bearing fruit today</span>
-          </div>
+          <img src="photos/web/moss-rock.jpg" alt="Limestone rock with yellow lichen and green moss at Finca Tariqa" style="width:100%;border-radius:var(--radius-lg);display:block;height:auto;margin-top:1.25rem;object-fit:cover;max-height:220px;">
         </div>
 
       </div>
@@ -723,28 +726,8 @@
           <p>Each tree is on the same hillside, in the same soil, under the same sky — but because they vary in age, variety, and position on the slope, no two behave identically in the harvest. That variability is part of what makes them interesting to track.</p>
         </div>
 
-        <div class="trees-facts">
-          <div class="tree-fact">
-            <div class="tree-fact-num">1,100</div>
-            <div class="tree-fact-label">
-              <strong>Trees in the grove</strong>
-              Across upper and lower terraces, three varieties, all grafted on bitter orange rootstock.
-            </div>
-          </div>
-          <div class="tree-fact">
-            <div class="tree-fact-num">70+</div>
-            <div class="tree-fact-label">
-              <strong>Years — oldest trees</strong>
-              Documented in a 1957 geological survey. Still bearing fruit. These are the trees with the longest memory of the land.
-            </div>
-          </div>
-          <div class="tree-fact">
-            <div class="tree-fact-num">32–70</div>
-            <div class="tree-fact-label">
-              <strong>Year age range across the grove</strong>
-              Mixed ages mean the trees respond differently to heat and drought — natural resilience diversity.
-            </div>
-          </div>
+        <div class="trees-photo">
+          <img src="photos/web/diana-masia-wall.jpg" alt="Diana by the limestone stone wall with the masía farmhouse behind, golden hour" style="width:100%;border-radius:var(--radius-lg);display:block;height:auto;">
         </div>
 
       </div>

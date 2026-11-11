@@ -17,6 +17,9 @@
     /* ── Hero ── */
     .forest-hero {
       background: var(--earth-dark);
+      background-image: url('photos/web/grove-to-forest.jpg');
+      background-size: cover;
+      background-position: center 35%;
       position: relative;
       overflow: hidden;
       min-height: 100vh;
@@ -29,10 +32,7 @@
       content:'';
       position:absolute;
       inset:0;
-      background:
-        radial-gradient(ellipse 80% 60% at 80% 30%, rgba(58,102,69,0.22) 0%, transparent 65%),
-        radial-gradient(ellipse 50% 80% at 5% 85%, rgba(201,151,58,0.1) 0%, transparent 60%),
-        radial-gradient(ellipse 35% 50% at 50% 50%, rgba(37,60,41,0.4) 0%, transparent 70%);
+      background: linear-gradient(to top, rgba(10,18,12,0.92) 0%, rgba(10,18,12,0.70) 55%, rgba(10,18,12,0.45) 100%);
       pointer-events:none;
     }
     .forest-hero-inner { position:relative; z-index:1; max-width:740px; }
@@ -328,7 +328,7 @@
             <div class="showdown-tree-name">Aleppo Pine<br><em style="font-size:.9rem;color:rgba(244,239,230,.4);font-style:italic;">Pinus halepensis</em></div>
           </div>
           <div class="tree-svg-wrap">
-            <img src="forest-pine-photo.jpg" alt="Aleppo pine — Pinus halepensis, Mediterranean coast" style="width:100%;border-radius:10px;display:block;object-fit:cover;max-height:280px;">
+            <img src="photos/web/grove-to-forest.jpg" alt="Orange grove with Aleppo pine above — the transition zone at Finca Tariqa" style="width:100%;border-radius:10px;display:block;object-fit:cover;max-height:280px;">
             <svg style="display:none" width="140" height="200" viewBox="0 0 140 200" fill="none" xmlns="http://www.w3.org/2000/svg">
               <!-- trunk — tapered -->
               <path d="M64 200 Q66 178 67 162 L73 162 Q74 178 76 200 Z" fill="#6a3a18" opacity=".88"/>
@@ -390,8 +390,8 @@
             <div class="showdown-tree-name">Holm Oak<br><em style="font-size:.9rem;color:rgba(244,239,230,.4);font-style:italic;">Quercus ilex</em></div>
           </div>
           <div class="tree-svg-wrap">
-            <img src="forest-oak-photo.jpg" alt="Mature holm oak — Quercus ilex" style="width:100%;border-radius:10px;display:block;object-fit:cover;max-height:280px;">
-            <svg style="display:none" width="140" height="200" viewBox="0 0 140 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <img src="forest-oak-photo.jpg" alt="Mature holm oak — Quercus ilex" style="display:none;">
+            <svg width="140" height="200" viewBox="0 0 140 200" fill="none" xmlns="http://www.w3.org/2000/svg">
               <!-- trunk — wide, gnarled -->
               <path d="M57 200 Q60 180 62 162 Q66 155 74 155 Q78 162 80 180 L83 200 Z" fill="#3d2510" opacity=".92"/>
               <!-- main branches -->
